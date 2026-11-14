@@ -2,5 +2,6 @@ out/
 figures/skid/skid.html
 figures/skid/skid-light.html
 deploy/public/*.html
+!deploy/public/.gitkeep
 .DS_Store
 node_modules/
