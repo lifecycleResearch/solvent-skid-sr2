@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -17,7 +17,6 @@ jobs:
         with:
           node-version: "22"
 
-      # The figure is built from the anatomy kit in this repo: no npm, no install.
       - name: Build the figure
         run: |
           node figures/skid/build.mjs
@@ -29,15 +28,3 @@ jobs:
       - name: Check that every line in the drawing ends on something
         continue-on-error: true
         run: node scripts/lines.mjs deploy/public/skid-light.html
-
-      # Needs a Cloudflare API token in the repo secret CLOUDFLARE_API_TOKEN
-      # (dash.cloudflare.com -> Profile -> API Tokens -> "Edit Cloudflare
-      # Workers"), added with:
-      #   gh secret set CLOUDFLARE_API_TOKEN --repo lifecycleResearch/solvent-skid-sr2
-      - name: Deploy to Cloudflare
-        if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          workingDirectory: deploy
-          command: deploy
