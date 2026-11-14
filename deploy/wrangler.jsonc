@@ -1,0 +1,13 @@
+{
+  // Solvent recovery skid SR-2 — a static figure, deployed as a Worker with
+  // static assets. No code: the page is plain HTML with its CSS and JS inlined.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "solvent-skid-sr2",
+  "compatibility_date": "2026-01-15",
+  "workers_dev": true,
+  "assets": {
+    "directory": "./public",
+    "html_handling": "none",
+    "not_found_handling": "single-page-application"
+  }
+}

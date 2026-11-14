@@ -1,0 +1,6 @@
+out/
+figures/skid/skid.html
+figures/skid/skid-light.html
+deploy/public/*.html
+.DS_Store
+node_modules/

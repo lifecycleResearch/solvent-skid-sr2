@@ -1,0 +1,877 @@
+wrote skid.html 1797 KB 567 items 37 routes
+clearance: 90 problems
+  through cond.out  ×  sieve.bed3   clearance -12.57 < 1.30   along 0.00–17.49 of 227.87   at [21.6, -56.0, 136.0]
+  through cond.link1  ×  sieve.bed3   clearance -12.57 < 1.30   along 0.00–16.52 of 159.15   at [23.0, -56.0, 137.4]
+  through feed.recycle  ×  tank.shell   clearance -12.40 < 1.20   along 2.50–40.01 of 513.14   at [140.0, -61.7, 10.0]
+  through cond.link1  ×  cond.shell1   clearance -9.60 < 1.30   along 19.52–155.65 of 159.15   at [37.5, -56.0, 158.0]
+  through cond.link2  ×  cond.shell2   clearance -9.60 < 1.30   along 19.52–155.65 of 159.15   at [152.5, -56.0, 180.0]
+  through cond.link3  ×  cond.shell3   clearance -9.60 < 1.30   along 19.52–155.65 of 159.15   at [37.5, -56.0, 202.0]
+  through cond.out  ×  block.body   clearance -9.04 < 1.30   along 180.39–207.38 of 227.87   at [39.7, 23.4, 26.5]
+  through vacuum.drop2  ×  vacuum.boostair   clearance -9.01 < 1.20   along 0.00–19.54 of 22.05   at [134.0, 46.7, 16.0]
+  through vacuum.drop0  ×  vacuum.motor0   clearance -8.43 < 1.20   along 0.00–19.04 of 22.05   at [70.0, 46.2, 16.0]
+  through vacuum.drop1  ×  vacuum.motor1   clearance -8.43 < 1.20   along 0.00–19.04 of 22.05   at [102.0, 46.2, 16.0]
+  through cond.coolreturn  ×  cond.shell0   clearance -7.63 < 0.90   along 3.00–20.51 of 139.55   at [134.0, -55.0, 135.3]
+  through carbon.out  ×  carbon.shell   clearance -7.62 < 1.05   along 1.50–15.98 of 33.46   at [6.3, 10.0, 46.0]
+  through pump.airhose  ×  feed.drum   clearance -7.50 < 0.75   along 14.52–114.13 of 146.17   at [-164.1, 56.0, 46.0]
+  through vacuum.drop0  ×  vacuum.pumpexh0   clearance -4.78 < 1.20   along 3.51–15.03 of 22.05   at [70.0, 42.5, 18.2]
+  through vacuum.drop1  ×  vacuum.pumpexh1   clearance -4.78 < 1.20   along 3.51–15.03 of 22.05   at [102.0, 42.5, 18.2]
+  through vacuum.drop2  ×  vacuum.pumpexh2   clearance -4.78 < 1.20   along 3.51–15.03 of 22.05   at [134.0, 42.5, 18.2]
+  through cond.link2  ×  cond.clamp2138   clearance -4.76 < 1.30   along 39.54–51.55 of 159.15   at [138.0, -56.0, 180.0]
+  through cond.link1  ×  cond.clamp152   clearance -4.76 < 1.30   along 39.54–51.55 of 159.15   at [52.0, -56.0, 158.0]
+  through cond.link3  ×  cond.clamp352   clearance -4.76 < 1.30   along 39.54–51.55 of 159.15   at [52.0, -56.0, 202.0]
+  through cond.link1  ×  cond.clamp1138   clearance -4.76 < 1.30   along 125.62–137.63 of 159.15   at [138.0, -56.0, 158.0]
+  through cond.link3  ×  cond.clamp3138   clearance -4.76 < 1.30   along 125.62–137.63 of 159.15   at [138.0, -56.0, 202.0]
+  through cond.link2  ×  cond.clamp252   clearance -4.76 < 1.30   along 125.62–137.63 of 159.15   at [52.0, -56.0, 180.0]
+  through feed.recycle  ×  tank.outlet#2   clearance -4.58 < 1.20   along 2.50–8.00 of 513.14   at [140.0, -74.2, 10.0]
+  through sieve.cut0#2  ×  sieve.cut0   clearance -4.33 < 0.80   along 0.00–7.98 of 87.77   at [24.0, -32.1, 18.0]
+  through cond.link1  ×  sieve.topflange   clearance -3.73 < 1.30   along 7.51–18.02 of 159.15   at [23.2, -56.0, 149.9]
+  through cond.link2  ×  cond.outflange2   clearance -3.67 < 1.30   along 18.02–28.53 of 159.15   at [160.0, -56.0, 179.6]
+  through cond.link1  ×  cond.outflange1   clearance -3.67 < 1.30   along 18.02–28.53 of 159.15   at [30.0, -56.0, 157.6]
+  through cond.link3  ×  cond.outflange3   clearance -3.67 < 1.30   along 18.02–28.53 of 159.15   at [30.0, -56.0, 201.6]
+  through cond.link1  ×  cond.inflange1   clearance -3.64 < 1.30   along 148.64–156.15 of 159.15   at [160.1, -56.0, 158.0]
+  through cond.link3  ×  cond.inflange3   clearance -3.64 < 1.30   along 148.64–156.15 of 159.15   at [160.1, -56.0, 202.0]
+  through cond.link2  ×  cond.inflange2   clearance -3.64 < 1.30   along 148.64–156.15 of 159.15   at [29.9, -56.0, 180.0]
+  through vacuum.drop0  ×  drum.body   clearance -3.54 < 1.20   along 0.00–6.51 of 22.05   at [70.0, 50.7, 16.0]
+  through cond.link3  ×  evap.vapour#2.flange#2   clearance -3.31 < 1.30   along 15.51–26.02 of 159.15   at [28.1, -56.0, 201.0]
+  through feed.membrane  ×  strainer.bracket   clearance -3.30 < 1.15   along 52.59–60.10 of 61.61   at [-118.0, 30.0, 29.0]
+  through sieve.toTank  ×  tank.side   clearance -3.20 < 1.10   along 154.57–165.07 of 205.59   at [140.0, -35.0, 68.9]
+  through block.evap  ×  sieve.cut3#2   clearance -3.18 < 0.80   along 102.88–111.37 of 126.85   at [90.0, -11.9, 44.0]
+  through cond.header  ×  stand.rail   clearance -2.91 < 1.10   along 0.00–5.48 of 29.39   at [51.2, -72.0, 120.0]
+  through feed.membrane  ×  strainer.lid   clearance -2.30 < 1.15   along 28.05–36.56 of 61.61   at [-118.0, 30.0, 54.0]
+  through sieve.cut1#2  ×  sieve.cut3#2   clearance -2.24 < 0.80   along 24.97–33.46 of 118.86   at [21.0, -12.0, 44.3]
+  through sieve.cut2#2  ×  sieve.cut3#2   clearance -2.22 < 0.80   along 24.51–160.57 of 180.58   at [19.6, -12.0, 44.5]
+  through block.drum  ×  sieve.cut1#2   clearance -2.20 < 0.80   along 23.54–31.55 of 77.12   at [46.0, -12.1, 39.0]
+  through sieve.cut1#2  ×  sieve.cut2#2   clearance -2.15 < 0.80   along 22.47–101.88 of 118.86   at [21.1, -12.0, 43.3]
+  through evap.vapour#2  ×  cond.link3   clearance -1.99 < 1.30   along 249.63–256.13 of 256.13   at [24.5, -56.0, 202.6]
+  through vacuum.drop2  ×  vacuum.manifold   clearance -1.88 < 1.20   along 0.00–5.01 of 22.05   at [134.0, 50.7, 16.0]
+  through cond.coolreturn  ×  cond.saddle0138   clearance -1.80 < 0.90   along 5.00–7.50 of 139.55   at [134.0, -56.0, 129.0]
+  through sieve.cut1#2  ×  sieve.cut1   clearance -1.77 < 0.80   along 0.00–10.49 of 118.86   at [23.1, -35.0, 52.0]
+  through sieve.cut2#2  ×  sieve.cut2   clearance -1.77 < 0.80   along 0.00–4.00 of 180.58   at [23.1, -35.0, 86.0]
+  through sieve.cut3#2  ×  sieve.cut3   clearance -1.77 < 0.80   along 0.00–4.00 of 243.54   at [23.1, -35.0, 120.0]
+  through cond.condensate0  ×  cond.header   clearance -1.77 < 0.90   along 8.55–11.07 of 18.11   at [50.0, -72.0, 128.0]
+  through block.drum  ×  sieve.cut2#2   clearance -1.70 < 0.80   along 23.54–31.05 of 77.12   at [46.0, -12.1, 39.0]
+  through feed.recycle  ×  vacuum.toScrubber.flange   clearance -1.65 < 1.20   along 114.03–121.53 of 513.14   at [71.0, -20.0, 10.0]
+  through cond.out  ×  drum.body   clearance -1.63 < 1.30   along 222.87–227.87 of 227.87   at [58.0, 50.9, 16.4]
+  through cond.condensate3  ×  stand.rail   clearance -1.52 < 0.90   along 2.00–5.51 of 84.11   at [122.0, -71.0, 201.7]
+  through sieve.cut0#2  ×  sieve.toTank.flange   clearance -1.49 < 0.80   along 0.00–4.49 of 87.77   at [24.0, -32.1, 18.0]
+  through sieve.toTank  ×  sieve.cut0   clearance -1.27 < 1.10   along 0.00–4.00 of 205.59   at [25.2, -35.0, 20.0]
+  through sieve.toTank  ×  block.tank.flange#2   clearance -1.20 < 1.10   along 153.57–165.57 of 205.59   at [140.0, -35.0, 66.9]
+  through cond.in0  ×  cond.outflange3   clearance -1.10 < 1.30   along 5.60–11.19 of 11.19   at [28.1, -56.0, 200.8]
+  through feed.recycle  ×  tank.outlet   clearance -1.08 < 1.20   along 6.00–8.00 of 513.14   at [140.0, -70.7, 10.0]
+  through cond.link3  ×  cond.in0   clearance -1.06 < 1.30   along 8.51–10.51 of 159.15   at [23.0, -56.0, 191.9]
+  through cond.condensate0  ×  stand.rail   clearance -1.01 < 0.90   along 14.59–18.11 of 18.11   at [50.0, -72.0, 121.0]
+  through sieve.toTank  ×  sieve.cutport0   clearance -0.99 < 1.10   along 0.00–3.50 of 205.59   at [25.2, -35.0, 20.0]
+  through cond.coolreturn  ×  cond.hanger0138   clearance -0.80 < 0.90   along 0.50–7.50 of 139.55   at [134.0, -56.0, 125.0]
+  through cond.coolreturn  ×  sieve.bed3   clearance -0.80 < 0.90   along 127.05–134.55 of 139.55   at [24.0, -40.0, 138.0]
+  through block.evap  ×  sieve.cut2#2   clearance -0.70 < 0.80   along 103.88–109.87 of 126.85   at [90.0, -11.9, 44.0]
+  through block.evap  ×  drum.plate   clearance -0.60 < 1.05   along 18.48–34.46 of 126.85   at [67.2, 44.0, 39.0]
+  through cond.header  ×  cond.saddle052   clearance -0.60 < 1.10   along 15.44–23.91 of 29.39   at [46.4, -63.6, 126.0]
+  through sieve.toTank  ×  sieve.cut0#2.flange   clearance -0.46 < 1.10   along 2.50–4.00 of 205.59   at [27.7, -35.0, 20.0]
+  through vacuum.toScrubber  ×  feed.recycle   clearance -0.33 < 1.20   along 0.00–57.95 of 164.35   at [73.8, -16.0, 12.0]
+  through feed.recycle  ×  vacuum.exh1.flange#2   clearance -0.31 < 1.20   along 81.52–91.03 of 513.14   at [102.0, -20.0, 10.0]
+  through feed.recycle  ×  vacuum.exh0.flange#2   clearance -0.31 < 1.20   along 113.53–123.03 of 513.14   at [70.0, -20.0, 10.0]
+  through feed.membrane  ×  strainer.body   clearance -0.30 < 1.15   along 31.05–58.10 of 61.61   at [-118.0, 30.0, 51.5]
+  through cond.in0  ×  cond.shell3   clearance -0.29 < 1.30   along 7.63–11.19 of 11.19   at [28.1, -56.0, 200.8]
+  through cond.out  ×  vacuum.manifold   clearance -0.20 < 1.30   along 227.87–227.87 of 227.87   at [58.0, 50.9, 16.4]
+  through sieve.toTank  ×  sieve.cut0#2   clearance -0.20 < 0.80   along 0.00–0.00 of 205.59   at [25.2, -35.0, 20.0]
+  through cond.coolreturn  ×  cond.clamp0138   clearance 0.00 < 0.90   along 3.00–21.01 of 139.55   at [134.0, -56.0, 128.0]
+  close   cond.out  ×  block.post   clearance 0.18 < 1.30   along 202.38–209.38 of 227.87   at [46.6, 33.8, 22.7]
+  close   cond.out  ×  sieve.flange1   clearance 0.20 < 1.30   along 64.46–71.96 of 227.87   at [4.0, -56.0, 83.2]
+  close   cond.out  ×  sieve.flange2   clearance 0.20 < 1.30   along 30.48–37.98 of 227.87   at [4.0, -56.0, 117.1]
+  close   cond.out  ×  sieve.flange0   clearance 0.28 < 1.30   along 98.44–106.94 of 227.87   at [4.0, -54.4, 49.5]
+  close   sieve.cut0#2  ×  sieve.cut1#2   clearance 0.30 < 0.80   along 37.40–73.81 of 87.77   at [32.0, -12.0, 34.0]
+  close   evap.vapour#2  ×  evap.flange   clearance 0.40 < 1.30   along 3.50–8.00 of 256.13   at [90.0, -33.0, 102.9]
+  close   cond.header  ×  cond.hanger052   clearance 0.40 < 1.10   along 15.44–25.90 of 29.39   at [46.4, -64.6, 126.0]
+  close   cond.link3  ×  cond.in0.flange#2   clearance 0.42 < 1.30   along 28.03–29.03 of 159.15   at [34.4, -56.0, 202.0]
+  close   cond.header  ×  cond.shell0   clearance 0.80 < 1.10   along 23.91–25.90 of 29.39   at [46.4, -56.1, 126.0]
+  close   block.tank  ×  sieve.toTank   clearance 0.86 < 1.05   along 181.61–181.61 of 184.61   at [140.0, -29.8, 70.0]
+  close   block.evap  ×  block.body   clearance 0.90 < 1.05   along 5.49–6.49 of 126.85   at [57.4, 30.6, 39.0]
+  close   block.evap  ×  drum.body   clearance 0.93 < 1.05   along 22.97–25.97 of 126.85   at [66.7, 44.0, 39.0]
+  close   cond.in0  ×  evap.vapour#2   clearance 1.00 < 1.30   along 4.58–4.58 of 11.19   at [24.2, -56.0, 196.0]
+  close   cond.in0  ×  evap.vapour#2.flange#2   clearance 1.08 < 1.30   along 4.58–4.58 of 11.19   at [24.2, -56.0, 196.0]
+  close   feed.suction  ×  pump.tie1   clearance 1.12 < 1.15   along 3.51–4.01 of 31.60   at [-168.8, 44.0, 12.0]
+clearance apart: 0 problems
+terminals: 58 ends not on a mount
+  feed.suction start  0.00 from feed.drumoutlet (rim -2.30…2.30)   at [-164.0, 44.0, 12.0]
+  feed.pipe start  0.00 from pump.outlet (rim -2.30…2.30)   at [-152.0, 30.0, 32.5]
+  membrane.permeate#2 end  1.10 from carbon.enda (rim 1.10…1.10)   at [-16.2, 8.0, 46.0]
+  carbon.out start  1.10 from carbon.endb (rim 1.10…1.10)   at [14.2, 8.0, 46.0]
+  carbon.out end  3.00 from block.body (rim 0.90…5.10)   at [14.6, 24.0, 39.0]
+  block.sieve start  3.03 from block.body (rim 0.98…5.12)   at [22.0, 16.6, 39.0]
+  block.sieve end  10.67 from cond.coolreturn (rim 8.67…12.70)   at [46.4, -36.6, 126.0]
+  block.tank start  3.00 from block.body (rim 3.00…3.00)   at [29.4, 24.0, 39.0]
+  block.evap start  3.00 from block.body (rim 0.90…5.10)   at [57.4, 24.0, 39.0]
+  block.evap end  1.00 from evap.inlet (rim 1.00…1.00)   at [90.0, -33.0, 44.0]
+  block.drum start  3.03 from block.body (rim 0.98…5.12)   at [46.0, 16.6, 39.0]
+  block.drum end  10.40 from evap.jacket (rim 8.75…12.11)   at [66.0, -38.0, 50.0]
+  membrane.retentate#2 start  0.00 from membrane.retentate (rim -2.10…2.10)   at [-28.0, 30.0, 26.0]
+  membrane.retentate#2 end  3.03 from block.body (rim 0.98…5.12)   at [46.0, 31.4, 39.0]
+  sieve.toTank start  0.00 from sieve.outlet (rim -2.20…2.20)   at [24.0, -35.0, 20.0]
+  sieve.cut1#2 start  0.00 from sieve.cutport1 (rim -1.60…1.60)   at [24.0, -35.0, 52.0]
+  sieve.cut2#2 start  0.00 from sieve.cutport2 (rim -1.60…1.60)   at [24.0, -35.0, 86.0]
+  sieve.cut3#2 start  0.00 from sieve.cutport3 (rim -1.60…1.60)   at [24.0, -35.0, 120.0]
+  evap.vapour#2 start  0.00 from evap.vapour (rim -2.60…2.60)   at [90.0, -33.0, 98.0]
+  cond.in0 start  0.47 from cond.link3 (rim -1.03…2.34)   at [24.0, -56.0, 202.0]
+  cond.in0 end  0.00 from evap.vapour#2.flange#2 (rim -0.32…2.23)   at [28.8, -56.0, 202.0]
+  cond.link1 start  0.00 from cond.out.flange (rim -0.13…2.60)   at [23.0, -56.0, 136.0]
+  cond.link1 end  0.00 from cond.link2.flange (rim -0.13…2.60)   at [167.0, -56.0, 158.0]
+  cond.link2 start  0.00 from cond.link1.flange#2 (rim -0.13…2.60)   at [167.0, -56.0, 158.0]
+  cond.link2 end  0.00 from cond.link3.flange (rim -0.13…2.60)   at [23.0, -56.0, 180.0]
+  cond.link3 start  0.00 from cond.link2.flange#2 (rim -0.13…2.60)   at [23.0, -56.0, 180.0]
+  cond.link3 end  2.00 from stand.rail (rim 2.00…3.28)   at [167.0, -56.0, 202.0]
+  cond.out start  0.00 from cond.link1.flange (rim -0.13…2.60)   at [23.0, -56.0, 136.0]
+  cond.out end  0.10 from vacuum.manleft (rim -0.86…2.26)   at [58.8, 52.0, 16.0]
+  cond.condensate0 start  1.20 from cond.dial0 (rim 1.20…1.20)   at [50.0, -67.0, 136.0]
+  cond.condensate0 end  0.00 from cond.header.flange (rim -0.31…1.80)   at [50.0, -72.0, 120.0]
+  cond.condensate1 start  4.00 from cond.shell1 (rim 4.00…4.15)   at [74.0, -67.0, 158.0]
+  cond.condensate1 end  -1.00 from stand.rail (rim -2.00…0.80)   at [74.0, -72.0, 120.0]
+  cond.condensate2 start  4.00 from cond.shell2 (rim 4.00…4.15)   at [98.0, -67.0, 180.0]
+  cond.condensate2 end  -1.00 from stand.rail (rim -2.00…0.80)   at [98.0, -72.0, 120.0]
+  cond.condensate3 start  2.50 from cond.plate3 (rim 2.50…3.08)   at [122.0, -67.0, 202.0]
+  cond.condensate3 end  -1.00 from stand.rail (rim -2.00…0.80)   at [122.0, -72.0, 120.0]
+  cond.header start  0.00 from cond.condensate0.flange#2 (rim 0.00…2.20)   at [50.0, -72.0, 120.0]
+  cond.header end  1.60 from cond.saddle052 (rim -0.60…3.80)   at [46.4, -51.4, 126.0]
+  vacuum.drop0 start  -3.20 from vacuum.manifold (rim -3.20…-0.80)   at [70.0, 52.0, 16.0]
+  vacuum.drop0 end  4.70 from block.evap (rim 4.40…5.75)   at [70.0, 42.0, 32.5]
+  vacuum.drop1 start  -3.20 from vacuum.manifold (rim -3.20…-0.80)   at [102.0, 52.0, 16.0]
+  vacuum.drop1 end  6.40 from vacuum.pumpbody1 (rim 5.25…8.12)   at [102.0, 42.0, 32.5]
+  vacuum.drop2 start  -0.20 from vacuum.boostairin (rim -1.00…2.20)   at [134.0, 52.0, 16.0]
+  vacuum.drop2 end  6.40 from vacuum.pumpbody2 (rim 5.25…8.12)   at [134.0, 42.0, 32.5]
+  vacuum.exh0 start  2.36 from vacuum.toScrubber.flange (rim 0.21…4.54)   at [70.0, -15.0, 18.0]
+  vacuum.exh0 end  0.00 from vacuum.toScrubber.flange (rim -0.22…2.20)   at [70.0, -16.0, 12.0]
+  vacuum.exh1 start  3.68 from vacuum.toScrubber (rim 1.53…5.86)   at [102.0, -15.0, 18.0]
+  vacuum.exh1 end  -2.40 from vacuum.toScrubber (rim -2.40…-0.20)   at [102.0, -16.0, 12.0]
+  vacuum.exh2 start  3.68 from vacuum.toScrubber (rim 1.53…5.86)   at [134.0, -15.0, 18.0]
+  vacuum.exh2 end  -2.40 from vacuum.toScrubber (rim -2.40…-0.20)   at [134.0, -16.0, 12.0]
+  vacuum.toScrubber start  0.00 from vacuum.exh0.flange#2 (rim -0.01…2.40)   at [70.0, -16.0, 12.0]
+  cond.coolsupply start  5.13 from cond.clamp352 (rim 4.80…6.00)   at [56.0, -56.0, 215.0]
+  cond.coolsupply end  ∞ from nothing (rim -)   at [166.0, -40.0, 236.0]
+  cond.coolreturn start  1.00 from cond.saddle0138 (rim 1.00…2.06)   at [134.0, -56.0, 123.0]
+  cond.coolreturn end  2.09 from sieve.bed3 (rim 0.42…3.78)   at [18.0, -40.0, 138.0]
+  pump.airhose end  53.75 from feed.recycle (rim 53.09…54.44)   at [-114.0, 56.0, 46.0]
+  feed.recycle start  0.00 from tank.outlet (rim 0.20…0.20)   at [140.0, -78.0, 10.0]
+loose ends: 31
+  share 1  membrane.permeate#2 end touches nothing that moves with it   at [-16.2, 8.0, 46.0]
+  share 1  carbon.out start touches nothing that moves with it   at [14.2, 8.0, 46.0]
+  share 1  carbon.out end touches nothing that moves with it   at [14.6, 24.0, 39.0]
+  share 1  block.sieve start touches nothing that moves with it   at [22.0, 16.6, 39.0]
+  share 1  block.sieve end touches nothing that moves with it   at [46.4, -36.6, 126.0]
+  share 1  block.tank start touches nothing that moves with it   at [29.4, 24.0, 39.0]
+  share 1  block.evap start touches nothing that moves with it   at [57.4, 24.0, 39.0]
+  share 1  block.evap end touches nothing that moves with it   at [90.0, -33.0, 44.0]
+  share 1  block.drum start touches nothing that moves with it   at [46.0, 16.6, 39.0]
+  share 1  block.drum end touches nothing that moves with it   at [66.0, -38.0, 50.0]
+  share 1  membrane.retentate#2 end touches nothing that moves with it   at [46.0, 31.4, 39.0]
+  share 1  cond.in0 start touches nothing that moves with it   at [24.0, -56.0, 202.0]
+  share 1  cond.link3 end touches nothing that moves with it   at [167.0, -56.0, 202.0]
+  share 1  cond.condensate0 start touches nothing that moves with it   at [50.0, -67.0, 136.0]
+  share 1  cond.condensate1 start touches nothing that moves with it   at [74.0, -67.0, 158.0]
+  share 1  cond.condensate2 start touches nothing that moves with it   at [98.0, -67.0, 180.0]
+  share 1  cond.condensate3 start touches nothing that moves with it   at [122.0, -67.0, 202.0]
+  share 1  cond.header end touches nothing that moves with it   at [46.4, -51.4, 126.0]
+  share 1  vacuum.drop0 end touches nothing that moves with it   at [70.0, 42.0, 32.5]
+  share 1  vacuum.drop1 end touches nothing that moves with it   at [102.0, 42.0, 32.5]
+  share 1  vacuum.drop2 end touches nothing that moves with it   at [134.0, 42.0, 32.5]
+  share 1  vacuum.exh0 start touches nothing that moves with it   at [70.0, -15.0, 18.0]
+  share 1  vacuum.exh1 start touches nothing that moves with it   at [102.0, -15.0, 18.0]
+  share 1  vacuum.exh1 end touches nothing that moves with it   at [102.0, -16.0, 12.0]
+  share 1  vacuum.exh2 start touches nothing that moves with it   at [134.0, -15.0, 18.0]
+  share 1  vacuum.exh2 end touches nothing that moves with it   at [134.0, -16.0, 12.0]
+  share 1  cond.coolsupply start touches nothing that moves with it   at [56.0, -56.0, 215.0]
+  share 1  cond.coolsupply end touches nothing that moves with it   at [166.0, -40.0, 236.0]
+  share 1  cond.coolreturn start touches nothing that moves with it   at [134.0, -56.0, 123.0]
+  share 1  cond.coolreturn end touches nothing that moves with it   at [18.0, -40.0, 138.0]
+  share 1  pump.airhose end touches nothing that moves with it   at [-114.0, 56.0, 46.0]
+screen folds: 5
+  feed.membrane  turns 105° on screen round a 6.04 px bend, under 9.15 px for a 4.57 px tube   at [-127.8, 30.0, 69.7]
+  membrane.permeate#2  turns 91° on screen round a 5.89 px bend, under 8.35 px for a 4.18 px tube   at [-86.8, 30.0, 57.0]
+  block.evap  turns 97° on screen round a 2.94 px bend, under 8.35 px for a 4.18 px tube   at [89.2, 44.0, 39.5]
+  block.drum  turns 95° on screen round a 5.71 px bend, under 8.35 px for a 4.18 px tube   at [63.8, -35.0, 39.7]
+  membrane.retentate#2  turns 97° on screen round a 4.98 px bend, under 8.35 px for a 4.18 px tube   at [-25.2, 43.1, 46.0]
+support: 16 unsupported solids · 3 hanging tubes · 269 sunk pairs
+  loose   membrane.retentate
+  loose   membrane.dp.body
+  loose   membrane.plate
+  loose   sieve.plate
+  loose   evap.plate
+  loose   tank.plate
+  loose   vacuum.pumpbody2
+  loose   vacuum.pumpin2
+  loose   scrub.dp.body
+  loose   block.sieve.flange
+  loose   block.sieve.flange#2
+  loose   membrane.retentate#2.flange
+  loose   membrane.retentate#2.flange#2
+  loose   cond.coolsupply.flange
+  loose   cond.coolsupply.flange#2
+  loose   pump.airhose.collar#2
+  hanging block.sieve
+  hanging membrane.retentate#2
+  hanging cond.coolsupply
+  sunk    stand.post × feed.drum   17.00 deep
+  sunk    evap.shell × evap.jacket   16.00 deep
+  sunk    sieve.bed3 × cond.link1.flange   14.00 deep
+  sunk    sieve.bed3 × cond.out.flange   14.00 deep
+  sunk    drum.body × vacuum.motor0   13.00 deep
+  sunk    scrub.shell × scrub.flange48   12.00 deep
+  sunk    scrub.shell × scrub.flange84   12.00 deep
+  sunk    sieve.bed3 × cond.inflange0   10.10 deep
+  sunk    feed.drum × membrane.tie1   9.03 deep
+  sunk    stand.post × stand.rail   9.00 deep
+  sunk    stand.post × stand.rail   9.00 deep
+  sunk    stand.post × stand.rail   9.00 deep
+  sunk    stand.post × stand.rail   9.00 deep
+  sunk    stand.post × stand.rail   9.00 deep
+  sunk    stand.post × stand.rail   9.00 deep
+  sunk    stand.post × stand.rail   9.00 deep
+  sunk    stand.post × stand.rail   9.00 deep
+  sunk    stand.rail × stand.rail   9.00 deep
+  sunk    stand.rail × stand.rail   9.00 deep
+  sunk    stand.rail × stand.rail   9.00 deep
+  sunk    stand.rail × stand.rail   9.00 deep
+  sunk    sieve.bed3 × cond.shell0   9.00 deep
+  sunk    stand.post × stand.rail   8.99 deep
+  sunk    stand.post × stand.rail   8.99 deep
+  sunk    stand.post × stand.rail   8.98 deep
+  sunk    stand.post × stand.rail   8.98 deep
+  sunk    stand.post × panel.bracket104   8.93 deep
+  sunk    stand.post × panel.bracket132   8.93 deep
+  sunk    stand.post × feed.drumrim   8.87 deep
+  sunk    stand.post × feed.drumlid   8.78 deep
+  sunk    vacuum.boostair × vacuum.boostairin   8.60 deep
+  sunk    vacuum.boostair × vacuum.drop2.flange   8.41 deep
+  sunk    vacuum.manifold × vacuum.boostair   8.35 deep
+  sunk    drum.body × vacuum.manifold   8.20 deep
+  sunk    vacuum.manifold × vacuum.motor1   7.84 deep
+  sunk    membrane.shell × membrane.tie0   7.83 deep
+  sunk    membrane.shell × membrane.tie3   7.83 deep
+  sunk    vacuum.motor0 × vacuum.drop0.flange   7.81 deep
+  sunk    vacuum.motor1 × vacuum.drop1.flange   7.81 deep
+  sunk    vacuum.manifold × vacuum.motor0   7.75 deep
+  sunk    evap.motor × cond.shell0   7.69 deep
+  sunk    drum.body × vacuum.manleft   7.54 deep
+  sunk    pump.airmotor × strainer.bracket   7.19 deep
+  sunk    pump.airmotor × strainer.bracket   7.19 deep
+  sunk    cond.shell0 × cond.clamp052   7.00 deep
+  sunk    cond.shell0 × cond.clamp0138   7.00 deep
+  sunk    cond.shell1 × cond.clamp152   7.00 deep
+  sunk    cond.shell1 × cond.clamp1138   7.00 deep
+  sunk    cond.shell2 × cond.clamp252   7.00 deep
+  sunk    cond.shell2 × cond.clamp2138   7.00 deep
+  sunk    cond.shell3 × cond.clamp352   7.00 deep
+  sunk    cond.shell3 × cond.clamp3138   7.00 deep
+  sunk    pump.head × pump.plate   6.48 deep
+  sunk    pump.airmotor × pump.airmotor   6.00 deep
+  sunk    pump.motorend × pump.airmotor   6.00 deep
+  sunk    vacuum.pumpexh0 × vacuum.motor0   5.00 deep
+  sunk    vacuum.pumpexh1 × vacuum.motor1   5.00 deep
+  sunk    vacuum.pumpexh2 × vacuum.boostair   5.00 deep
+  sunk    cans.body0 × vacuum.plate0   5.00 deep
+  sunk    cans.body3 × vacuum.plate2   5.00 deep
+  sunk    drum.body × vacuum.drop0.flange   4.99 deep
+  sunk    evap.bottom × evap.leg012   4.46 deep
+  sunk    stand.rail × panel.bracket104   4.00 deep
+  sunk    feed.drum × feed.drumrim   4.00 deep
+  sunk    membrane.shell × membrane.saddlea   4.00 deep
+  sunk    membrane.shell × membrane.saddleb   4.00 deep
+  sunk    stand.rail × cond.header.flange   3.70 deep
+  sunk    evap.bottom × evap.leg-11-11   3.60 deep
+  sunk    evap.bottom × evap.leg11-11   3.60 deep
+  sunk    drum.body × cond.out.flange#2   3.47 deep
+  sunk    block.v1 × block.v1.port0   3.36 deep
+  sunk    block.v1 × block.v1.port1   3.36 deep
+  sunk    block.v1 × block.v1.port2   3.36 deep
+  sunk    block.v1 × block.v1.port3   3.36 deep
+  sunk    block.v2 × block.v2.port0   3.36 deep
+  sunk    block.v2 × block.v2.port1   3.36 deep
+  sunk    block.v2 × block.v2.port2   3.36 deep
+  sunk    block.v2 × block.v2.port3   3.36 deep
+  sunk    vacuum.manifold × vacuum.drop0.flange   3.20 deep
+  sunk    vacuum.manifold × vacuum.drop1.flange   3.20 deep
+  sunk    vacuum.manifold × vacuum.drop2.flange   3.20 deep
+  sunk    cans.body1 × vacuum.plate1   3.18 deep
+  sunk    cans.body2 × vacuum.plate1   3.18 deep
+  sunk    vacuum.manifold × vacuum.boostairin   3.05 deep
+  sunk    block.post × vacuum.base0   3.00 deep
+  sunk    cans.body0 × vacuum.base0   3.00 deep
+  sunk    cans.body1 × vacuum.base1   3.00 deep
+  sunk    cans.body2 × vacuum.base1   3.00 deep
+  sunk    cans.body3 × vacuum.base2   3.00 deep
+  sunk    evap.terminalbox × cond.shell0   3.00 deep
+  sunk    drum.body × vacuum.base0   3.00 deep
+  sunk    vacuum.base2 × vacuum.muffler   3.00 deep
+  sunk    membrane.shell × membrane.tie1   2.92 deep
+  sunk    membrane.shell × membrane.tie2   2.92 deep
+  sunk    evap.vapour × evap.vapour#2.flange   2.80 deep
+  sunk    membrane.retentate × membrane.retentate#2.flange   2.77 deep
+  sunk    sieve.cut1 × sieve.cut1#2.flange   2.65 deep
+  sunk    sieve.cut2 × sieve.cut2#2.flange   2.65 deep
+  sunk    sieve.cut3 × sieve.cut3#2.flange   2.65 deep
+  sunk    evap.jacket × evap.inlet   2.60 deep
+  sunk    pump.outlet × feed.pipe.flange   2.60 deep
+  sunk    pump.plate × pump.muffler   2.59 deep
+  sunk    sieve.cut0 × sieve.toTank.flange   2.54 deep
+  sunk    pump.head × pump.tie0   2.50 deep
+  sunk    pump.head × pump.tie1   2.50 deep
+  sunk    pump.head × pump.tie2   2.50 deep
+  sunk    pump.head × pump.tie3   2.50 deep
+  sunk    pump.muffler × pump.base   2.50 deep
+  sunk    pump.base × strainer.bracket   2.50 deep
+  sunk    pump.plate × pump.tie3   2.47 deep
+  sunk    pump.plate × pump.tie0   2.47 deep
+  sunk    feed.drumoutlet × feed.suction.flange   2.40 deep
+  sunk    pump.airin × strainer.bracket   2.40 deep
+  sunk    carbon.endb × carbon.post   2.40 deep
+  sunk    cond.shell3 × cond.in0.flange#2   2.25 deep
+  sunk    cond.saddle052 × cond.hanger052   2.22 deep
+  sunk    cond.saddle152 × cond.hanger152   2.22 deep
+  sunk    cond.saddle252 × cond.hanger252   2.22 deep
+  sunk    cond.saddle352 × cond.hanger352   2.22 deep
+  sunk    cond.saddle0138 × cond.hanger0138   2.22 deep
+  sunk    cond.saddle1138 × cond.hanger1138   2.22 deep
+  sunk    cond.saddle2138 × cond.hanger2138   2.22 deep
+  sunk    cond.saddle3138 × cond.hanger3138   2.22 deep
+  sunk    stand.rail × sieve.flange2   2.20 deep
+  sunk    sieve.cutport1 × sieve.cut1#2.flange   2.20 deep
+  sunk    sieve.cutport2 × sieve.cut2#2.flange   2.20 deep
+  sunk    sieve.cutport3 × sieve.cut3#2.flange   2.20 deep
+  sunk    sieve.outlet × sieve.toTank.flange   2.20 deep
+  sunk    sieve.bed3 × sieve.inlet   2.13 deep
+  sunk    sieve.cutport0 × sieve.toTank.flange   2.01 deep
+  sunk    stand.rail × cond.condensate2.flange#2   2.00 deep
+  sunk    sieve.cutport0 × sieve.outlet   2.00 deep
+  sunk    stand.post × scrub.drain   2.00 deep
+  sunk    stand.rail × cond.condensate0.flange#2   2.00 deep
+  sunk    stand.rail × cond.condensate1.flange#2   2.00 deep
+  sunk    stand.rail × cond.condensate3.flange#2   2.00 deep
+  sunk    carbon.post × block.post   2.00 deep
+  sunk    evap.handle × evap.gearbox   2.00 deep
+  sunk    vacuum.pumpbody0 × vacuum.terminal0   2.00 deep
+  sunk    vacuum.pumpbody1 × vacuum.terminal1   2.00 deep
+  sunk    pump.head × pump.muffler   2.00 deep
+  sunk    cond.coolout × cond.saddle3138   1.99 deep
+  sunk    cond.coolin × cond.saddle152   1.99 deep
+  sunk    block.v2.port0 × block.v2.port3   1.92 deep
+  sunk    block.v2.port1 × block.v2.port2   1.92 deep
+  sunk    block.v1.port0 × block.v1.port1   1.92 deep
+  sunk    block.v1.port0 × block.v1.port3   1.92 deep
+  sunk    block.v1.port1 × block.v1.port2   1.92 deep
+  sunk    block.v1.port2 × block.v1.port3   1.92 deep
+  sunk    block.v2.port0 × block.v2.port1   1.92 deep
+  sunk    block.v2.port2 × block.v2.port3   1.92 deep
+  sunk    sieve.leg012 × sieve.base   1.85 deep
+  sunk    cond.saddle052 × cond.header.flange#2   1.81 deep
+  sunk    tank.top × tank.breather   1.76 deep
+  sunk    strainer.in × strainer.drain   1.71 deep
+  sunk    sieve.leg-10-8 × sieve.base   1.70 deep
+  sunk    sieve.leg10-8 × sieve.base   1.70 deep
+  sunk    block.post × vacuum.pumpbody0   1.50 deep
+  sunk    pump.tie0 × pump.tie1   1.50 deep
+  sunk    pump.tie0 × pump.tie3   1.50 deep
+  sunk    pump.tie1 × pump.tie2   1.50 deep
+  sunk    pump.tie2 × pump.tie3   1.50 deep
+  sunk    sieve.bed3 × cond.outflange1   1.40 deep
+  sunk    vacuum.manifold × cond.out.flange#2   1.35 deep
+  sunk    tank.outlet × feed.recycle.flange   1.32 deep
+  sunk    tank.outlet#2 × feed.recycle.flange   1.32 deep
+  sunk    stand.rail × evap.flange   1.30 deep
+  sunk    membrane.shell × membrane.enda   1.30 deep
+  sunk    membrane.shell × membrane.enda#2   1.30 deep
+  sunk    evap.shell × evap.flange   1.30 deep
+  sunk    membrane.tie0 × membrane.tie1   1.30 deep
+  sunk    membrane.tie0 × membrane.tie3   1.30 deep
+  sunk    membrane.tie1 × membrane.tie2   1.30 deep
+  sunk    membrane.tie2 × membrane.tie3   1.30 deep
+  sunk    cond.drain3 × cond.plate3   1.28 deep
+  sunk    membrane.enda × membrane.tie1   1.27 deep
+  sunk    membrane.enda × membrane.tie2   1.27 deep
+  sunk    cans.body1 × vacuum.base0   1.22 deep
+  sunk    cans.body2 × vacuum.base2   1.22 deep
+  sunk    sieve.bed0 × sieve.flange0   1.20 deep
+  sunk    sieve.flange0 × sieve.bed1   1.20 deep
+  sunk    sieve.bed1 × sieve.flange1   1.20 deep
+  sunk    sieve.flange1 × sieve.bed2   1.20 deep
+  sunk    sieve.bed2 × sieve.flange2   1.20 deep
+  sunk    sieve.flange2 × sieve.bed3   1.20 deep
+  sunk    cond.drain3 × cond.clamp3138   1.20 deep
+  sunk    scrub.shell × scrub.flange118   1.20 deep
+  sunk    sieve.bed0 × sieve.bottomflange   1.20 deep
+  sunk    sieve.bed3 × sieve.topflange   1.20 deep
+  sunk    scrub.shell × scrub.flange10   1.20 deep
+  sunk    scrub.flange10 × scrub.leg-10-10   1.20 deep
+  sunk    scrub.flange10 × scrub.leg10-10   1.20 deep
+  sunk    scrub.flange10 × scrub.leg012   1.20 deep
+  sunk    sieve.vent × cond.shell0   1.20 deep
+  sunk    sieve.topflange × cond.outflange1   1.20 deep
+  sunk    cond.hanger052 × cond.clamp052   1.20 deep
+  sunk    cond.hanger152 × cond.clamp152   1.20 deep
+  sunk    cond.hanger252 × cond.clamp252   1.20 deep
+  sunk    cond.hanger352 × cond.clamp352   1.20 deep
+  sunk    cond.hanger0138 × cond.clamp0138   1.20 deep
+  sunk    cond.hanger1138 × cond.clamp1138   1.20 deep
+  sunk    cond.hanger2138 × cond.clamp2138   1.20 deep
+  sunk    cond.hanger3138 × cond.clamp3138   1.20 deep
+  sunk    cond.saddle052 × cond.clamp052   1.19 deep
+  sunk    cond.saddle152 × cond.clamp152   1.19 deep
+  sunk    cond.saddle252 × cond.clamp252   1.19 deep
+  sunk    cond.saddle352 × cond.clamp352   1.19 deep
+  sunk    cond.saddle0138 × cond.clamp0138   1.19 deep
+  sunk    cond.saddle1138 × cond.clamp1138   1.19 deep
+  sunk    cond.saddle2138 × cond.clamp2138   1.19 deep
+  sunk    cond.saddle3138 × cond.clamp3138   1.19 deep
+  sunk    strainer.lid × feed.dp.body   1.18 deep
+  sunk    pump.airmotor × feed.membrane.flange#2   1.15 deep
+  sunk    carbon.shell × carbon.endb   1.10 deep
+  sunk    cond.shell0 × cond.inflange0   1.10 deep
+  sunk    cond.shell1 × cond.outflange1   1.10 deep
+  sunk    cond.shell2 × cond.inflange2   1.10 deep
+  sunk    cond.shell3 × cond.outflange3   1.10 deep
+  sunk    vacuum.manifold × vacuum.manleft   1.10 deep
+  sunk    carbon.shell × carbon.enda   1.10 deep
+  sunk    cond.shell0 × cond.outflange0   1.10 deep
+  sunk    cond.shell1 × cond.inflange1   1.10 deep
+  sunk    cond.shell2 × cond.outflange2   1.10 deep
+  sunk    cond.shell3 × cond.inflange3   1.10 deep
+  sunk    vacuum.manifold × vacuum.manright   1.10 deep
+  sunk    cond.outflange3 × cond.in0.flange#2   1.10 deep
+  sunk    vacuum.manleft × cond.out.flange#2   1.09 deep
+  sunk    sieve.cut0 × sieve.cut0#2.flange   1.07 deep
+  sunk    panel.button3 × panel.estop   1.07 deep
+  sunk    carbon.endb × carbon.plate   1.06 deep
+  sunk    stand.post × panel.box   1.00 deep
+  sunk    stand.rail × panel.box   1.00 deep
+  sunk    pump.motorend × strainer.bracket   1.00 deep
+  sunk    membrane.shell × membrane.cradlea   1.00 deep
+  sunk    membrane.shell × membrane.cradleb   1.00 deep
+  sunk    evap.motor × evap.terminalbox   1.00 deep
+  sunk    vacuum.motor0 × vacuum.terminal0   1.00 deep
+  sunk    vacuum.motor1 × vacuum.terminal1   1.00 deep
+  sunk    vacuum.boostairin × vacuum.drop2.flange   1.00 deep
+  sunk    panel.box × panel.bracket104   1.00 deep
+  sunk    panel.box × panel.bracket132   1.00 deep
+  sunk    pump.airmotor × membrane.feed   1.00 deep
+  sunk    pump.plate × pump.base   1.00 deep
+  sunk    cond.coolin × cond.hanger152   0.99 deep
+  sunk    cond.coolout × cond.hanger3138   0.98 deep
+  sunk    membrane.tie2 × membrane.feed   0.88 deep
+  sunk    membrane.tie1 × membrane.feed   0.88 deep
+  sunk    vacuum.dial.body × vacuum.motor1   0.87 deep
+  sunk    sieve.bed3 × cond.coolreturn.flange#2   0.87 deep
+  sunk    vacuum.dial.body × vacuum.motor0   0.87 deep
+  sunk    feed.drumrim × feed.drumplate   0.81 deep
+  sunk    scrub.cap × cond.link2.flange   0.80 deep
+  sunk    evap.vapour#2.flange#2 × cond.in0.flange#2   0.70 deep
+  sunk    cond.plate0 × cond.clamp0138   0.70 deep
+  sunk    cond.plate1 × cond.clamp1138   0.70 deep
+  sunk    cond.plate2 × cond.clamp2138   0.70 deep
+  sunk    cond.plate3 × cond.clamp3138   0.70 deep
+  sunk    cond.link1.flange × cond.out.flange   0.67 deep
+  sunk    cond.link1.flange#2 × cond.link2.flange   0.67 deep
+  sunk    cond.link2.flange#2 × cond.link3.flange   0.67 deep
+  sunk    evap.vapour#2.flange#2 × cond.in0.flange   0.66 deep
+  sunk    drum.lid × drum.inlet   0.60 deep
+  sunk    vacuum.boostair × vacuum.muffler   0.60 deep
+  sunk    vacuum.exh0.flange × vacuum.toScrubber.flange   0.59 deep
+  sunk    vacuum.exh0.flange#2 × vacuum.toScrubber.flange   0.59 deep
+  sunk    cond.condensate0.flange#2 × cond.header.flange   0.58 deep
+  sunk    sieve.toTank.flange × sieve.cut0#2.flange   0.57 deep
+  sunk    pump.head × feed.suction.flange   0.56 deep
+  sunk    sieve.cut0.stem × sieve.toTank.flange   0.54 deep
+depth order: 220 problems
+  cycle  share 0  strainer.bracket (k -68.01) is in front of pump.motorend (k -57.48) but drawn first   16.25 px² (596.75 px² the other way), up to 1.42 nearer, at 360.0,496.3
+  cycle  share 0  pump.head (k -90.62) is in front of pump.plate (k -86.37) but drawn first   701.50 px² (535.69 px² the other way), up to 5.16 nearer, at 309.3,497.0
+  cycle  share 0  pump.head (k -90.62) is in front of pump.tie0 (k -83.34) but drawn first   5.63 px² (49.88 px² the other way), up to 2.78 nearer, at 319.3,476.5
+  cycle  share 0  pump.head (k -90.62) is in front of pump.tie1 (k -90.29) but drawn first   67.25 px² (20.88 px² the other way), up to 5.32 nearer, at 317.3,475.0
+  cycle  share 0  pump.tie2 (k -95.72) is in front of pump.head (k -90.62) but drawn first   23.44 px² (22.94 px² the other way), up to 1.10 nearer, at 317.8,468.0
+  cycle  share 0  pump.head (k -90.62) is in front of pump.tie3 (k -88.77) but drawn first   69.44 px² (43.31 px² the other way), up to 5.12 nearer, at 320.0,476.0
+  cycle  share 0  pump.head (k -90.62) is in front of pump.muffler (k -81.27) but drawn first   12.88 px² (291.88 px² the other way), up to 3.62 nearer, at 310.5,485.8
+  cycle  share 0  pump.head (k -90.62) is in front of feed.suction.flange (k -86.01) but drawn first   0.63 px² (19.13 px² the other way), up to 0.85 nearer, at 295.8,478.3
+  cycle  share 0  pump.plate (k -86.37) is in front of pump.tie0 (k -83.34) but drawn first   44.31 px² (41.25 px² the other way), up to 11.04 nearer, at 314.8,471.3
+  cycle  share 0  pump.tie3 (k -88.77) is in front of pump.plate (k -86.37) but drawn first   52.75 px² (88.81 px² the other way), up to 5.56 nearer, at 344.3,475.8
+  cycle  share 0  pump.plate (k -86.37) is in front of pump.muffler (k -81.27) but drawn first   18.56 px² (81.00 px² the other way), up to 4.96 nearer, at 306.0,484.3
+  cycle  share 0  pump.base (k -91.80) is in front of pump.plate (k -86.37) but drawn first   8.06 px² (571.56 px² the other way), up to 2.15 nearer, at 326.3,499.8
+  cycle  share 0  pump.airin (k -68.69) is in front of strainer.bracket (k -68.01) but drawn first   50.63 px² (42.38 px² the other way), up to 4.74 nearer, at 320.8,489.3
+  cycle  share 0  feed.pipe:0 (k -82.02) is in front of pump.outlet (k -76.77) but drawn first   3.88 px² (13.44 px² the other way), up to 2.39 nearer, at 331.3,444.5
+  cycle  share 0  pump.outlet (k -76.77) is in front of feed.pipe.flange (k -75.86) but drawn first   31.06 px² (19.31 px² the other way), up to 4.64 nearer, at 323.5,447.5
+  cycle  share 0  pump.base (k -91.80) is in front of pump.muffler (k -81.27) but drawn first   11.88 px² (432.25 px² the other way), up to 5.42 nearer, at 312.5,509.8
+  cycle  share 0  pump.base (k -91.80) is in front of strainer.bracket (k -68.01) but drawn first   21.25 px² (1086.63 px² the other way), up to 5.47 nearer, at 321.0,516.0
+  cycle  share 0  strainer.lid (k -50.67) is in front of feed.dp.body (k -42.96) but drawn first   13.06 px² (116.81 px² the other way), up to 4.29 nearer, at 371.0,430.3
+  cycle  share 0  strainer.lid (k -50.67) is in front of feed.membrane:1 (k -41.53) but drawn first   1.06 px² (184.63 px² the other way), up to 1.22 nearer, at 364.0,432.5
+  cycle  share 0  strainer.bracket (k -68.01) is in front of feed.membrane:2 (k -50.85) but drawn first   10.19 px² (234.50 px² the other way), up to 3.19 nearer, at 364.0,479.0
+  cycle  share 0  feed.drum (k -56.92) is in front of feed.drumrim (k -52.27) but drawn first   2791.13 px² (545.94 px² the other way), up to 2.20 nearer, at 211.8,410.5
+  cycle  share 0  feed.drum (k -56.92) is in front of membrane.tie1 (k -48.34) but drawn first   97.88 px² (56.44 px² the other way), up to 9.30 nearer, at 255.5,481.8
+  cycle  share 0  membrane.enda (k -46.16) is in front of membrane.shell (k -14.42) but drawn first   46.81 px² (1462.44 px² the other way), up to 1.85 nearer, at 369.8,480.0
+  cycle  share 0  membrane.tie0 (k -15.58) is in front of membrane.shell (k -14.42) but drawn first   46.69 px² (70.81 px² the other way), up to 22.42 nearer, at 379.3,515.3
+  cycle  share 0  membrane.tie1 (k -48.34) is in front of membrane.enda (k -46.16) but drawn first   14.69 px² (100.31 px² the other way), up to 2.24 nearer, at 385.3,492.5
+  cycle  share 0  membrane.tie2 (k -49.56) is in front of membrane.enda (k -46.16) but drawn first   15.69 px² (124.75 px² the other way), up to 2.30 nearer, at 388.3,491.5
+  cycle  share 0  membrane.retentate (k 6.59) is in front of membrane.retentate#2.flange (k 8.86) but drawn first   21.06 px² (37.88 px² the other way), up to 4.28 nearer, at 476.5,540.8
+  cycle  share 0  carbon.enda (k 15.44) is in front of carbon.shell (k 25.29) but drawn first   21.31 px² (586.25 px² the other way), up to 1.56 nearer, at 532.3,494.0
+  cycle  share 0  carbon.shell (k 25.29) is in front of carbon.out:0 (k 31.10) but drawn first   117.06 px² (64.00 px² the other way), up to 7.66 nearer, at 554.3,519.3
+  cycle  share 0  carbon.post (k 18.74) is in front of carbon.endb (k 33.70) but drawn first   44.25 px² (260.94 px² the other way), up to 1.28 nearer, at 562.8,541.8
+  cycle  share 0  carbon.plate (k 25.27) is in front of carbon.endb (k 33.70) but drawn first   18.50 px² (194.00 px² the other way), up to 2.71 nearer, at 578.8,520.8
+  cycle  share 0  carbon.post (k 18.74) is in front of block.post (k 42.98) but drawn first   9.19 px² (1154.94 px² the other way), up to 3.64 nearer, at 549.5,575.3
+  cycle  share 0  cond.out:7 (k 50.40) is in front of block.body (k 51.15) but drawn first   31.19 px² (345.88 px² the other way), up to 3.10 nearer, at 561.3,600.5
+  cycle  share 0  block.body (k 51.15) is in front of cond.out:8 (k 67.55) but drawn first   8.25 px² (75.50 px² the other way), up to 3.78 nearer, at 571.5,602.8
+  cycle  share 0  block.post (k 42.98) is in front of vacuum.base0 (k 66.29) but drawn first   153.81 px² (169.31 px² the other way), up to 7.12 nearer, at 611.5,636.5
+  cycle  share 0  block.v1 (k 51.21) is in front of block.v1.port0 (k 51.21) but drawn first   26.06 px² (23.81 px² the other way), up to 2.18 nearer, at 550.0,559.0
+  cycle  share 0  block.v1 (k 51.21) is in front of block.v1.port1 (k 51.21) but drawn first   21.31 px² (33.44 px² the other way), up to 2.28 nearer, at 551.5,551.0
+  cycle  share 0  block.v1.port0 (k 51.21) is in front of block.v1.port1 (k 51.21) but drawn first   9.88 px² (13.69 px² the other way), up to 3.01 nearer, at 546.5,557.8
+  cycle  share 0  block.v1.port2 (k 51.17) is in front of block.v1.port3 (k 51.19) but drawn first   14.69 px² (10.75 px² the other way), up to 3.07 nearer, at 552.0,556.0
+  cycle  share 0  block.v2 (k 65.98) is in front of block.v2.port0 (k 67.92) but drawn first   25.88 px² (23.69 px² the other way), up to 2.25 nearer, at 582.5,570.5
+  cycle  share 0  block.v2 (k 65.98) is in front of block.v2.port1 (k 68.44) but drawn first   20.69 px² (33.56 px² the other way), up to 2.10 nearer, at 585.3,570.8
+  cycle  share 0  block.v2.port0 (k 67.92) is in front of block.v2.port1 (k 68.44) but drawn first   9.38 px² (13.75 px² the other way), up to 2.85 nearer, at 580.8,577.5
+  cycle  share 0  block.v2.port3 (k 63.72) is in front of block.v2.port2 (k 64.23) but drawn first   10.38 px² (14.63 px² the other way), up to 3.03 nearer, at 581.0,573.3
+  cycle  share 0  sieve.bottomflange (k -5.00) is in front of sieve.bed0 (k 0.21) but drawn first   79.94 px² (1372.38 px² the other way), up to 2.64 nearer, at 699.8,564.8
+  cycle  share 0  sieve.flange0 (k 7.92) is in front of sieve.bed1 (k 15.64) but drawn first   80.19 px² (1372.94 px² the other way), up to 2.64 nearer, at 701.5,503.5
+  cycle  share 0  sieve.cutport0 (k 4.28) is in front of sieve.toTank.flange (k 7.16) but drawn first   15.69 px² (32.13 px² the other way), up to 1.41 nearer, at 648.5,561.5
+  cycle  share 0  sieve.cut0 (k 7.69) is in front of sieve.toTank:0 (k 16.60) but drawn first   0.25 px² (22.13 px² the other way), up to 1.75 nearer, at 643.3,561.5
+  cycle  share 0  sieve.toTank.flange (k 7.16) is in front of sieve.cut0 (k 7.69) but drawn first   8.75 px² (37.38 px² the other way), up to 3.52 nearer, at 641.5,555.8
+  cycle  share 0  sieve.cut0 (k 7.69) is in front of sieve.cut0#2:0 (k 12.34) but drawn first   56.06 px² (20.94 px² the other way), up to 2.56 nearer, at 640.5,565.3
+  cycle  share 0  sieve.flange1 (k 23.36) is in front of sieve.bed2 (k 31.08) but drawn first   80.25 px² (1373.06 px² the other way), up to 2.64 nearer, at 697.8,445.3
+  cycle  share 0  sieve.cutport1 (k 19.71) is in front of sieve.cut1#2:0 (k 32.10) but drawn first   7.31 px² (3.69 px² the other way), up to 2.79 nearer, at 645.5,498.3
+  cycle  share 0  sieve.cutport1 (k 19.71) is in front of sieve.cut1#2.flange (k 32.12) but drawn first   20.19 px² (10.44 px² the other way), up to 3.13 nearer, at 647.3,501.8
+  cycle  share 0  sieve.cut1#2:0 (k 32.10) is in front of sieve.cut1 (k 32.14) but drawn first   2.75 px² (72.31 px² the other way), up to 1.77 nearer, at 630.0,503.0
+  cycle  share 0  sieve.flange2 (k 38.79) is in front of sieve.bed3 (k 53.06) but drawn first   80.56 px² (1372.94 px² the other way), up to 2.64 nearer, at 700.8,383.5
+  cycle  share 0  sieve.cutport2 (k 35.15) is in front of sieve.cut2#2:0 (k 37.37) but drawn first   7.25 px² (3.69 px² the other way), up to 2.78 nearer, at 645.5,437.8
+  cycle  share 0  sieve.cutport2 (k 35.15) is in front of sieve.cut2#2.flange (k 37.39) but drawn first   20.06 px² (10.38 px² the other way), up to 3.13 nearer, at 647.3,441.5
+  cycle  share 0  sieve.bed3 (k 53.06) is in front of cond.shell0 (k 125.48) but drawn first   288.31 px² (583.63 px² the other way), up to 12.13 nearer, at 689.3,331.3
+  cycle  share 0  sieve.bed3 (k 53.06) is in front of cond.outflange1 (k 62.07) but drawn first   15.50 px² (471.50 px² the other way), up to 3.02 nearer, at 686.5,322.3
+  cycle  share 0  cond.link1:0 (k 53.02) is in front of sieve.bed3 (k 53.06) but drawn first   171.81 px² (218.75 px² the other way), up to 21.69 nearer, at 681.8,301.8
+  cycle  share 0  sieve.bed3 (k 53.06) is in front of cond.coolreturn.flange#2 (k 53.69) but drawn first   3.94 px² (6.13 px² the other way), up to 2.60 nearer, at 650.3,340.5
+  cycle  share 0  sieve.cut3#2:0 (k 48.95) is in front of sieve.cutport3 (k 53.08) but drawn first   3.75 px² (7.38 px² the other way), up to 1.59 nearer, at 641.8,378.3
+  cycle  share 0  sieve.cut3#2.flange (k 51.81) is in front of sieve.cutport3 (k 53.08) but drawn first   10.50 px² (20.00 px² the other way), up to 2.86 nearer, at 641.8,378.8
+  cycle  share 0  cond.outflange1 (k 62.07) is in front of sieve.topflange (k 125.50) but drawn first   556.56 px² (49.88 px² the other way), up to 29.87 nearer, at 675.5,297.5
+  cycle  share 0  cond.link1:0 (k 53.02) is in front of sieve.topflange (k 125.50) but drawn first   163.75 px² (178.06 px² the other way), up to 19.50 nearer, at 683.3,300.8
+  cycle  share 0  sieve.outlet (k 5.19) is in front of sieve.toTank.flange (k 7.16) but drawn first   24.56 px² (29.19 px² the other way), up to 1.41 nearer, at 647.8,558.3
+  cycle  share 0  sieve.vent (k 63.89) is in front of cond.shell0 (k 125.48) but drawn first   55.19 px² (4.38 px² the other way), up to 9.63 nearer, at 696.5,335.0
+  cycle  share 0  sieve.leg-10-8 (k -23.01) is in front of sieve.base (k -13.19) but drawn first   81.63 px² (50.44 px² the other way), up to 11.37 nearer, at 680.3,556.0
+  cycle  share 0  sieve.base (k -13.19) is in front of sieve.leg10-8 (k -8.97) but drawn first   50.31 px² (132.69 px² the other way), up to 6.59 nearer, at 698.8,584.5
+  cycle  share 0  sieve.base (k -13.19) is in front of sieve.leg012 (k -5.02) but drawn first   51.50 px² (159.88 px² the other way), up to 6.60 nearer, at 660.3,589.0
+  cycle  share 0  cans.body0 (k 52.89) is in front of vacuum.base0 (k 66.29) but drawn first   129.56 px² (120.75 px² the other way), up to 11.79 nearer, at 624.8,633.0
+  cycle  share 0  cans.body0 (k 52.89) is in front of vacuum.plate0 (k 57.63) but drawn first   153.38 px² (76.00 px² the other way), up to 8.50 nearer, at 627.3,617.3
+  cycle  share 0  cans.body1 (k 69.74) is in front of vacuum.base1 (k 88.75) but drawn first   68.06 px² (118.75 px² the other way), up to 8.45 nearer, at 663.0,655.3
+  cycle  share 0  cans.body1 (k 69.74) is in front of vacuum.plate1 (k 80.10) but drawn first   37.81 px² (163.69 px² the other way), up to 3.46 nearer, at 666.5,640.0
+  cycle  share 0  cans.body2 (k 86.59) is in front of vacuum.base1 (k 88.75) but drawn first   131.88 px² (18.13 px² the other way), up to 11.82 nearer, at 683.8,667.3
+  cycle  share 0  cans.body2 (k 86.59) is in front of vacuum.base2 (k 111.22) but drawn first   0.75 px² (67.69 px² the other way), up to 1.27 nearer, at 701.3,678.0
+  cycle  share 0  cans.body3 (k 103.44) is in front of vacuum.base2 (k 111.22) but drawn first   133.44 px² (111.25 px² the other way), up to 11.82 nearer, at 713.0,684.3
+  cycle  share 0  evap.bottom (k 35.20) is in front of evap.leg11-11 (k 36.88) but drawn first   76.19 px² (63.00 px² the other way), up to 9.75 nearer, at 781.8,629.0
+  cycle  share 0  evap.bottom (k 35.20) is in front of evap.leg012 (k 41.78) but drawn first   166.00 px² (146.56 px² the other way), up to 8.05 nearer, at 746.0,634.8
+  cycle  share 0  evap.jacket (k 58.35) is in front of evap.shell (k 60.37) but drawn first   7510.31 px² (1779.50 px² the other way), up to 9.30 nearer, at 724.3,500.5
+  cycle  share 0  evap.jacket (k 58.35) is in front of evap.inlet (k 63.24) but drawn first   28.44 px² (59.75 px² the other way), up to 4.44 nearer, at 730.3,555.0
+  cycle  share 0  evap.motor (k 91.58) is in front of evap.terminalbox (k 98.06) but drawn first   1.56 px² (186.06 px² the other way), up to 1.37 nearer, at 767.5,398.5
+  cycle  share 0  evap.motor (k 91.58) is in front of cond.shell0 (k 125.48) but drawn first   143.06 px² (688.63 px² the other way), up to 6.16 nearer, at 745.3,395.5
+  cycle  share 0  evap.vapour (k 88.03) is in front of evap.vapour#2.flange (k 89.90) but drawn first   26.75 px² (46.44 px² the other way), up to 3.02 nearer, at 723.0,461.5
+  cycle  share 0  cond.inflange0 (k 53.04) is in front of cond.shell0 (k 125.48) but drawn first   18.94 px² (515.19 px² the other way), up to 1.57 nearer, at 673.5,348.5
+  cycle  share 0  cond.clamp052 (k 67.53) is in front of cond.shell0 (k 125.48) but drawn first   207.13 px² (462.88 px² the other way), up to 5.79 nearer, at 700.5,369.5
+  cycle  share 0  cond.shell0 (k 125.48) is in front of cond.clamp0138 (k 127.92) but drawn first   463.00 px² (207.31 px² the other way), up to 21.33 nearer, at 829.5,427.8
+  cycle  share 0  cond.coolreturn:0 (k 125.42) is in front of cond.shell0 (k 125.48) but drawn first   78.19 px² (149.31 px² the other way), up to 14.82 nearer, at 793.0,423.3
+  cycle  share 0  cond.coolin (k 125.50) is in front of cond.saddle152 (k 125.50) but drawn first   29.56 px² (6.50 px² the other way), up to 2.85 nearer, at 718.8,341.0
+  cycle  share 0  cond.hanger152 (k 71.01) is in front of cond.coolin (k 125.50) but drawn first   0.75 px² (33.06 px² the other way), up to 1.40 nearer, at 714.3,338.0
+  cycle  share 0  cond.outflange1 (k 62.07) is in front of cond.shell1 (k 133.63) but drawn first   19.63 px² (515.38 px² the other way), up to 1.57 nearer, at 673.5,309.5
+  cycle  share 0  cond.clamp152 (k 125.54) is in front of cond.shell1 (k 133.63) but drawn first   206.94 px² (462.44 px² the other way), up to 5.82 nearer, at 713.3,305.8
+  cycle  share 0  cond.shell1 (k 133.63) is in front of cond.clamp1138 (k 137.90) but drawn first   463.25 px² (206.81 px² the other way), up to 21.31 nearer, at 829.5,388.8
+  cycle  share 0  cond.shell1 (k 133.63) is in front of cond.link1:6 (k 149.29) but drawn first   241.69 px² (116.50 px² the other way), up to 9.06 nearer, at 828.0,382.5
+  cycle  share 0  cond.link1:6 (k 149.29) is in front of cond.inflange1 (k 153.35) but drawn first   114.00 px² (123.44 px² the other way), up to 6.40 nearer, at 850.5,400.5
+  cycle  share 0  cond.outflange1 (k 62.07) is in front of cond.link1:1 (k 125.52) but drawn first   26.75 px² (149.50 px² the other way), up to 4.75 nearer, at 681.3,300.8
+  cycle  share 0  cond.inflange2 (k 73.02) is in front of cond.shell2 (k 143.60) but drawn first   19.63 px² (515.19 px² the other way), up to 1.57 nearer, at 673.5,269.5
+  cycle  share 0  cond.clamp252 (k 87.51) is in front of cond.shell2 (k 143.60) but drawn first   207.13 px² (462.50 px² the other way), up to 5.88 nearer, at 698.3,290.3
+  cycle  share 0  cond.shell2 (k 143.60) is in front of cond.clamp2138 (k 147.89) but drawn first   462.94 px² (207.06 px² the other way), up to 21.34 nearer, at 829.3,350.3
+  cycle  share 0  cond.shell2 (k 143.60) is in front of cond.link2:1 (k 155.94) but drawn first   312.13 px² (63.38 px² the other way), up to 9.10 nearer, at 824.0,353.3
+  cycle  share 0  cond.inflange2 (k 73.02) is in front of cond.link2:6 (k 76.12) but drawn first   86.50 px² (150.75 px² the other way), up to 9.56 nearer, at 674.5,260.3
+  cycle  share 0  cond.outflange2 (k 163.34) is in front of cond.link2:0 (k 164.03) but drawn first   0.69 px² (152.94 px² the other way), up to 1.55 nearer, at 840.3,363.3
+  cycle  share 0  cond.link2:1 (k 155.94) is in front of cond.outflange2 (k 163.34) but drawn first   24.19 px² (128.94 px² the other way), up to 1.58 nearer, at 846.3,357.3
+  cycle  share 0  cond.outflange3 (k 82.54) is in front of cond.shell3 (k 153.61) but drawn first   19.06 px² (515.25 px² the other way), up to 1.57 nearer, at 675.5,237.5
+  cycle  share 0  cond.clamp352 (k 97.50) is in front of cond.shell3 (k 153.61) but drawn first   207.50 px² (462.75 px² the other way), up to 5.76 nearer, at 699.5,252.0
+  cycle  share 0  cond.shell3 (k 153.61) is in front of cond.clamp3138 (k 157.88) but drawn first   462.63 px² (207.06 px² the other way), up to 21.33 nearer, at 829.3,311.3
+  cycle  share 0  cond.shell3 (k 153.61) is in front of cond.link3:6 (k 169.27) but drawn first   241.94 px² (116.50 px² the other way), up to 9.09 nearer, at 833.5,307.8
+  cycle  share 0  cond.link3:6 (k 169.27) is in front of cond.inflange3 (k 173.33) but drawn first   113.69 px² (123.25 px² the other way), up to 6.40 nearer, at 852.3,321.3
+  cycle  share 0  cond.in0.flange#2 (k 80.67) is in front of cond.outflange3 (k 82.54) but drawn first   17.00 px² (137.44 px² the other way), up to 1.63 nearer, at 687.0,232.5
+  cycle  share 0  cond.outflange3 (k 82.54) is in front of cond.link3:1 (k 89.45) but drawn first   26.50 px² (149.69 px² the other way), up to 4.64 nearer, at 681.0,223.0
+  cycle  share 0  cond.coolout (k 150.63) is in front of cond.hanger3138 (k 151.37) but drawn first   2.00 px² (23.56 px² the other way), up to 0.60 nearer, at 811.5,318.0
+  cycle  share 0  cond.plate3 (k 148.07) is in front of cond.drain3 (k 151.64) but drawn first   12.38 px² (15.81 px² the other way), up to 3.69 nearer, at 828.8,294.3
+  cycle  share 0  cond.saddle052 (k 63.22) is in front of cond.clamp052 (k 67.53) but drawn first   10.06 px² (115.06 px² the other way), up to 2.56 nearer, at 714.3,375.8
+  cycle  share 0  cond.hanger052 (k 61.03) is in front of cond.clamp052 (k 67.53) but drawn first   6.25 px² (93.44 px² the other way), up to 1.14 nearer, at 718.8,373.0
+  cycle  share 0  cond.saddle152 (k 125.50) is in front of cond.clamp152 (k 125.54) but drawn first   10.06 px² (114.94 px² the other way), up to 2.56 nearer, at 714.3,336.8
+  cycle  share 0  cond.hanger152 (k 71.01) is in front of cond.clamp152 (k 125.54) but drawn first   6.31 px² (93.50 px² the other way), up to 1.14 nearer, at 718.3,334.3
+  cycle  share 0  cond.link1:2 (k 125.52) is in front of cond.clamp152 (k 125.54) but drawn first   133.63 px² (31.44 px² the other way), up to 15.16 nearer, at 724.0,328.0
+  cycle  share 0  cond.clamp252 (k 87.51) is in front of cond.saddle252 (k 133.65) but drawn first   114.88 px² (10.31 px² the other way), up to 8.82 nearer, at 718.8,287.0
+  cycle  share 0  cond.clamp252 (k 87.51) is in front of cond.hanger252 (k 125.56) but drawn first   93.44 px² (6.44 px² the other way), up to 7.40 nearer, at 717.8,288.5
+  cycle  share 0  cond.clamp252 (k 87.51) is in front of cond.link2:5 (k 133.67) but drawn first   98.81 px² (133.75 px² the other way), up to 10.63 nearer, at 702.3,282.5
+  cycle  share 0  cond.clamp352 (k 97.50) is in front of cond.saddle352 (k 143.62) but drawn first   115.19 px² (10.19 px² the other way), up to 8.83 nearer, at 716.0,249.0
+  cycle  share 0  cond.hanger352 (k 90.99) is in front of cond.clamp352 (k 97.50) but drawn first   6.31 px² (93.81 px² the other way), up to 1.14 nearer, at 718.3,256.3
+  cycle  share 0  cond.clamp352 (k 97.50) is in front of cond.link3:2 (k 143.64) but drawn first   31.25 px² (133.94 px² the other way), up to 4.01 nearer, at 707.3,241.0
+  cycle  share 0  cond.saddle0138 (k 125.46) is in front of cond.clamp0138 (k 127.92) but drawn first   10.13 px² (115.06 px² the other way), up to 2.56 nearer, at 819.3,437.0
+  cycle  share 0  cond.coolreturn:0 (k 125.42) is in front of cond.saddle0138 (k 125.46) but drawn first   5.19 px² (56.94 px² the other way), up to 2.50 nearer, at 814.5,429.5
+  cycle  share 0  cond.hanger0138 (k 125.44) is in front of cond.clamp0138 (k 127.92) but drawn first   6.44 px² (93.44 px² the other way), up to 1.14 nearer, at 823.8,434.3
+  cycle  share 0  cond.saddle1138 (k 133.59) is in front of cond.clamp1138 (k 137.90) but drawn first   10.00 px² (115.13 px² the other way), up to 2.56 nearer, at 820.0,397.8
+  cycle  share 0  cond.hanger1138 (k 131.40) is in front of cond.clamp1138 (k 137.90) but drawn first   6.44 px² (93.44 px² the other way), up to 1.14 nearer, at 823.8,395.3
+  cycle  share 0  cond.link1:5 (k 133.61) is in front of cond.clamp1138 (k 137.90) but drawn first   95.00 px² (137.63 px² the other way), up to 4.49 nearer, at 823.3,384.8
+  cycle  share 0  cond.saddle2138 (k 143.58) is in front of cond.clamp2138 (k 147.89) but drawn first   9.75 px² (115.06 px² the other way), up to 2.56 nearer, at 820.0,358.8
+  cycle  share 0  cond.hanger2138 (k 141.38) is in front of cond.clamp2138 (k 147.89) but drawn first   6.19 px² (93.25 px² the other way), up to 1.14 nearer, at 824.0,356.3
+  cycle  share 0  cond.clamp2138 (k 147.89) is in front of cond.link2:1 (k 155.94) but drawn first   28.69 px² (133.88 px² the other way), up to 3.76 nearer, at 813.8,339.8
+  cycle  share 0  cond.saddle3138 (k 153.57) is in front of cond.clamp3138 (k 157.88) but drawn first   10.13 px² (115.06 px² the other way), up to 2.56 nearer, at 819.5,320.0
+  cycle  share 0  cond.hanger3138 (k 151.37) is in front of cond.clamp3138 (k 157.88) but drawn first   6.38 px² (93.44 px² the other way), up to 1.14 nearer, at 822.5,317.8
+  cycle  share 0  cond.link3:5 (k 153.59) is in front of cond.clamp3138 (k 157.88) but drawn first   94.94 px² (137.88 px² the other way), up to 4.49 nearer, at 824.0,303.8
+  cycle  share 0  feed.recycle:1 (k 81.77) is in front of tank.shell (k 92.24) but drawn first   76.13 px² (167.50 px² the other way), up to 14.34 nearer, at 787.5,658.8
+  cycle  share 0  tank.top (k 104.35) is in front of tank.breather (k 112.81) but drawn first   2.44 px² (53.63 px² the other way), up to 1.76 nearer, at 827.0,522.8
+  cycle  share 0  feed.recycle.flange (k 60.41) is in front of tank.outlet (k 61.80) but drawn first   11.81 px² (42.00 px² the other way), up to 2.41 nearer, at 853.3,629.3
+  cycle  share 0  drum.body (k 98.21) is in front of vacuum.manifold (k 126.32) but drawn first   294.75 px² (25.56 px² the other way), up to 25.77 nearer, at 554.5,632.3
+  cycle  share 0  vacuum.base0 (k 66.29) is in front of drum.body (k 98.21) but drawn first   16.56 px² (536.81 px² the other way), up to 6.60 nearer, at 572.5,676.3
+  cycle  share 0  vacuum.motor0 (k 84.75) is in front of drum.body (k 98.21) but drawn first   25.81 px² (847.69 px² the other way), up to 4.28 nearer, at 572.5,647.8
+  cycle  share 0  drum.plate (k 89.93) is in front of block.evap:1 (k 98.19) but drawn first   68.50 px² (1.50 px² the other way), up to 5.02 nearer, at 575.8,594.5
+  cycle  share 0  vacuum.manleft (k 77.92) is in front of vacuum.manifold (k 126.32) but drawn first   8.88 px² (125.13 px² the other way), up to 1.55 nearer, at 548.0,636.0
+  cycle  share 0  vacuum.motor0 (k 84.75) is in front of vacuum.manifold (k 126.32) but drawn first   300.81 px² (99.56 px² the other way), up to 15.94 nearer, at 556.0,633.0
+  cycle  share 0  vacuum.motor1 (k 107.22) is in front of vacuum.manifold (k 126.32) but drawn first   363.50 px² (99.31 px² the other way), up to 16.44 nearer, at 593.0,654.5
+  cycle  share 0  vacuum.manifold (k 126.32) is in front of vacuum.boostair (k 131.72) but drawn first   108.19 px² (406.06 px² the other way), up to 15.92 nearer, at 658.8,699.5
+  cycle  share 0  vacuum.manifold (k 126.32) is in front of vacuum.boostairin (k 131.70) but drawn first   16.38 px² (67.19 px² the other way), up to 4.79 nearer, at 645.8,690.5
+  cycle  share 0  vacuum.drop0.flange (k 84.58) is in front of vacuum.manifold (k 126.32) but drawn first   3.63 px² (104.38 px² the other way), up to 2.43 nearer, at 565.0,638.3
+  cycle  share 0  vacuum.drop1.flange (k 107.04) is in front of vacuum.manifold (k 126.32) but drawn first   3.63 px² (104.00 px² the other way), up to 2.54 nearer, at 603.8,660.8
+  cycle  share 0  vacuum.manifold (k 126.32) is in front of vacuum.drop2.flange (k 129.51) but drawn first   103.94 px² (3.56 px² the other way), up to 7.93 nearer, at 647.8,696.5
+  cycle  share 0  cond.out.flange#2 (k 76.59) is in front of vacuum.manleft (k 77.92) but drawn first   15.56 px² (125.38 px² the other way), up to 1.57 nearer, at 557.8,637.0
+  cycle  share 0  vacuum.motor0 (k 84.75) is in front of vacuum.dial.body (k 93.87) but drawn first   2.44 px² (148.88 px² the other way), up to 1.26 nearer, at 579.5,645.5
+  cycle  share 0  vacuum.pumpbody0 (k 73.23) is in front of vacuum.terminal0 (k 86.28) but drawn first   2.50 px² (322.25 px² the other way), up to 1.70 nearer, at 596.8,631.0
+  cycle  share 0  vacuum.pumpexh0 (k 80.73) is in front of vacuum.drop0:0 (k 81.37) but drawn first   21.56 px² (24.13 px² the other way), up to 1.59 nearer, at 574.8,633.8
+  cycle  share 0  vacuum.motor0 (k 84.75) is in front of vacuum.terminal0 (k 86.28) but drawn first   4.56 px² (81.69 px² the other way), up to 1.21 nearer, at 585.5,643.3
+  cycle  share 0  vacuum.drop0:0 (k 81.37) is in front of vacuum.motor0 (k 84.75) but drawn first   26.75 px² (270.06 px² the other way), up to 7.30 nearer, at 577.5,620.0
+  cycle  share 0  vacuum.pumpbody1 (k 95.70) is in front of vacuum.terminal1 (k 108.75) but drawn first   2.50 px² (325.44 px² the other way), up to 1.69 nearer, at 636.0,653.8
+  cycle  share 0  vacuum.pumpexh1 (k 103.20) is in front of vacuum.drop1:0 (k 103.84) but drawn first   21.25 px² (24.06 px² the other way), up to 1.64 nearer, at 614.0,656.3
+  cycle  share 0  vacuum.motor1 (k 107.22) is in front of vacuum.terminal1 (k 108.75) but drawn first   6.19 px² (82.81 px² the other way), up to 1.41 nearer, at 624.5,666.0
+  cycle  share 0  vacuum.drop1:0 (k 103.84) is in front of vacuum.motor1 (k 107.22) but drawn first   26.88 px² (272.31 px² the other way), up to 7.05 nearer, at 616.8,642.8
+  cycle  share 0  vacuum.base2 (k 111.22) is in front of vacuum.muffler (k 127.07) but drawn first   10.19 px² (269.75 px² the other way), up to 4.48 nearer, at 644.0,720.8
+  cycle  share 0  vacuum.pumpexh2 (k 125.67) is in front of vacuum.drop2:0 (k 126.30) but drawn first   21.31 px² (24.13 px² the other way), up to 1.74 nearer, at 653.3,678.5
+  cycle  share 0  vacuum.drop2:0 (k 126.30) is in front of vacuum.boostair (k 131.72) but drawn first   27.31 px² (280.38 px² the other way), up to 7.23 nearer, at 656.0,664.3
+  cycle  share 0  vacuum.drop2.flange (k 129.51) is in front of vacuum.boostairin (k 131.70) but drawn first   3.00 px² (49.38 px² the other way), up to 1.82 nearer, at 646.5,689.8
+  cycle  share 0  scrub.flange10 (k 97.39) is in front of scrub.shell (k 124.04) but drawn first   63.38 px² (904.19 px² the other way), up to 2.64 nearer, at 884.8,675.8
+  cycle  share 0  scrub.flange48 (k 114.65) is in front of scrub.shell (k 124.04) but drawn first   294.38 px² (904.44 px² the other way), up to 8.34 nearer, at 887.0,612.8
+  cycle  share 0  scrub.shell (k 124.04) is in front of scrub.flange84 (k 130.99) but drawn first   904.25 px² (294.94 px² the other way), up to 29.53 nearer, at 863.3,525.0
+  cycle  share 0  scrub.leg10-10 (k 96.66) is in front of scrub.flange10 (k 97.39) but drawn first   1.00 px² (54.88 px² the other way), up to 2.64 nearer, at 891.8,674.0
+  cycle  share 0  scrub.flange10 (k 97.39) is in front of scrub.leg012 (k 101.71) but drawn first   68.25 px² (2.00 px² the other way), up to 5.88 nearer, at 851.3,683.8
+  cycle  share 0  cond.link2.flange (k 158.59) is in front of scrub.cap (k 164.27) but drawn first   13.63 px² (6.94 px² the other way), up to 1.39 nearer, at 858.3,401.3
+  cycle  share 0  feed.recycle.flange (k 60.41) is in front of tank.outlet#2 (k 61.80) but drawn first   11.81 px² (42.00 px² the other way), up to 2.41 nearer, at 853.3,629.3
+  cycle  share 0  panel.box (k -121.76) is in front of panel.bracket104 (k -119.34) but drawn first   22.56 px² (433.38 px² the other way), up to 1.82 nearer, at 480.0,226.5
+  cycle  share 0  panel.box (k -121.76) is in front of panel.bracket132 (k -106.62) but drawn first   22.81 px² (510.94 px² the other way), up to 1.82 nearer, at 490.5,183.0
+  cycle  share 0  block.tank.flange#2 (k 111.74) is in front of sieve.toTank:6 (k 114.24) but drawn first   32.94 px² (1.94 px² the other way), up to 1.89 nearer, at 786.8,553.5
+  cycle  share 0  block.evap:4 (k 78.74) is in front of sieve.cut3#2:7 (k 96.63) but drawn first   18.88 px² (32.69 px² the other way), up to 5.98 nearer, at 682.5,573.3
+  cycle  share 0  block.drum:1 (k 41.15) is in front of sieve.cut1#2:2 (k 61.85) but drawn first   39.13 px² (5.00 px² the other way), up to 4.89 nearer, at 631.8,548.8
+  cycle  share 0  block.drum:1 (k 41.15) is in front of sieve.cut2#2:3 (k 61.87) but drawn first   1.75 px² (57.13 px² the other way), up to 2.12 nearer, at 630.5,549.3
+  cycle  share 0  sieve.toTank.flange (k 7.16) is in front of sieve.cut0#2:0 (k 12.34) but drawn first   6.00 px² (6.63 px² the other way), up to 2.87 nearer, at 641.0,558.3
+  cycle  share 0  sieve.cut0#2.flange (k 6.07) is in front of sieve.toTank.flange (k 7.16) but drawn first   9.94 px² (26.63 px² the other way), up to 1.81 nearer, at 646.0,562.8
+  cycle  share 0  sieve.cut1#2:1 (k 27.27) is in front of sieve.cut2#2:2 (k 32.08) but drawn first   41.50 px² (37.81 px² the other way), up to 3.74 nearer, at 604.5,516.8
+  cycle  share 0  sieve.cut1#2:1 (k 27.27) is in front of sieve.cut3#2:4 (k 61.89) but drawn first   20.19 px² (19.69 px² the other way), up to 4.06 nearer, at 603.3,516.3
+  cycle  share 0  sieve.cut2#2:2 (k 32.08) is in front of sieve.cut3#2:4 (k 61.89) but drawn first   38.19 px² (46.50 px² the other way), up to 5.07 nearer, at 599.0,509.3
+  cycle  share 0  cond.in0:0 (k 75.96) is in front of evap.vapour#2:9 (k 82.50) but drawn first   11.75 px² (28.63 px² the other way), up to 2.09 nearer, at 681.8,229.8
+  cycle  share 0  cond.in0.flange (k 77.51) is in front of evap.vapour#2:9 (k 82.50) but drawn first   11.81 px² (59.56 px² the other way), up to 2.18 nearer, at 674.3,226.3
+  cycle  share 0  cond.in0.flange#2 (k 80.67) is in front of evap.vapour#2:9 (k 82.50) but drawn first   41.94 px² (20.56 px² the other way), up to 3.90 nearer, at 681.8,229.8
+  cycle  share 0  cond.link3:0 (k 73.00) is in front of evap.vapour#2:9 (k 82.50) but drawn first   39.38 px² (7.31 px² the other way), up to 3.46 nearer, at 681.8,229.8
+  cycle  share 0  cond.in0:0 (k 75.96) is in front of evap.vapour#2.flange#2 (k 82.52) but drawn first   19.63 px² (59.44 px² the other way), up to 2.17 nearer, at 685.0,231.8
+  cycle  share 0  cond.in0.flange#2 (k 80.67) is in front of evap.vapour#2.flange#2 (k 82.52) but drawn first   57.81 px² (61.44 px² the other way), up to 4.44 nearer, at 684.3,232.8
+  cycle  share 0  cond.link3:0 (k 73.00) is in front of evap.vapour#2.flange#2 (k 82.52) but drawn first   65.69 px² (33.19 px² the other way), up to 2.21 nearer, at 684.3,232.8
+  cycle  share 0  evap.vapour#2.flange#2 (k 82.52) is in front of cond.link3:1 (k 89.45) but drawn first   0.81 px² (69.88 px² the other way), up to 1.37 nearer, at 681.0,223.0
+  cycle  share 0  cond.in0:0 (k 75.96) is in front of cond.in0.flange (k 77.51) but drawn first   0.31 px² (41.19 px² the other way), up to 1.02 nearer, at 685.0,226.0
+  cycle  share 0  cond.link3:0 (k 73.00) is in front of cond.in0:0 (k 75.96) but drawn first   68.56 px² (42.31 px² the other way), up to 6.23 nearer, at 680.0,223.5
+  cycle  share 0  cond.link3:0 (k 73.00) is in front of cond.in0.flange (k 77.51) but drawn first   38.38 px² (7.75 px² the other way), up to 4.53 nearer, at 683.5,222.8
+  cycle  share 0  cond.link3:0 (k 73.00) is in front of cond.in0.flange#2 (k 80.67) but drawn first   35.38 px² (55.31 px² the other way), up to 2.50 nearer, at 683.5,222.8
+  cycle  share 0  cond.in0.flange#2 (k 80.67) is in front of cond.link3:1 (k 89.45) but drawn first   2.38 px² (90.63 px² the other way), up to 2.34 nearer, at 681.5,232.5
+  cycle  share 0  cond.out.flange (k 46.67) is in front of cond.link1:0 (k 53.02) but drawn first   1.38 px² (60.19 px² the other way), up to 1.79 nearer, at 670.8,336.8
+  cycle  share 0  cond.link1:6 (k 149.29) is in front of cond.link2.flange (k 158.59) but drawn first   12.81 px² (50.81 px² the other way), up to 2.58 nearer, at 850.3,396.5
+  cycle  share 0  cond.out:0 (k 37.04) is in front of cond.link1.flange (k 47.50) but drawn first   12.50 px² (50.63 px² the other way), up to 2.58 nearer, at 673.3,333.3
+  cycle  share 0  cond.out.flange (k 46.67) is in front of cond.link1.flange (k 47.50) but drawn first   32.69 px² (58.75 px² the other way), up to 5.11 nearer, at 673.5,333.3
+  cycle  share 0  cond.link1.flange#2 (k 157.76) is in front of cond.link2:0 (k 164.03) but drawn first   0.94 px² (61.38 px² the other way), up to 1.86 nearer, at 847.0,400.3
+  cycle  share 0  cond.link1.flange#2 (k 157.76) is in front of cond.link2.flange (k 158.59) but drawn first   32.88 px² (58.81 px² the other way), up to 5.22 nearer, at 850.3,396.5
+  cycle  share 0  cond.link3:0 (k 73.00) is in front of cond.link2:6 (k 76.12) but drawn first   2.06 px² (5.06 px² the other way), up to 1.54 nearer, at 677.8,257.5
+  cycle  share 0  cond.link3.flange (k 67.47) is in front of cond.link2:6 (k 76.12) but drawn first   3.63 px² (41.44 px² the other way), up to 1.36 nearer, at 673.8,262.3
+  cycle  share 0  cond.link2.flange#2 (k 67.65) is in front of cond.link3:0 (k 73.00) but drawn first   4.94 px² (39.75 px² the other way), up to 1.88 nearer, at 670.8,259.0
+  cycle  share 0  cond.link3.flange (k 67.47) is in front of cond.link2.flange#2 (k 67.65) but drawn first   46.19 px² (41.38 px² the other way), up to 3.70 nearer, at 680.8,262.3
+  cycle  share 0  cond.header:0 (k 52.78) is in front of cond.condensate0:0 (k 54.64) but drawn first   56.69 px² (19.63 px² the other way), up to 3.66 nearer, at 737.5,376.0
+  cycle  share 0  cond.header.flange (k 50.51) is in front of cond.condensate0:0 (k 54.64) but drawn first   5.00 px² (19.13 px² the other way), up to 2.02 nearer, at 730.5,376.3
+  cycle  share 0  cond.condensate0.flange#2 (k 50.31) is in front of cond.header.flange (k 50.51) but drawn first   17.31 px² (26.69 px² the other way), up to 2.25 nearer, at 737.5,378.0
+  cycle  share 0  vacuum.exh0:0 (k 47.34) is in front of vacuum.exh0.flange (k 48.76) but drawn first   15.94 px² (34.19 px² the other way), up to 2.18 nearer, at 667.3,606.5
+  cycle  share 0  vacuum.toScrubber.flange (k 46.28) is in front of vacuum.exh0:0 (k 47.34) but drawn first   5.13 px² (29.56 px² the other way), up to 1.90 nearer, at 666.5,612.8
+  cycle  share 0  vacuum.toScrubber.flange (k 46.28) is in front of vacuum.exh0.flange (k 48.76) but drawn first   1.56 px² (7.44 px² the other way), up to 1.40 nearer, at 669.0,610.3
+  cycle  share 0  vacuum.exh0.flange#2 (k 46.09) is in front of vacuum.toScrubber:0 (k 62.88) but drawn first   1.19 px² (33.13 px² the other way), up to 0.89 nearer, at 668.8,615.5
+  cycle  share 0  vacuum.exh0.flange#2 (k 46.09) is in front of vacuum.toScrubber.flange (k 46.28) but drawn first   29.56 px² (35.25 px² the other way), up to 2.98 nearer, at 675.0,614.8
+  cycle  share 0  vacuum.exh1:0 (k 69.81) is in front of vacuum.exh1.flange (k 80.62) but drawn first   16.19 px² (33.88 px² the other way), up to 2.18 nearer, at 706.5,629.3
+  cycle  share 0  vacuum.exh1:0 (k 69.81) is in front of vacuum.toScrubber:1 (k 80.60) but drawn first   24.56 px² (5.56 px² the other way), up to 6.64 nearer, at 706.3,629.5
+  cycle  share 0  vacuum.exh1.flange#2 (k 68.56) is in front of vacuum.toScrubber:1 (k 80.60) but drawn first   15.13 px² (54.19 px² the other way), up to 2.20 nearer, at 704.5,639.0
+  cycle  share 0  vacuum.exh2:0 (k 92.28) is in front of vacuum.exh2.flange (k 93.69) but drawn first   17.06 px² (34.56 px² the other way), up to 2.18 nearer, at 745.5,651.8
+  cycle  share 0  vacuum.toScrubber:2 (k 87.96) is in front of vacuum.exh2:0 (k 92.28) but drawn first   5.56 px² (26.56 px² the other way), up to 2.66 nearer, at 753.3,658.5
+  cycle  share 0  vacuum.toScrubber:2 (k 87.96) is in front of vacuum.exh2.flange#2 (k 91.03) but drawn first   54.13 px² (14.88 px² the other way), up to 5.13 nearer, at 755.8,660.5
+  cycle  share 0  feed.recycle:4 (k 44.85) is in front of vacuum.toScrubber.flange (k 46.28) but drawn first   7.38 px² (81.75 px² the other way), up to 2.28 nearer, at 677.5,616.5
+  cycle  share 0  pump.airhose.collar (k -68.67) is in front of pump.airhose:0 (k -64.63) but drawn first   6.06 px² (16.19 px² the other way), up to 1.52 nearer, at 319.3,494.0
+through in mid-flight: 0 pairs
+self-overlap: 17 chunks whose outline crosses itself on screen
+  feed.pipe:1  its outline folds back on screen: the line turns on a 0.82 px radius, under its 4.57 px half-width   at [-130.1, 10.0, 33.1], screen 385.1,448.9
+  feed.membrane:0  its outline folds back on screen: the line turns on a 1.88 px radius, under its 4.57 px half-width   at [-128.7, 30.0, 69.2], screen 355.7,397.3
+  membrane.permeate#2:0  its outline folds back on screen: the line turns on a 2.80 px radius, under its 4.18 px half-width   at [-87.2, 30.0, 56.6], screen 406.5,449.0
+  block.evap:1  its outline folds back on screen: the line turns on a 1.36 px radius, under its 4.18 px half-width   at [88.8, 44.0, 39.2], screen 600.0,612.8
+  block.drum:2  its outline folds back on screen: the line turns on a 2.42 px radius, under its 4.18 px half-width   at [63.9, -35.0, 39.8], screen 693.3,550.3
+  membrane.retentate#2:1  its outline folds back on screen: the line turns on a 1.99 px radius, under its 4.18 px half-width   at [-26.0, 42.6, 46.0], screen 461.5,518.6
+  sieve.toTank:7  its outline folds back on screen: the line turns on a 1.86 px radius, under its 4.37 px half-width   at [140.0, -55.4, 95.6], screen 818.4,494.5
+  sieve.cut0#2:3  its outline folds back on screen: the line turns on a 1.84 px radius, under its 3.18 px half-width   at [64.1, -10.5, 34.0], screen 654.9,574.5
+  sieve.cut1#2:4  its outline folds back on screen: the line turns on a 1.96 px radius, under its 3.18 px half-width   at [88.4, -10.2, 37.5], screen 684.1,585.7
+  sieve.cut2#2:6  its outline folds back on screen: the line turns on a 1.80 px radius, under its 3.18 px half-width   at [111.6, -10.9, 41.0], screen 713.7,595.6
+  sieve.cut3#2:9  its outline folds back on screen: the line turns on a 1.74 px radius, under its 3.18 px half-width   at [136.0, -10.5, 44.5], screen 743.0,607.0
+  evap.vapour#2:7  its outline folds back on screen: the line turns on a 3.02 px radius, under its 5.17 px half-width   at [27.8, -34.9, 240.0], screen 648.7,169.8
+  cond.condensate0:0  its outline folds back on screen: the line turns on a 1.96 px radius, under its 3.58 px half-width   at [50.0, -71.4, 135.3], screen 733.3,351.1
+  cond.condensate1:0  its outline folds back on screen: the line turns on a 1.95 px radius, under its 3.58 px half-width   at [74.0, -71.4, 157.3], screen 762.6,329.2
+  cond.condensate2:0  its outline folds back on screen: the line turns on a 1.92 px radius, under its 3.58 px half-width   at [98.0, -71.4, 179.3], screen 792.0,307.3
+  cond.condensate3:0  its outline folds back on screen: the line turns on a 1.92 px radius, under its 3.58 px half-width   at [122.0, -71.4, 201.3], screen 821.4,285.4
+  cond.coolsupply:1  its outline folds back on screen: the line turns on a 2.62 px radius, under its 3.58 px half-width   at [57.6, -42.3, 236.0], screen 696.7,194.3
+wobble: 0 smoothed profiles whose slope turns between its ends
+saddles off their host apart: 0
+stand-in shapes: 132 items whose recorded shape covers too little of what it draws
+  feed.recycle:1  its shapes cover 1% of its drawing (drawn 247,388,814,664, recorded 761,643,817,664); record the true shape of what you draw
+  feed.recycle:0  its shapes cover 1% of its drawing (drawn 247,388,854,653, recorded 806,629,856,653); record the true shape of what you draw
+  feed.recycle:2  its shapes cover 1% of its drawing (drawn 247,388,769,664, recorded 722,640,773,664); record the true shape of what you draw
+  feed.recycle:3  its shapes cover 1% of its drawing (drawn 247,388,731,650, recorded 691,622,733,650); record the true shape of what you draw
+  feed.recycle:4  its shapes cover 1% of its drawing (drawn 247,388,699,632, recorded 660,604,702,632); record the true shape of what you draw
+  feed.recycle:5  its shapes cover 1% of its drawing (drawn 247,388,668,613, recorded 628,585,670,614); record the true shape of what you draw
+  sieve.cut3#2:2  its shapes cover 1% of its drawing (drawn 594,423,726,639, recorded 594,420,600,472); record the true shape of what you draw
+  feed.recycle:6  its shapes cover 2% of its drawing (drawn 247,388,637,595, recorded 597,567,639,596); record the true shape of what you draw
+  feed.recycle:7  its shapes cover 2% of its drawing (drawn 247,388,605,577, recorded 565,549,608,577); record the true shape of what you draw
+  sieve.cut3#2:3  its shapes cover 2% of its drawing (drawn 594,466,726,639, recorded 594,463,601,515); record the true shape of what you draw
+  cond.out:1  its shapes cover 2% of its drawing (drawn 551,344,658,637, recorded 647,339,658,396); record the true shape of what you draw
+  feed.recycle:8  its shapes cover 2% of its drawing (drawn 247,388,574,559, recorded 534,531,576,559); record the true shape of what you draw
+  cond.out:0  its shapes cover 2% of its drawing (drawn 551,325,678,637, recorded 647,325,679,352); record the true shape of what you draw
+  sieve.cut3#2:0  its shapes cover 2% of its drawing (drawn 603,372,726,639, recorded 601,372,646,387); record the true shape of what you draw
+  sieve.cut3#2:1  its shapes cover 2% of its drawing (drawn 594,380,726,639, recorded 594,380,609,428); record the true shape of what you draw
+  cond.out:2  its shapes cover 2% of its drawing (drawn 551,389,658,637, recorded 647,384,658,441); record the true shape of what you draw
+  feed.recycle:9  its shapes cover 3% of its drawing (drawn 247,388,542,540, recorded 503,512,545,541); record the true shape of what you draw
+  feed.recycle:10  its shapes cover 3% of its drawing (drawn 247,388,511,522, recorded 471,494,513,523); record the true shape of what you draw
+  sieve.cut2#2:1  its shapes cover 3% of its drawing (drawn 598,447,698,622, recorded 598,446,607,500); record the true shape of what you draw
+  cond.out:3  its shapes cover 4% of its drawing (drawn 551,433,658,637, recorded 644,429,658,486); record the true shape of what you draw
+  cond.link2:0  its shapes cover 4% of its drawing (drawn 676,261,857,402, recorded 839,354,857,405); record the true shape of what you draw
+  block.sieve:1  its shapes cover 4% of its drawing (drawn 567,384,674,511, recorded 567,459,575,515); record the true shape of what you draw
+  block.sieve:0  its shapes cover 4% of its drawing (drawn 560,384,674,554, recorded 559,504,575,554); record the true shape of what you draw
+  feed.recycle:11  its shapes cover 5% of its drawing (drawn 247,388,480,504, recorded 440,476,482,504); record the true shape of what you draw
+  block.tank:0  its shapes cover 5% of its drawing (drawn 554,515,785,560, recorded 554,512,563,562); record the true shape of what you draw
+  cond.link1:0  its shapes cover 5% of its drawing (drawn 671,300,852,403, recorded 671,300,689,342); record the true shape of what you draw
+  cond.link3:0  its shapes cover 5% of its drawing (drawn 671,222,852,325, recorded 671,222,689,264); record the true shape of what you draw
+  cond.coolreturn:0  its shapes cover 5% of its drawing (drawn 645,341,815,441, recorded 788,414,815,443); record the true shape of what you draw
+  evap.vapour#2:0  its shapes cover 5% of its drawing (drawn 677,214,727,467, recorded 717,413,727,469); record the true shape of what you draw
+  cond.coolsupply:1  its shapes cover 5% of its drawing (drawn 693,185,826,273, recorded 693,185,715,210); record the true shape of what you draw
+  cond.link1:1  its shapes cover 6% of its drawing (drawn 682,300,852,403, recorded 678,300,717,326); record the true shape of what you draw
+  cond.link3:1  its shapes cover 6% of its drawing (drawn 682,222,852,325, recorded 678,222,717,248); record the true shape of what you draw
+  sieve.cut2#2:0  its shapes cover 6% of its drawing (drawn 600,434,698,622, recorded 600,434,646,454); record the true shape of what you draw
+  block.sieve:2  its shapes cover 6% of its drawing (drawn 567,384,674,466, recorded 567,414,575,470); record the true shape of what you draw
+  block.tank:2  its shapes cover 6% of its drawing (drawn 586,482,785,556, recorded 584,482,635,499); record the true shape of what you draw
+  feed.recycle:12  its shapes cover 6% of its drawing (drawn 247,388,448,486, recorded 408,458,451,486); record the true shape of what you draw
+  cond.link2:1  its shapes cover 6% of its drawing (drawn 676,261,849,364, recorded 811,337,850,366); record the true shape of what you draw
+  evap.vapour#2:1  its shapes cover 6% of its drawing (drawn 677,214,727,421, recorded 717,368,727,425); record the true shape of what you draw
+  cond.coolsupply:0  its shapes cover 6% of its drawing (drawn 705,185,826,273, recorded 703,185,720,224); record the true shape of what you draw
+  feed.recycle:15  its shapes cover 7% of its drawing (drawn 247,334,395,404, recorded 384,332,395,388); record the true shape of what you draw
+  sieve.cut3#2:4  its shapes cover 7% of its drawing (drawn 595,509,726,639, recorded 595,507,629,540); record the true shape of what you draw
+  cond.coolreturn:1  its shapes cover 7% of its drawing (drawn 645,341,795,425, recorded 756,404,797,425); record the true shape of what you draw
+  sieve.toTank:0  its shapes cover 8% of its drawing (drawn 642,494,819,580, recorded 641,553,682,581); record the true shape of what you draw
+  sieve.toTank:1  its shapes cover 8% of its drawing (drawn 674,494,819,599, recorded 672,571,714,599); record the true shape of what you draw
+  feed.recycle:14  its shapes cover 8% of its drawing (drawn 247,380,396,430, recorded 386,376,396,433); record the true shape of what you draw
+  evap.vapour#2:2  its shapes cover 8% of its drawing (drawn 677,214,727,375, recorded 717,322,727,380); record the true shape of what you draw
+  sieve.cut2#2:2  its shapes cover 8% of its drawing (drawn 598,495,698,622, recorded 598,492,619,540); record the true shape of what you draw
+  sieve.toTank:2  its shapes cover 8% of its drawing (drawn 706,494,819,617, recorded 704,590,745,617); record the true shape of what you draw
+  cond.link1:2  its shapes cover 9% of its drawing (drawn 708,316,852,403, recorded 705,315,745,342); record the true shape of what you draw
+  cond.link3:2  its shapes cover 9% of its drawing (drawn 708,238,852,325, recorded 705,237,745,264); record the true shape of what you draw
+  cond.link2:2  its shapes cover 9% of its drawing (drawn 676,261,820,348, recorded 783,321,823,349); record the true shape of what you draw
+  block.tank:3  its shapes cover 9% of its drawing (drawn 627,483,785,556, recorded 624,483,667,505); record the true shape of what you draw
+  sieve.cut3#2:5  its shapes cover 9% of its drawing (drawn 623,533,726,639, recorded 621,533,659,557); record the true shape of what you draw
+  membrane.permeate#2:0  its shapes cover 9% of its drawing (drawn 400,444,528,506, recorded 400,444,423,471); record the true shape of what you draw
+  block.tank:1  its shapes cover 9% of its drawing (drawn 554,490,785,556, recorded 554,490,594,522); record the true shape of what you draw
+  cond.out:4  its shapes cover 9% of its drawing (drawn 551,477,655,637, recorded 607,474,655,506); record the true shape of what you draw
+  feed.recycle:16  its shapes cover 9% of its drawing (drawn 247,328,394,404, recorded 346,328,394,348); record the true shape of what you draw
+  sieve.toTank:3  its shapes cover 10% of its drawing (drawn 737,494,819,635, recorded 735,608,777,635); record the true shape of what you draw
+  membrane.retentate#2:1  its shapes cover 10% of its drawing (drawn 457,510,567,581, recorded 457,510,485,536); record the true shape of what you draw
+  membrane.retentate#2:0  its shapes cover 11% of its drawing (drawn 465,509,567,581, recorded 462,509,483,548); record the true shape of what you draw
+  block.evap:1  its shapes cover 11% of its drawing (drawn 571,563,722,617, recorded 569,594,606,617); record the true shape of what you draw
+  cond.coolsupply:2  its shapes cover 11% of its drawing (drawn 708,202,826,273, recorded 707,202,743,226); record the true shape of what you draw
+  evap.vapour#2:3  its shapes cover 11% of its drawing (drawn 677,214,727,330, recorded 717,277,727,334); record the true shape of what you draw
+  feed.recycle:13  its shapes cover 11% of its drawing (drawn 247,388,417,467, recorded 386,422,419,468); record the true shape of what you draw
+  cond.coolreturn:2  its shapes cover 11% of its drawing (drawn 645,341,762,411, recorded 727,387,764,412); record the true shape of what you draw
+  sieve.toTank:4  its shapes cover 12% of its drawing (drawn 769,494,819,637, recorded 767,601,791,637); record the true shape of what you draw
+  vacuum.toScrubber:2  its shapes cover 13% of its drawing (drawn 727,593,835,670, recorded 724,644,764,671); record the true shape of what you draw
+  vacuum.toScrubber:1  its shapes cover 13% of its drawing (drawn 698,593,835,653, recorded 696,627,735,654); record the true shape of what you draw
+  cond.out:5  its shapes cover 13% of its drawing (drawn 551,496,616,637, recorded 591,495,618,540); record the true shape of what you draw
+  sieve.toTank:5  its shapes cover 13% of its drawing (drawn 782,494,819,608, recorded 782,555,791,611); record the true shape of what you draw
+  cond.link3:3  its shapes cover 13% of its drawing (drawn 736,254,852,325, recorded 733,253,773,281); record the true shape of what you draw
+  cond.link1:3  its shapes cover 13% of its drawing (drawn 736,332,852,403, recorded 733,331,773,359); record the true shape of what you draw
+  cond.link2:3  its shapes cover 13% of its drawing (drawn 676,261,792,332, recorded 755,305,795,332); record the true shape of what you draw
+  block.tank:4  its shapes cover 13% of its drawing (drawn 660,497,785,556, recorded 658,496,695,522); record the true shape of what you draw
+  sieve.cut2#2:3  its shapes cover 14% of its drawing (drawn 613,533,698,622, recorded 611,533,650,558); record the true shape of what you draw
+  sieve.cut1#2:0  its shapes cover 14% of its drawing (drawn 603,496,673,605, recorded 603,495,646,518); record the true shape of what you draw
+  block.evap:0  its shapes cover 14% of its drawing (drawn 564,563,722,602, recorded 564,576,595,603); record the true shape of what you draw
+  membrane.permeate#2:1  its shapes cover 14% of its drawing (drawn 416,450,528,506, recorded 414,449,450,474); record the true shape of what you draw
+  vacuum.toScrubber:3  its shapes cover 14% of its drawing (drawn 756,593,835,686, recorded 753,660,793,687); record the true shape of what you draw
+  vacuum.toScrubber:0  its shapes cover 14% of its drawing (drawn 669,593,835,637, recorded 668,611,706,637); record the true shape of what you draw
+  sieve.cut3#2:6  its shapes cover 14% of its drawing (drawn 653,550,726,639, recorded 651,550,689,574); record the true shape of what you draw
+  sieve.cut1#2:1  its shapes cover 15% of its drawing (drawn 601,511,673,605, recorded 601,509,625,550); record the true shape of what you draw
+  vacuum.toScrubber:4  its shapes cover 17% of its drawing (drawn 785,593,835,687, recorded 782,652,805,687); record the true shape of what you draw
+  feed.recycle:17  its shapes cover 18% of its drawing (drawn 247,338,355,404, recorded 306,338,357,362); record the true shape of what you draw
+  evap.vapour#2:4  its shapes cover 19% of its drawing (drawn 677,214,727,285, recorded 716,231,727,289); record the true shape of what you draw
+  cond.coolsupply:3  its shapes cover 19% of its drawing (drawn 737,219,826,273, recorded 735,218,772,243); record the true shape of what you draw
+  cond.coolreturn:3  its shapes cover 19% of its drawing (drawn 645,341,734,395, recorded 699,371,735,395); record the true shape of what you draw
+  block.sieve:3  its shapes cover 20% of its drawing (drawn 567,384,674,421, recorded 567,395,594,425); record the true shape of what you draw
+  block.evap:2  its shapes cover 20% of its drawing (drawn 597,563,722,609, recorded 597,587,646,612); record the true shape of what you draw
+  membrane.retentate#2:2  its shapes cover 21% of its drawing (drawn 478,528,567,581, recorded 476,527,514,553); record the true shape of what you draw
+  cond.out:6  its shapes cover 21% of its drawing (drawn 551,531,602,637, recorded 576,528,602,574); record the true shape of what you draw
+  cond.link1:4  its shapes cover 22% of its drawing (drawn 764,348,852,403, recorded 761,348,801,375); record the true shape of what you draw
+  cond.link3:4  its shapes cover 22% of its drawing (drawn 764,270,852,325, recorded 761,270,801,297); record the true shape of what you draw
+  cond.link2:4  its shapes cover 22% of its drawing (drawn 676,261,764,316, recorded 727,289,767,316); record the true shape of what you draw
+  vacuum.toScrubber:5  its shapes cover 22% of its drawing (drawn 796,593,835,659, recorded 796,610,806,663); record the true shape of what you draw
+  sieve.toTank:6  its shapes cover 22% of its drawing (drawn 782,494,819,562, recorded 782,510,791,566); record the true shape of what you draw
+  block.tank:5  its shapes cover 23% of its drawing (drawn 688,513,785,556, recorded 686,513,724,538); record the true shape of what you draw
+  membrane.permeate#2:2  its shapes cover 25% of its drawing (drawn 442,465,528,506, recorded 440,465,476,489); record the true shape of what you draw
+  sieve.cut2#2:4  its shapes cover 27% of its drawing (drawn 644,552,698,622, recorded 643,551,682,577); record the true shape of what you draw
+  block.drum:0  its shapes cover 27% of its drawing (drawn 590,532,700,571, recorded 588,548,637,571); record the true shape of what you draw
+  sieve.cut1#2:2  its shapes cover 27% of its drawing (drawn 619,543,673,605, recorded 617,543,654,567); record the true shape of what you draw
+  cond.condensate3:0  its shapes cover 27% of its drawing (drawn 814,281,826,429, recorded 812,281,826,320); record the true shape of what you draw
+  feed.membrane:0  its shapes cover 29% of its drawing (drawn 349,393,374,484, recorded 349,393,373,418); record the true shape of what you draw
+  sieve.cut3#2:7  its shapes cover 30% of its drawing (drawn 683,568,726,639, recorded 681,567,718,592); record the true shape of what you draw
+  sieve.cut0#2:1  its shapes cover 33% of its drawing (drawn 605,546,648,588, recorded 605,546,625,572); record the true shape of what you draw
+  evap.vapour#2:7  its shapes cover 35% of its drawing (drawn 644,159,683,226, recorded 644,158,673,189); record the true shape of what you draw
+  feed.recycle:18  its shapes cover 35% of its drawing (drawn 247,352,315,404, recorded 266,352,317,376); record the true shape of what you draw
+  cond.condensate2:0  its shapes cover 36% of its drawing (drawn 784,303,796,412, recorded 783,303,796,341); record the true shape of what you draw
+  block.sieve:4  its shapes cover 38% of its drawing (drawn 587,384,674,411, recorded 585,395,638,411); record the true shape of what you draw
+  cond.condensate3:1  its shapes cover 39% of its drawing (drawn 819,314,826,429, recorded 819,311,826,357); record the true shape of what you draw
+  cond.coolreturn:4  its shapes cover 39% of its drawing (drawn 645,341,705,378, recorded 670,354,707,379); record the true shape of what you draw
+  cond.coolsupply:4  its shapes cover 39% of its drawing (drawn 765,235,826,273, recorded 764,235,800,259); record the true shape of what you draw
+  membrane.permeate#2:3  its shapes cover 40% of its drawing (drawn 469,477,528,506, recorded 467,476,513,491); record the true shape of what you draw
+  block.evap:3  its shapes cover 41% of its drawing (drawn 638,563,722,596, recorded 636,573,685,596); record the true shape of what you draw
+  cond.out:7  its shapes cover 43% of its drawing (drawn 551,565,587,637, recorded 561,562,587,607); record the true shape of what you draw
+  membrane.retentate#2:3  its shapes cover 43% of its drawing (drawn 507,544,567,581, recorded 504,544,543,570); record the true shape of what you draw
+  cond.link1:5  its shapes cover 44% of its drawing (drawn 792,364,852,403, recorded 789,364,828,391); record the true shape of what you draw
+  cond.link3:5  its shapes cover 44% of its drawing (drawn 792,286,852,325, recorded 789,286,828,313); record the true shape of what you draw
+  cond.link2:5  its shapes cover 44% of its drawing (drawn 676,261,737,299, recorded 700,273,739,300); record the true shape of what you draw
+  carbon.out:0  its shapes cover 45% of its drawing (drawn 530,519,567,549, recorded 532,519,568,533); record the true shape of what you draw
+  evap.vapour#2:8  its shapes cover 47% of its drawing (drawn 652,155,683,226, recorded 649,155,682,188); record the true shape of what you draw
+  sieve.cut3#2:8  its shapes cover 47% of its drawing (drawn 712,585,746,639, recorded 711,585,746,610); record the true shape of what you draw
+  sieve.cut2#2:5  its shapes cover 50% of its drawing (drawn 676,570,712,622, recorded 674,570,713,595); record the true shape of what you draw
+  block.tank:6  its shapes cover 51% of its drawing (drawn 716,530,785,556, recorded 714,529,752,555); record the true shape of what you draw
+  cond.condensate1:0  its shapes cover 54% of its drawing (drawn 755,325,767,395, recorded 754,325,767,362); record the true shape of what you draw
+  sieve.cut0#2:0  its shapes cover 54% of its drawing (drawn 606,558,648,588, recorded 606,558,646,574); record the true shape of what you draw
+  sieve.cut1#2:3  its shapes cover 55% of its drawing (drawn 648,560,681,605, recorded 646,560,683,584); record the true shape of what you draw
+  cond.header:0  its shapes cover 57% of its drawing (drawn 697,361,741,383, recorded 717,361,741,383); record the true shape of what you draw
+  cond.condensate3:2  its shapes cover 57% of its drawing (drawn 819,351,826,429, recorded 819,348,826,394); record the true shape of what you draw
+  cond.condensate2:1  its shapes cover 57% of its drawing (drawn 789,335,796,412, recorded 789,332,796,378); record the true shape of what you draw
+  block.drum:1  its shapes cover 57% of its drawing (drawn 630,532,700,557, recorded 627,538,681,557); record the true shape of what you draw
+  feed.membrane:1  its shapes cover 58% of its drawing (drawn 364,410,374,484, recorded 364,407,373,454); record the true shape of what you draw
+crowding: 18 pairs where a bend or end touches another line on screen
+  share 0  sieve.cut1#2 bend  ×  cond.out   outlines overlap 0.00 px, 21.12 apart in depth   at screen 636.9,499.5
+  share 0  cond.condensate0 start  ×  cond.shell0 (rod)   outlines overlap 0.01 px, 15.70 apart in depth   at screen 730.5,350.7
+  share 0  cond.condensate1 start  ×  cond.shell2 (rod)   outlines 0.02 apart px, 32.98 apart in depth   at screen 758.4,329.3
+  share 0  cond.condensate2 start  ×  cond.shell3 (rod)   outlines overlap 0.03 px, 33.41 apart in depth   at screen 787.8,307.4
+  share 0  cond.condensate0 start  ×  cond.shell1 (rod)   outlines 0.06 apart px, 32.58 apart in depth   at screen 729.0,351.2
+  share 0  sieve.cut2#2 bend  ×  sieve.cut3#2   outlines overlap 0.07 px, 2.28 apart in depth   at screen 713.5,594.8
+  share 0  cond.condensate0 start  ×  evap.vapour#2   outlines overlap 0.10 px, 60.53 apart in depth   at screen 730.5,350.7
+  share 0  sieve.cut0#2 bend  ×  sieve.cut1#2   outlines overlap 0.12 px, 2.20 apart in depth   at screen 654.7,573.0
+  share 0  sieve.cut0#2 end  ×  block.evap   outlines overlap 0.13 px, 31.54 apart in depth   at screen 637.7,584.7
+  share 0  sieve.cut1#2 bend  ×  sieve.cut2#2   outlines 0.16 apart px, 2.07 apart in depth   at screen 684.2,584.3
+  share 0  pump.airhose start  ×  membrane.tie1 (rod)   outlines 0.18 apart px, 18.56 apart in depth   at screen 313.2,493.1
+  share 0  sieve.cut1#2 bend  ×  block.evap   outlines 0.61 apart px, 6.66 apart in depth   at screen 684.2,584.3
+  share 0  sieve.cut0#2 bend  ×  block.drum   outlines 0.79 apart px, 34.71 apart in depth   at screen 610.0,569.3
+  share 0  cond.coolreturn bend  ×  cond.shell0 (rod)   outlines overlap 1.35 px, 18.16 apart in depth   at screen 783.8,420.5
+  share 0  sieve.toTank end  ×  tank.shell (rod)   outlines overlap 1.53 px, 9.66 apart in depth   at screen 817.3,494.0
+  share 0  evap.vapour#2 start  ×  evap.shell (rod)   outlines overlap 2.90 px, 15.46 apart in depth   at screen 721.9,459.9
+  share 0  sieve.cut2#2 bend  ×  sieve.toTank   outlines overlap 7.12 px, 46.33 apart in depth   at screen 713.3,597.0
+  share 0  membrane.retentate#2 bend  ×  membrane.shell (rod)   outlines overlap 9.92 px, 28.54 apart in depth   at screen 463.7,515.8
+items with no shape: 69  pump.motorribs, strainer.bolts, feed.dp.ticks, feed.dp.needle, feed.drumlevel, feed.drumplate.rules, membrane.dp.ticks, membrane.dp.needle, membrane.plate.rules, carbon.media, carbon.plate.rules, block.v1.lever, block.v2.lever, sieve.media0, sieve.seams0, sieve.cut0.lever, sieve.media1, sieve.seams1, sieve.cut1.lever, sieve.media2
+audit · 37 tubes · 328 solids · 567 items · 1 depth states · 1901 overlaps · 1681 order rules · 8.0 s
+audit failed: 928 problems
+EXIT 1

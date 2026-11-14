@@ -1,0 +1,37 @@
+name: deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      # The figure is built from the anatomy kit in this repo: no npm, no install.
+      - name: Build the figure
+        run: |
+          node figures/skid/build.mjs
+          node figures/skid/build.mjs --light
+          node figures/skid/build-index.mjs
+          cp figures/skid/skid.html deploy/public/skid.html
+          cp figures/skid/skid-light.html deploy/public/skid-light.html
+
+      - name: Check that every line in the drawing ends on something
+        run: node scripts/lines.mjs deploy/public/skid-light.html
+
+      - name: Deploy to Cloudflare
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          workingDirectory: deploy
+          command: deploy

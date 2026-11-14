@@ -1,0 +1,108 @@
+.iso {
+  --sk-feed: #e2a45c;
+  --sk-solvent: #74a4ff;
+  --sk-product: #6fe0a4;
+  --sk-vapour: #b892ff;
+  --sk-waste: #9a9a9a;
+  --sk-screen: #0d1418;
+  --sk-screen-ink: #9fe8c8;
+  --sk-plate: #1b1b1b;
+  --sk-m3a: #6e6a58;
+  --sk-m4a: #5b6670;
+  --sk-m5a: #6d6066;
+  --sk-m13x: #6f6449;
+  --sk-mcarbon: #2b2b2b;
+  --sk-mzeolite: #5c646c;
+  --sk-mwater: #4d6a78;
+  --sk-mlight: #5d6b62;
+  --sk-mparaffin: #6b6250;
+  --sk-mheavy: #5a4a4a;
+  --sk-moil: #6a5638;
+  --sk-msolvent: #3f5a72;
+}
+.iso[data-theme="dark"] {
+  --anatomy-shade-0: #080808;
+  --anatomy-shade-1: #0f0f0f;
+  --anatomy-shade-2: #181818;
+  --anatomy-shade-3: #232323;
+  --anatomy-top: #282828;
+  --anatomy-face: #232323;
+  --anatomy-paper: #131313;
+}
+.iso[data-theme="light"] {
+  --sk-feed: #b0711d;
+  --sk-solvent: #2f5fd0;
+  --sk-product: #1f8a5c;
+  --sk-vapour: #7145c4;
+  --sk-waste: #6b6b6b;
+  --sk-screen: #f4f1e8;
+  --sk-screen-ink: #1c4b38;
+  --sk-plate: #ffffff;
+  --sk-m3a: #ded7c2;
+  --sk-m4a: #d3dae0;
+  --sk-m5a: #e0d5d8;
+  --sk-m13x: #e2d9c1;
+  --sk-mcarbon: #3a3a3a;
+  --sk-mzeolite: #d2d8de;
+  --sk-mwater: #cfdee6;
+  --sk-mlight: #d9e2da;
+  --sk-mparaffin: #e0d9c6;
+  --sk-mheavy: #ded0d0;
+  --sk-moil: #e0cfae;
+  --sk-msolvent: #d3e0ea;
+}
+.sk-media { fill: var(--sk-m3a); stroke: none; }
+.sk-media[data-media="3a"] { fill: var(--sk-m3a); }
+.sk-media[data-media="4a"] { fill: var(--sk-m4a); }
+.sk-media[data-media="5a"] { fill: var(--sk-m5a); }
+.sk-media[data-media="13x"] { fill: var(--sk-m13x); }
+.sk-media[data-media="carbon"] { fill: var(--sk-mcarbon); }
+.sk-media[data-media="zeolite"] { fill: var(--sk-mzeolite); }
+.sk-media[data-media="water"] { fill: var(--sk-mwater); }
+.sk-media[data-media="light"] { fill: var(--sk-mlight); }
+.sk-media[data-media="paraffin"] { fill: var(--sk-mparaffin); }
+.sk-media[data-media="heavy"] { fill: var(--sk-mheavy); }
+.sk-media[data-media="oil"] { fill: var(--sk-moil); }
+.sk-media[data-media="solvent"] { fill: var(--sk-msolvent); }
+.sk-media[data-media="feed"] { fill: var(--sk-feed); opacity: .45; }
+.iso-swatch[data-mark="amber"] path { stroke: var(--sk-feed); }
+.iso-swatch[data-mark="violet"] path { stroke: var(--sk-vapour); }
+.iso-swatch[data-mark="blue"] path { stroke: var(--sk-solvent); }
+.sk-plate { fill: var(--sk-plate); }
+.sk-screen { fill: var(--sk-screen); }
+.sk-screen-text { fill: var(--sk-screen-ink); font-family: var(--anatomy-mono); font-size: 3.4px; letter-spacing: .08em; }
+.sk-flow {
+  fill: none;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-dasharray: 2 7;
+  animation: iso-flow 1400ms linear infinite;
+  transition: opacity .5s var(--anatomy-ease);
+}
+.sk-flow[data-stream="feed"] { stroke: var(--sk-feed); }
+.sk-flow[data-stream="solvent"] { stroke: var(--sk-solvent); }
+.sk-flow[data-stream="product"] { stroke: var(--sk-product); }
+.sk-flow[data-stream="vapour"] { stroke: var(--sk-vapour); }
+.sk-flow[data-stream="waste"] { stroke: var(--sk-waste); }
+.iso-svg[data-mode="solvent"] .sk-flow:not([data-modes~="solvent"]),
+.iso-svg[data-mode="product"] .sk-flow:not([data-modes~="product"]) { opacity: .13; }
+.sk-lever, .sk-lever-grip { stroke-linecap: round; }
+.sk-lever-grip { stroke: var(--anatomy-hi); }
+.sk-controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 16px 0 0; }
+.sk-btn {
+  appearance: none;
+  border: 1px solid var(--anatomy-mid);
+  background: transparent;
+  color: var(--anatomy-text);
+  font: 11px/1 var(--anatomy-mono);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+.sk-btn:hover { color: var(--anatomy-strong); border-color: var(--anatomy-strong); }
+.sk-btn[aria-pressed="true"] { color: var(--anatomy-lit); border-color: var(--anatomy-lit); background: color-mix(in srgb, var(--anatomy-lit) 12%, transparent); }
+.sk-sep { width: 1px; height: 20px; background: var(--anatomy-faint); }
+.sk-live { color: var(--anatomy-muted); font-size: 12px; margin-left: auto; }
+.sk-stage:focus-visible { outline: 1px solid var(--anatomy-muted); outline-offset: 6px; }
+@media (prefers-reduced-motion: reduce) { .sk-flow { animation: none; } }
