@@ -30,12 +30,12 @@ jobs:
         continue-on-error: true
         run: node scripts/lines.mjs deploy/public/skid-light.html
 
-      # Needs a Cloudflare API token in the repo secret
-      # CLOUDFLARE_API_TOKEN (dash.cloudflare.com -> Profile -> API Tokens ->
-      # "Edit Cloudflare Workers"), added with:
+      # Needs a Cloudflare API token in the repo secret CLOUDFLARE_API_TOKEN
+      # (dash.cloudflare.com -> Profile -> API Tokens -> "Edit Cloudflare
+      # Workers"), added with:
       #   gh secret set CLOUDFLARE_API_TOKEN --repo lifecycleResearch/solvent-skid-sr2
       - name: Deploy to Cloudflare
-        if: ${{ secrets.CLOUDFLARE_API_TOKEN !=  }}
+        if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
