@@ -885,6 +885,9 @@ const LIVE = MODEL_SRC + readFileSync(join(HERE, "live.js"), "utf8").replace("__
 const page = k.pageHtml({ title: "Solvent recovery skid SR-2", theme: THEME, body: `<style>${CSS}</style>${body}`, script: kitScript() + LIVE, width: 1180 });
 const name = THEME === "light" ? "skid-light.html" : "skid.html";
 writeFileSync(join(HERE, name), page);
+// The deploy reads from deploy/public, so the page goes there too: a builder
+// that is not the CI should not have to know that.
+writeFileSync(join(ROOT, "deploy", "public", name), page);
 console.log("wrote", name, `${(page.length / 1024).toFixed(0)} KB`, `${items.length} items`, `${ROUTES.length} routes`);
 
 // The description, as JSON: the page carries it inline, and the Worker serves
