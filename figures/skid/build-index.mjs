@@ -29,7 +29,7 @@ const toggle = `<script>
     a.className="sk-alt";
     a.href="/blend.html";
     a.textContent="the sub-zero blend scenario \u2192";
-    a.style.cssText="position:fixed;left:14px;bottom:14px;z-index:9;font:11px/1 var(--anatomy-mono);letter-spacing:.08em;color:var(--anatomy-muted);text-decoration:none;border-bottom:1px solid var(--anatomy-faint);padding-bottom:3px";
+    a.style.cssText="position:fixed;left:14px;bottom:58px;z-index:9;font:11px/1 var(--anatomy-mono);letter-spacing:.08em;color:var(--anatomy-muted);text-decoration:none;border-bottom:1px solid var(--anatomy-faint);padding-bottom:3px";
     document.body.appendChild(a);
   });
 })();
