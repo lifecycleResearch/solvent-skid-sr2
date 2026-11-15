@@ -32,6 +32,9 @@ jobs:
         continue-on-error: true
         run: node scripts/lines.mjs deploy/public/skid-light.html
 
+      - name: Test the Worker's API
+        run: node --test deploy/worker.test.mjs
+
       - name: Check the description the chatbot answers from
         run: node -e "const c=require('./deploy/public/skid-context.json'); if(!c.prompt||c.equipment.length<10) { console.error('the context is short'); process.exit(1);} console.log('context ok:', c.equipment.length, 'items,', c.beds.length, 'beds,', c.prompt.length, 'byte prompt')"
 

@@ -67,11 +67,13 @@ network_policies:
   github:
     name: github-readonly
     endpoints:
+      # git's smart HTTP fetches with a POST, so these are read-write: the
+      # policy can allow the fetch but the token has no write scope.
       - host: github.com
         port: 443
         protocol: rest
         enforcement: enforce
-        access: read-only
+        access: read-write
       - host: api.github.com
         port: 443
         protocol: rest
@@ -81,12 +83,12 @@ network_policies:
         port: 443
         protocol: rest
         enforcement: enforce
-        access: read-only
+        access: read-write
       - host: codeload.github.com
         port: 443
         protocol: rest
         enforcement: enforce
-        access: read-only
+        access: read-write
     binaries:
       - { path: /usr/bin/git }
       - { path: /usr/local/bin/git }
