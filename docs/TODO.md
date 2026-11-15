@@ -46,17 +46,25 @@ numbers in it are consistent by construction and the balance closes to 0 %.
 
 ## C. The generator (L1)
 
+**Done:** `figures/lib/scene.mjs` (one renderer, used by the build and by the
+page), `figures/lib/spec-scene.mjs` (the layout: the chain is laid out as a
+serpentine, the vessels are sized from the spec, the pipes are routed and
+tagged), `figures/blend/build.mjs` (the spec -> the page) and
+`figures/blend/live.js` (turning and filtering). The nameplates are placed in
+screen space, because text on an isometric face reads the wrong way round at
+half the angles.
+
 | # | Task | Done when | Est |
 |---|---|---|---|
-| C1 | `figures/lib/vessel.mjs` — drum, column, shell-and-tube, vessel with jacket | a spec vessel draws itself, with a label and a size | 6 h |
-| C2 | `figures/lib/piping.mjs` — runs, spools, tri-clamp flanges, insulation | runs connect two vessels, with the spool size on the label | 5 h |
-| C3 | `figures/lib/instrument.mjs` — gauges, valves, pumps, heat exchangers | the instruments in the skid come from the spec | 5 h |
-| C4 | `figures/lib/label.mjs` — the nameplate: name, ID, size, material | every item carries its name and its unique ID | 3 h |
-| C5 | The **material register** — a table of every material, ID, CAS, grade, lot, function | it is in the page and in `/api/context` | 3 h |
-| C6 | The **filters** — by compound, by function, by colour, by material | one click dims everything not in the filter, and the readout says what is on | 5 h |
-| C7 | The **rotation** — turn groups, buttons and drag | the plant turns; the audit still passes | 6 h |
-| C8 | The **SOP panel** — the steps, the units, the acceptance criteria, beside the figure | the SOP is readable without leaving the page | 4 h |
-| C9 | Re-point `figures/skid/build.mjs` at the generator | the skid's drawing is unchanged, byte for byte where it matters | 8 h |
+| C1 | `figures/lib/vessel.mjs` — drum, column, shell-and-tube, vessel with jacket | **done** (in `scene.mjs`): the vessel kinds the spec uses are drawn, with their jacket and their media | 6 h |
+| C2 | `figures/lib/piping.mjs` — runs, spools, tri-clamp flanges, insulation | **done**: the runs are routed, flanged and labelled with the spool size | 5 h |
+| C3 | `figures/lib/instrument.mjs` — gauges, valves, pumps, heat exchangers | the instruments in the spec are drawn; the gauge and the valve are not yet | 5 h |
+| C4 | `figures/lib/label.mjs` — the nameplate: name, ID, size, material | **done**: the nameplate, the stream label and the target call-out | 3 h |
+| C5 | The **material register** — a table of every material, ID, CAS, grade, lot, function | **done** in the SOP panel | 3 h |
+| C6 | The **filters** — by compound, by function, by colour, by material | **done** for compound, function and colour; the material filter is the same code with one more tag | 5 h |
+| C7 | The **rotation** — turn groups, buttons and drag | **done**: the buttons and the arrow keys turn the plant; a drag is still to come | 6 h |
+| C8 | The **SOP panel** — the steps, the units, the acceptance criteria, beside the figure | **done**: the steps, the acceptance criteria, the registers and the open assumptions | 4 h |
+| C9 | Re-point `figures/skid/build.mjs` at the generator | **not done**: the skid is still hand-drawn geometry. The generator proves itself on the second figure first | 8 h |
 | C10 | Make the audit baseline clean | the generator adds 0 new problems; the existing 49/53/225/187/15 either fixed or explicitly waived | 20 h |
 
 ## D. The context and the chatbot (L2)

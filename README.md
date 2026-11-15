@@ -78,6 +78,33 @@ curl -N https://solvent-skid-sr2.lifecyclerd.workers.dev/api/chat \
 uses it when the request carries the shared secret
 (`x-chat-secret`), so a deployed key is never spent by a stranger.
 
+## The template: a spec, drawn
+
+The skid is the first instance of a template. The second instance is the
+worked example, **/blend.html**: the sub-zero blend extraction, drawn from
+`spec/subzero-blend.json` and nothing else.
+
+```bash
+node figures/blend/build.mjs      # the spec -> the drawing
+```
+
+* **Turn it.** The arrows turn the plant. A turn is a redraw: the page holds
+  the scene and the drawing code, so the plant is recomputed from its geometry
+  at the new angle, not turned as a picture.
+* **Filter it.** By compound (which parts of the plant touch the CBD), by
+  function (heat exchange, storage, reaction, separation, pipe runs,
+  filtration) or by colour. What is not in the filter is dimmed, not hidden:
+  the plant is still there, the reader is looking at one part of it.
+* **Name everything.** Every vessel carries its name, its identifier, its
+  volume and its material of construction. Every pipe carries the stream and
+  the tri-clamp spool size. The SOP panel holds the steps, their acceptance
+  criteria, the material register, the vessel register and the assumptions
+  that are still open.
+
+The drawing code lives in `figures/lib/scene.mjs` and is used twice: by the
+build, to draw the static page, and by the page, to redraw it. One renderer,
+so the two can never disagree.
+
 ## The spec and the simulation
 
 The skid is the first instance of a template: an experiment written down as

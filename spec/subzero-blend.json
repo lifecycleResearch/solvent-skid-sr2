@@ -514,7 +514,8 @@
         "unit": "L/h"
       },
       "medium": "MAT-0100",
-      "name": "Carrier to extraction"
+      "name": "Carrier to extraction",
+      "stream": "S-201"
     },
     {
       "id": "P-1002",
@@ -534,7 +535,8 @@
         "unit": "L/h"
       },
       "medium": "MAT-0100",
-      "name": "Extract to filter"
+      "name": "Extract to filter",
+      "stream": "S-202"
     },
     {
       "id": "P-1003",
@@ -554,7 +556,8 @@
         "unit": "L/h"
       },
       "medium": "MAT-0100",
-      "name": "Filtrate to crystalliser"
+      "name": "Filtrate to crystalliser",
+      "stream": "S-202b"
     },
     {
       "id": "P-1004",
@@ -574,7 +577,8 @@
         "unit": "L/h"
       },
       "medium": "MAT-0100",
-      "name": "Mother liquor to tank"
+      "name": "Mother liquor to tank",
+      "stream": "S-203"
     },
     {
       "id": "P-1005",
@@ -594,7 +598,8 @@
         "unit": "L/h"
       },
       "medium": "MAT-0100",
-      "name": "Mother liquor to evaporator"
+      "name": "Mother liquor to evaporator",
+      "stream": "S-208"
     },
     {
       "id": "P-1006",
@@ -614,7 +619,8 @@
         "unit": "L/h"
       },
       "medium": "MAT-0100",
-      "name": "Vapour to condenser"
+      "name": "Vapour to condenser",
+      "stream": "S-205"
     },
     {
       "id": "P-1007",
@@ -634,7 +640,8 @@
         "unit": "L/h"
       },
       "medium": "MAT-0100",
-      "name": "Condensate to recovered carrier"
+      "name": "Condensate to recovered carrier",
+      "stream": "S-206"
     },
     {
       "id": "P-1008",
@@ -654,7 +661,8 @@
         "unit": "L/h"
       },
       "medium": "MAT-0100",
-      "name": "Recovered carrier to day tank"
+      "name": "Recovered carrier to day tank",
+      "stream": "S-207b"
     },
     {
       "id": "P-1009",
@@ -674,7 +682,8 @@
         "unit": "L/h"
       },
       "medium": "MAT-0100",
-      "name": "Non-condensables to scrubber"
+      "name": "Non-condensables to scrubber",
+      "stream": "S-209"
     },
     {
       "id": "P-1010",
@@ -694,7 +703,8 @@
         "unit": "L/h"
       },
       "medium": "MAT-0042",
-      "name": "Cake to product drum"
+      "name": "Cake to product drum",
+      "stream": "S-204"
     },
     {
       "id": "P-1011",

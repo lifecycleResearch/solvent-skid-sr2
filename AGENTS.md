@@ -44,6 +44,9 @@ cd deploy && wrangler deploy
 | Path | What |
 |---|---|
 | `figures/skid/` | the build, the model (the truth), the context, the live script, the chatbot |
+| `figures/lib/` | the scene and the renderer: one drawing code, used by the build and by the page |
+| `figures/blend/` | the spec-driven figure: the layout, the turning, the filters, the SOP panel |
+| `spec/` | the experiment as data, the validator and the unit table |
 | `kit/`, `scripts/` | the anatomy kit, vendored so CI can rebuild without npm |
 | `deploy/` | the Worker, the describer, the search, the router, the grader, the assets |
 | `agents/providers.json` | the provider table: cost, limits, capabilities |

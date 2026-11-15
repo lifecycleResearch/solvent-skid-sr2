@@ -1,0 +1,20 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+body{margin:0;background:#fff;font-family:system-ui}
+.row{display:flex}
+figure{margin:0;padding:8px}
+</style></head><body>
+<div class="row" id="row"></div>
+<script type="module">
+import * as k from "/kit/iso-kit.mjs";
+const row = document.getElementById("row");
+for (const face of ["left","right"]) {
+  for (const az of [38, 120, 200]) {
+    const P = k.fitProjection([[0,0,0],[200,0,0],[0,0,200]], 500, 400, { pad: 30, azimuth: az, elevation: 27 });
+    const m = k.sideMatrix([100, 0], 100, P, face);
+    const svg = k.figureSvg({width:500,height:400,body:`<path class="iso-fill" d="${k.cylinder(100,0,60,0,200,P,32).fill}"/><text class="iso-face-text" transform="${m}" font-size="18" text-anchor="middle">${face} az${az} FaceText</text>`});
+    const fig = document.createElement("figure");
+    fig.innerHTML = svg;
+    row.appendChild(fig);
+  }
+}
+</script></body></html>

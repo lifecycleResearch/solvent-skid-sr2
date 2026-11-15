@@ -10,6 +10,7 @@ const light = join(ROOT, "figures", "skid", "skid-light.html");
 const index = join(ROOT, "deploy", "public", "index.html");
 const context = join(ROOT, "deploy", "public", "skid-context.json");
 
+const link = `<a class="sk-alt" href="/blend.html">the sub-zero blend scenario \u2192</a>`;
 const toggle = `<script>
 (function(){
   var b=document.createElement("button");
@@ -22,7 +23,15 @@ const toggle = `<script>
     document.body.dataset.theme=dark?"dark":"light";
     b.textContent=dark?"light":"dark";
   };
-  document.addEventListener("DOMContentLoaded",function(){document.body.appendChild(b);});
+  document.addEventListener("DOMContentLoaded",function(){
+    document.body.appendChild(b);
+    var a=document.createElement("a");
+    a.className="sk-alt";
+    a.href="/blend.html";
+    a.textContent="the sub-zero blend scenario \u2192";
+    a.style.cssText="position:fixed;left:14px;bottom:14px;z-index:9;font:11px/1 var(--anatomy-mono);letter-spacing:.08em;color:var(--anatomy-muted);text-decoration:none;border-bottom:1px solid var(--anatomy-faint);padding-bottom:3px";
+    document.body.appendChild(a);
+  });
 })();
 </script>`;
 

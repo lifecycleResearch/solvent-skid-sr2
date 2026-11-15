@@ -1,0 +1,163 @@
+/* The spec-driven figure: the filters, the SOP panel and the register. */
+
+.sk-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 10px 0 4px;
+}
+.sk-filters[hidden] { display: none; }
+.sk-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--anatomy-faint);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--anatomy-muted);
+  font: 10px/1 var(--anatomy-mono);
+  letter-spacing: 0.04em;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+.sk-chip[aria-pressed="true"] {
+  border-color: var(--anatomy-hi);
+  color: var(--anatomy-strong);
+}
+.sk-chip i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 1px solid var(--anatomy-mid);
+  display: inline-block;
+}
+
+/* A filter dims what is not in it, rather than hiding it: the plant is
+   still there, the reader is just looking at one part of it. */
+[data-filtering] .it[data-active="false"] {
+  opacity: 0.1;
+}
+[data-filtering] .it[data-active="true"] .iso-fill {
+  stroke: var(--anatomy-hi);
+  stroke-width: 0.9px;
+}
+
+.sk-flow {
+  fill: none;
+  stroke: var(--sk-flow-line, #74a4ff);
+  stroke-width: 1.1;
+  stroke-dasharray: 4 6;
+  opacity: 0.4;
+  animation: sk-flow 1.4s linear infinite;
+}
+@keyframes sk-flow {
+  to { stroke-dashoffset: -18; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sk-flow { animation: none; }
+}
+.iso[data-theme="light"] .sk-flow { --sk-flow-line: #2f5fd0; }
+
+.sk-stage { position: relative; }
+
+/* The nameplates, in screen space over the drawing. */
+.sk-labels {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.sk-label {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  white-space: pre-line;
+  text-align: center;
+  font: 500 10px/1.25 var(--anatomy-mono);
+  letter-spacing: 0.02em;
+  color: var(--anatomy-text);
+  text-shadow: 0 0 3px var(--anatomy-paper), 0 0 6px var(--anatomy-paper);
+}
+.sk-label-name {
+  font-weight: 600;
+  color: var(--anatomy-strong);
+}
+.sk-label-stream {
+  font-size: 9px;
+  color: var(--anatomy-muted);
+  opacity: 0.85;
+}
+[data-filtering] .sk-label[data-active="false"] {
+  opacity: 0.18;
+}
+
+/* The SOP panel. */
+.sk-sop {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 28px;
+  margin-top: 22px;
+  padding: 20px 22px;
+  border: 1px solid var(--anatomy-faint);
+  border-radius: 10px;
+  background: var(--anatomy-card);
+}
+.sk-sop[hidden] { display: none; }
+.sk-sop h3 {
+  margin: 0 0 8px;
+  font: 600 11px/1 var(--anatomy-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--anatomy-strong);
+}
+.sk-sop h3:not(:first-child) { margin-top: 20px; }
+.sk-sop-title {
+  margin: 0 0 12px;
+  font-size: 13px;
+  color: var(--anatomy-text);
+}
+.sk-sop-steps {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.sk-sop-steps li { margin-bottom: 9px; }
+.sk-sop-steps em,
+.sk-assumptions em {
+  display: block;
+  margin-top: 3px;
+  font-style: normal;
+  font: 11px/1.5 var(--anatomy-mono);
+  color: var(--anatomy-muted);
+}
+.sk-sop-id {
+  font: 10px/1 var(--anatomy-mono);
+  letter-spacing: 0.06em;
+  color: var(--anatomy-muted);
+  border: 1px solid var(--anatomy-faint);
+  border-radius: 3px;
+  padding: 2px 4px;
+  margin-right: 4px;
+}
+.sk-register {
+  width: 100%;
+  border-collapse: collapse;
+  font: 11px/1.5 var(--anatomy-mono);
+}
+.sk-register th,
+.sk-register td {
+  border-bottom: 1px solid var(--anatomy-faint);
+  padding: 4px 6px;
+  text-align: left;
+  vertical-align: top;
+}
+.sk-register th {
+  color: var(--anatomy-strong);
+  font-weight: 600;
+}
+.sk-assumptions {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.sk-assumptions li { margin-bottom: 7px; }
