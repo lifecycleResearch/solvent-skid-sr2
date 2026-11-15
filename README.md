@@ -1,8 +1,8 @@
 # Solvent recovery skid SR-2
 
 An interactive isometric figure of a solvent-recovery and fractionation skid for
-botanical extraction, built with the **anatomy** skill's kit (in `kit/`) and
-deployed to Cloudflare as a static-asset Worker.
+botanical extraction, built with the **anatomy** skill's kit (in `kit/`), with a
+chatbot that knows the plant, deployed to Cloudflare.
 
 **Live:** https://solvent-skid-sr2.lifecyclerd.workers.dev
 (light theme with a dark switch · `/skid.html` dark · `/skid-light.html` light)
@@ -31,16 +31,79 @@ its can. Clicking a bed or a button does the same thing. The readout's boil
 temperature follows ethanol's vapour pressure (`ln P = 21.446 − 5105/T`): 35 mbar
 boils at +12 °C, 8 mbar at −10 °C, 1.5 mbar at −31 °C.
 
+## The chatbot
+
+The figure carries a plant engineer in the corner: **Ask the skid**.
+
+* **Local describer** (the default, no key, no network) — answers from the
+  plant's own numbers: the two setups, the sieve cuts, the vacuum sets, the
+  membrane, the condenser bank, the scrubber, the controls and the audit.
+* **Gemini** or **OpenAI-compatible** — put your own key in the ⚙ panel
+  (BYOK). The key is kept in that browser's `localStorage` and is sent only
+  with the request that needs it; it is never in the figure or the repository.
+
+The chat knows what the drawing is showing: every turn carries the current
+setup, vacuum stage and which beds are cut, so the answers match the picture.
+It can also drop the whole conversation as Markdown notes (**download notes**).
+
+## The API
+
+The same description is an API, so anything can ask the plant questions:
+
+| | |
+|---|---|
+| `GET /api/context` | the plant's description, as JSON (`figures/skid/context.mjs` is the source) |
+| `GET /api/describe?q=…` | the same, in prose; `?q=` asks a question |
+| `POST /api/chat` | a chat completion, streamed back as SSE |
+| `GET /api/health` | what the Worker can do, and which keys it holds |
+| `POST /api/agent` | forwarded to the agent gateway, if one is configured |
+
+```bash
+curl https://solvent-skid-sr2.lifecyclerd.workers.dev/api/context | jq .summary
+curl -s "https://solvent-skid-sr2.lifecyclerd.workers.dev/api/describe?q=what+does+the+13X+bed+take" | jq -r .answer
+curl -N https://solvent-skid-sr2.lifecyclerd.workers.dev/api/chat \
+  -H 'content-type: application/json' \
+  -d '{"provider":"gemini","model":"gemini-2.5-flash","key":"YOUR-KEY","messages":[{"role":"user","content":"walk me through the pure product setup"}]}'
+```
+
+`/api/chat` relays **your** key. If the Worker holds a key of its own it only
+uses it when the request carries the shared secret
+(`x-chat-secret`), so a deployed key is never spent by a stranger.
+
+## The agent, on the tailnet
+
+The OpenShell sandbox that builds the figure and talks to Google runs on this
+machine and is published to the tailnet by Tailscale, so any device on the
+tailnet can drive it — no box on AWS:
+
+```bash
+tailscale serve --bg --tcp=17670 tcp://127.0.0.1:17670
+openshell gateway add http://richards-macbook-air-1.tailbe58ee.ts.net:17670
+openshell -g richards-macbook-air-1.tailbe58ee.ts.net sandbox exec skid -- sh -lc 'node --version'
+```
+
+Inside the sandbox the policy allows Google (Gemini's free tier), Colab,
+GitHub and the deployed figure API — and nothing else. `openshell/README.md`
+has the whole story, including how the Gemini key is injected by an OpenShell
+provider instead of being written into a file, and `openshell/skid_colab.ipynb`
+is the Colab notebook that clones the repo, builds the figure and asks the
+plant questions.
+
 ## Layout of the repo
 
 | Path | What |
 |---|---|
 | `figures/skid/build.mjs` | the build: geometry, layout, the audit hook |
 | `figures/skid/model.mjs` | the truth: numbers, vacuum sets, sieve cuts, setups |
+| `figures/skid/context.mjs` | the plant written down: the chatbot's ground truth |
 | `figures/skid/live.js` | the live behaviour: valve levers, needle, flow, tour |
+| `figures/skid/chat.js`, `chat.css` | the chatbot |
 | `figures/skid/skid.css` | stream colours, media tints, panel and buttons |
 | `figures/skid/build-index.mjs` | writes the deploy index (the figure + theme switch) |
-| `deploy/` | the Worker: `wrangler.jsonc` and `public/` |
+| `deploy/worker.js` | the Worker: `/api/chat`, `/api/context`, `/api/describe` |
+| `deploy/describe.mjs` | the describer, shared by the page and the Worker |
+| `deploy/` | `wrangler.jsonc` and `public/` |
+| `openshell/` | the sandbox policy, image, README and Colab notebook |
 | `kit/`, `scripts/` | the anatomy kit (vendored so CI can rebuild without npm) |
 | `.github/workflows/deploy.yml` | build, check, deploy on push |
 
@@ -49,7 +112,7 @@ boils at +12 °C, 8 mbar at −10 °C, 1.5 mbar at −31 °C.
 ```bash
 node figures/skid/build.mjs            # dark theme  -> figures/skid/skid.html
 node figures/skid/build.mjs --light    # light theme -> figures/skid/skid-light.html
-node figures/skid/build-index.mjs      # -> deploy/public/index.html
+node figures/skid/build-index.mjs      # -> deploy/public/index.html + skid-context.json
 node figures/skid/build.mjs --audit    # the geometry audit
 node scripts/lines.mjs deploy/public/skid-light.html   # the line-end check
 cd deploy && wrangler deploy
@@ -60,9 +123,23 @@ No npm and no dependencies: the kit is Node built-ins only.
 ## State of the checks
 
 * `scripts/lines.mjs` prints **line ends: 0** on both themes.
-* `build.mjs --audit` still reports geometry the kit's checks do not accept yet:
-  49 clearance, 53 terminals, 225 sunk pairs and 187 depth-order items, mostly
-  in the condenser rack where the hangers, the link flanges and the shells
+* `build.mjs --audit` still reports geometry the kit's checks do not accept
+  yet: clearance, terminals, sunk pairs, depth order and crowding, mostly in
+  the condenser rack where the hangers, the link flanges and the shells
   interlock, and where a few pipe ends land near rather than exactly on their
   bosses. Those are the next things to fix, in the geometry rather than in the
   painter's keys.
+
+## One thing left for you
+
+The CI deploy step needs a Cloudflare API token, which cannot be minted from
+the Wrangler OAuth token. Create one at dash.cloudflare.com → Profile → API
+Tokens → **Edit Cloudflare Workers**, then:
+
+```bash
+gh secret set CLOUDFLARE_API_TOKEN --repo lifecycleResearch/solvent-skid-sr2
+```
+
+Until that secret exists the deploy step fails harmlessly, the run stays green,
+and the site keeps the version deployed from here. Deploys from your laptop
+work today without any secret: `cd deploy && wrangler deploy`.

@@ -7,8 +7,10 @@ import { tubePieces, tubeSvg } from "../../kit/tube.mjs";
 import * as A from "../../kit/audit.mjs";
 import { kitScript } from "../../scripts/inline-kit.mjs";
 import * as M from "./model.mjs";
+import { contextOf } from "./context.mjs";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
+const ROOT = join(HERE, "..", "..");
 const THEME = process.argv.includes("--light") ? "light" : "dark";
 const DEG = Math.PI / 180;
 
@@ -786,12 +788,46 @@ run("feed", [[TANK.x, TANK.y - TANK.r - 6, 10], [TANK.x, -84, 10], [DRUMFEED.x, 
 A.settle(R, P);
 items.sort((a, b) => a.key - b.key);
 
+// The geometry audit is the slow part, so it only runs when it is asked for.
+// It runs here, before the page is assembled, so that the plant's description
+// in the page can carry its counts.
+const AUDIT_FILE = join(HERE, "skid-audit.json");
+let audit = null;
+try {
+  audit = JSON.parse(readFileSync(AUDIT_FILE, "utf8"));
+} catch {
+  audit = null;
+}
+if (process.argv.includes("--audit")) {
+  const result = A.auditOrExit(R, P);
+  if (result) {
+    audit = {
+      measured: true,
+      clearance: (result.clearance || []).length,
+      terminals: (result.terminals || []).length,
+      sunk: ((result.supports || {}).sunk || []).length,
+      unsupported: ((result.supports || {}).loose || []).length,
+      hanging: ((result.supports || {}).hanging || []).length,
+      depth: (((result.depth || {}).problems) || []).length,
+      crowding: (result.crowding || []).length,
+      note: "counts from `node figures/skid/build.mjs --audit`",
+    };
+    writeFileSync(AUDIT_FILE, `${JSON.stringify(audit, null, 2)}\n`);
+  }
+}
+
 const groups = items.map((item, index) => `<g class="it" data-piece="${item.piece}" data-name="${item.name}" data-i="${index}">${item.svg}</g>`);
 
 const LABEL_TEXT =
   "A solvent recovery skid on an aluminium frame: a pneumatic diaphragm pump and basket strainer feed a cross-flow membrane module with a 0.001 micron pore, whose permeate runs through a carbon bed to a three-valve routing block; a molecular sieve stack of 3A, 4A, 5A and 13X beds collects four fractions into cans; a vacuum evaporator boils the retentate and its vapour is condensed in a bank of four shells; a one, two or three stage vacuum set pulls the vapour through a gas scrubber holding carbon and zeolite.";
 
 const svg = k.figureSvg({ width: W, height: H, label: LABEL_TEXT, body: [back, groups.join("")] }).replace("<svg ", `<svg data-mode="solvent" `);
+
+// The plant, written down: the chatbot's ground truth, and the Worker the
+// deployed page asks for it.
+const CONTEXT = contextOf(audit);
+const PAGE_CONTEXT = { ...CONTEXT };
+delete PAGE_CONTEXT.prompt;
 
 const DATA = {
   W,
@@ -808,6 +844,7 @@ const DATA = {
     chiller: M.CHILLER,
     modes: M.MODES,
   },
+  skidContext: PAGE_CONTEXT,
   iso: { x: k.iso([1, 0, 0], P), y: k.iso([0, 1, 0], P), z: k.iso([0, 0, 1], P), o: k.iso([0, 0, 0], P) },
 };
 
@@ -837,13 +874,21 @@ const body = k.plateHtml({
   </div>`,
 });
 
-const CSS = readFileSync(join(HERE, "skid.css"), "utf8");
+const CSS = readFileSync(join(HERE, "skid.css"), "utf8") + readFileSync(join(HERE, "chat.css"), "utf8");
 const MODEL_SRC = `const satTempC = ${M.satTempC.toString().replace("export ", "")};
 const coolantNeeded = ${M.coolantNeeded.toString().replace("export ", "")};`;
-const LIVE = MODEL_SRC + readFileSync(join(HERE, "live.js"), "utf8").replace("__DATA__", JSON.stringify(DATA));
+// The describer lives with the Worker, so the page and the API answer the
+// same way; it is inlined here rather than fetched, so the figure works from
+// a file on disk with no server at all.
+const DESCRIBE_SRC = readFileSync(join(ROOT, "deploy", "describe.mjs"), "utf8").replace(/export (function|const|let)/g, "$1");
+const LIVE = MODEL_SRC + readFileSync(join(HERE, "live.js"), "utf8").replace("__DATA__", JSON.stringify(DATA)) + DESCRIBE_SRC + readFileSync(join(HERE, "chat.js"), "utf8");
 const page = k.pageHtml({ title: "Solvent recovery skid SR-2", theme: THEME, body: `<style>${CSS}</style>${body}`, script: kitScript() + LIVE, width: 1180 });
 const name = THEME === "light" ? "skid-light.html" : "skid.html";
 writeFileSync(join(HERE, name), page);
 console.log("wrote", name, `${(page.length / 1024).toFixed(0)} KB`, `${items.length} items`, `${ROUTES.length} routes`);
 
-A.auditOrExit(R, P);
+// The description, as JSON: the page carries it inline, and the Worker serves
+// it to anything that wants to ask the plant a question.
+writeFileSync(join(HERE, "skid-context.json"), `${JSON.stringify(CONTEXT, null, 2)}\n`);
+console.log("wrote skid-context.json", `${(JSON.stringify(CONTEXT).length / 1024).toFixed(0)} KB`);
+

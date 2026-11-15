@@ -1,0 +1,549 @@
+{
+  "schema": 1,
+  "name": "Solvent recovery skid SR-2",
+  "subtitle": "solvent recovery and fractionation for botanical extraction",
+  "description": "SR-2 is a solvent recovery and fractionation skid for botanical extraction. It stands on a wheeled aluminium frame and carries the whole plant: a feed drum and a pneumatic diaphragm pump, a basket strainer, a cross-flow membrane module with a 0.001 µm pore, a CRC carbon bed, a three-valve routing block, a molecular sieve stack of 3A, 4A, 5A, 13X, a vacuum evaporator, a bank of 4 condenser shells, a one, two or three stage vacuum set and a gas scrubber on the exhaust.\n\nIt runs in one of two setups, chosen by three ball valves on the routing block. In PURE SOLVENT the membrane permeate, stripped of its last cannabinoids by the carbon bed, is dried on the sieve stack and goes back to the tank, while the rich retentate goes straight to the product drum. In PURE PRODUCT the routing is reversed: the rich retentate is stripped of its solvent in the vacuum evaporator, the vapour is condensed in the four shells and dried on the sieve before it returns, and the cannabinoid residue is left in the drum.\n\nThe vacuum set decides how cold the plant runs: 1 stage holds 35 mbar and boils the solvent at 12.2 °C, 2 stage holds 8 mbar and boils the solvent at -9.6 °C, 3 stage holds 1.5 mbar and boils the solvent at -30.5 °C.",
+  "summary": "SR-2 is a solvent recovery and fractionation skid for botanical extraction. It stands on a wheeled aluminium frame and carries the whole plant: a feed drum and a pneumatic diaphragm pump, a basket strainer, a cross-flow membrane module with a 0.001 µm pore, a CRC carbon bed, a three-valve routing block, a molecular sieve stack of 3A, 4A, 5A, 13X, a vacuum evaporator, a bank of 4 condenser shells, a one, two or three stage vacuum set and a gas scrubber on the exhaust.",
+  "purpose": [
+    "recover the solvent so a crop can be extracted again and again without buying more",
+    "strip the cannabinoids out of the solvent (pure solvent setup)",
+    "strip the solvent out of the extract (pure product setup)",
+    "cut the fractions apart on the sieve stack and collect them one by one"
+  ],
+  "layout": "Near row, left to right: feed drum, pneumatic diaphragm pump, basket strainer, membrane module, routing block, the four collection cans, product drum. Far row, left to right: product drum, vacuum evaporator, sieve stack, solvent tank, gas scrubber. Above the back row: the four condenser shells. On the frame: the control panel on the near left post and the vacuum pumps on the right of the deck.",
+  "equipment": [
+    {
+      "id": "feed.drum",
+      "name": "Feed drum",
+      "where": "near left corner, on the deck",
+      "what": "Holds the crude extract. Its level is drawn as a granular surface; the lid takes the return line from the solvent tank.",
+      "numbers": {
+        "volume": "250 L",
+        "level": "drawn to two thirds"
+      }
+    },
+    {
+      "id": "pump",
+      "name": "Pneumatic diaphragm pump",
+      "where": "next to the feed drum, on its own base plate",
+      "what": "Drives the extract round the skid. Air motor, tie rods, a muffler and an inlet boss; the compressed-air hose is drawn looping back over the drum.",
+      "numbers": {
+        "drive": "compressed air, 6 bar",
+        "duty": "up to 400 L/h"
+      }
+    },
+    {
+      "id": "feed.strainer",
+      "name": "Basket strainer",
+      "where": "between the pump and the membrane",
+      "what": "A coarse basket with a bolted lid and a drain, so plant and bag fibre stay out of the membrane. A small gauge on its side reads the pressure drop across it.",
+      "numbers": {
+        "mesh": "100 µm",
+        "dpAlarm": "0.4 bar"
+      }
+    },
+    {
+      "id": "membrane",
+      "name": "Cross-flow membrane module",
+      "where": "the long horizontal shell in the near row, left of centre",
+      "what": "Solvent nanofiltration. The shell is horizontal with bolted end flanges and tie rods; crude runs along it and the permeate comes off the shell side. It keeps the cannabinoids and the heavy oil in the retentate and lets the clean solvent through.",
+      "numbers": {
+        "poreUm": 0.001,
+        "poreNm": 1,
+        "areaM2": 12,
+        "feedLh": 100,
+        "permeateLh": 96,
+        "retentateLh": 4,
+        "pressureBar": 18,
+        "solventPpm": 5,
+        "cbdRecoveryPct": 99.4
+      }
+    },
+    {
+      "id": "carbon",
+      "name": "CRC carbon bed",
+      "where": "on the permeate line, before the routing block",
+      "what": "A vessel of spent or virgin CRC carbon. It is the last cannabinoid barrier before the solvent goes back to the tank, and the bed the exhaust scrubber also uses.",
+      "numbers": {
+        "media": "CRC carbon",
+        "role": "cannabinoid retention",
+        "dpDropBar": 1.05
+      }
+    },
+    {
+      "id": "block",
+      "name": "Three-valve routing block",
+      "where": "centre of the deck, between the membrane and the sieve stack",
+      "what": "The block that decides the setup. Three ball valves, each with a lever that turns between two ports, route the permeate and the retentate to the sieve, the tank, the evaporator or the product drum.",
+      "numbers": {
+        "valves": 3,
+        "positions": "2 per valve, 6 combinations, 2 of them used"
+      }
+    },
+    {
+      "id": "sieve.bed0",
+      "name": "Molecular sieve stack, 3A to 13X",
+      "where": "the tall column in the far row, centre",
+      "what": "Four beds in one stack, 3A on top down to 13X, each with its own isolation valve, its own media window in the drawing and its own collection can underneath. A cut valve on each bed can drop that bed's fraction into its can while the others keep running.",
+      "numbers": {
+        "beds": 4,
+        "order": "3A → 4A → 5A → 13X",
+        "cans": 4,
+        "note": "each bed can be cut out on its own"
+      }
+    },
+    {
+      "id": "product.drum",
+      "name": "Product drum",
+      "where": "the drum at the far left of the back row",
+      "what": "Where the cannabinoid fraction ends up. In the pure solvent setup the rich retentate goes straight here; in the pure product setup this is where the stripped residue is left.",
+      "numbers": {
+        "volume": "200 L",
+        "contents": "cannabinoid-rich fraction"
+      }
+    },
+    {
+      "id": "evap",
+      "name": "Vacuum evaporator",
+      "where": "the vessel in the back row, left of the sieve",
+      "what": "Boils the solvent out of the retentate under vacuum. The deeper the vacuum set, the lower the solvent boils, and the less heat the jacket needs.",
+      "numbers": {
+        "heatedAreaM2": 2.4,
+        "working": "under 35 / 8 / 1.5 mbar by stage count"
+      }
+    },
+    {
+      "id": "cond",
+      "name": "Condenser bank",
+      "where": "the four horizontal shells above the back row",
+      "what": "Four shells in series, warm end first. Each takes the fraction above its own surface temperature: toluene on the warm shell, then heptane, then ethanol, then acetone on the cold one. The shells hang from the frame and are linked by flanged pipes.",
+      "numbers": {
+        "shells": 4,
+        "temperaturesC": "45, 20, -5, -25",
+        "coolant": "glycol -15 °C, cascade -45 °C"
+      }
+    },
+    {
+      "id": "vacuum",
+      "name": "Vacuum set, 1 to 3 stages",
+      "where": "the row of pump sets on the right of the deck",
+      "what": "Two rotary-vane pumps and a pneumatic booster, used one, two or three at a time. The deeper the set, the lower the pressure it holds, and the colder the condenser has to run.",
+      "numbers": {
+        "sets": "1 stage → 35 mbar, 2 stage → 8 mbar, 3 stage → 1.5 mbar"
+      }
+    },
+    {
+      "id": "scrub",
+      "name": "Gas scrubber",
+      "where": "the drum at the back right, on the pump exhaust",
+      "what": "The last thing the exhaust meets before the stack. Three media layers in series take the cannabinoids, the solvent vapour and the water and CO₂ out of the air.",
+      "numbers": {
+        "media": "CRC carbon (6 L), activated carbon (8 L), zeolite 13X (8 L)",
+        "dpDropBar": 60,
+        "efficiencyPct": 99
+      }
+    },
+    {
+      "id": "tank",
+      "name": "Solvent tank",
+      "where": "the large drum in the back row, right of the sieve",
+      "what": "Holds the clean solvent. It is fed by the sieve stack in the pure solvent setup and by the condensed vapour in the pure product setup, and it returns to the feed drum.",
+      "numbers": {
+        "volume": "400 L"
+      }
+    },
+    {
+      "id": "stand",
+      "name": "Aluminium frame",
+      "where": "the whole skid",
+      "what": "An extruded aluminium frame on four casters: a deck plate, four posts and a top rail. Everything above is bolted to it, so the skid can be wheeled into a room and set up there.",
+      "numbers": {
+        "casters": 4,
+        "deckMm": "1200 × 600",
+        "frame": "40 × 40 extrusion"
+      }
+    },
+    {
+      "id": "panel",
+      "name": "Control panel",
+      "where": "the small box on the near left post",
+      "what": "The local panel: it selects the setup and shows the vacuum. Clicking it switches the whole drawing between the two setups.",
+      "numbers": {
+        "indicator": "vacuum gauge on the panel face"
+      }
+    }
+  ],
+  "modes": {
+    "solvent": {
+      "key": "solvent",
+      "title": "Pure solvent",
+      "goal": "cannabinoids taken out of the solvent, solvent back in the tank",
+      "valves": {
+        "permeate": "sieve",
+        "retentate": "drum",
+        "carbon": "permeate"
+      },
+      "product": "permeate",
+      "lit": [
+        "feed",
+        "permeate",
+        "solvent"
+      ],
+      "steps": [
+        "The diaphragm pump draws the crude extract out of the feed drum and pushes it through the basket strainer.",
+        "The extract crosses the 0.001 µm membrane at 18 bar: solvent and the trace cannabinoids pass, the oil and the bulk cannabinoids stay behind.",
+        "The permeate meets the CRC carbon bed, which takes the last of the cannabinoids out of the solvent.",
+        "V1 sends the permeate to the sieve stack; V3 keeps the stack fed from the permeate rather than from the condenser.",
+        "The sieve stack dries the solvent: 3A takes the water, 4A the CO₂ and methanol, 5A the n-paraffins, 13X the C₂–C₃ and the heavy ends.",
+        "The dried solvent goes back to the solvent tank and from there to the feed drum, ready to be used again.",
+        "The rich retentate never goes near the sieve: V2 sends it straight to the product drum."
+      ],
+      "result": "solvent back in the tank, cannabinoids in the drum"
+    },
+    "product": {
+      "key": "product",
+      "title": "Pure product",
+      "goal": "everything but the cannabinoids taken out of the crude",
+      "valves": {
+        "permeate": "tank",
+        "retentate": "evap",
+        "carbon": "retentate"
+      },
+      "product": "retentate",
+      "lit": [
+        "feed",
+        "retentate",
+        "vapour",
+        "condensate"
+      ],
+      "steps": [
+        "The pump and strainer do the same work as in the solvent setup: the crude goes onto the membrane.",
+        "This time V2 sends the rich retentate to the vacuum evaporator instead of to the drum.",
+        "The evaporator boils the solvent out of the retentate under the vacuum the pump set holds.",
+        "The vapour climbs to the condenser bank and is taken back to liquid shell by shell: toluene, heptane, ethanol, acetone.",
+        "V3 feeds the condensed liquid into the sieve stack, where 3A to 13X take the water, the CO₂, the paraffins and the heavy ends out of it.",
+        "The dried condensate goes back to the solvent tank and then to the feed drum as wash.",
+        "The permeate is the clean side: V1 sends it to the tank rather than through the carbon bed again.",
+        "What stays in the evaporator is the cannabinoid residue, and that is what the product drum collects."
+      ],
+      "result": "cannabinoids in the drum, solvent back in the tank"
+    }
+  },
+  "media": {
+    "sieve": [
+      {
+        "name": "3A molecular sieve",
+        "poreAngstrom": 3,
+        "cation": "K",
+        "takes": "water",
+        "loadKg": 0.9,
+        "bulkDensity": 0.58,
+        "role": "drying and fractioning the solvent"
+      },
+      {
+        "name": "4A molecular sieve",
+        "poreAngstrom": 4,
+        "cation": "Na",
+        "takes": "CO₂ + methanol",
+        "loadKg": 0.4,
+        "bulkDensity": 0.62,
+        "role": "drying and fractioning the solvent"
+      },
+      {
+        "name": "5A molecular sieve",
+        "poreAngstrom": 5,
+        "cation": "Ca",
+        "takes": "n-paraffins C5+",
+        "loadKg": 0.6,
+        "bulkDensity": 0.66,
+        "role": "drying and fractioning the solvent"
+      },
+      {
+        "name": "13X molecular sieve",
+        "poreAngstrom": 8,
+        "cation": "Na",
+        "takes": "C₂–C₃ + heavy",
+        "loadKg": 1.2,
+        "bulkDensity": 0.74,
+        "role": "drying and fractioning the solvent"
+      }
+    ],
+    "scrubber": [
+      {
+        "name": "CRC carbon",
+        "litres": 6,
+        "takes": "cannabinoid retention",
+        "role": "cleaning the pump exhaust"
+      },
+      {
+        "name": "activated carbon",
+        "litres": 8,
+        "takes": "solvent vapour",
+        "role": "cleaning the pump exhaust"
+      },
+      {
+        "name": "zeolite 13X",
+        "litres": 8,
+        "takes": "water and CO₂",
+        "role": "cleaning the pump exhaust"
+      }
+    ],
+    "carbon": [
+      {
+        "name": "CRC carbon",
+        "role": "cannabinoid retention",
+        "where": "permeate bed and scrubber"
+      },
+      {
+        "name": "activated carbon",
+        "role": "solvent vapour",
+        "where": "scrubber"
+      }
+    ]
+  },
+  "membrane": {
+    "poreUm": 0.001,
+    "area": 12,
+    "feed": 100,
+    "permeate": 96,
+    "retentate": 4,
+    "bar": 18,
+    "ppm": 5,
+    "cbdRecovered": 99.4,
+    "note": "Solvent nanofiltration: the permeate is the solvent with a trace of cannabinoids in it, the retentate is the oil and the cannabinoid bulk. A 1 nm pore holds back cannabinoids but lets the solvent through."
+  },
+  "chiller": {
+    "glycol": -15,
+    "cascade": -45
+  },
+  "vacuum": [
+    {
+      "stages": 1,
+      "mbar": 35,
+      "name": "one stage, rotary vane",
+      "pumps": 1,
+      "kw": 7.5,
+      "m3h": 63,
+      "boilC": 12.2,
+      "coolantC": 0
+    },
+    {
+      "stages": 2,
+      "mbar": 8,
+      "name": "two stages plus booster",
+      "pumps": 2,
+      "kw": 15,
+      "m3h": 160,
+      "boilC": -9.6,
+      "coolantC": -22
+    },
+    {
+      "stages": 3,
+      "mbar": 1.5,
+      "name": "three stages, oil sealed",
+      "pumps": 3,
+      "kw": 22,
+      "m3h": 300,
+      "boilC": -30.5,
+      "coolantC": -43
+    }
+  ],
+  "beds": [
+    {
+      "index": 0,
+      "grade": "3A",
+      "poreAngstrom": 3,
+      "cation": "K",
+      "cut": "water",
+      "loadKg": 0.9,
+      "density": 0.58,
+      "can": "collection can 1"
+    },
+    {
+      "index": 1,
+      "grade": "4A",
+      "poreAngstrom": 4,
+      "cation": "Na",
+      "cut": "CO₂ + methanol",
+      "loadKg": 0.4,
+      "density": 0.62,
+      "can": "collection can 2"
+    },
+    {
+      "index": 2,
+      "grade": "5A",
+      "poreAngstrom": 5,
+      "cation": "Ca",
+      "cut": "n-paraffins C5+",
+      "loadKg": 0.6,
+      "density": 0.66,
+      "can": "collection can 3"
+    },
+    {
+      "index": 3,
+      "grade": "13X",
+      "poreAngstrom": 8,
+      "cation": "Na",
+      "cut": "C₂–C₃ + heavy",
+      "loadKg": 1.2,
+      "density": 0.74,
+      "can": "collection can 4"
+    }
+  ],
+  "condensers": [
+    {
+      "temp": 45,
+      "takes": "toluene, bp 111 °C",
+      "note": "toluene, bp 111 °C condenses on this shell"
+    },
+    {
+      "temp": 20,
+      "takes": "heptane, bp 98 °C",
+      "note": "heptane, bp 98 °C condenses on this shell"
+    },
+    {
+      "temp": -5,
+      "takes": "ethanol, bp 78 °C",
+      "note": "ethanol, bp 78 °C condenses on this shell"
+    },
+    {
+      "temp": -25,
+      "takes": "acetone, bp 56 °C",
+      "note": "acetone, bp 56 °C condenses on this shell"
+    }
+  ],
+  "scrubber": {
+    "media": [
+      {
+        "name": "CRC carbon",
+        "litres": 6,
+        "note": "cannabinoid retention"
+      },
+      {
+        "name": "activated carbon",
+        "litres": 8,
+        "note": "solvent vapour"
+      },
+      {
+        "name": "zeolite 13X",
+        "litres": 8,
+        "note": "water and CO₂"
+      }
+    ],
+    "dp": 60,
+    "efficiency": 99
+  },
+  "streams": [
+    {
+      "id": "feed",
+      "label": "crude extract",
+      "colour": "amber"
+    },
+    {
+      "id": "solvent",
+      "label": "recovered solvent",
+      "colour": "blue"
+    },
+    {
+      "id": "product",
+      "label": "cannabinoid stream",
+      "colour": "green"
+    },
+    {
+      "id": "vapour",
+      "label": "solvent vapour",
+      "colour": "violet"
+    },
+    {
+      "id": "waste",
+      "label": "spent media and exhaust",
+      "colour": "grey"
+    }
+  ],
+  "controls": {
+    "keys": [
+      {
+        "key": "1",
+        "action": "pure solvent setup"
+      },
+      {
+        "key": "2",
+        "action": "pure product setup"
+      },
+      {
+        "key": "3",
+        "action": "one stage vacuum set, 35 mbar"
+      },
+      {
+        "key": "4",
+        "action": "two stage vacuum set, 8 mbar"
+      },
+      {
+        "key": "5",
+        "action": "three stage vacuum set, 1.5 mbar"
+      },
+      {
+        "key": "B",
+        "action": "cut the highlighted sieve bed into its can"
+      }
+    ],
+    "pointers": [
+      "click the control panel to switch setup",
+      "click a ball valve lever to turn it to its other port",
+      "click a sieve bed to highlight it",
+      "click a bed's cut valve to drop that fraction into its can"
+    ]
+  },
+  "chemistry": {
+    "solvent": "ethanol, the usual carrier for botanical extraction",
+    "vapour": "ln P = 21.446 − 5105/T, P in mbar and T in kelvin, fitted to 15.7 mbar at 0 °C and 1013 mbar at 78.4 °C",
+    "note": "The readout's boil temperature follows that curve: 35 mbar boils at 12.2 °C, 8 mbar boils at -9.6 °C, 1.5 mbar boils at -30.5 °C."
+  },
+  "audit": {
+    "measured": true,
+    "clearance": 49,
+    "terminals": 53,
+    "sunk": 225,
+    "unsupported": 13,
+    "hanging": 3,
+    "depth": 187,
+    "crowding": 15,
+    "note": "counts from `node figures/skid/build.mjs --audit`"
+  },
+  "api": {
+    "note": "This description is also an API. The deployed Worker serves it as JSON and accepts chat requests with the visitor's own key.",
+    "endpoints": [
+      {
+        "path": "/api/context",
+        "method": "GET",
+        "what": "this document, as JSON"
+      },
+      {
+        "path": "/api/describe",
+        "method": "GET",
+        "what": "a prose description; ?q= asks a question and gets the matching part back"
+      },
+      {
+        "path": "/api/chat",
+        "method": "POST",
+        "what": "a chat completion, streaming; send {provider, model, key, messages}"
+      },
+      {
+        "path": "/api/health",
+        "method": "GET",
+        "what": "what the Worker can do, and which keys it holds"
+      }
+    ]
+  },
+  "agent": {
+    "note": "The same repository can be driven from an agent: clone it, run the build, read the audit.",
+    "commands": [
+      "git clone https://github.com/lifecycleResearch/solvent-skid-sr2",
+      "node figures/skid/build.mjs && node figures/skid/build.mjs --light",
+      "node figures/skid/build.mjs --audit",
+      "node scripts/lines.mjs deploy/public/skid-light.html"
+    ],
+    "sandbox": "OpenShell sandbox `skid`, reachable over the tailnet; its policy allows Google, Colab, GitHub and this Worker."
+  },
+  "prompt": "You are the plant engineer for SR-2, a solvent recovery and fractionation skid for botanical extraction.\nYou are talking to someone looking at an isometric drawing of the skid, which they can switch between two setups and three vacuum stages.\n\nRules:\n- Use only the numbers in the specification below. If a number is not there, say it is not in the drawing rather than inventing one.\n- Be descriptive: name the vessel, the media, the stream colour and the direction of travel.\n- Say which setup and which vacuum stage the drawing is on when it matters, and how the answer would change with the other setting.\n- The drawing's colours: amber is the crude extract, blue is the recovered solvent, violet is solvent vapour, green is the cannabinoid stream, grey is spent media and exhaust.\n- Answer in the language of the question. Keep it to a few paragraphs unless asked for a table.\n\nSPECIFICATION\n\nName: Solvent recovery skid SR-2\n\nSR-2 is a solvent recovery and fractionation skid for botanical extraction. It stands on a wheeled aluminium frame and carries the whole plant: a feed drum and a pneumatic diaphragm pump, a basket strainer, a cross-flow membrane module with a 0.001 µm pore, a CRC carbon bed, a three-valve routing block, a molecular sieve stack of 3A, 4A, 5A, 13X, a vacuum evaporator, a bank of 4 condenser shells, a one, two or three stage vacuum set and a gas scrubber on the exhaust.\n\nIt runs in one of two setups, chosen by three ball valves on the routing block. In PURE SOLVENT the membrane permeate, stripped of its last cannabinoids by the carbon bed, is dried on the sieve stack and goes back to the tank, while the rich retentate goes straight to the product drum. In PURE PRODUCT the routing is reversed: the rich retentate is stripped of its solvent in the vacuum evaporator, the vapour is condensed in the four shells and dried on the sieve before it returns, and the cannabinoid residue is left in the drum.\n\nThe vacuum set decides how cold the plant runs: 1 stage holds 35 mbar and boils the solvent at 12.2 °C, 2 stage holds 8 mbar and boils the solvent at -9.6 °C, 3 stage holds 1.5 mbar and boils the solvent at -30.5 °C.\n\nLayout\n\nNear row, left to right: feed drum, pneumatic diaphragm pump, basket strainer, membrane module, routing block, the four collection cans, product drum. Far row, left to right: product drum, vacuum evaporator, sieve stack, solvent tank, gas scrubber. Above the back row: the four condenser shells. On the frame: the control panel on the near left post and the vacuum pumps on the right of the deck.\n\nEquipment\n\n- Feed drum (near left corner, on the deck): Holds the crude extract. Its level is drawn as a granular surface; the lid takes the return line from the solvent tank.\n  volume: 250 L; level: drawn to two thirds\n- Pneumatic diaphragm pump (next to the feed drum, on its own base plate): Drives the extract round the skid. Air motor, tie rods, a muffler and an inlet boss; the compressed-air hose is drawn looping back over the drum.\n  drive: compressed air, 6 bar; duty: up to 400 L/h\n- Basket strainer (between the pump and the membrane): A coarse basket with a bolted lid and a drain, so plant and bag fibre stay out of the membrane. A small gauge on its side reads the pressure drop across it.\n  mesh: 100 µm; dpAlarm: 0.4 bar\n- Cross-flow membrane module (the long horizontal shell in the near row, left of centre): Solvent nanofiltration. The shell is horizontal with bolted end flanges and tie rods; crude runs along it and the permeate comes off the shell side. It keeps the cannabinoids and the heavy oil in the retentate and lets the clean solvent through.\n  poreUm: 0.001; poreNm: 1; areaM2: 12; feedLh: 100; permeateLh: 96; retentateLh: 4; pressureBar: 18; solventPpm: 5; cbdRecoveryPct: 99.4\n- CRC carbon bed (on the permeate line, before the routing block): A vessel of spent or virgin CRC carbon. It is the last cannabinoid barrier before the solvent goes back to the tank, and the bed the exhaust scrubber also uses.\n  media: CRC carbon; role: cannabinoid retention; dpDropBar: 1.05\n- Three-valve routing block (centre of the deck, between the membrane and the sieve stack): The block that decides the setup. Three ball valves, each with a lever that turns between two ports, route the permeate and the retentate to the sieve, the tank, the evaporator or the product drum.\n  valves: 3; positions: 2 per valve, 6 combinations, 2 of them used\n- Molecular sieve stack, 3A to 13X (the tall column in the far row, centre): Four beds in one stack, 3A on top down to 13X, each with its own isolation valve, its own media window in the drawing and its own collection can underneath. A cut valve on each bed can drop that bed's fraction into its can while the others keep running.\n  beds: 4; order: 3A → 4A → 5A → 13X; cans: 4; note: each bed can be cut out on its own\n- Product drum (the drum at the far left of the back row): Where the cannabinoid fraction ends up. In the pure solvent setup the rich retentate goes straight here; in the pure product setup this is where the stripped residue is left.\n  volume: 200 L; contents: cannabinoid-rich fraction\n- Vacuum evaporator (the vessel in the back row, left of the sieve): Boils the solvent out of the retentate under vacuum. The deeper the vacuum set, the lower the solvent boils, and the less heat the jacket needs.\n  heatedAreaM2: 2.4; working: under 35 / 8 / 1.5 mbar by stage count\n- Condenser bank (the four horizontal shells above the back row): Four shells in series, warm end first. Each takes the fraction above its own surface temperature: toluene on the warm shell, then heptane, then ethanol, then acetone on the cold one. The shells hang from the frame and are linked by flanged pipes.\n  shells: 4; temperaturesC: 45, 20, -5, -25; coolant: glycol -15 °C, cascade -45 °C\n- Vacuum set, 1 to 3 stages (the row of pump sets on the right of the deck): Two rotary-vane pumps and a pneumatic booster, used one, two or three at a time. The deeper the set, the lower the pressure it holds, and the colder the condenser has to run.\n  sets: 1 stage → 35 mbar, 2 stage → 8 mbar, 3 stage → 1.5 mbar\n- Gas scrubber (the drum at the back right, on the pump exhaust): The last thing the exhaust meets before the stack. Three media layers in series take the cannabinoids, the solvent vapour and the water and CO₂ out of the air.\n  media: CRC carbon (6 L), activated carbon (8 L), zeolite 13X (8 L); dpDropBar: 60; efficiencyPct: 99\n- Solvent tank (the large drum in the back row, right of the sieve): Holds the clean solvent. It is fed by the sieve stack in the pure solvent setup and by the condensed vapour in the pure product setup, and it returns to the feed drum.\n  volume: 400 L\n- Aluminium frame (the whole skid): An extruded aluminium frame on four casters: a deck plate, four posts and a top rail. Everything above is bolted to it, so the skid can be wheeled into a room and set up there.\n  casters: 4; deckMm: 1200 × 600; frame: 40 × 40 extrusion\n- Control panel (the small box on the near left post): The local panel: it selects the setup and shows the vacuum. Clicking it switches the whole drawing between the two setups.\n  indicator: vacuum gauge on the panel face\n\nThe two setups\n\nPURE SOLVENT — cannabinoids taken out of the solvent, solvent back in the tank.\n  1. The diaphragm pump draws the crude extract out of the feed drum and pushes it through the basket strainer.\n  2. The extract crosses the 0.001 µm membrane at 18 bar: solvent and the trace cannabinoids pass, the oil and the bulk cannabinoids stay behind.\n  3. The permeate meets the CRC carbon bed, which takes the last of the cannabinoids out of the solvent.\n  4. V1 sends the permeate to the sieve stack; V3 keeps the stack fed from the permeate rather than from the condenser.\n  5. The sieve stack dries the solvent: 3A takes the water, 4A the CO₂ and methanol, 5A the n-paraffins, 13X the C₂–C₃ and the heavy ends.\n  6. The dried solvent goes back to the solvent tank and from there to the feed drum, ready to be used again.\n  7. The rich retentate never goes near the sieve: V2 sends it straight to the product drum.\n  Valve positions: permeate → sieve, retentate → drum, carbon → permeate.\n  Result: solvent back in the tank, cannabinoids in the drum.\n\nPURE PRODUCT — everything but the cannabinoids taken out of the crude.\n  1. The pump and strainer do the same work as in the solvent setup: the crude goes onto the membrane.\n  2. This time V2 sends the rich retentate to the vacuum evaporator instead of to the drum.\n  3. The evaporator boils the solvent out of the retentate under the vacuum the pump set holds.\n  4. The vapour climbs to the condenser bank and is taken back to liquid shell by shell: toluene, heptane, ethanol, acetone.\n  5. V3 feeds the condensed liquid into the sieve stack, where 3A to 13X take the water, the CO₂, the paraffins and the heavy ends out of it.\n  6. The dried condensate goes back to the solvent tank and then to the feed drum as wash.\n  7. The permeate is the clean side: V1 sends it to the tank rather than through the carbon bed again.\n  8. What stays in the evaporator is the cannabinoid residue, and that is what the product drum collects.\n  Valve positions: permeate → tank, retentate → evap, carbon → retentate.\n  Result: cannabinoids in the drum, solvent back in the tank.\n\nVacuum sets\n\n- 1 stage (one stage, rotary vane): 35 mbar, 7.5 kW, 63 m³/h, 1 pump(s). The solvent boils at 12.2 °C and the condenser needs 0 °C of coolant.\n- 2 stage (two stages plus booster): 8 mbar, 15 kW, 160 m³/h, 2 pump(s). The solvent boils at -9.6 °C and the condenser needs -22 °C of coolant.\n- 3 stage (three stages, oil sealed): 1.5 mbar, 22 kW, 300 m³/h, 3 pump(s). The solvent boils at -30.5 °C and the condenser needs -43 °C of coolant.\n\nThe sieve stack\n\n- 3A (3 Å, K): takes water; 0.9 kg on the bed; density 0.58; drains into collection can 1.\n- 4A (4 Å, Na): takes CO₂ + methanol; 0.4 kg on the bed; density 0.62; drains into collection can 2.\n- 5A (5 Å, Ca): takes n-paraffins C5+; 0.6 kg on the bed; density 0.66; drains into collection can 3.\n- 13X (8 Å, Na): takes C₂–C₃ + heavy; 1.2 kg on the bed; density 0.74; drains into collection can 4.\n\nCondensers, warm end first\n\n- 45 °C: toluene, bp 111 °C\n- 20 °C: heptane, bp 98 °C\n- -5 °C: ethanol, bp 78 °C\n- -25 °C: acetone, bp 56 °C\n\nGas scrubber\n\n- CRC carbon: 6 L, cannabinoid retention\n- activated carbon: 8 L, solvent vapour\n- zeolite 13X: 8 L, water and CO₂\n- Pressure drop 60 bar, removal 99 %.\n\nMembrane\n\nPore 0.001 µm (undefined nm), area 12 m², feed 100 L/h, permeate 96 L/h, retentate 4 L/h at 18 bar; 5 ppm solvent in the permeate; 99.4 % of the cannabinoids held back.\n\nControls\n\n- 1: pure solvent setup\n- 2: pure product setup\n- 3: one stage vacuum set, 35 mbar\n- 4: two stage vacuum set, 8 mbar\n- 5: three stage vacuum set, 1.5 mbar\n- B: cut the highlighted sieve bed into its can\n"
+}

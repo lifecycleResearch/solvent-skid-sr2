@@ -1,13 +1,24 @@
 {
-  // Solvent recovery skid SR-2 — a static figure, deployed as a Worker with
-  // static assets. No code: the page is plain HTML with its CSS and JS inlined.
+  // Solvent recovery skid SR-2 — the figure as static assets, and a small
+  // Worker beside it that answers questions about the plant.
+  //
+  //   GET  /api/context   the plant's description, as JSON
+  //   GET  /api/describe  the same, in prose; ?q= asks a question
+  //   POST /api/chat      a chat completion, streamed back as SSE
+  //   GET  /api/health    what this Worker can do
+  //
+  // The chat endpoint relays the visitor's own key (BYOK). A key held by the
+  // Worker is only used when the request carries the shared secret.
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "solvent-skid-sr2",
   "compatibility_date": "2026-01-15",
   "workers_dev": true,
+  "main": "worker.js",
   "assets": {
     "directory": "./public",
+    "binding": "ASSETS",
     "html_handling": "none",
-    "not_found_handling": "single-page-application"
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*"]
   }
 }

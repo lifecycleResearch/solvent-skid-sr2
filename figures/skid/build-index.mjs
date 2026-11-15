@@ -8,6 +8,7 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, "..", "..");
 const light = join(ROOT, "figures", "skid", "skid-light.html");
 const index = join(ROOT, "deploy", "public", "index.html");
+const context = join(ROOT, "deploy", "public", "skid-context.json");
 
 const toggle = `<script>
 (function(){
@@ -33,3 +34,9 @@ if (at < 0) throw new Error("no </body> in the built page");
 const page = source.slice(0, at) + toggle + source.slice(at);
 writeFileSync(index, page);
 console.log("wrote", index, `${(page.length / 1024).toFixed(0)} KB`);
+
+// The Worker grounds its answers on this, and so does anything else that
+// wants to ask the plant a question.
+const contextSource = readFileSync(join(ROOT, "figures", "skid", "skid-context.json"), "utf8");
+writeFileSync(context, contextSource);
+console.log("wrote", context, `${(contextSource.length / 1024).toFixed(0)} KB`);

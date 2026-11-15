@@ -1,0 +1,11 @@
+{
+  "measured": true,
+  "clearance": 49,
+  "terminals": 53,
+  "sunk": 225,
+  "unsupported": 13,
+  "hanging": 3,
+  "depth": 187,
+  "crowding": 15,
+  "note": "counts from `node figures/skid/build.mjs --audit`"
+}

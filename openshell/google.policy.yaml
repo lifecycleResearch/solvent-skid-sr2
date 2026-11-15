@@ -1,0 +1,108 @@
+# OpenShell policy: the sandbox may talk to Google's free tier and to Colab,
+# to GitHub, and to the deployed figure API — and to nothing else.
+#
+#   openshell sandbox create --name skid --policy openshell/google.policy.yaml
+#
+# The credentials are not in this file and never are: they are held by an
+# OpenShell provider and injected by the gateway only for the endpoints below
+# (see openshell/README.md for the one command that adds a key).
+#
+# The gateway that serves this policy is published to the tailnet by
+# `tailscale serve --bg --tcp=17670 tcp://127.0.0.1:17670`, so the sandbox is
+# driven from any machine on the tailnet instead of from a box on AWS.
+
+version: 1
+
+filesystem_policy:
+  include_workdir: true
+  read_only: [/bin, /usr, /sbin, /lib, /lib64, /proc, /dev/urandom, /etc, /var/log, /app, /opt]
+  read_write: [/sandbox, /tmp, /dev/null, /home/ubuntu]
+landlock:
+  compatibility: best_effort
+
+network_policies:
+  google_free_tier:
+    name: google-free-tier
+    endpoints:
+      # Gemini API, the free tier (no key: 403, with the provider's key: 200).
+      - host: generativelanguage.googleapis.com
+        port: 443
+        protocol: rest
+        enforcement: enforce
+        access: read-write
+      # Colab and Drive: the notebook backend and the Drive API.
+      - host: colab.research.google.com
+        port: 443
+        protocol: rest
+        enforcement: enforce
+        access: read-write
+      - host: content-colab.googleapis.com
+        port: 443
+        protocol: rest
+        enforcement: enforce
+        access: read-write
+      - host: drive.google.com
+        port: 443
+        protocol: rest
+        enforcement: enforce
+        access: read-write
+      - host: accounts.google.com
+        port: 443
+        protocol: rest
+        enforcement: enforce
+        access: read-write
+      - host: oauth2.googleapis.com
+        port: 443
+        protocol: rest
+        enforcement: enforce
+        access: read-write
+    binaries:
+      - { path: /usr/bin/curl }
+      - { path: /usr/bin/python3 }
+      - { path: /usr/bin/git }
+      - { path: /usr/local/bin/node }
+      - { path: /usr/local/bin/git }
+      - { path: /usr/bin/jq }
+
+  github:
+    name: github-readonly
+    endpoints:
+      - host: github.com
+        port: 443
+        protocol: rest
+        enforcement: enforce
+        access: read-only
+      - host: api.github.com
+        port: 443
+        protocol: rest
+        enforcement: enforce
+        access: read-only
+      - host: objects.githubusercontent.com
+        port: 443
+        protocol: rest
+        enforcement: enforce
+        access: read-only
+      - host: codeload.github.com
+        port: 443
+        protocol: rest
+        enforcement: enforce
+        access: read-only
+    binaries:
+      - { path: /usr/bin/git }
+      - { path: /usr/local/bin/git }
+      - { path: /usr/bin/curl }
+
+  figure_api:
+    name: deployed-figure-api
+    endpoints:
+      # The Worker that serves the figure and the chatbot, so the sandbox can
+      # ask the plant questions and read its description.
+      - host: solvent-skid-sr2.lifecyclerd.workers.dev
+        port: 443
+        protocol: rest
+        enforcement: enforce
+        access: read-write
+    binaries:
+      - { path: /usr/bin/curl }
+      - { path: /usr/bin/python3 }
+      - { path: /usr/local/bin/node }
