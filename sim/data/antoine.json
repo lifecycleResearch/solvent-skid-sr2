@@ -1,0 +1,259 @@
+{
+  "source": {
+    "name": "NIST Chemistry WebBook",
+    "url": "https://webbook.nist.gov/cgi/fluid.cgi",
+    "note": "Antoine equation parameters, log10(P/bar) = A - B/(T/K + C). Fetched with sim/fetch-nist.mjs."
+  },
+  "materials": {
+    "MAT-0001": {
+      "name": "Ethanol",
+      "cas": "64-17-5",
+      "nistId": "C64175",
+      "nistUrl": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C64175&Mask=4",
+      "antoine": {
+        "tLowK": 273,
+        "tHighK": 351.7,
+        "A": 5.37229,
+        "B": 1670.409,
+        "C": -40.191,
+        "reference": "Kretschmer and Wiebe, 1949",
+        "units": {
+          "P": "bar",
+          "T": "K"
+        }
+      },
+      "allRanges": [
+        {
+          "tLowK": 364.8,
+          "tHighK": 513.91,
+          "reference": "Ambrose, Sprake, et al., 1975"
+        },
+        {
+          "tLowK": 292.77,
+          "tHighK": 366.63,
+          "reference": "Ambrose and Sprake, 1970"
+        },
+        {
+          "tLowK": 273,
+          "tHighK": 351.7,
+          "reference": "Kretschmer and Wiebe, 1949"
+        }
+      ]
+    },
+    "MAT-0002": {
+      "name": "n-Pentane",
+      "cas": "109-66-0",
+      "nistId": "C109-66-0",
+      "nistUrl": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C109-66-0&Mask=4",
+      "antoine": {
+        "tLowK": 268.8,
+        "tHighK": 341.37,
+        "A": 3.9892,
+        "B": 1070.617,
+        "C": -40.454,
+        "reference": "Osborn and Douslin, 1974",
+        "units": {
+          "P": "bar",
+          "T": "K"
+        }
+      },
+      "allRanges": [
+        {
+          "tLowK": 268.8,
+          "tHighK": 341.37,
+          "reference": "Osborn and Douslin, 1974"
+        }
+      ]
+    },
+    "MAT-0003": {
+      "name": "n-Hexane",
+      "cas": "110-54-3",
+      "nistId": "C110-54-3",
+      "nistUrl": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C110-54-3&Mask=4",
+      "antoine": {
+        "tLowK": 286.18,
+        "tHighK": 342.69,
+        "A": 4.00266,
+        "B": 1171.53,
+        "C": -48.784,
+        "reference": "Williamham, Taylor, et al., 1945",
+        "units": {
+          "P": "bar",
+          "T": "K"
+        }
+      },
+      "allRanges": [
+        {
+          "tLowK": 177.7,
+          "tHighK": 264.93,
+          "reference": "Carruth and Kobayashi, 1973"
+        },
+        {
+          "tLowK": 286.18,
+          "tHighK": 342.69,
+          "reference": "Williamham, Taylor, et al., 1945"
+        }
+      ]
+    },
+    "MAT-0004": {
+      "name": "Acetone",
+      "cas": "67-64-1",
+      "nistId": "C67641",
+      "nistUrl": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C67641&Mask=4",
+      "antoine": {
+        "tLowK": 259.16,
+        "tHighK": 507.6,
+        "A": 4.42448,
+        "B": 1312.253,
+        "C": -32.445,
+        "reference": "Ambrose, Sprake, et al., 1974",
+        "units": {
+          "P": "bar",
+          "T": "K"
+        }
+      },
+      "allRanges": [
+        {
+          "tLowK": 259.16,
+          "tHighK": 507.6,
+          "reference": "Ambrose, Sprake, et al., 1974"
+        }
+      ]
+    },
+    "MAT-0005": {
+      "name": "Toluene",
+      "cas": "108-88-3",
+      "nistId": "C108-88-3",
+      "nistUrl": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C108-88-3&Mask=4",
+      "antoine": {
+        "tLowK": 308.52,
+        "tHighK": 384.66,
+        "A": 4.07827,
+        "B": 1343.943,
+        "C": -53.773,
+        "reference": "Williamham, Taylor, et al., 1945",
+        "units": {
+          "P": "bar",
+          "T": "K"
+        }
+      },
+      "allRanges": [
+        {
+          "tLowK": 273.13,
+          "tHighK": 297.89,
+          "reference": "Besley and Bottomley, 1974"
+        },
+        {
+          "tLowK": 303,
+          "tHighK": 343,
+          "reference": "Gaw and Swinton, 1968, 2"
+        },
+        {
+          "tLowK": 420,
+          "tHighK": 580,
+          "reference": "Ambrose, Broderick, et al., 1967"
+        },
+        {
+          "tLowK": 308.52,
+          "tHighK": 384.66,
+          "reference": "Williamham, Taylor, et al., 1945"
+        },
+        {
+          "tLowK": 273,
+          "tHighK": 323,
+          "reference": "Pitzer and Scott, 1943"
+        }
+      ]
+    },
+    "MAT-0006": {
+      "name": "Water",
+      "cas": "7732-18-5",
+      "nistId": "C7732-18-5",
+      "nistUrl": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C7732-18-5&Mask=4",
+      "antoine": {
+        "tLowK": 255.9,
+        "tHighK": 373,
+        "A": 4.6543,
+        "B": 1435.264,
+        "C": -64.848,
+        "reference": "Stull, 1947",
+        "units": {
+          "P": "bar",
+          "T": "K"
+        }
+      },
+      "allRanges": [
+        {
+          "tLowK": 379,
+          "tHighK": 573,
+          "reference": "Liu and Lindsay, 1970"
+        },
+        {
+          "tLowK": 273,
+          "tHighK": 303,
+          "reference": "Bridgeman and Aldrich, 1964"
+        },
+        {
+          "tLowK": 304,
+          "tHighK": 333,
+          "reference": "Bridgeman and Aldrich, 1964"
+        },
+        {
+          "tLowK": 334,
+          "tHighK": 363,
+          "reference": "Bridgeman and Aldrich, 1964"
+        },
+        {
+          "tLowK": 344,
+          "tHighK": 373,
+          "reference": "Bridgeman and Aldrich, 1964"
+        },
+        {
+          "tLowK": 293,
+          "tHighK": 343,
+          "reference": "Gubkov, Fermor, et al., 1964"
+        },
+        {
+          "tLowK": 255.9,
+          "tHighK": 373,
+          "reference": "Stull, 1947"
+        }
+      ]
+    },
+    "MAT-0007": {
+      "name": "Methanol",
+      "cas": "67-56-1",
+      "nistId": "C67561",
+      "nistUrl": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C67561&Mask=4",
+      "antoine": {
+        "tLowK": 288.1,
+        "tHighK": 356.83,
+        "A": 5.20409,
+        "B": 1581.341,
+        "C": -33.5,
+        "reference": "Ambrose and Sprake, 1970",
+        "units": {
+          "P": "bar",
+          "T": "K"
+        }
+      },
+      "allRanges": [
+        {
+          "tLowK": 353.5,
+          "tHighK": 512.63,
+          "reference": "Ambrose, Sprake, et al., 1975"
+        },
+        {
+          "tLowK": 288.1,
+          "tHighK": 356.83,
+          "reference": "Ambrose and Sprake, 1970"
+        },
+        {
+          "tLowK": 353,
+          "tHighK": 483,
+          "reference": "Hirata and Suda, 1967"
+        }
+      ]
+    }
+  }
+}

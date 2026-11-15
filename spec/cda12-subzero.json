@@ -1,0 +1,1565 @@
+{
+  "meta": {
+    "id": "EXP-2026-001",
+    "name": "Sub-zero CDA-12 hemp extraction",
+    "subtitle": "ethanol/pentane carrier, cryogenic crystallisation, mother liquor to CRD",
+    "revision": 1,
+    "owner": "lifecycleResearch",
+    "client": "private",
+    "confidentiality": "CBI-IP",
+    "units": {
+      "system": "SI",
+      "volume": "L",
+      "pressure": "kPa(abs)",
+      "temperature": "degC",
+      "mass": "kg"
+    },
+    "purpose": "Recover cannabinoid-rich distillate from biomass using a recycled ethanol/pentane carrier, and return the carrier to the tank without losing it to the ethanol/pentane azeotrope."
+  },
+  "materials": [
+    {
+      "id": "MAT-0100",
+      "name": "CDA-12 carrier blend",
+      "cas": null,
+      "grade": "client blend",
+      "role": "carrier",
+      "colour": "#74a4ff",
+      "hazards": [
+        "flammable"
+      ],
+      "source": "client blend specification",
+      "note": "an ethanol and n-pentane blend; the ratio is an assumption until the client confirms it (A-01)"
+    },
+    {
+      "id": "MAT-0001",
+      "name": "Ethanol",
+      "cas": "64-17-5",
+      "grade": "SDA 40-B",
+      "role": "carrier component",
+      "colour": "#74a4ff",
+      "hazards": [
+        "flammable"
+      ],
+      "source": "supplier quote"
+    },
+    {
+      "id": "MAT-0002",
+      "name": "n-Pentane",
+      "cas": "109-66-0",
+      "grade": "technical",
+      "role": "carrier component",
+      "colour": "#74a4ff",
+      "hazards": [
+        "flammable",
+        "asphyxiant"
+      ],
+      "source": "supplier quote"
+    },
+    {
+      "id": "MAT-0042",
+      "name": "Cannabidiol (CBD)",
+      "cas": "7643-49-6",
+      "role": "target",
+      "colour": "#6fe0a4",
+      "hazards": [],
+      "source": "plant specification"
+    },
+    {
+      "id": "MAT-0043",
+      "name": "Delta-9-THC",
+      "cas": "7373-93-3",
+      "role": "constituent",
+      "colour": "#6fe0a4",
+      "hazards": [],
+      "source": "plant specification"
+    },
+    {
+      "id": "MAT-0044",
+      "name": "Cannabinol (CBN)",
+      "cas": "569-65-5",
+      "role": "constituent",
+      "colour": "#6fe0a4",
+      "hazards": [],
+      "source": "plant specification"
+    },
+    {
+      "id": "MAT-0006",
+      "name": "Water",
+      "cas": "7732-18-5",
+      "role": "impurity",
+      "colour": "#4d6a78",
+      "hazards": [],
+      "source": "process"
+    },
+    {
+      "id": "MAT-0060",
+      "name": "Wax and lipid",
+      "cas": null,
+      "role": "co-extracted",
+      "colour": "#5a4a4a",
+      "hazards": [],
+      "source": "process"
+    },
+    {
+      "id": "MAT-0070",
+      "name": "Biomass",
+      "cas": null,
+      "role": "feed",
+      "colour": "#6b6250",
+      "hazards": [
+        "dust"
+      ],
+      "source": "client"
+    },
+    {
+      "id": "MAT-0080",
+      "name": "Nitrogen",
+      "cas": "7727-37-9",
+      "role": "blanket",
+      "colour": "#9a9a9a",
+      "hazards": [
+        "asphyxiant"
+      ],
+      "source": "utility"
+    },
+    {
+      "id": "MAT-0061",
+      "name": "Propylene glycol 40%",
+      "cas": "57-55-6",
+      "role": "coolant",
+      "colour": "#4d6a78",
+      "hazards": [],
+      "source": "utility"
+    },
+    {
+      "id": "MAT-0071",
+      "name": "Cellulosic residue",
+      "cas": "",
+      "role": "co-extracted",
+      "colour": "#6b6250",
+      "hazards": [],
+      "source": "process"
+    }
+  ],
+  "media": [
+    {
+      "id": "MED-0001",
+      "name": "Molecular sieve 3A",
+      "lot": "L-2261",
+      "function": "water removal from the recovered carrier",
+      "quantity": {
+        "value": 8,
+        "unit": "kg"
+      },
+      "replacement": {
+        "interval": {
+          "value": 6,
+          "unit": "month"
+        },
+        "trigger": "breakthrough at 200 ppm water"
+      }
+    },
+    {
+      "id": "MED-0002",
+      "name": "CRC carbon",
+      "lot": "L-2108",
+      "function": "cannabinoid removal from the vapour before the scrubber",
+      "quantity": {
+        "value": 6,
+        "unit": "L"
+      },
+      "replacement": {
+        "interval": {
+          "value": 4,
+          "unit": "month"
+        },
+        "trigger": "cannabinoid breakthrough"
+      }
+    },
+    {
+      "id": "MED-0003",
+      "name": "Filter cloth 5 micron",
+      "lot": "L-4412",
+      "function": "biomass filtration before the crystalliser",
+      "quantity": {
+        "value": 40,
+        "unit": "L"
+      },
+      "replacement": {
+        "interval": {
+          "value": 1,
+          "unit": "batch"
+        },
+        "trigger": "flux drop above 30 %"
+      }
+    }
+  ],
+  "vessels": [
+    {
+      "id": "V-101",
+      "name": "Carrier day tank",
+      "type": "drum",
+      "volume": {
+        "value": 30000,
+        "unit": "L"
+      },
+      "dimensions": {
+        "diameter": {
+          "value": 2800,
+          "unit": "mm"
+        },
+        "height": {
+          "value": 4900,
+          "unit": "mm"
+        }
+      },
+      "material": "316L",
+      "insulation": "none",
+      "isolation": {
+        "kind": "closed",
+        "note": "blanketed with nitrogen"
+      }
+    },
+    {
+      "id": "V-102",
+      "name": "Extraction vessel",
+      "type": "jacketed vessel",
+      "volume": {
+        "value": 3000,
+        "unit": "L"
+      },
+      "dimensions": {
+        "diameter": {
+          "value": 1600,
+          "unit": "mm"
+        },
+        "height": {
+          "value": 1900,
+          "unit": "mm"
+        }
+      },
+      "material": "316L",
+      "jacket": {
+        "medium": "glycol 20 degC",
+        "duty": {
+          "value": 30,
+          "unit": "kW"
+        }
+      },
+      "isolation": {
+        "kind": "closed",
+        "note": "nitrogen blanket, oxygen below 2 %"
+      }
+    },
+    {
+      "id": "V-103",
+      "name": "Crystalliser",
+      "type": "jacketed vessel with a scraper",
+      "volume": {
+        "value": 4000,
+        "unit": "L"
+      },
+      "dimensions": {
+        "diameter": {
+          "value": 1800,
+          "unit": "mm"
+        },
+        "height": {
+          "value": 2100,
+          "unit": "mm"
+        }
+      },
+      "material": "316L",
+      "jacket": {
+        "medium": "glycol -45 degC",
+        "duty": {
+          "value": 85,
+          "unit": "kW"
+        }
+      },
+      "isolation": {
+        "kind": "closed",
+        "note": "insulated jacket; nitrogen blanket"
+      }
+    },
+    {
+      "id": "F-101",
+      "name": "Biomass filter",
+      "type": "basket strainer",
+      "volume": {
+        "value": 200,
+        "unit": "L"
+      },
+      "dimensions": {
+        "diameter": {
+          "value": 400,
+          "unit": "mm"
+        },
+        "height": {
+          "value": 900,
+          "unit": "mm"
+        }
+      },
+      "material": "316L",
+      "insulation": "none",
+      "isolation": {
+        "kind": "closed",
+        "note": "cloth bag, 5 micron"
+      }
+    },
+    {
+      "id": "V-104",
+      "name": "Mother liquor tank",
+      "type": "drum",
+      "volume": {
+        "value": 6000,
+        "unit": "L"
+      },
+      "dimensions": {
+        "diameter": {
+          "value": 2200,
+          "unit": "mm"
+        },
+        "height": {
+          "value": 1900,
+          "unit": "mm"
+        }
+      },
+      "material": "316L",
+      "insulation": "none",
+      "isolation": {
+        "kind": "closed",
+        "note": ""
+      }
+    },
+    {
+      "id": "EV-101",
+      "name": "Vacuum evaporator",
+      "type": "falling film",
+      "volume": {
+        "value": 1500,
+        "unit": "L"
+      },
+      "dimensions": {
+        "diameter": {
+          "value": 1200,
+          "unit": "mm"
+        },
+        "height": {
+          "value": 3500,
+          "unit": "mm"
+        }
+      },
+      "material": "316L",
+      "jacket": {
+        "medium": "glycol 60 degC",
+        "duty": {
+          "value": 45,
+          "unit": "kW"
+        }
+      },
+      "isolation": {
+        "kind": "closed",
+        "note": "vacuum insulated"
+      }
+    },
+    {
+      "id": "CN-101",
+      "name": "Condenser bank",
+      "type": "shell and tube, four shells",
+      "volume": {
+        "value": 600,
+        "unit": "L"
+      },
+      "dimensions": {
+        "diameter": {
+          "value": 220,
+          "unit": "mm"
+        },
+        "height": {
+          "value": 1600,
+          "unit": "mm"
+        }
+      },
+      "material": "316L",
+      "jacket": {
+        "medium": "glycol -15 degC",
+        "duty": {
+          "value": 40,
+          "unit": "kW"
+        }
+      },
+      "isolation": {
+        "kind": "closed",
+        "note": "four stages, warm end first"
+      }
+    },
+    {
+      "id": "V-105",
+      "name": "Recovered carrier tank",
+      "type": "drum",
+      "volume": {
+        "value": 20000,
+        "unit": "L"
+      },
+      "dimensions": {
+        "diameter": {
+          "value": 2600,
+          "unit": "mm"
+        },
+        "height": {
+          "value": 3800,
+          "unit": "mm"
+        }
+      },
+      "material": "316L",
+      "insulation": "none",
+      "isolation": {
+        "kind": "closed",
+        "note": ""
+      }
+    },
+    {
+      "id": "V-106",
+      "name": "CRD product drum",
+      "type": "drum",
+      "volume": {
+        "value": 1000,
+        "unit": "L"
+      },
+      "dimensions": {
+        "diameter": {
+          "value": 900,
+          "unit": "mm"
+        },
+        "height": {
+          "value": 1200,
+          "unit": "mm"
+        }
+      },
+      "material": "316L",
+      "insulation": "none",
+      "isolation": {
+        "kind": "closed",
+        "note": "amber glass, nitrogen blanket"
+      }
+    },
+    {
+      "id": "CH-101",
+      "name": "Glycol chiller",
+      "type": "air cooled chiller",
+      "volume": {
+        "value": 500,
+        "unit": "L"
+      },
+      "dimensions": {
+        "diameter": {
+          "value": 400,
+          "unit": "mm"
+        },
+        "height": {
+          "value": 900,
+          "unit": "mm"
+        }
+      },
+      "material": "carbon steel",
+      "insulation": "50 mm",
+      "isolation": {
+        "kind": "closed",
+        "note": "glycol at -45 degC"
+      }
+    },
+    {
+      "id": "SC-101",
+      "name": "Gas scrubber",
+      "type": "drum with media",
+      "volume": {
+        "value": 200,
+        "unit": "L"
+      },
+      "dimensions": {
+        "diameter": {
+          "value": 800,
+          "unit": "mm"
+        },
+        "height": {
+          "value": 1300,
+          "unit": "mm"
+        }
+      },
+      "material": "316L",
+      "insulation": "none",
+      "isolation": {
+        "kind": "closed",
+        "note": "CRC carbon, activated carbon, zeolite 13X"
+      }
+    }
+  ],
+  "connections": [
+    {
+      "id": "P-1001",
+      "from": "V-101",
+      "to": "V-102",
+      "line": {
+        "spool": "2\" tri-clamp",
+        "bore": {
+          "value": 50,
+          "unit": "mm"
+        },
+        "material": "316L",
+        "insulation": "none"
+      },
+      "flow": {
+        "value": 4000,
+        "unit": "L/h"
+      },
+      "medium": "MAT-0100",
+      "name": "Carrier to extraction"
+    },
+    {
+      "id": "P-1002",
+      "from": "V-102",
+      "to": "F-101",
+      "line": {
+        "spool": "2\" tri-clamp",
+        "bore": {
+          "value": 50,
+          "unit": "mm"
+        },
+        "material": "316L",
+        "insulation": "none"
+      },
+      "flow": {
+        "value": 4000,
+        "unit": "L/h"
+      },
+      "medium": "MAT-0100",
+      "name": "Extract to filter"
+    },
+    {
+      "id": "P-1003",
+      "from": "F-101",
+      "to": "V-103",
+      "line": {
+        "spool": "2\" tri-clamp",
+        "bore": {
+          "value": 50,
+          "unit": "mm"
+        },
+        "material": "316L",
+        "insulation": "none"
+      },
+      "flow": {
+        "value": 3800,
+        "unit": "L/h"
+      },
+      "medium": "MAT-0100",
+      "name": "Filtrate to crystalliser"
+    },
+    {
+      "id": "P-1004",
+      "from": "V-103",
+      "to": "V-104",
+      "line": {
+        "spool": "2\" tri-clamp",
+        "bore": {
+          "value": 50,
+          "unit": "mm"
+        },
+        "material": "316L",
+        "insulation": "none"
+      },
+      "flow": {
+        "value": 3700,
+        "unit": "L/h"
+      },
+      "medium": "MAT-0100",
+      "name": "Mother liquor to tank"
+    },
+    {
+      "id": "P-1005",
+      "from": "V-104",
+      "to": "EV-101",
+      "line": {
+        "spool": "3\" tri-clamp",
+        "bore": {
+          "value": 75,
+          "unit": "mm"
+        },
+        "material": "316L",
+        "insulation": "trace heated"
+      },
+      "flow": {
+        "value": 3700,
+        "unit": "L/h"
+      },
+      "medium": "MAT-0100",
+      "name": "Mother liquor to evaporator"
+    },
+    {
+      "id": "P-1006",
+      "from": "EV-101",
+      "to": "CN-101",
+      "line": {
+        "spool": "3\" tri-clamp",
+        "bore": {
+          "value": 75,
+          "unit": "mm"
+        },
+        "material": "316L",
+        "insulation": "trace heated"
+      },
+      "flow": {
+        "value": 3600,
+        "unit": "L/h"
+      },
+      "medium": "MAT-0100",
+      "name": "Vapour to condenser"
+    },
+    {
+      "id": "P-1007",
+      "from": "CN-101",
+      "to": "V-105",
+      "line": {
+        "spool": "2\" tri-clamp",
+        "bore": {
+          "value": 50,
+          "unit": "mm"
+        },
+        "material": "316L",
+        "insulation": "none"
+      },
+      "flow": {
+        "value": 3600,
+        "unit": "L/h"
+      },
+      "medium": "MAT-0100",
+      "name": "Condensate to recovered carrier"
+    },
+    {
+      "id": "P-1008",
+      "from": "V-105",
+      "to": "V-101",
+      "line": {
+        "spool": "2\" tri-clamp",
+        "bore": {
+          "value": 50,
+          "unit": "mm"
+        },
+        "material": "316L",
+        "insulation": "none"
+      },
+      "flow": {
+        "value": 3500,
+        "unit": "L/h"
+      },
+      "medium": "MAT-0100",
+      "name": "Recovered carrier to day tank"
+    },
+    {
+      "id": "P-1009",
+      "from": "EV-101",
+      "to": "SC-101",
+      "line": {
+        "spool": "1.5\" tri-clamp",
+        "bore": {
+          "value": 38,
+          "unit": "mm"
+        },
+        "material": "316L",
+        "insulation": "none"
+      },
+      "flow": {
+        "value": 120,
+        "unit": "L/h"
+      },
+      "medium": "MAT-0100",
+      "name": "Non-condensables to scrubber"
+    },
+    {
+      "id": "P-1010",
+      "from": "V-103",
+      "to": "V-106",
+      "line": {
+        "spool": "2\" tri-clamp",
+        "bore": {
+          "value": 50,
+          "unit": "mm"
+        },
+        "material": "316L",
+        "insulation": "none"
+      },
+      "flow": {
+        "value": 60,
+        "unit": "L/h"
+      },
+      "medium": "MAT-0042",
+      "name": "Cake to product drum"
+    },
+    {
+      "id": "P-1011",
+      "from": "CH-101",
+      "to": "V-103",
+      "line": {
+        "spool": "2\" flange",
+        "bore": {
+          "value": 50,
+          "unit": "mm"
+        },
+        "material": "carbon steel",
+        "insulation": "75 mm"
+      },
+      "flow": {
+        "value": 24,
+        "unit": "m3/h"
+      },
+      "medium": "MAT-0061",
+      "name": "Glycol to crystalliser"
+    }
+  ],
+  "process": [
+    {
+      "id": "OP-10",
+      "name": "Extraction",
+      "kind": "mixing",
+      "window": {
+        "T": {
+          "value": 20,
+          "unit": "degC"
+        },
+        "hold": {
+          "value": 2,
+          "unit": "h"
+        }
+      },
+      "heat": {
+        "duty": {
+          "value": 30,
+          "unit": "kW"
+        },
+        "medium": "glycol 20 degC",
+        "dT": {
+          "value": 5,
+          "unit": "K"
+        }
+      },
+      "isolation": {
+        "kind": "closed",
+        "note": "nitrogen blanket"
+      },
+      "in": [
+        "S-200",
+        "S-201"
+      ],
+      "out": [
+        "S-202",
+        "S-202m"
+      ]
+    },
+    {
+      "id": "OP-20",
+      "name": "Biomass filtration",
+      "kind": "filtration",
+      "window": {
+        "T": {
+          "value": 20,
+          "unit": "degC"
+        },
+        "hold": {
+          "value": 0.5,
+          "unit": "h"
+        }
+      },
+      "heat": {
+        "duty": {
+          "value": 0,
+          "unit": "kW"
+        },
+        "medium": "none",
+        "dT": {
+          "value": 0,
+          "unit": "K"
+        }
+      },
+      "isolation": {
+        "kind": "closed",
+        "note": ""
+      },
+      "in": [
+        "S-202"
+      ],
+      "out": [
+        "S-202b"
+      ]
+    },
+    {
+      "id": "OP-30",
+      "name": "Sub-zero crystallisation",
+      "kind": "cooling",
+      "window": {
+        "T": {
+          "value": -40,
+          "unit": "degC"
+        },
+        "hold": {
+          "value": 12,
+          "unit": "h"
+        }
+      },
+      "heat": {
+        "duty": {
+          "value": 85,
+          "unit": "kW"
+        },
+        "medium": "glycol -45 degC",
+        "dT": {
+          "value": 5,
+          "unit": "K"
+        }
+      },
+      "isolation": {
+        "kind": "closed",
+        "note": "the scrapper turns every 30 minutes"
+      },
+      "in": [
+        "S-202b"
+      ],
+      "out": [
+        "S-203",
+        "S-204"
+      ]
+    },
+    {
+      "id": "OP-40",
+      "name": "Mother liquor separation",
+      "kind": "separation",
+      "window": {
+        "T": {
+          "value": -40,
+          "unit": "degC"
+        },
+        "hold": {
+          "value": 1,
+          "unit": "h"
+        }
+      },
+      "heat": {
+        "duty": {
+          "value": 0,
+          "unit": "kW"
+        },
+        "medium": "none",
+        "dT": {
+          "value": 0,
+          "unit": "K"
+        }
+      },
+      "isolation": {
+        "kind": "closed",
+        "note": "the crystals go to the product drum"
+      },
+      "in": [
+        "S-203"
+      ],
+      "out": [
+        "S-208"
+      ]
+    },
+    {
+      "id": "OP-50",
+      "name": "Carrier recovery",
+      "kind": "evaporation",
+      "window": {
+        "T": {
+          "value": 35,
+          "unit": "degC"
+        },
+        "p": {
+          "value": 35,
+          "unit": "mbar"
+        }
+      },
+      "heat": {
+        "duty": {
+          "value": 45,
+          "unit": "kW"
+        },
+        "medium": "glycol 60 degC",
+        "dT": {
+          "value": 10,
+          "unit": "K"
+        }
+      },
+      "isolation": {
+        "kind": "closed",
+        "note": "one, two or three stage vacuum set"
+      },
+      "in": [
+        "S-208"
+      ],
+      "out": [
+        "S-205",
+        "S-209"
+      ]
+    },
+    {
+      "id": "OP-55",
+      "name": "Condensation",
+      "kind": "condensation",
+      "window": {
+        "T": {
+          "value": -20,
+          "unit": "degC"
+        },
+        "hold": {
+          "value": 1,
+          "unit": "h"
+        }
+      },
+      "heat": {
+        "duty": {
+          "value": 40,
+          "unit": "kW"
+        },
+        "medium": "glycol -15 degC",
+        "dT": {
+          "value": 8,
+          "unit": "K"
+        }
+      },
+      "isolation": {
+        "kind": "closed",
+        "note": "cascade coolant at -45 degC on the cold shell"
+      },
+      "in": [
+        "S-205"
+      ],
+      "out": [
+        "S-206"
+      ]
+    },
+    {
+      "id": "OP-60",
+      "name": "Carrier return",
+      "kind": "transfer",
+      "window": {
+        "T": {
+          "value": 20,
+          "unit": "degC"
+        },
+        "hold": {
+          "value": 24,
+          "unit": "h"
+        }
+      },
+      "heat": {
+        "duty": {
+          "value": 0,
+          "unit": "kW"
+        },
+        "medium": "none",
+        "dT": {
+          "value": 0,
+          "unit": "K"
+        }
+      },
+      "isolation": {
+        "kind": "closed",
+        "note": "the recovered carrier rejoins the day tank"
+      },
+      "in": [
+        "S-206"
+      ],
+      "out": [
+        "S-207b"
+      ]
+    }
+  ],
+  "streams": [
+    {
+      "id": "S-201",
+      "name": "Carrier to extraction",
+      "phase": "liquid",
+      "composition": [
+        {
+          "material": "MAT-0100",
+          "fraction": 1
+        }
+      ],
+      "colour": "#74a4ff",
+      "flow": {
+        "value": 4000,
+        "unit": "L/h"
+      },
+      "massKgPerHour": 2961.2
+    },
+    {
+      "id": "S-202",
+      "name": "Extract to crystalliser",
+      "phase": "liquid",
+      "composition": [
+        {
+          "material": "MAT-0042",
+          "fraction": 0.0155469
+        },
+        {
+          "material": "MAT-0043",
+          "fraction": 0.00200605
+        },
+        {
+          "material": "MAT-0044",
+          "fraction": 0.00075227
+        },
+        {
+          "material": "MAT-0060",
+          "fraction": 0.00222895
+        },
+        {
+          "material": "MAT-0006",
+          "fraction": 0.00111447
+        },
+        {
+          "material": "MAT-0100",
+          "fraction": 0.97835136
+        }
+      ],
+      "colour": "#74a4ff",
+      "flow": {
+        "value": 3944.3,
+        "unit": "L/h"
+      },
+      "massKgPerHour": 2935.929
+    },
+    {
+      "id": "S-203",
+      "name": "Mother liquor to recovery",
+      "phase": "liquid",
+      "composition": [
+        {
+          "material": "MAT-0042",
+          "fraction": 0.00189495
+        },
+        {
+          "material": "MAT-0043",
+          "fraction": 0.00071315
+        },
+        {
+          "material": "MAT-0044",
+          "fraction": 0.00038205
+        },
+        {
+          "material": "MAT-0060",
+          "fraction": 0.00226398
+        },
+        {
+          "material": "MAT-0006",
+          "fraction": 0.00101879
+        },
+        {
+          "material": "MAT-0100",
+          "fraction": 0.99372709
+        }
+      ],
+      "colour": "#9a9a9a",
+      "flow": {
+        "value": 3898.9,
+        "unit": "L/h"
+      },
+      "massKgPerHour": 2890.522
+    },
+    {
+      "id": "S-204",
+      "name": "CBD cake",
+      "phase": "solid",
+      "composition": [
+        {
+          "material": "MAT-0042",
+          "fraction": 0.88421513
+        },
+        {
+          "material": "MAT-0043",
+          "fraction": 0.08427264
+        },
+        {
+          "material": "MAT-0044",
+          "fraction": 0.02430945
+        },
+        {
+          "material": "MAT-0006",
+          "fraction": 0.00720278
+        }
+      ],
+      "colour": "#6fe0a4",
+      "flow": {
+        "value": 45.4,
+        "unit": "L/h"
+      },
+      "massKgPerHour": 45.399
+    },
+    {
+      "id": "S-205",
+      "name": "Solvent vapour",
+      "phase": "vapour",
+      "composition": [
+        {
+          "material": "MAT-0006",
+          "fraction": 0.00051492
+        },
+        {
+          "material": "MAT-0100",
+          "fraction": 0.99948508
+        }
+      ],
+      "colour": "#b892ff",
+      "flow": {
+        "value": 3862.1,
+        "unit": "L/h"
+      },
+      "massKgPerHour": 2859.493
+    },
+    {
+      "id": "S-206",
+      "name": "Recovered carrier",
+      "phase": "liquid",
+      "composition": [
+        {
+          "material": "MAT-0006",
+          "fraction": 0.00051492
+        },
+        {
+          "material": "MAT-0100",
+          "fraction": 0.99948508
+        }
+      ],
+      "colour": "#74a4ff",
+      "flow": {
+        "value": 3862.1,
+        "unit": "L/h"
+      },
+      "massKgPerHour": 2859.493
+    },
+    {
+      "id": "S-207",
+      "name": "Scrubber exhaust",
+      "phase": "gas",
+      "composition": [
+        {
+          "material": "MAT-0080",
+          "fraction": 1
+        }
+      ],
+      "colour": "#9a9a9a",
+      "flow": {
+        "value": 120,
+        "unit": "L/h"
+      },
+      "massKgPerHour": 0.15
+    },
+    {
+      "id": "S-208",
+      "name": "Mother liquor to recovery",
+      "phase": "liquid",
+      "composition": [
+        {
+          "material": "MAT-0042",
+          "fraction": 0.00189495
+        },
+        {
+          "material": "MAT-0043",
+          "fraction": 0.00071315
+        },
+        {
+          "material": "MAT-0044",
+          "fraction": 0.00038205
+        },
+        {
+          "material": "MAT-0060",
+          "fraction": 0.00226398
+        },
+        {
+          "material": "MAT-0006",
+          "fraction": 0.00101879
+        },
+        {
+          "material": "MAT-0100",
+          "fraction": 0.99372708
+        }
+      ],
+      "colour": "#6fe0a4",
+      "flow": {
+        "value": 3898.9,
+        "unit": "L/h"
+      },
+      "massKgPerHour": 2890.522
+    },
+    {
+      "id": "S-202b",
+      "name": "Filtrate",
+      "phase": "liquid",
+      "composition": [
+        {
+          "material": "MAT-0042",
+          "fraction": 0.0155469
+        },
+        {
+          "material": "MAT-0043",
+          "fraction": 0.00200605
+        },
+        {
+          "material": "MAT-0044",
+          "fraction": 0.00075227
+        },
+        {
+          "material": "MAT-0060",
+          "fraction": 0.00222895
+        },
+        {
+          "material": "MAT-0006",
+          "fraction": 0.00111447
+        },
+        {
+          "material": "MAT-0100",
+          "fraction": 0.97835136
+        }
+      ],
+      "colour": "#74a4ff",
+      "flow": {
+        "value": 3944.3,
+        "unit": "L/h"
+      },
+      "massKgPerHour": 2935.929
+    },
+    {
+      "id": "S-209",
+      "name": "CRD residue (cannabinoid rich)",
+      "phase": "liquid",
+      "composition": [
+        {
+          "material": "MAT-0042",
+          "fraction": 0.17656743
+        },
+        {
+          "material": "MAT-0043",
+          "fraction": 0.06644981
+        },
+        {
+          "material": "MAT-0044",
+          "fraction": 0.03559861
+        },
+        {
+          "material": "MAT-0060",
+          "fraction": 0.21095287
+        },
+        {
+          "material": "MAT-0006",
+          "fraction": 0.04746435
+        },
+        {
+          "material": "MAT-0100",
+          "fraction": 0.46296693
+        }
+      ],
+      "colour": "#9a9a9a",
+      "flow": {
+        "value": 36.8,
+        "unit": "L/h"
+      },
+      "massKgPerHour": 31.03
+    },
+    {
+      "id": "S-207b",
+      "name": "Recovered carrier return",
+      "phase": "liquid",
+      "composition": [
+        {
+          "material": "MAT-0006",
+          "fraction": 0.00051492
+        },
+        {
+          "material": "MAT-0100",
+          "fraction": 0.99948508
+        }
+      ],
+      "colour": "#74a4ff",
+      "flow": {
+        "value": 3862.1,
+        "unit": "L/h"
+      },
+      "massKgPerHour": 2859.493
+    },
+    {
+      "id": "S-200",
+      "name": "Biomass charge",
+      "phase": "solid",
+      "composition": [
+        {
+          "material": "MAT-0070",
+          "fraction": 0.72
+        },
+        {
+          "material": "MAT-0042",
+          "fraction": 0.155
+        },
+        {
+          "material": "MAT-0043",
+          "fraction": 0.02
+        },
+        {
+          "material": "MAT-0044",
+          "fraction": 0.0075
+        },
+        {
+          "material": "MAT-0060",
+          "fraction": 0.02
+        },
+        {
+          "material": "MAT-0006",
+          "fraction": 0.01
+        },
+        {
+          "material": "MAT-0071",
+          "fraction": 0.0675
+        }
+      ],
+      "colour": "#6b6250",
+      "flow": {
+        "value": 675,
+        "unit": "L/h"
+      },
+      "massKgPerHour": 327.201
+    },
+    {
+      "id": "S-202m",
+      "name": "Wet marc",
+      "phase": "solid",
+      "composition": [
+        {
+          "material": "MAT-0070",
+          "fraction": 0.66836657
+        },
+        {
+          "material": "MAT-0042",
+          "fraction": 0.01438845
+        },
+        {
+          "material": "MAT-0043",
+          "fraction": 0.00185657
+        },
+        {
+          "material": "MAT-0044",
+          "fraction": 0.00069622
+        },
+        {
+          "material": "MAT-0071",
+          "fraction": 0.06265937
+        },
+        {
+          "material": "MAT-0100",
+          "fraction": 0.25203282
+        }
+      ],
+      "colour": "#6b6250",
+      "flow": {
+        "value": 730.7,
+        "unit": "L/h"
+      },
+      "massKgPerHour": 352.474
+    }
+  ],
+  "targets": [
+    {
+      "id": "T-1",
+      "name": "CBD crystal (CBD-1)",
+      "material": "MAT-0042",
+      "isolationStep": "OP-30",
+      "spec": {
+        "purity": {
+          "value": 62,
+          "unit": "%"
+        },
+        "recovery": {
+          "value": 88,
+          "unit": "%"
+        }
+      },
+      "colour": "#6fe0a4"
+    },
+    {
+      "id": "T-2",
+      "name": "CRD mother liquor",
+      "material": "MAT-0042",
+      "isolationStep": "OP-40",
+      "spec": {
+        "purity": {
+          "value": 55,
+          "unit": "%"
+        },
+        "recovery": {
+          "value": 96,
+          "unit": "%"
+        }
+      },
+      "colour": "#6fe0a4"
+    }
+  ],
+  "sop": {
+    "title": "Sub-zero CDA-12 extraction — standard operating procedure",
+    "preconditions": [
+      "The carrier tank is above 20 000 L and the recovered carrier is above 15 000 L.",
+      "The glycol loop is at -45 degC and holding pressure is below 60 bar.",
+      "The nitrogen blanket on the crystalliser is below 2 % oxygen.",
+      "The vacuum set is in one, two or three stage mode and the gauge reads below 100 mbar."
+    ],
+    "steps": [
+      {
+        "id": "OP-10",
+        "text": "Charge the extraction vessel with the carrier from the day tank and the biomass, and agitate at 20 degC for two hours.",
+        "acceptance": "Agitator current is steady within 5 % of the reference run and the vessel is below 2 % oxygen."
+      },
+      {
+        "id": "OP-20",
+        "text": "Drain the extract through the 5 micron cloth into the crystalliser and swap the cloth bag.",
+        "acceptance": "The differential pressure across the filter stays below 0.6 bar and the filtrate is clear."
+      },
+      {
+        "id": "OP-30",
+        "text": "Bring the crystalliser down to -40 degC at no more than 0.5 degC per minute and hold for twelve hours with the scraper turning every thirty minutes.",
+        "acceptance": "The batch holds -40 degC for twelve hours with less than 1 degC of drift and the scraper current is steady."
+      },
+      {
+        "id": "OP-40",
+        "text": "Separate the mother liquor from the crystal cake at -40 degC and move the cake to the product drum.",
+        "acceptance": "The cake temperature is below -25 degC at discharge and the assay of a sample matches the target within 2 %."
+      },
+      {
+        "id": "OP-50",
+        "text": "Strip the carrier from the mother liquor under vacuum, watching the azeotrope: stop the column when the condensate reaches 95 % pentane, because that is where the blend stops being the blend the client bought.",
+        "acceptance": "The condensate is within 2 % of the azeotropic pentane composition and the residual solvent in the residue is below 1 %."
+      },
+      {
+        "id": "OP-55",
+        "text": "Condense the vapour on the four-shell bank, with the cascade coolant at -45 degC on the cold shell.",
+        "acceptance": "The condensate temperature is below -10 degC and the tank gauge is below 100 mbar."
+      },
+      {
+        "id": "OP-60",
+        "text": "Return the recovered carrier to the day tank and re-assay it before it is used again.",
+        "acceptance": "The recovered carrier assay is within 3 % of the make-up blend and the water is below 500 ppm."
+      }
+    ],
+    "notes": [
+      {
+        "id": "N-1",
+        "text": "Ethanol and n-pentane form a minimum-boiling azeotrope at 34.3 degC containing 95 % n-pentane by mass. Distillation cannot take the blend past it, so the recovered carrier is pentane-rich and carries about 5 % ethanol with it. If the client needs ethanol-rich carrier back, a pressure swing or a molecular sieve is needed; the skid's sieve stack is the second option.",
+        "refersTo": "OP-50"
+      },
+      {
+        "id": "N-2",
+        "text": "The carrier arrives by tanker once a week. A 30 000 L tanker is roughly 20 batches of the 4 000 L extraction, so the day tank must hold a tanker and a half at peak, and the recovered carrier tank is the buffer against a carrier price move.",
+        "refersTo": "V-101"
+      },
+      {
+        "id": "N-3",
+        "text": "CBD solubility falls steeply below -20 degC, which is the whole reason for the cold step. The exact curve at -40 degC is an assumption (A-02) and is the first thing to measure on the client's own plant.",
+        "refersTo": "OP-30"
+      },
+      {
+        "id": "N-4",
+        "text": "The vapour from the recovery step carries cannabinoids. The scrubber on the exhaust line is not optional; the CRC carbon bed takes the cannabinoids and the zeolite takes the water.",
+        "refersTo": "SC-101"
+      }
+    ]
+  },
+  "simulation": {
+    "models": [
+      {
+        "id": "vapour-pressure-antoine",
+        "ref": "sim/thermo.mjs",
+        "data": "sim/data/antoine.json",
+        "source": "NIST Chemistry WebBook"
+      },
+      {
+        "id": "raoult-binary",
+        "ref": "sim/thermo.mjs",
+        "source": "ideal mixing; compared against the published azeotrope"
+      },
+      {
+        "id": "mass-balance",
+        "ref": "sim/massbalance.mjs"
+      }
+    ],
+    "parameters": {
+      "recoveryStage": 2,
+      "vacuumMbar": 8,
+      "boilC": -9.6,
+      "carrierLossTargetPct": 2
+    }
+  },
+  "sources": [
+    {
+      "id": "S-01",
+      "kind": "database",
+      "citation": "NIST Chemistry WebBook, Antoine equation parameters for ethanol, n-pentane, n-hexane, acetone, toluene, water and methanol",
+      "url": "https://webbook.nist.gov/cgi/fluid.cgi"
+    },
+    {
+      "id": "S-02",
+      "kind": "database",
+      "citation": "Wikipedia, Azeotrope tables: ethanol and n-pentane, minimum boiling azeotrope at 34.3 degC, 95 % n-pentane by mass",
+      "url": "https://en.wikipedia.org/wiki/Azeotrope_tables"
+    },
+    {
+      "id": "S-03",
+      "kind": "client",
+      "citation": "client blend specification for CDA-12"
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "A-01",
+      "text": "The CDA-12 blend is 70 % ethanol and 30 % n-pentane by mass. The client named the blend but not the ratio.",
+      "confirmed": false,
+      "affects": [
+        "OP-10",
+        "OP-50",
+        "S-206"
+      ]
+    },
+    {
+      "id": "A-02",
+      "text": "CBD in the carrier drops to 0.12 % mass at -40 degC, a 75 % recovery of what was dissolved at 20 degC.",
+      "confirmed": false,
+      "affects": [
+        "OP-30",
+        "T-1"
+      ]
+    },
+    {
+      "id": "A-03",
+      "text": "One tanker of carrier a week, 30 000 L, in 4 000 L extractions.",
+      "confirmed": false,
+      "affects": [
+        "V-101",
+        "N-2"
+      ]
+    },
+    {
+      "id": "A-04",
+      "text": "Biomass is 25 % cannabinoids by mass and the extraction takes 90 % of them into the carrier.",
+      "confirmed": false,
+      "affects": [
+        "OP-10",
+        "S-202"
+      ]
+    },
+    {
+      "id": "A-05",
+      "text": "The two stage vacuum set holds 8 mbar and boils the carrier at -10 degC, so the condenser runs on cascade coolant at -45 degC.",
+      "confirmed": false,
+      "affects": [
+        "OP-50",
+        "CN-101"
+      ]
+    }
+  ]
+}

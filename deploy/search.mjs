@@ -131,17 +131,154 @@ async function crossref(query, limit) {
   };
 }
 
+// --------------------------------------------------------------- Europe PMC ---
+
+async function europepmc(query, limit) {
+  const data = await grab(`https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=${encodeURIComponent(query)}&format=json&pageSize=${limit}&resultType=core`);
+  const results = (data.resultList && data.resultList.result) || [];
+  if (!results.length) return null;
+  return {
+    hits: results.map((w) => ({
+      title: w.title || "",
+      year: w.pubYear || null,
+      doi: w.doi || "",
+      authors: (w.authorString || "").split(",").map((a) => a.trim()).slice(0, 8),
+      url: w.pmid ? `https://europepmc.org/article/MED/${w.pmid}` : "",
+      journal: w.journalTitle || "",
+      abstract: clip(text(w.abstractText || ""), 400),
+    })),
+  };
+}
+
+// ------------------------------------------------------------------ PubMed ---
+
+async function pubmed(query, limit) {
+  const data = await grab(`https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&retmode=json&retmax=${limit}&term=${encodeURIComponent(query)}`);
+  const ids = (data.esearchresult && data.esearchresult.idlist) || [];
+  if (!ids.length) return null;
+  const summary = await grab(`https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&retmode=json&id=${ids.join(",")}`);
+  const hits = ids.map((id) => {
+    const item = (summary.result && summary.result[id]) || {};
+    return {
+      title: item.title || "",
+      year: (item.pubdate || "").slice(0, 4) || null,
+      doi: (item.articleids || []).find((a) => a.idtype === "doi") ? (item.articleids.find((a) => a.idtype === "doi")).value : "",
+      authors: (item.authors || []).slice(0, 8).map((a) => a.name),
+      url: `https://pubmed.ncbi.nlm.nih.gov/${id}/`,
+      journal: item.fulljournalname || "",
+    };
+  });
+  return { hits };
+}
+
+// ------------------------------------------------------------ Stack Exchange ---
+
+async function stackexchange(query, limit) {
+  const data = await grab(`https://api.stackexchange.com/2.3/search/advanced?order=desc&sort=relevance&q=${encodeURIComponent(query)}&site=chemistry&pagesize=${limit}&filter=default`);
+  const items = data.items || [];
+  if (!items.length) return null;
+  return {
+    hits: items.map((w) => ({
+      title: w.title,
+      score: w.score,
+      answers: w.answer_count,
+      url: w.link,
+      tags: (w.tags || []).slice(0, 5),
+      excerpt: clip(text((w.body || "").replace(/<[^>]+>/g, " ")), 240),
+    })),
+  };
+}
+
+// ------------------------------------------------------------ Hacker News ---
+
+async function hackernews(query, limit) {
+  const data = await grab(`https://hn.algolia.com/api/v1/search?query=${encodeURIComponent(query)}&hitsPerPage=${limit}`);
+  const hits = data.hits || [];
+  if (!hits.length) return null;
+  return {
+    hits: hits.map((h) => ({
+      title: h.title || h.story_title || "",
+      points: h.points,
+      comments: h.num_comments,
+      url: h.url || `https://news.ycombinator.com/item?id=${h.objectID}`,
+      discussion: `https://news.ycombinator.com/item?id=${h.objectID}`,
+      when: h.created_at,
+    })),
+  };
+}
+
+// --------------------------------------------------------- Semantic Scholar ---
+
+async function semanticscholar(query, limit) {
+  const data = await grab(`https://api.semanticscholar.org/graph/v1/paper/search?query=${encodeURIComponent(query)}&limit=${limit}&fields=title,year,abstract,externalIds,url,authors,citationCount`);
+  const data2 = data.data || [];
+  if (!data2.length) return null;
+  return {
+    hits: data2.map((w) => ({
+      title: w.title,
+      year: w.year,
+      doi: (w.externalIds && w.externalIds.DOI) || "",
+      citations: w.citationCount,
+      authors: (w.authors || []).slice(0, 8).map((a) => a.name),
+      url: w.url,
+      abstract: clip(text(w.abstract || ""), 400),
+    })),
+  };
+}
+
+// ------------------------------------------------------------- Google Books ---
+
+async function googlebooks(query, limit) {
+  const data = await grab(`https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(query)}&maxResults=${limit}`);
+  const items = data.items || [];
+  if (!items.length) return null;
+  return {
+    hits: items.map((w) => ({
+      title: (w.volumeInfo && w.volumeInfo.title) || "",
+      authors: ((w.volumeInfo && w.volumeInfo.authors) || []).slice(0, 6),
+      year: (w.volumeInfo && w.volumeInfo.publishedDate || "").slice(0, 4) || null,
+      publisher: (w.volumeInfo && w.volumeInfo.publisher) || "",
+      isbn: ((w.volumeInfo && w.volumeInfo.industryIdentifiers) || []).map((i) => i.identifier).slice(0, 3),
+      url: (w.volumeInfo && w.volumeInfo.infoLink) || "",
+    })),
+  };
+}
+
 // ------------------------------------------------------------------- public ---
+
+// The sources that answer anonymously and have no quota to burn. Everything
+// here is reachable without a key: encyclopaedia, preprints, scholarly
+// metadata, technical Q&A, and the discussion forums where plant engineers
+// actually compare notes.
+export const SOURCES = [
+  { id: "ddg", label: "DuckDuckGo instant answer", kind: "web" },
+  { id: "wikipedia", label: "Wikipedia", kind: "encyclopaedia" },
+  { id: "arxiv", label: "arXiv", kind: "papers" },
+  { id: "openalex", label: "OpenAlex", kind: "papers" },
+  { id: "crossref", label: "Crossref", kind: "papers" },
+  { id: "europepmc", label: "Europe PMC", kind: "papers" },
+  { id: "pubmed", label: "PubMed", kind: "papers" },
+  { id: "stackexchange", label: "Stack Exchange", kind: "technical Q&A" },
+  { id: "hn", label: "Hacker News", kind: "discussion" },
+  { id: "semanticscholar", label: "Semantic Scholar", kind: "papers" },
+  { id: "googlebooks", label: "Google Books", kind: "books" },
+];
 
 export async function search(query, { limit = 5 } = {}) {
   const q = String(query || "").trim();
   if (!q) return { query: "", sources: {} };
-  const [ddg, wiki, ax, oa, cr] = await Promise.all([
+  const [ddg, wiki, ax, oa, cr, epmc, pm, se, hn, ss, gb] = await Promise.all([
     duckduckgo(q).catch(() => null),
     wikipedia(q).catch(() => null),
     arxiv(q, limit).catch(() => []),
     openalex(q, limit).catch(() => null),
     crossref(q, limit).catch(() => null),
+    europepmc(q, limit).catch(() => null),
+    pubmed(q, limit).catch(() => null),
+    stackexchange(q, limit).catch(() => null),
+    hackernews(q, limit).catch(() => null),
+    semanticscholar(q, limit).catch(() => null),
+    googlebooks(q, limit).catch(() => null),
   ]);
   const sources = {};
   if (ddg) sources.ddg = ddg;
@@ -149,6 +286,12 @@ export async function search(query, { limit = 5 } = {}) {
   if (ax && ax.length) sources.arxiv = { hits: ax };
   if (oa) sources.openalex = oa;
   if (cr) sources.crossref = cr;
+  if (epmc) sources.europepmc = epmc;
+  if (pm) sources.pubmed = pm;
+  if (se) sources.stackexchange = se;
+  if (hn) sources.hackernews = hn;
+  if (ss) sources.semanticscholar = ss;
+  if (gb) sources.googlebooks = gb;
   return { query: q, sources };
 }
 

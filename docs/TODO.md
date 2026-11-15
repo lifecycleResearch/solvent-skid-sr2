@@ -11,25 +11,38 @@ Legend: **P0** blocks the MVP · **P1** needed for the first client ·
 
 ## A. Answers we need before the rest
 
+**Asked on 2026-11-15; the answers so far.** CDA-12 is an ethanol and
+n-pentane blend (the client names it; the ratio is still open). The template
+goes library first, then generator. Client data stays entirely in the client's
+account. The isolation is OpenShell with a policy. The router may use Workers
+AI, Gemini, Groq and OpenRouter.
+
 | # | Question | Why it blocks | Default if unanswered |
 |---|---|---|---|
-| A1 | What exactly is **CDA-12**? Trade name, composition (% CBD, THC, CBN), the grade, and who the buyer is | the whole preload scenario is a guess without it | treat it as a generic cannabinoid-rich distillate (CRD) and label it clearly as a placeholder |
-| A2 | The plant's real numbers: solvent and carrier volumes per week, batch size, throughput, number of shifts | the mass balance is meaningless without them | use the skid's numbers and mark them as synthetic |
-| A3 | Which solvent and which carrier (ethanol, hexanes, acetone, CO₂)? | changes the whole property model set | ethanol, as in the skid |
-| A4 | What does "sub-zero" mean operationally: −20 °C, −40 °C, or −80 °C, and for how long | sets the heat duty and the energy case | −40 °C, 12 h hold |
-| A5 | Is the client's data allowed to sit in our account at all, or must it be entirely in theirs? | decides the deployment shape | entirely in theirs |
-| A6 | Which model providers should the router be allowed to use (a BYOK list is fine) | decides the free-tier budget | Gemini + Groq + OpenRouter free + Workers AI |
-| A7 | Does the client want the figure interactive in the browser only, or also as a PDF/drawing pack for the plant floor? | decides whether the spec needs a second renderer | browser only |
+| A1 | The **ratio** in the CDA-12 blend, and the assay of the material it carries | every number in the scenario scales with it | 70 % ethanol / 30 % n-pentane by mass (assumption A-01) |
+| A2 | The plant's real numbers: carrier volume per week, batch size, throughput, shifts | the mass balance is meaningless without them | one 30 000 L tanker a week in 4 000 L extractions (A-03) |
+| A3 | Which solvent and which carrier (ethanol, hexanes, acetone, CO₂)? | changes the whole property model set | ethanol/pentane, as named |
+| A4 | What does "sub-zero" mean operationally: −20 °C, −40 °C, or −80 °C, and for how long | sets the heat duty and the energy case | −40 °C, 12 h hold (A-02, A-05) |
+| A5 | Is the client's data allowed to sit in our account at all? | **answered: entirely in the client's account** | — |
+| A6 | Which model providers may the router use? | **answered: Workers AI, Gemini, Groq, OpenRouter** | — |
+| A7 | Browser only, or also a PDF/drawing pack for the plant floor? | decides whether the spec needs a second renderer | browser only |
 
 ## B. The spec (L0)
+
+**Done:** `spec/schema.json` is written as the shape in `docs/PLAN.md` §2 and
+the validator enforces it; `spec/units.mjs` converts and refuses to invent a
+unit; `spec/cda12-subzero.json` is the first real spec and it validates; the
+streams are derived from split rules by `sim/derive-streams.mjs`, so the
+numbers in it are consistent by construction and the balance closes to 0 %.
 
 | # | Task | Done when | Est |
 |---|---|---|---|
 | B1 | `spec/schema.json` — the schema above, with types and required fields | a spec that fails the schema is rejected with a useful message | 3 h |
-| B2 | `spec/validate.mjs` — the validator: IDs resolve, units known, compositions sum to 1 | `node spec/validate.mjs spec/skid-sr2.json` exits 0 on the skid, non-zero with a line number on a broken spec | 4 h |
-| B3 | `sim/units.mjs` — value/unit pairs, SI ↔ US, mass/flow/pressure/temperature/energy | round trips exactly; every unit in the spec resolves | 3 h |
+| B2 | `spec/validate.mjs` — the validator: IDs resolve, units known, compositions sum to 1 | **done** — `node spec/validate.mjs spec/cda12-subzero.json` exits 0 | 4 h |
+| B3 | `sim/units.mjs` — value/unit pairs, SI ↔ US, mass/flow/pressure/temperature/energy | **done** — round trips exactly; every unit in the spec resolves | 3 h |
 | B4 | `spec/skid-sr2.json` — the skid as a spec | it validates, and the numbers match `figures/skid/model.mjs` | 4 h |
-| B5 | `spec/cda12-subzero.json` — the MVP preload, from A1–A4 | it validates; the placeholders are marked as placeholders | 3 h |
+| B5 | `spec/cda12-subzero.json` — the MVP preload, from A1–A4 | **done** — it validates, and the five assumptions are marked as assumptions | 3 h |
+| B6 | `spec/schema.json` as a real JSON Schema (draft 2020-12) for editor validation | the editor flags a bad spec while it is typed | 3 h |
 
 ## C. The generator (L1)
 
@@ -57,10 +70,16 @@ Legend: **P0** blocks the MVP · **P1** needed for the first client ·
 
 ## E. The simulation (L3)
 
+**Done:** `sim/thermo.mjs` with the NIST Antoine fits
+(`sim/data/antoine.json`, fetched by `sim/fetch-nist.mjs`, each row with its
+own reference and range), `sim/massbalance.mjs`, `sim/derive-streams.mjs` and
+`sim/sim.test.mjs` (11 tests: the boiling points to 0.35 °C, the vapour
+pressures to 1 %, the azeotrope comparison, the balance, the units).
+
 | # | Task | Done when | Est |
 |---|---|---|---|
-| E1 | `sim/thermo.mjs` — vapour pressure (Antoine, with a fitted curve), density, heat capacity, enthalpy of vaporisation | ethanol, acetone, hexanes, toluene within 1 % of the datasheets over the valid range | 6 h |
-| E2 | `sim/massbalance.mjs` — per-operation balances, with the stream graph | in = out within 0.5 % for every spec | 6 h |
+| E1 | `sim/thermo.mjs` — vapour pressure (Antoine, with a fitted curve), density, heat capacity, enthalpy of vaporisation | **partly done**: vapour pressure, density, boiling point and the Raoult behaviour; enthalpy of vaporisation and heat capacity still to come | 6 h |
+| E2 | `sim/massbalance.mjs` — per-operation balances, with the stream graph | **done** for the mass; the stream graph is not drawn yet | 6 h |
 | E3 | `sim/heat.mjs` — duty from mass flow, ΔT and latent heat; the condenser and evaporator | the skid's numbers match the figure's readout | 5 h |
 | E4 | `sim/solubility.mjs` — partition of a target between carrier and mother liquor | the CRD split matches the client's plant within their stated tolerance | 6 h |
 | E5 | `sim/uncertainty.mjs` — Monte Carlo over the spec's tolerances | the result is a distribution, not a point | 4 h |
