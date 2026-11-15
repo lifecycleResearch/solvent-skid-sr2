@@ -1,0 +1,24 @@
+{
+  // The review deployment: the same Worker and the same assets, under a
+  // second name, so there is a URL to review that is not the one in use.
+  //
+  //   cd deploy && wrangler deploy --config wrangler.review.jsonc
+  //
+  // Everything is identical to wrangler.jsonc except the name: the same
+  // worker.js, the same public directory, the same AI binding.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "solvent-skid-review",
+  "compatibility_date": "2026-01-15",
+  "workers_dev": true,
+  "main": "worker.js",
+  "ai": {
+    "binding": "AI"
+  },
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "html_handling": "none",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*"]
+  }
+}

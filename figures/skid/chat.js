@@ -49,6 +49,11 @@ const CHAT_PROVIDERS = [
   ["openai", "OpenAI-compatible — your key"],
 ];
 
+// The engines this deployment actually has. Workers AI is a Cloudflare
+// binding, so a deployment elsewhere does not have it, and the chat does not
+// offer an engine that would only fail.
+const chatHidden = new Set();
+
 function chatSettings() {
   let saved = {};
   try {
@@ -253,7 +258,9 @@ function chatBuild() {
   };
 
   const refresh = () => {
-    providerSel.innerHTML = CHAT_PROVIDERS.map(([value, label]) => `<option value="${value}">${label}</option>`).join("");
+    providerSel.innerHTML = CHAT_PROVIDERS.filter(([value]) => !chatHidden.has(value))
+      .map(([value, label]) => `<option value="${value}">${label}</option>`)
+      .join("");
     providerSel.value = settings.provider;
     fillModels();
     keyInput.value = settings.key;
@@ -506,6 +513,17 @@ function chatBuild() {
   refresh();
   setState();
   setInterval(setState, 1000);
+
+  // Ask the API which engines it has, and hide the ones it does not.
+  fetch("/api/health")
+    .then((res) => (res.ok ? res.json() : null))
+    .then((health) => {
+      if (!health || !health.providers) return;
+      if (health.providers["workers-ai"] && !health.providers["workers-ai"].available) chatHidden.add("workers-ai");
+      // Gemini and OpenAI are bring-your-own-key: they are always offered.
+      refresh();
+    })
+    .catch(() => {});
 }
 
 if (typeof document !== "undefined" && DATA.skidContext) {

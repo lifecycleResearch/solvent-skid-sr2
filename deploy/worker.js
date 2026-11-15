@@ -319,6 +319,7 @@ export default {
           providers: {
             gemini: { needsKey: true, serverKey: Boolean(env.GEMINI_API_KEY) },
             openai: { needsKey: true, serverKey: Boolean(env.OPENAI_API_KEY) },
+            "workers-ai": { needsKey: false, available: Boolean(env.AI) },
             local: { needsKey: false },
           },
           agent: { configured: Boolean(env.AGENT_GATEWAY_URL), note: "the OpenShell gateway over the tailnet, if one is configured" },

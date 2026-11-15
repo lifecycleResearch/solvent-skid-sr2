@@ -7,6 +7,21 @@ chatbot that knows the plant, deployed to Cloudflare.
 **Live:** https://solvent-skid-sr2.lifecyclerd.workers.dev
 (light theme with a dark switch · `/skid.html` dark · `/skid-light.html` light)
 
+**Where it is deployed**
+
+| | | |
+|---|---|---|
+| Cloudflare, in use | https://solvent-skid-sr2.lifecyclerd.workers.dev | the Worker with the AI binding: the chat has Workers AI, which needs no key |
+| Cloudflare, for review | https://solvent-skid-review.lifecyclerd.workers.dev | the same Worker under a second name, so there is a URL to look at that is not the one in use |
+| Vercel, the company account | https://solvent-skid.vercel.app | the same figure and the same API, on `superiorchem-4317` |
+
+The Vercel deployment runs `deploy/worker.js` through `api/worker.js`, which
+is the same handler with the request and the response adapted, so the two
+deployments cannot drift apart. The one thing that does not travel is Workers
+AI: it is a Cloudflare binding, so on Vercel the chat offers the local
+describer and your own key, and the chat hides the engine it cannot serve.
+
+
 ## What the skid does
 
 Feed drum → pneumatic diaphragm pump → basket strainer → cross-flow **membrane
