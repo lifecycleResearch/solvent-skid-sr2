@@ -78,6 +78,38 @@ curl -N https://solvent-skid-sr2.lifecyclerd.workers.dev/api/chat \
 uses it when the request carries the shared secret
 (`x-chat-secret`), so a deployed key is never spent by a stranger.
 
+## The spec and the simulation
+
+The skid is the first instance of a template: an experiment written down as
+data, then drawn, described and computed from that data.
+
+```bash
+node spec/validate.mjs spec/subzero-blend.json     # does it hold together?
+node sim/derive-streams.mjs spec/subzero-blend.json # compute the streams
+node sim/massbalance.mjs spec/subzero-blend.json    # does the mass close?
+node --test sim/sim.test.mjs                        # the physics
+```
+
+The simulation is tier T0: deterministic, free, and checked against published
+values. The vapour pressures come from the NIST Chemistry WebBook, each fit
+carrying its own reference and its own temperature range
+(`sim/fetch-nist.mjs` fetches them; `sim/data/antoine.json` holds them). The
+tests check the fits against the published boiling points — ethanol 78.30 °C
+against 78.37, n-pentane 36.07 against 36.07, hexane 68.74 against 68.74,
+acetone 56.27 against 56.05, toluene 110.62 against 110.6 — and against the
+published vapour pressures.
+
+The worked example is a sub-zero ethanol/pentane extraction, and it carries
+one finding worth reading before it is shown to anyone: **ethanol and
+n-pentane form a minimum-boiling azeotrope at 34.3 °C with 95 % pentane by
+mass.** Raoult's law cannot see it — the ideal prediction degenerates to pure
+pentane — so the recovery column has to be stopped by assay, not by
+temperature. That is now an acceptance criterion in the SOP.
+
+A client's own numbers never come here: this repository is public (private
+repositories get no free CI runners), so a client's spec goes in `.private/`,
+which is git-ignored, or in the client's own account.
+
 ## The agent, on the tailnet
 
 The OpenShell sandbox that builds the figure and talks to Google runs on this
