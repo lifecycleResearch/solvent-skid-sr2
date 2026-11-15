@@ -1,20 +1,11 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "installCommand": "echo 'no dependencies to install'",
-  "buildCommand": "echo 'the figure is built by the CI, not by Vercel'",
+  "buildCommand": "node figures/skid/build.mjs && node figures/skid/build.mjs --light && node figures/blend/build.mjs && node figures/skid/build-index.mjs",
   "outputDirectory": "deploy/public",
   "rewrites": [
-    {
-      "source": "/api/:path*",
-      "destination": "/api/worker"
-    },
-    {
-      "source": "/blend",
-      "destination": "/blend.html"
-    },
-    {
-      "source": "/skid",
-      "destination": "/skid.html"
-    }
+    { "source": "/api/:path*", "destination": "/api/worker" },
+    { "source": "/blend", "destination": "/blend.html" },
+    { "source": "/skid", "destination": "/skid.html" }
   ]
 }
