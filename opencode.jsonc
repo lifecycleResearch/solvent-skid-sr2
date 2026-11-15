@@ -1,0 +1,42 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "instructions": ["AGENTS.md", "docs/PLAN.md", "docs/SOP.md", "docs/TODO.md"],
+  "commands": {
+    "experiment": {
+      "description": "Design an experiment: spec, figure, SOP, simulation (docs/SOP.md SOP-1)",
+      "template": "Design the experiment described below, following docs/SOP.md SOP-1 and the review gate in SOP-2.\n\nQuestion: $ARGUMENTS\n\nStart by asking the clarifying questions the question leaves open (at most five, each with a recommended default). Then write the spec, generate the figure, write the SOP with units, sizes, material IDs and acceptance criteria, and run the simulation. Stop at the review gate and report what the gate says.\n\nRepository rules: AGENTS.md. Free tier only. Nothing confidential in the repository."
+    },
+    "audit": {
+      "description": "Run the geometry audit and the line-end check",
+      "template": "Run `node figures/skid/build.mjs --audit` and `node scripts/lines.mjs deploy/public/skid-light.html`. Report the counts against the baseline in figures/skid/skid-audit.json, and list the new problems by name. Do not change the painter's keys to hide a problem: fix the geometry or report it."
+    },
+    "search": {
+      "description": "Search the literature and the web, free and without a key",
+      "template": "Search for: $ARGUMENTS\n\nUse the deployed API (`https://solvent-skid-sr2.lifecyclerd.workers.dev/api/search?q=` and `/api/papers?q=`), which queries DuckDuckGo, Wikipedia, arXiv, OpenAlex and Crossref anonymously. Give the source of every claim. If a paper contains parameters, list them with their units, their valid range and the error the authors reported, so they can go into sim/models/ (docs/SOP.md SOP-6)."
+    },
+    "grade": {
+      "description": "Grade an answer against a rubric and record the verdict",
+      "template": "Grade the answer below against the rubric, using `POST /api/grade` on the deployed Worker (deterministic checks first, then the rubric judge).\n\nRubric: $ARGUMENTS\n\nReport the score, the pass mark and the reasons, criterion by criterion. If a criterion cannot be judged from the answer, say so rather than guessing."
+    },
+    "publish": {
+      "description": "Build, check and deploy in the house style",
+      "template": "Publish the current experiment in the house style (docs/SOP.md SOP-3): build both themes, build the index, run the line check and the API tests, deploy with wrangler from deploy/, and check the live endpoints (/api/health, /api/context, /api/describe). Report the URL and the version id. Never publish anything marked confidential."
+    },
+    "cost": {
+      "description": "What the free tiers have left this month",
+      "template": "Report the remaining free-tier budget from agents/providers.json and the local usage counters: which providers have keys, how many requests have been made, what the daily limits are, and what would be the first thing to hit its limit. Flag anything marked verify so it can be checked."
+    }
+  },
+  "agents": {
+    "grader": {
+      "description": "Grade work against a rubric and say nothing else",
+      "mode": "subagent",
+      "system": "You grade work against a rubric. You do not rewrite the work and you do not soften a verdict. You report: the score per criterion, the pass mark, the reasons, and anything you could not judge. Follow docs/SOP.md SOP-5: the loop may only change the prompt, the rubric or the router's weights."
+    },
+    "simulator": {
+      "description": "Turn a specification into numbers, with sources",
+      "mode": "subagent",
+      "system": "You compute. Every number you report cites its source: the spec field, a paper with its DOI, a datasheet, or a stated assumption. You state the valid range of any model you use and the error the source reported. You never invent a property value. You work in sim/ and follow docs/SOP.md SOP-6 for models."
+    }
+  }
+}

@@ -38,6 +38,8 @@ The figure carries a plant engineer in the corner: **Ask the skid**.
 * **Local describer** (the default, no key, no network) — answers from the
   plant's own numbers: the two setups, the sieve cuts, the vacuum sets, the
   membrane, the condenser bank, the scrubber, the controls and the audit.
+* **Workers AI** (no key) — the model that comes with this site's Cloudflare
+  account. Nothing to sign up for.
 * **Gemini** or **OpenAI-compatible** — put your own key in the ⚙ panel
   (BYOK). The key is kept in that browser's `localStorage` and is sent only
   with the request that needs it; it is never in the figure or the repository.
@@ -55,15 +57,21 @@ The same description is an API, so anything can ask the plant questions:
 | `GET /api/context` | the plant's description, as JSON (`figures/skid/context.mjs` is the source) |
 | `GET /api/describe?q=…` | the same, in prose; `?q=` asks a question |
 | `POST /api/chat` | a chat completion, streamed back as SSE |
+| `GET /api/search?q=…` | free search, no key: DuckDuckGo, Wikipedia, arXiv, OpenAlex, Crossref |
+| `GET /api/papers?q=…` | papers only, with DOI, abstract and authors |
+| `GET /api/route?class=…` | which model would answer a task, and why |
+| `POST /api/grade` | deterministic graders, then a rubric judge |
 | `GET /api/health` | what the Worker can do, and which keys it holds |
 | `POST /api/agent` | forwarded to the agent gateway, if one is configured |
 
 ```bash
 curl https://solvent-skid-sr2.lifecyclerd.workers.dev/api/context | jq .summary
 curl -s "https://solvent-skid-sr2.lifecyclerd.workers.dev/api/describe?q=what+does+the+13X+bed+take" | jq -r .answer
+curl -s "https://solvent-skid-sr2.lifecyclerd.workers.dev/api/papers?q=supercritical+CO2+extraction+cannabis" | jq '.papers[0]'
+curl -s "https://solvent-skid-sr2.lifecyclerd.workers.dev/api/route?class=design-review" | jq .decision
 curl -N https://solvent-skid-sr2.lifecyclerd.workers.dev/api/chat \
   -H 'content-type: application/json' \
-  -d '{"provider":"gemini","model":"gemini-2.5-flash","key":"YOUR-KEY","messages":[{"role":"user","content":"walk me through the pure product setup"}]}'
+  -d '{"provider":"workers-ai","messages":[{"role":"user","content":"walk me through the pure product setup"}]}'
 ```
 
 `/api/chat` relays **your** key. If the Worker holds a key of its own it only
@@ -100,12 +108,17 @@ plant questions.
 | `figures/skid/chat.js`, `chat.css` | the chatbot |
 | `figures/skid/skid.css` | stream colours, media tints, panel and buttons |
 | `figures/skid/build-index.mjs` | writes the deploy index (the figure + theme switch) |
-| `deploy/worker.js` | the Worker: `/api/chat`, `/api/context`, `/api/describe` |
+| `deploy/worker.js` | the Worker: chat, context, describe, search, papers, route, grade |
 | `deploy/describe.mjs` | the describer, shared by the page and the Worker |
+| `deploy/search.mjs` | free search and papers, with no key |
+| `deploy/router.mjs`, `agents/providers.json` | the provider router and its table |
+| `deploy/grade.mjs` | the deterministic graders and the rubric judge |
 | `deploy/` | `wrangler.jsonc` and `public/` |
 | `openshell/` | the sandbox policy, image, README and Colab notebook |
+| `docs/` | the plan, the SOP, the to-do list, the brand brief |
 | `kit/`, `scripts/` | the anatomy kit (vendored so CI can rebuild without npm) |
-| `.github/workflows/deploy.yml` | build, check, deploy on push |
+| `.github/workflows/deploy.yml` | build, check, test, deploy on push |
+| `AGENTS.md`, `opencode.jsonc` | the repository's rules and OpenCode wiring |
 
 ## Build and deploy
 

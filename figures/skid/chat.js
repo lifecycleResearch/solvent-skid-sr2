@@ -16,6 +16,7 @@ const CHAT_STORE = "sr2.chat.settings";
 
 const CHAT_MODELS = {
   local: [["local", "Local describer — no key"]],
+  "workers-ai": [["@cf/meta/llama-3.3-70b-instruct-fp8-fast", "Workers AI — Llama 3.3 70B — no key"]],
   gemini: [
     ["gemini-2.5-flash", "Gemini 2.5 Flash"],
     ["gemini-2.5-pro", "Gemini 2.5 Pro"],
@@ -39,6 +40,13 @@ const CHAT_CHIPS = [
   "Controls and shortcuts",
   "The geometry audit",
   "The API and the agent",
+];
+
+const CHAT_PROVIDERS = [
+  ["local", "Local describer — no key"],
+  ["workers-ai", "Workers AI — no key"],
+  ["gemini", "Gemini — your key"],
+  ["openai", "OpenAI-compatible — your key"],
 ];
 
 function chatSettings() {
@@ -245,17 +253,20 @@ function chatBuild() {
   };
 
   const refresh = () => {
+    providerSel.innerHTML = CHAT_PROVIDERS.map(([value, label]) => `<option value="${value}">${label}</option>`).join("");
     providerSel.value = settings.provider;
     fillModels();
     keyInput.value = settings.key;
     baseInput.value = settings.baseUrl;
-    el("key-row").hidden = settings.provider === "local";
+    el("key-row").hidden = settings.provider === "local" || settings.provider === "workers-ai";
     el("base-row").hidden = settings.provider !== "openai";
     el("model-row").hidden = settings.provider === "local";
     note.innerHTML =
       settings.provider === "local"
         ? "The local describer answers from the plant's own numbers: no key, no network."
-        : "Your key stays in this browser and is sent only with the request that needs it.";
+        : settings.provider === "workers-ai"
+          ? "Workers AI runs on the same Cloudflare account as this page: no key, no account of its own."
+          : "Your key stays in this browser and is sent only with the request that needs it.";
     const fabVisible = panel.hidden;
     fab.hidden = !fabVisible;
   };
@@ -299,7 +310,7 @@ function chatBuild() {
           "",
           "Ask me about the plant. I know the numbers: the sieve cuts, the vacuum sets, the membrane, the condenser bank, the scrubber, the two setups and the audit.",
           "",
-          "Use the ⚙ to put your own key in and talk to a model instead.",
+          "Three engines: the local describer (no key, no network), Workers AI (the model that comes with this site's Cloudflare account, no key), or Gemini or any OpenAI-compatible endpoint with a key of your own in the ⚙.",
         ].join("\n"),
       );
     }

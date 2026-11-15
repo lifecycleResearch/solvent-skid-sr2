@@ -11,6 +11,9 @@
 // secret, so a deployed key is never spent by a stranger.
 
 import { describe } from "./describe.mjs";
+import { search, papers } from "./search.mjs";
+import { route, availableProviders } from "./router.mjs";
+import { gradeDeterministic, rubricPrompt, parseRubricVerdict } from "./grade.mjs";
 
 const DEPLOYED = "https://solvent-skid-sr2.lifecyclerd.workers.dev";
 
@@ -60,8 +63,8 @@ function asMessages(messages) {
 
 // ------------------------------------------------------------------ Gemini ---
 
-async function gemini(context, { model, key, messages, state }) {
-  const prompt = [context.prompt, stateNote(context, state)].filter(Boolean).join("\n\n");
+async function gemini(context, { model, key, messages, state, system }) {
+  const prompt = system || [context.prompt, stateNote(context, state)].filter(Boolean).join("\n\n");
   const contents = asMessages(messages).map((m) => ({
     role: m.role,
     parts: [{ text: m.content }],
@@ -85,8 +88,8 @@ async function gemini(context, { model, key, messages, state }) {
 
 // ------------------------------------------------------------- OpenAI-ish ---
 
-async function openai(context, { model, baseUrl, key, messages, state }) {
-  const prompt = [context.prompt, stateNote(context, state)].filter(Boolean).join("\n\n");
+async function openai(context, { model, baseUrl, key, messages, state, system }) {
+  const prompt = system || [context.prompt, stateNote(context, state)].filter(Boolean).join("\n\n");
   const base = (baseUrl || "https://api.openai.com/v1").replace(/\/+$/, "");
   const res = await fetch(`${base}/chat/completions`, {
     method: "POST",
@@ -104,6 +107,44 @@ async function openai(context, { model, baseUrl, key, messages, state }) {
     throw new Error(`${base} ${res.status}: ${body.slice(0, 400)}`);
   }
   return res.body;
+}
+
+// ----------------------------------------------------------- Workers AI ---
+//
+// The model that comes with the Cloudflare plan: no key, no account of its
+// own, and it never leaves the account.
+
+async function workersAi(env, { model, messages, state, context }) {
+  if (!env.AI) throw new Error("this Worker has no AI binding");
+  const prompt = [context.prompt, stateNote(context, state)].filter(Boolean).join("\n\n");
+  const out = await env.AI.run(model || "@cf/meta/llama-3.3-70b-instruct-fp8-fast", {
+    messages: [
+      { role: "system", content: prompt },
+      ...asMessages(messages).map((m) => ({ role: m.role === "model" ? "assistant" : "user", content: m.content })),
+    ],
+  });
+  // The binding answers with a stream of text chunks.
+  if (out && typeof out.getReader === "function") {
+    const reader = out.getReader();
+    const decoder = new TextDecoder();
+    return new Response(
+      new ReadableStream({
+        async pull(controller) {
+          for (;;) {
+            const { done, value } = await reader.read();
+            if (done) {
+              controller.close();
+              return;
+            }
+            const text = typeof value === "string" ? value : decoder.decode(value);
+            if (text) controller.enqueue(encoder.encode(text));
+          }
+        },
+      }),
+    );
+  }
+  const text = typeof out === "string" ? out : out && out.response ? out.response : JSON.stringify(out || {});
+  return new Response(text);
 }
 
 // ---------------------------------------------------------------- the chat ---
@@ -130,19 +171,30 @@ async function chat(request, env) {
   const serverAllowed = env.CHAT_SECRET && secret === env.CHAT_SECRET;
   const serverKey = provider === "gemini" ? env.GEMINI_API_KEY : env.OPENAI_API_KEY;
   const key = String(body.key || "").trim() || (serverAllowed ? serverKey : "");
+
+  const messages = asMessages(body.messages);
+  if (!messages.length) return json({ error: "no messages" }, 400);
+
+  // Workers AI needs no key: it is the model that comes with the plan.
+  if (provider === "workers-ai") {
+    try {
+      const upstream = await workersAi(env, { model: body.model, messages, state: body.state, context });
+      return asSseText(upstream);
+    } catch (err) {
+      return json({ error: String(err.message || err) }, 502);
+    }
+  }
+
   if (!key) {
     return json(
       {
         error: "no key for this provider",
         how: "put your own key in the chat settings, or add one to the Worker as a secret and send it as the x-chat-secret header",
-        providers: { gemini: "a Google AI Studio key", openai: "an OpenAI or OpenAI-compatible key" },
+        providers: { gemini: "a Google AI Studio key", openai: "an OpenAI or OpenAI-compatible key", "workers-ai": "no key needed" },
       },
       400,
     );
   }
-
-  const messages = asMessages(body.messages);
-  if (!messages.length) return json({ error: "no messages" }, 400);
 
   let upstream;
   try {
@@ -212,6 +264,33 @@ async function chat(request, env) {
 
 const encoder = new TextEncoder();
 
+// A plain text stream, wrapped in the frames the page reads.
+function asSseText(upstream) {
+  const reader = upstream.body.getReader();
+  const decoder = new TextDecoder();
+  const stream = new ReadableStream({
+    async pull(controller) {
+      for (;;) {
+        const { done, value } = await reader.read();
+        if (done) {
+          controller.enqueue(encoder.encode(sse({ done: true })));
+          controller.close();
+          return;
+        }
+        const text = typeof value === "string" ? value : decoder.decode(value, { stream: true });
+        if (text) controller.enqueue(encoder.encode(sse({ text })));
+        return;
+      }
+    },
+    cancel() {
+      reader.cancel().catch(() => {});
+    },
+  });
+  return new Response(stream, {
+    headers: { "content-type": "text/event-stream; charset=utf-8", "cache-control": "no-store", "x-accel-buffering": "no" },
+  });
+}
+
 // ----------------------------------------------------------------- router ---
 
 export default {
@@ -257,6 +336,49 @@ export default {
           body: JSON.stringify(body),
         });
         return new Response(res.body, { status: res.status, headers: { "content-type": res.headers.get("content-type") || "application/json" } });
+      }
+      if (path === "/api/search") {
+        // Free, no key, no quota: DuckDuckGo, Wikipedia, arXiv, OpenAlex, Crossref.
+        const q = url.searchParams.get("q") || "";
+        const limit = Math.min(10, Number(url.searchParams.get("limit") || 5));
+        const result = await search(q, { limit });
+        return json(result, 200, { "cache-control": "public, max-age=600" });
+      }
+      if (path === "/api/papers") {
+        const q = url.searchParams.get("q") || "";
+        const limit = Math.min(15, Number(url.searchParams.get("limit") || 8));
+        return json(await papers(q, { limit }), 200, { "cache-control": "public, max-age=600" });
+      }
+      if (path === "/api/route") {
+        // Which model would answer a task, and why. No keys are shown, only
+        // which ones are present.
+        const task = {
+          class: url.searchParams.get("class") || "summarise",
+          confidential: url.searchParams.get("confidential") === "true",
+          allowPaid: url.searchParams.get("allowPaid") === "true",
+          prefer: url.searchParams.get("prefer") || undefined,
+        };
+        const decision = route(task, env);
+        return json({ task, decision, available: availableProviders(env) }, 200, { "cache-control": "no-store" });
+      }
+      if (path === "/api/grade") {
+        const body = await request.json().catch(() => ({}));
+        const answer = String(body.answer || "");
+        const verdicts = [];
+        if (body.checks) verdicts.push(gradeDeterministic(answer, body.checks));
+        if (body.rubric) {
+          const key = String(body.key || "").trim() || (env.CHAT_SECRET && request.headers.get("x-chat-secret") === env.CHAT_SECRET ? env.GEMINI_API_KEY : "");
+          if (!key) {
+            verdicts.push({ kind: "rubric", score: 0, passed: false, error: "the rubric judge needs a model key" });
+          } else {
+            const prompt = rubricPrompt(body.rubric, answer, body.context || "");
+            const upstream = await gemini(context, { model: body.model || "gemini-2.5-flash", key, messages: [{ role: "user", content: prompt }], state: null, system: prompt });
+            const raw = await upstream.text();
+            verdicts.push(parseRubricVerdict(raw, body.rubric));
+          }
+        }
+        const overall = verdicts.length ? verdicts.reduce((sum, v) => sum + (v.score || 0), 0) / verdicts.length : 0;
+        return json({ verdicts, overall, passed: verdicts.length > 0 && verdicts.every((v) => v.passed) }, 200, { "cache-control": "no-store" });
       }
     } catch (err) {
       return json({ error: String(err.message || err) }, 500);

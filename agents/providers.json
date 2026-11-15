@@ -1,0 +1,71 @@
+{
+  "$comment": "The provider table. The router reads this; the free-tier limits move, so they live in data, not in prose. Limits marked verify change without notice — check before relying on them.",
+  "providers": [
+    {
+      "id": "local",
+      "label": "Local describer",
+      "cost": "free",
+      "latency": "instant",
+      "capabilities": ["extraction", "drafting", "summarise", "classify"],
+      "env": null,
+      "model": "local",
+      "note": "no network; used when nothing may leave the machine"
+    },
+    {
+      "id": "workers-ai",
+      "label": "Cloudflare Workers AI",
+      "cost": "free",
+      "latency": "fast",
+      "capabilities": ["extraction", "design-review", "summarise", "classify", "drafting"],
+      "env": null,
+      "binding": "AI",
+      "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+      "note": "runs on the same Cloudflare account; no key of our own; the free allocation is shared with everything else on the account"
+    },
+    {
+      "id": "gemini",
+      "label": "Gemini",
+      "cost": "free",
+      "latency": "fast",
+      "capabilities": ["extraction", "design-review", "drafting", "summarise", "code", "long-context", "vision"],
+      "env": "GEMINI_API_KEY",
+      "model": "gemini-2.5-flash",
+      "limit": { "requestsPerMinute": 15, "requestsPerDay": 1500, "note": "free tier, per project; verify" }
+    },
+    {
+      "id": "groq",
+      "label": "Groq",
+      "cost": "free",
+      "latency": "very fast",
+      "capabilities": ["extraction", "summarise", "classify"],
+      "env": "GROQ_API_KEY",
+      "model": "llama-3.3-70b-versatile",
+      "limit": { "requestsPerMinute": 30, "requestsPerDay": 14400, "note": "free tier; verify" }
+    },
+    {
+      "id": "openrouter",
+      "label": "OpenRouter (free models)",
+      "cost": "free",
+      "latency": "medium",
+      "capabilities": ["extraction", "drafting", "summarise", "long-context"],
+      "env": "OPENROUTER_API_KEY",
+      "model": "meta-llama/llama-3.3-70b-instruct:free",
+      "limit": { "requestsPerMinute": 20, "requestsPerDay": 50, "note": "free models only; verify" }
+    },
+    {
+      "id": "github-models",
+      "label": "GitHub Models",
+      "cost": "free",
+      "latency": "medium",
+      "capabilities": ["extraction", "drafting", "code"],
+      "env": "GITHUB_TOKEN",
+      "model": "openai/gpt-4o-mini",
+      "limit": { "requestsPerMinute": 15, "requestsPerDay": 150, "note": "free with a GitHub token; verify" }
+    }
+  ],
+  "taskClasses": ["extraction", "design-review", "drafting", "summarise", "classify", "code", "long-context"],
+  "policy": {
+    "order": ["free first", "confidential tasks never leave the machine", "paid providers only when the task says so"],
+    "note": "The router returns its reason with every decision, and the reason is stored with the run."
+  }
+}

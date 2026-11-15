@@ -14,6 +14,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 import worker from "./worker.js";
+import { parseRubricVerdict } from "./grade.mjs";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const context = JSON.parse(readFileSync(join(HERE, "..", "figures", "skid", "skid-context.json"), "utf8"));
@@ -122,4 +123,41 @@ test("the context and the description are served", async () => {
   const desc = await worker.fetch(new Request("https://skid/api/describe?q=gas%20scrubber"), env);
   const text = await desc.json();
   assert.match(text.answer, /gas scrubber/i);
+});
+
+test("the router picks a provider and says why", async () => {
+  const res = await worker.fetch(new Request("https://skid/api/route?class=design-review"), env);
+  const body = await res.json();
+  assert.ok(body.decision.why.includes("design-review"));
+  assert.ok(Array.isArray(body.available));
+  // With no keys present, only the local describer is available.
+  assert.ok(body.available.every((p) => p.id === "local" || p.id === "workers-ai"));
+});
+
+test("a confidential task stays on the machine", async () => {
+  const res = await worker.fetch(new Request("https://skid/api/route?class=drafting&confidential=true"), env);
+  const body = await res.json();
+  assert.equal(body.decision.provider, "local");
+});
+
+test("the deterministic grader scores an answer", async () => {
+  const res = await worker.fetch(
+    new Request("https://skid/api/grade", {
+      method: "POST",
+      body: JSON.stringify({ answer: "The 13X bed takes the C2-C3 and the heavy ends.", checks: { mustInclude: ["13X"], mustNotInclude: ["water"], minWords: 5 } }),
+    }),
+    env,
+  );
+  const body = await res.json();
+  assert.equal(body.passed, true);
+  assert.equal(body.overall, 1);
+});
+
+test("the rubric judge is parsed from the model's JSON", async () => {
+  const rubric = { name: "sop", criteria: [{ name: "units", weight: 2 }, { name: "acceptance", weight: 1 }], passMark: 0.8 };
+  const verdict = parseRubricVerdict('{"criteria":[{"index":0,"score":5,"why":"ok"},{"index":1,"score":4,"why":"ok"}]}', rubric);
+  assert.equal(verdict.passed, true);
+  assert.ok(verdict.score > 0.9);
+  const broken = parseRubricVerdict("I think it is fine", rubric);
+  assert.equal(broken.passed, false);
 });
