@@ -28,7 +28,6 @@ jobs:
           node figures/skid/build-index.mjs
           cp figures/skid/skid.html deploy/public/skid.html
           cp figures/skid/skid-light.html deploy/public/skid-light.html
-          cp figures/blend/blend.html deploy/public/blend.html
 
       - name: Check that every line in the drawing ends on something
         continue-on-error: true

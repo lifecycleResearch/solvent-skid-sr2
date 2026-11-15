@@ -108,6 +108,7 @@ const page = k.pageHtml({
 });
 
 writeFileSync(join(HERE, "blend.html"), page);
+writeFileSync(join(ROOT, "deploy", "public", "blend.html"), page);
 writeFileSync(join(ROOT, "figures", "blend", "scene.json"), `${JSON.stringify(scene, null, 1)}\n`);
 console.log(`wrote blend.html ${(page.length / 1024).toFixed(0)} KB, ${scene.items.length} items`);
 console.log(`  vessels ${spec.vessels.length}, connections ${spec.connections.length}, streams ${spec.streams.length}`);
