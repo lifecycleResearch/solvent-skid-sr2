@@ -1,7 +1,7 @@
 {
   "meta": {
     "id": "EXP-2026-001",
-    "name": "Sub-zero CDA-12 hemp extraction",
+    "name": "Sub-zero blend extraction (template instance)",
     "subtitle": "ethanol/pentane carrier, cryogenic crystallisation, mother liquor to CRD",
     "revision": 1,
     "owner": "lifecycleResearch",
@@ -19,7 +19,7 @@
   "materials": [
     {
       "id": "MAT-0100",
-      "name": "CDA-12 carrier blend",
+      "name": "Blend B-70/30 (carrier)",
       "cas": null,
       "grade": "client blend",
       "role": "carrier",
@@ -27,7 +27,7 @@
       "hazards": [
         "flammable"
       ],
-      "source": "client blend specification",
+      "source": "the client's blend specification (not held in this repository)",
       "note": "an ethanol and n-pentane blend; the ratio is an assumption until the client confirms it (A-01)"
     },
     {
@@ -1403,7 +1403,7 @@
     }
   ],
   "sop": {
-    "title": "Sub-zero CDA-12 extraction — standard operating procedure",
+    "title": "Sub-zero blend extraction — standard operating procedure",
     "preconditions": [
       "The carrier tank is above 20 000 L and the recovered carrier is above 15 000 L.",
       "The glycol loop is at -45 degC and holding pressure is below 60 bar.",
@@ -1511,13 +1511,13 @@
     {
       "id": "S-03",
       "kind": "client",
-      "citation": "client blend specification for CDA-12"
+      "citation": "the client blend specification (held outside this repository)"
     }
   ],
   "assumptions": [
     {
       "id": "A-01",
-      "text": "The CDA-12 blend is 70 % ethanol and 30 % n-pentane by mass. The client named the blend but not the ratio.",
+      "text": "The carrier blend is 70 % ethanol and 30 % n-pentane by mass. The client named the blend but not the ratio.",
       "confirmed": false,
       "affects": [
         "OP-10",

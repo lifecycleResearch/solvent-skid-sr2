@@ -5,5 +5,6 @@ deploy/public/*.html
 deploy/public/*.json
 !deploy/public/.gitkeep
 deploy/.wrangler/
+.private/
 .DS_Store
 node_modules/

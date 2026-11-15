@@ -37,8 +37,8 @@ jobs:
 
       - name: Check the specification and its balance
         run: |
-          node spec/validate.mjs spec/cda12-subzero.json
-          node sim/massbalance.mjs spec/cda12-subzero.json
+          node spec/validate.mjs spec/subzero-blend.json
+          node sim/massbalance.mjs spec/subzero-blend.json
 
       - name: Test the simulation
         run: node --test sim/sim.test.mjs

@@ -8,9 +8,9 @@
     "build": "node figures/skid/build.mjs && node figures/skid/build.mjs --light && node figures/skid/build-index.mjs",
     "audit": "node figures/skid/build.mjs --audit",
     "lines": "node scripts/lines.mjs deploy/public/skid-light.html",
-    "spec": "node spec/validate.mjs spec/cda12-subzero.json",
-    "derive": "node sim/derive-streams.mjs spec/cda12-subzero.json",
-    "balance": "node sim/massbalance.mjs spec/cda12-subzero.json",
+    "spec": "node spec/validate.mjs spec/subzero-blend.json",
+    "derive": "node sim/derive-streams.mjs spec/subzero-blend.json",
+    "balance": "node sim/massbalance.mjs spec/subzero-blend.json",
     "test": "node --test deploy/worker.test.mjs sim/sim.test.mjs"
   },
   "engines": {

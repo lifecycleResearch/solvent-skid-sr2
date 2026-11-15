@@ -18,7 +18,7 @@ import { validate } from "../spec/validate.mjs";
 import { convert, toSI } from "../spec/units.mjs";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
-const SPEC = JSON.parse(readFileSync(join(HERE, "..", "spec", "cda12-subzero.json"), "utf8"));
+const SPEC = JSON.parse(readFileSync(join(HERE, "..", "spec", "subzero-blend.json"), "utf8"));
 
 // Published normal boiling points, degC: CRC Handbook / NIST.
 const BOILING_POINTS = [
