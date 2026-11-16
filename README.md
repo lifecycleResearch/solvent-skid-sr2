@@ -152,6 +152,49 @@ The API serves it: `/api/evidence` (everything), `/api/evidence?topic=…` (one
 question), `/api/catalogue` (the parts), `/api/catalogue?id=V-103` (one
 part), `/api/design` (the grade).
 
+## The review, and the judge on top of it
+
+The **deterministic checks** are the floor: every part has a record, every
+number has a source, every part has evidence, every step can fail, every
+operation is written up, the assumptions are flagged, the mass closes. The
+review panel shows the verdict and the state of the evidence part by part, and
+the same grade is what the CI computes and what `/api/design` serves.
+
+The **rubric judge** is the judgement on top of it. The rubric is in
+`evals/rubrics/design.json`: do the flows make chemical sense, is the
+operating window defensible, is the separation the hard part and is it
+answered, does the evidence support the design, is anything overstated, are
+safety and compliance addressed, could it be built. The judge sees the
+specification and the record, not the drawing.
+
+It runs on Workers AI where that binding exists — so on Cloudflare it works
+with nothing set up — and on the visitor's key elsewhere. Ask for it from the
+review panel, or:
+
+```bash
+curl "https://solvent-skid-sr2.lifecyclerd.workers.dev/api/design?judge=1" | jq .rubric
+```
+
+Its first verdict on our own design was **0.74 against a pass mark of 0.75**,
+and the sharpest thing it said was the thing we already knew: safety and
+compliance scored 2 of 5, because the specification has no safety section.
+That is the next thing to write.
+
+## One app, any spec
+
+The build takes the experiment as an argument:
+
+```bash
+node figures/blend/build.mjs --spec ../spec/other.json      # the drawing
+node figures/blend3d/build.mjs --spec ../spec/other.json     # the 3D plant
+```
+
+Each build writes its artefacts under the spec's own slug — the figure, the
+3D plant, the catalogue, the evidence, the grade, the spec — and the
+deployment carries a manifest. The API serves any of them:
+`/api/specs`, `/api/catalogue?spec=…`, `/api/evidence?spec=…`,
+`/api/design?spec=…`.
+
 ## The spec and the simulation
 
 The skid is the first instance of a template: an experiment written down as
