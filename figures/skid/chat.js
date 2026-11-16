@@ -221,6 +221,30 @@ function chatBuild() {
         <input id="chat-base" data-chat-base type="text" placeholder="https://api.openai.com/v1" spellcheck="false" />
       </div>
       <p class="sk-chat-note" data-chat-note></p>
+      <div class="sk-chat-row sk-chat-account" data-chat-account hidden>
+        <label for="chat-email">account</label>
+        <div class="sk-chat-account-fields">
+          <input id="chat-email" data-chat-email type="email" placeholder="you@example.com" autocomplete="username" spellcheck="false" />
+          <input data-chat-password type="password" placeholder="password, at least ten characters" autocomplete="current-password" />
+        </div>
+        <div class="sk-chat-account-actions">
+          <button type="button" data-chat-register>create</button>
+          <button type="button" data-chat-login>sign in</button>
+          <button type="button" data-chat-logout hidden>sign out</button>
+        </div>
+        <p class="sk-chat-note" data-chat-account-note></p>
+      </div>
+      <div class="sk-chat-row sk-chat-account" data-chat-stored-row hidden>
+        <label for="chat-stored-key">my key</label>
+        <div class="sk-chat-account-fields">
+          <input id="chat-stored-key" data-chat-stored-key type="password" placeholder="a key kept under your account" autocomplete="off" spellcheck="false" />
+        </div>
+        <div class="sk-chat-account-actions">
+          <button type="button" data-chat-store-key>save to my account</button>
+          <button type="button" data-chat-forget-key>forget on this device</button>
+        </div>
+        <p class="sk-chat-note">A signed-in agent uses this key under your name. It is sealed before it is stored.</p>
+      </div>
     </div>
     <div class="sk-chat-log" data-chat-log role="log" aria-live="polite"></div>
     <div class="sk-chat-chips" data-chat-chips></div>
@@ -362,6 +386,101 @@ function chatBuild() {
     say("bot", "The key is forgotten. This browser will not remember it.");
   });
 
+  // -------------------------------------------------------------- account ---
+  // A signed-in person lets the agent act under their name and use the key
+  // kept under their account. On a build with no account store the whole
+  // block stays hidden, so the page works exactly as it did before.
+  const authBase = location.protocol === "file:" || location.port === "" ? CHAT_DEPLOYED : "";
+  const accountBox = el("account");
+  const storedRow = el("stored-row");
+  const accountNote = el("account-note");
+  const accountEmail = el("email");
+  const accountPassword = el("password");
+  const storedKey = el("stored-key");
+  let currentUser = null;
+
+  const accountApi = async (path, body) => {
+    const res = await fetch(`${authBase}/api/auth/${path}`, {
+      method: body ? "POST" : "GET",
+      credentials: "include",
+      headers: body ? { "content-type": "application/json" } : {},
+      body: body ? JSON.stringify(body) : undefined,
+    });
+    const data = await res.json().catch(() => ({}));
+    return { ok: res.ok, data };
+  };
+
+  const showAccount = async () => {
+    let who;
+    try {
+      who = await accountApi("me");
+    } catch {
+      return; // no account service here; leave the block hidden
+    }
+    if (!who.data || (who.data.error && /no account store|no session secret/.test(who.data.error))) return;
+    accountBox.hidden = false;
+    const user = who.data.user;
+    currentUser = user;
+    if (!user) {
+      el("logout").hidden = true;
+      storedRow.hidden = true;
+      accountNote.textContent = "Sign in to let an agent act under your name, with your own key.";
+      return;
+    }
+    accountEmail.value = user.email;
+    el("logout").hidden = false;
+    storedRow.hidden = false;
+    accountNote.textContent = `Signed in as ${user.email}${who.data.keys && who.data.keys.length ? ` · keys: ${who.data.keys.join(", ")}` : " · no key stored yet"}`;
+  };
+  showAccount();
+
+  for (const [action, path] of [["register", "register"], ["login", "login"]]) {
+    el(action).addEventListener("click", async () => {
+      const result = await accountApi(path, { email: accountEmail.value.trim(), password: accountPassword.value });
+      if (!result.ok) {
+        accountNote.textContent = result.data.error || "that did not work";
+        return;
+      }
+      accountPassword.value = "";
+      if (!settings.key) {
+        // A stored key now takes the place of one pasted into this browser.
+        settings.key = "";
+        chatSave(settings);
+      }
+      await showAccount();
+      accountNote.textContent = path === "register" ? "Account created. Sign in to continue." : accountNote.textContent;
+      if (path === "login") say("bot", `Signed in as ${result.data.email}. Your own key, if you store one, will be used under this name.`);
+    });
+  }
+
+  el("logout").addEventListener("click", async () => {
+    await accountApi("logout");
+    await showAccount();
+    say("bot", "Signed out. The chat still works without an account.");
+  });
+
+  el("store-key").addEventListener("click", async () => {
+    const provider = settings.provider === "openai" ? "openai" : "gemini";
+    const result = await accountApi("key", { provider, key: storedKey.value.trim() });
+    if (!result.ok) {
+      accountNote.textContent = result.data.error || "the key was not saved";
+      return;
+    }
+    storedKey.value = "";
+    settings.key = "";
+    keyInput.value = "";
+    chatSave(settings);
+    accountNote.textContent = `Signed in as ${(currentUser && currentUser.email) || accountEmail.value} · ${provider} key stored under your account.`;
+    say("bot", `The ${provider} key is stored under your account and sealed. This browser no longer holds it.`);
+  });
+
+  el("forget-key").addEventListener("click", async () => {
+    const provider = settings.provider === "openai" ? "openai" : "gemini";
+    await accountApi("key", { provider, key: "" });
+    await showAccount();
+    say("bot", "The key stored under your account is gone.");
+  });
+
   for (const label of CHAT_CHIPS) {
     const chip = document.createElement("button");
     chip.type = "button";
@@ -383,6 +502,7 @@ function chatBuild() {
       try {
         const res = await fetch(`${target}/api/chat`, {
           method: "POST",
+          credentials: "include",
           headers: { "content-type": "application/json" },
           body: JSON.stringify({
             provider: settings.provider,

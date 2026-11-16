@@ -127,6 +127,26 @@
 }
 .sk-chat-note b { color: var(--anatomy-text); font-weight: 600; }
 
+/* The account: sign in, and keep the key under the person's own name. */
+.sk-chat-account { align-items: start; flex-wrap: wrap; }
+.sk-chat-account[hidden] { display: none; }
+.sk-chat-account-fields { flex: 1; min-width: 140px; display: grid; gap: 6px; }
+.sk-chat-account-fields input { width: 100%; }
+.sk-chat-account-actions { display: flex; gap: 6px; flex: 1 1 100%; padding-left: 66px; }
+.sk-chat-account-actions button {
+  border: 1px solid var(--anatomy-mid);
+  border-radius: 5px;
+  background: var(--anatomy-card);
+  color: var(--anatomy-text);
+  font: 10px/1 var(--anatomy-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 6px 9px;
+  cursor: pointer;
+}
+.sk-chat-account-actions button[hidden] { display: none; }
+.sk-chat-account > .sk-chat-note { flex: 1 1 100%; padding-left: 66px; }
+
 .sk-chat-log {
   flex: 1;
   min-height: 180px;

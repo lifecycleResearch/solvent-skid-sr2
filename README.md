@@ -323,6 +323,9 @@ consistent, so the session is deliberately **not** looked up in KV on each
 request: logging out clears the cookie, and changing the secret revokes every
 session at once. The free-tier KV namespace `ACCOUNTS` holds the account
 records; there is no D1 database, because the account was at its D1 limit.
+KV propagation also means a key just saved can take up to a minute to reach
+another colo: the page says it is saved, and the agent may not find it until
+the write has spread.
 
 ### The private photograph
 
