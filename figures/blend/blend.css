@@ -89,6 +89,221 @@
   opacity: 0.18;
 }
 
+/* The review panel: the checks, and the state of the evidence per part. */
+.sk-review {
+  margin: 18px 0 4px;
+  border: 1px solid var(--anatomy-mid);
+  border-radius: 10px;
+  background: var(--anatomy-card);
+  padding: 16px 18px;
+}
+.sk-review[hidden] { display: none; }
+.sk-review-head h3 {
+  margin: 0;
+  font: 600 13px/1 var(--anatomy-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--anatomy-strong);
+}
+.sk-review-head p {
+  margin: 6px 0 0;
+  font: 11px/1 var(--anatomy-mono);
+  color: var(--anatomy-muted);
+}
+.sk-review-cols {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 26px;
+  margin-top: 14px;
+}
+.sk-review h4 {
+  margin: 0 0 8px;
+  font: 600 10px/1 var(--anatomy-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--anatomy-muted);
+}
+.sk-review-checks {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sk-review-checks li {
+  display: grid;
+  gap: 2px;
+  padding: 6px 0 6px 18px;
+  border-bottom: 1px solid var(--anatomy-faint);
+  position: relative;
+  font-size: 12px;
+}
+.sk-review-checks li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--anatomy-green, #30a46c);
+}
+.sk-review-checks li.fail::before {
+  content: "✕";
+  color: var(--anatomy-red, #e5484d);
+}
+.sk-review-checks b { color: var(--anatomy-strong); font-weight: 600; }
+.sk-review-checks span { color: var(--anatomy-muted); font-size: 11px; }
+.sk-review-table {
+  width: 100%;
+  border-collapse: collapse;
+  font: 11px/1.5 var(--anatomy-mono);
+}
+.sk-review-table th,
+.sk-review-table td {
+  border-bottom: 1px solid var(--anatomy-faint);
+  padding: 4px 6px;
+  text-align: left;
+  vertical-align: top;
+}
+.sk-review-table th { color: var(--anatomy-strong); font-weight: 600; }
+.sk-review-table td i {
+  display: block;
+  font-style: normal;
+  font-size: 9px;
+  color: var(--anatomy-muted);
+}
+.sk-review-table tr.state-good td:nth-child(2) { color: #30a46c; }
+.sk-review-table tr.state-thin td:nth-child(2) { color: #d4a72c; }
+.sk-review-table tr.state-none td:nth-child(2) { color: #e5484d; }
+
+/* The inspector: what a part is, what it does, and its place in the process. */
+.sk-inspector {
+  margin: 18px 0 4px;
+  border: 1px solid var(--anatomy-mid);
+  border-radius: 10px;
+  background: var(--anatomy-card);
+  overflow: hidden;
+}
+.sk-inspector[hidden] { display: none; }
+.sk-inspector header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--anatomy-faint);
+  background: var(--anatomy-page);
+}
+.sk-inspector h3 {
+  margin: 0;
+  font: 600 14px/1.3 var(--anatomy-mono);
+  letter-spacing: 0.04em;
+  color: var(--anatomy-strong);
+}
+.sk-insp-kind {
+  margin: 3px 0 0;
+  font: 10px/1 var(--anatomy-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--anatomy-muted);
+}
+.sk-inspector header button {
+  margin-left: auto;
+  border: 1px solid var(--anatomy-faint);
+  border-radius: 5px;
+  background: transparent;
+  color: var(--anatomy-text);
+  font: 11px/1 var(--anatomy-mono);
+  padding: 6px 9px;
+  cursor: pointer;
+}
+.sk-insp-body {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  padding: 16px;
+}
+.sk-insp-body h4 {
+  margin: 0 0 8px;
+  font: 600 10px/1 var(--anatomy-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--anatomy-muted);
+}
+.sk-insp-body h5 {
+  margin: 10px 0 4px;
+  font: 600 9px/1 var(--anatomy-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--anatomy-muted);
+}
+.sk-insp-body p {
+  margin: 0 0 8px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--anatomy-text);
+}
+.sk-insp-rows {
+  display: grid;
+  gap: 4px;
+  margin-top: 8px;
+}
+.sk-insp-row {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 10px;
+  align-items: baseline;
+  font: 11px/1.5 var(--anatomy-mono);
+  border-bottom: 1px solid var(--anatomy-faint);
+  padding: 3px 0;
+}
+.sk-insp-row span { color: var(--anatomy-muted); }
+.sk-insp-row b { color: var(--anatomy-strong); font-weight: 600; }
+.sk-insp-row i {
+  grid-column: 2;
+  font-style: normal;
+  font-size: 9px;
+  color: var(--anatomy-muted);
+  opacity: 0.7;
+}
+.sk-insp-note {
+  border-left: 2px solid var(--anatomy-faint);
+  padding-left: 10px;
+  color: var(--anatomy-muted) !important;
+  font-size: 12px !important;
+}
+.sk-insp-notes {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--anatomy-text);
+}
+.sk-insp-none {
+  color: var(--anatomy-muted) !important;
+  font-style: italic;
+}
+.sk-insp-evidence {
+  border-top: 1px solid var(--anatomy-faint);
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.sk-insp-evidence h4 {
+  text-transform: none;
+  letter-spacing: 0.01em;
+  font-size: 12px;
+  color: var(--anatomy-strong);
+}
+.sk-insp-query {
+  font: 10px/1.4 var(--anatomy-mono) !important;
+  color: var(--anatomy-muted) !important;
+}
+.sk-insp-evidence ul {
+  margin: 0;
+  padding-left: 16px;
+  font-size: 11px;
+  line-height: 1.6;
+}
+.sk-insp-evidence a { color: var(--anatomy-text); }
+.sk-insp-year {
+  font: 9px/1 var(--anatomy-mono);
+  color: var(--anatomy-muted);
+}
+
 /* The SOP panel. */
 .sk-sop {
   display: grid;

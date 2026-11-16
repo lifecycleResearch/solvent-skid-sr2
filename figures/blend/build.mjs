@@ -14,6 +14,7 @@ import { fileURLToPath } from "node:url";
 
 import * as k from "../../kit/iso-kit.mjs";
 import { sceneOf } from "../lib/spec-scene.mjs";
+import { catalogueOf } from "../lib/parts.mjs";
 import { renderScene, projectionFor, STAGE } from "../lib/scene.mjs";
 import { kitBundle } from "../../scripts/inline-kit.mjs";
 
@@ -21,6 +22,28 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, "..", "..");
 
 const spec = JSON.parse(readFileSync(join(ROOT, "spec", "subzero-blend.json"), "utf8"));
+
+// The evidence: what the literature and the patents say. It is retrieved by
+// sim/evidence.mjs and read from here, so the page is built from a file and
+// not from a live search.
+let evidence = { topics: {} };
+try {
+  evidence = JSON.parse(readFileSync(join(ROOT, "spec", "subzero-blend-evidence.json"), "utf8"));
+} catch {
+  evidence = { topics: {} };
+}
+const catalogue = catalogueOf(spec, evidence);
+
+// The design grade: the checks that catch a process that looks finished and
+// is not. The same code runs in the CI and behind the API.
+let grade = null;
+try {
+  const { balance } = await import("../../sim/massbalance.mjs");
+  const { gradeDesign } = await import("../../deploy/design.mjs");
+  grade = gradeDesign({ spec, evidence, catalogue, balance: balance(spec) });
+} catch (err) {
+  console.log(`  (the design grade did not run: ${err.message})`);
+}
 
 const scene = sceneOf(spec);
 const projection = projectionFor(scene, { azimuth: 38, elevation: 27 });
@@ -36,7 +59,9 @@ const sceneSource = readFileSync(join(ROOT, "figures", "lib", "scene.mjs"), "utf
   .replace(/^const KIT = globalThis\.KIT.*$/m, "")
   .replace(/^export /gm, "");
 
-const LIVE = readFileSync(join(HERE, "live.js"), "utf8").replace("__SCENE__", JSON.stringify(scene));
+const LIVE = readFileSync(join(HERE, "live.js"), "utf8")
+  .replace("__SCENE__", JSON.stringify(scene))
+  .replace("__GRADE__", JSON.stringify(grade || { checks: [], parts: [], verdict: "not graded", score: 0 }));
 
 const functions = [...new Set((spec.process || []).map((step) => step.kind))];
 const targets = spec.targets || [];
@@ -63,10 +88,39 @@ const body = k.plateHtml({
     <button type="button" class="sk-btn" data-filter-btn="function" aria-pressed="false">by function</button>
     <button type="button" class="sk-btn" data-filter-btn="colour" aria-pressed="false">by colour</button>
     <span class="sk-sep"></span>
+    <button type="button" class="sk-btn" data-review-toggle aria-pressed="false">the review</button>
     <button type="button" class="sk-btn" data-sop-toggle aria-pressed="false">the SOP</button>
     <span class="sk-live" aria-live="polite" data-live></span>
   </div>
   <div class="sk-filters" data-filters hidden></div>
+  <aside class="sk-inspector" data-inspector hidden>    <header>
+      <div>
+        <h3 data-insp-title></h3>
+        <p class="sk-insp-kind" data-insp-kind></p>
+      </div>
+      <button type="button" data-insp-close title="close">✕</button>
+    </header>
+    <div class="sk-insp-body" data-insp-body></div>
+  </aside>
+  <section class="sk-review" data-review hidden>
+    <div class="sk-review-head">
+      <h3>The review</h3>
+      <p data-review-verdict></p>
+    </div>
+    <div class="sk-review-cols">
+      <div>
+        <h4>The checks</h4>
+        <ul class="sk-review-checks" data-review-checks></ul>
+      </div>
+      <div>
+        <h4>What supports what</h4>
+        <table class="sk-review-table">
+          <thead><tr><th>Part</th><th>State</th><th>Papers</th><th>Patents</th></tr></thead>
+          <tbody data-review-parts></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
   <div class="sk-sop" data-sop hidden>
     <div class="sk-sop-col">
       <h3>Standard operating procedure</h3>
@@ -103,13 +157,19 @@ const page = k.pageHtml({
   title: spec.meta.name,
   theme: "light",
   body: `<style>${CSS}</style>${body}`,
-  script: `${kitBundle()}\n${sceneSource}\n${LIVE}`,
+  script: `${kitBundle()}\n${sceneSource}\nconst CATALOGUE = ${JSON.stringify(catalogue)};\n${LIVE}`,
   width: 1240,
 });
 
 writeFileSync(join(HERE, "blend.html"), page);
 writeFileSync(join(ROOT, "deploy", "public", "blend.html"), page);
 writeFileSync(join(ROOT, "figures", "blend", "scene.json"), `${JSON.stringify(scene, null, 1)}\n`);
-console.log(`wrote blend.html ${(page.length / 1024).toFixed(0)} KB, ${scene.items.length} items`);
+// The catalogue, the evidence and the grade are served beside the figure, so
+// an agent can read the same records the page shows.
+writeFileSync(join(ROOT, "deploy", "public", "catalogue.json"), `${JSON.stringify({ parts: catalogue }, null, 1)}\n`);
+writeFileSync(join(ROOT, "deploy", "public", "evidence.json"), `${JSON.stringify(evidence, null, 1)}\n`);
+if (grade) writeFileSync(join(ROOT, "deploy", "public", "design-grade.json"), `${JSON.stringify(grade, null, 1)}\n`);
+console.log(`wrote blend.html ${(page.length / 1024).toFixed(0)} KB, ${scene.items.length} items, ${catalogue.length} parts in the catalogue`);
+if (grade) console.log(`  design grade: ${grade.verdict} · ${grade.passedCount}/${grade.total} checks`);
 console.log(`  vessels ${spec.vessels.length}, connections ${spec.connections.length}, streams ${spec.streams.length}`);
 console.log(`  functions: ${functions.join(", ")} · compounds: ${compounds.join(", ")}`);

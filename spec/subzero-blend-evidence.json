@@ -1,0 +1,1951 @@
+{
+ "source": {
+  "papers": "OpenAlex (api.openalex.org) and Crossref (api.crossref.org)",
+  "patents": "Google Patents (patents.google.com), or PatentsView when PATENTSVIEW_API_KEY is set",
+  "note": "retrieved with sim/evidence.mjs; no key, no account; the patent search is paced and cached because it rate-limits"
+ },
+ "topics": {
+  "solvent-extraction": {
+   "query": "ethanol extraction cannabis sativa cannabinoids yield recovery",
+   "why": "that ethanol is a workable carrier, and what it takes out of the biomass",
+   "must": [
+    "cannabis",
+    "cannabinoid",
+    "ethanol"
+   ],
+   "papers": [
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Simple Extraction of Cannabinoids from Female Inflorescences of Hemp (Cannabis sativa L.)",
+     "year": 2022,
+     "doi": "10.3390/molecules27185868",
+     "authors": [
+      "Milena Szalata",
+      "Mariola Dreger",
+      "Aleksandra Zielińska",
+      "Joanna Banach",
+      "Marlena Szalata",
+      "Karolina Wielgus"
+     ],
+     "citations": 52,
+     "url": "https://doi.org/10.3390/molecules27185868",
+     "abstract": "The high interest in non-psychoactive cannabidiol increases the need for efficient and straightforward cannabidiol (CBD) extraction methods. The research aimed to compare simple methods of cannabinoid extraction that do not require advanced laboratory equipment. This work assesses the content of total CBD and Δ9-tetrahydrocannabinol (Δ9-THC) in popular solvents such as water and ethanol extracts. Hemp raw material w…",
+     "fit": 1
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "Extraction, separation, and purification of cannabinoids from the Cannabis sativa L. plant using dry ice and solvents such as hexane and ethanol to determine the most efficient method",
+     "doi": "10.1109/etcm58927.2023.10308993",
+     "year": 2023,
+     "authors": [
+      "Lisseth Minchala Espinoza",
+      "Nicole Alba Naranjo",
+      "Myriam Mancheno Cardenas"
+     ],
+     "container": "2023 IEEE Seventh Ecuador Technical Chapters Meeting (ECTM)",
+     "url": "https://doi.org/10.1109/etcm58927.2023.10308993",
+     "type": "proceedings-article",
+     "fit": 1
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Extraction of Cannabinoids from Cannabis sativa L. (Hemp)—Review",
+     "year": 2021,
+     "doi": "10.3390/agriculture11050384",
+     "authors": [
+      "Mehrab Valizadehderakhshan",
+      "Abolghasem Shahbazi",
+      "Masoud Kazem‐Rostami",
+      "Matthew Scott Todd",
+      "Arnab Bhowmik",
+      "Lijun Wang"
+     ],
+     "citations": 134,
+     "url": "https://doi.org/10.3390/agriculture11050384",
+     "abstract": "Cannabis plant has long been execrated by law in different nations due to the psychoactive properties of only a few cannabinoids. Recent scientific advances coupled with growing public awareness of cannabinoids as a medical commodity drove legislation change and brought about a historic transition where the demand rose over ten-fold in less than five years. On the other hand, the technology required for cannabis pro…",
+     "fit": 0.67
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Extraction and fractionation of cannabinoids from 'cannabis sativa'",
+     "year": 2018,
+     "doi": "",
+     "authors": [
+      "Stephen J. Tallon",
+      "Teresa Moreno",
+      "Fernando Montañés",
+      "Watson Mj"
+     ],
+     "citations": 2,
+     "url": "http://hdl.handle.net/10092/17292",
+     "abstract": "There is a rapidly growing market for therapeutic and medicinal products containing cannabinoids from Cannabis, driven in part by a growing acceptance of their therapeutic benefits, and by global regulatory change that allows more widespread use of both recreational and prescribed products. There are a number of known and established methods for preparation and concentration of extracts containing cannabinoids and o…",
+     "fit": 0.67
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Development of extraction technique and GC/FID method for the analysis of cannabinoids in Cannabis sativa L. spp. santicha (hemp)",
+     "year": 2020,
+     "doi": "10.1002/pca.2915",
+     "authors": [
+      "Justė Baranauskaitė",
+      "Mindaugas Marksa",
+      "Людас Іванаускас",
+      "Konradas Vitkevičius",
+      "Mindaugas Liaudanskas",
+      "Vaidas Skyrius"
+     ],
+     "citations": 35,
+     "url": "https://doi.org/10.1002/pca.2915",
+     "abstract": "INTRODUCTION: Nowadays, the interest in industrial Cannabis sativa L. herb has been increasing in the world. As a result, it is becoming one of the most studied plants due to its multifunctional benefits. OBJECTIVES: To the best of our knowledge, no study has been conducted so far to determine the impact of extraction methods and conditions on the extraction yields of CBD and CBG from the Cannabis sativa L. ssp. San…",
+     "fit": 0.67
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Influence of different extraction methods on the cannabinoid profile in Cannabis sativa oil",
+     "year": 2025,
+     "doi": "10.34117/bjdv11n2-019",
+     "authors": [
+      "Samuel Giovanny García-Castaño",
+      "Diana Carolina Londoño Gómez",
+      "Philipe dos Santos",
+      "Marvin José Perneth-Montaño",
+      "Ana Milena Vásquez-Bettin",
+      "Kelly Curvina Lisboa"
+     ],
+     "citations": 2,
+     "url": "https://doi.org/10.34117/bjdv11n2-019",
+     "abstract": "The research focuses on optimizing extraction methods for Cannabis sativa to ensure the production of high-quality oils with consistent cannabinoid profiles, critical for therapeutic applications. The study highlights the plant’s medicinal potential, driven by bioactive compounds such as cannabidiol (CBD) and tetrahydrocannabinol (THC), which are effective against various conditions, including epilepsy and chronic p…",
+     "fit": 0.67
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Selective recovery of terpenes, polyphenols and cannabinoids from Cannabis sativa L. inflorescences under microwaves",
+     "year": 2021,
+     "doi": "10.1016/j.indcrop.2021.113247",
+     "authors": [
+      "Veronika Gunjević",
+      "Giorgio Grillo",
+      "Diego Carnaroglio",
+      "Arianna E. Binello",
+      "Alessandro Barge",
+      "Giancarlo Cravotto"
+     ],
+     "citations": 50,
+     "url": "https://doi.org/10.1016/j.indcrop.2021.113247",
+     "abstract": "",
+     "fit": 0.67
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "CBGA-rich Cannabis sativa subcritical water vs supercritical CO2 and organic solvent extraction: Cannabinoids, volatiles and antioxidant activity",
+     "year": 2025,
+     "doi": "10.1016/j.indcrop.2025.121950",
+     "authors": [
+      "Katja Schoss",
+      "Nina Kočevar Glavač"
+     ],
+     "citations": 2,
+     "url": "https://doi.org/10.1016/j.indcrop.2025.121950",
+     "abstract": "Subcritical water extraction (SWE) was evaluated as an alternative to conventional and modern extraction methods for the recovery of cannabinoids, volatile compounds and antioxidants from CBGA-rich hemp ( Cannabis sativa L.). A 2^3 full factorial design of experiments (DoE) was applied to optimize the SWE conditions. The extraction yield was determined gravimetrically, and antioxidant activity and total polyphenol c…",
+     "fit": 0.67
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Effective determination of the principal non-psychoactive cannabinoids in fiber-type Cannabis sativa L. by UPLC-PDA following a comprehensive design and optimization of extraction methodology",
+     "year": 2021,
+     "doi": "10.1016/j.aca.2021.338200",
+     "authors": [
+      "Petros S. Tzimas",
+      "Eleftherios A. Petrakis",
+      "Maria Halabalaki",
+      "Alexios‐Léandros Skaltsounis"
+     ],
+     "citations": 42,
+     "url": "https://doi.org/10.1016/j.aca.2021.338200",
+     "abstract": "Cannabidiol (CBD) and cannabidiolic acid (CBDA) represent the most abundant non-psychoactive cannabinoids in fiber-type Cannabis sativa L. (hemp) and both have demonstrated high therapeutic potential. Hence, efficient extraction coupled with reliable determination of these compounds is crucial for informed utilization of hemp and is increasingly needed in the present state of harmonization efforts. In this context, …",
+     "fit": 0.67
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "Downstream Processing Stages, Comparative Analysis &amp;amp; Extraction Methodologies in Generation of Cannabinoids from Cannabis Sativa L. (Hemp)",
+     "doi": "10.31219/osf.io/d49ts",
+     "year": 2021,
+     "authors": [
+      "Lakshya Sharma"
+     ],
+     "container": "",
+     "url": "https://doi.org/10.31219/osf.io/d49ts",
+     "type": "posted-content",
+     "fit": 0.67
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "Effect of High-Tunnel and Open-Field Production on the Yield, Cannabinoids, and Volatile Profiles in Industrial Hemp (Cannabis sativa L.) Inflorescence",
+     "doi": "10.1021/acs.jafc.4c01668.s001",
+     "year": null,
+     "authors": [],
+     "container": "",
+     "url": "https://doi.org/10.1021/acs.jafc.4c01668.s001",
+     "type": "component",
+     "fit": 0.67
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "The Effect of Light Spectrum on the Morphology and Cannabinoid Content of Cannabis sativa L.",
+     "doi": "10.1159/000489030",
+     "year": 2018,
+     "authors": [
+      "Gianmaria Magagnini",
+      "Gianpaolo Grassi",
+      "Stiina Kotiranta"
+     ],
+     "container": "Medical Cannabis and Cannabinoids",
+     "url": "https://doi.org/10.1159/000489030",
+     "type": "journal-article",
+     "fit": 0.67
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "In Situ Decarboxylation-Pressurized Hot Water Extraction for Selective Extraction of Cannabinoids from Cannabis sativa. Chemometric Approach",
+     "doi": "10.3390/molecules26113343",
+     "year": 2021,
+     "authors": [
+      "Yannick Nuapia",
+      "Kgomotso Maraba",
+      "Hlanganani Tutu",
+      "Luke Chimuka",
+      "Ewa Cukrowska"
+     ],
+     "container": "Molecules",
+     "url": "https://doi.org/10.3390/molecules26113343",
+     "type": "journal-article",
+     "fit": 0.67
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "The Pharmacohistory of Cannabis Sativa",
+     "doi": "10.1201/9780429260667-1",
+     "year": 2019,
+     "authors": [
+      "Raphael Mechoulam"
+     ],
+     "container": "Cannabinoids as Therapeutic Agents",
+     "url": "https://doi.org/10.1201/9780429260667-1",
+     "type": "book-chapter",
+     "fit": 0.67
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "Experimental Endozoochory of &lt;b&gt;&lt;i&gt;Cannabis sativa&lt;/i&gt;&lt;/b&gt; Achenes",
+     "doi": "10.1159/000492971",
+     "year": 2018,
+     "authors": [
+      "John M. McPartland",
+      "Steve G. Naraine"
+     ],
+     "container": "Medical Cannabis and Cannabinoids",
+     "url": "https://doi.org/10.1159/000492971",
+     "type": "journal-article",
+     "fit": 0.67
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "Combined extraction and spray-freeze-drying of Cannabis sativa Flos provides stable lyophilizate particles of cannabinoids",
+     "doi": "10.1186/s42238-025-00381-w",
+     "year": 2026,
+     "authors": [
+      "Jan Kožák",
+      "José Ignacio Vázquez-Olvera",
+      "Kai Berkenfeld",
+      "Annika Rautenberg",
+      "Alf Lamprecht"
+     ],
+     "container": "Journal of Cannabis Research",
+     "url": "https://doi.org/10.1186/s42238-025-00381-w",
+     "type": "journal-article",
+     "fit": 0.67
+    }
+   ],
+   "patents": [],
+   "neighbours": [],
+   "strength": "good",
+   "retrieved": "2026-11-16"
+  },
+  "membrane-nf": {
+   "query": "solvent nanofiltration cannabinoid purification ethanol permeate retentate",
+   "why": "that a 1 nm pore holds the cannabinoids back and lets the solvent through",
+   "must": [
+    "cannabinoid",
+    "nanofiltration"
+   ],
+   "papers": [
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Aligned macrocycle pores in ultrathin films for accurate molecular sieving",
+     "year": 2022,
+     "doi": "10.1038/s41586-022-05032-1",
+     "authors": [
+      "Zhiwei Jiang",
+      "Ruijiao Dong",
+      "Austin M. Evans",
+      "Niklas Biere",
+      "Mahmood Abdulsalam Ebrahim",
+      "Siyao Li"
+     ],
+     "citations": 367,
+     "url": "https://doi.org/10.1038/s41586-022-05032-1",
+     "abstract": "Abstract Polymer membranes are widely used in separation processes including desalination 1 , organic solvent nanofiltration 2,3 and crude oil fractionation 4,5 . Nevertheless, direct evidence of subnanometre pores and a feasible method of manipulating their size is still challenging because of the molecular fluctuations of poorly defined voids in polymers 6 . Macrocycles with intrinsic cavities could potentially ta…"
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "Prediction of permeate flux and permeate concentration in nanofiltration of dye solution",
+     "doi": "10.1016/s1383-5866(03)00137-0",
+     "year": 2004,
+     "authors": [
+      "S Chakraborty"
+     ],
+     "container": "Separation and Purification Technology",
+     "url": "https://doi.org/10.1016/s1383-5866(03)00137-0",
+     "type": "journal-article"
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "Unraveling the influence of dissolved gases on permeate flux in organic solvent nanofiltration – Experimental analysis",
+     "doi": "10.1016/j.seppur.2022.121265",
+     "year": 2022,
+     "authors": [
+      "Stefan Schlüter",
+      "Fabian Huxoll",
+      "Kai Grenningloh",
+      "Gabriele Sadowski",
+      "Marc Petzold",
+      "Lutz Böhm"
+     ],
+     "container": "Separation and Purification Technology",
+     "url": "https://doi.org/10.1016/j.seppur.2022.121265",
+     "type": "journal-article"
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "Nanofiltration Retentate Treatment",
+     "doi": "10.1002/9783527824984.ch21",
+     "year": 2021,
+     "authors": [
+      "Bart Van der Bruggen"
+     ],
+     "container": "Nanofiltration",
+     "url": "https://doi.org/10.1002/9783527824984.ch21",
+     "type": "other"
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "Effect of solvent properties on permeate flow through nanofiltration membranes",
+     "doi": "10.1016/s0376-7388(99)00251-3",
+     "year": 2000,
+     "authors": [
+      "Darı́o R. Machado",
+      "David Hasson",
+      "Raphael Semiat"
+     ],
+     "container": "Journal of Membrane Science",
+     "url": "https://doi.org/10.1016/s0376-7388(99)00251-3",
+     "type": "journal-article"
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "Nanofiltration retentate treatment from urban wastewater secondary effluent by solar electrochemical oxidation processes",
+     "doi": "10.1016/j.seppur.2020.117614",
+     "year": 2021,
+     "authors": [
+      "I. Salmerón",
+      "G. Rivas",
+      "I. Oller",
+      "A. Martínez-Piernas",
+      "A. Agüera",
+      "S. Malato"
+     ],
+     "container": "Separation and Purification Technology",
+     "url": "https://doi.org/10.1016/j.seppur.2020.117614",
+     "type": "journal-article"
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "Effect of solvent properties on permeate flow through nanofiltration membranes. Part I: investigation of parameters affecting solvent flux",
+     "doi": "10.1016/s0376-7388(99)00158-1",
+     "year": 1999,
+     "authors": [
+      "Darı́o R. Machado",
+      "David Hasson",
+      "Raphael Semiat"
+     ],
+     "container": "Journal of Membrane Science",
+     "url": "https://doi.org/10.1016/s0376-7388(99)00158-1",
+     "type": "journal-article"
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "Application of PIM-1 for solvent swing adsorption and solvent recovery by nanofiltration",
+     "doi": "10.1016/j.seppur.2015.10.066",
+     "year": 2015,
+     "authors": [
+      "T.S. Anokhina",
+      "A.A. Yushkin",
+      "P.M. Budd",
+      "A.V. Volkov"
+     ],
+     "container": "Separation and Purification Technology",
+     "url": "https://doi.org/10.1016/j.seppur.2015.10.066",
+     "type": "journal-article"
+    }
+   ],
+   "patents": [],
+   "neighbours": [
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Advancing Faba Bean Protein Purification Using Membrane Technology: Current State and Future Perspectives",
+     "year": 2024,
+     "doi": "10.3390/jcs8010015",
+     "authors": [
+      "Masoume Ehsani",
+      "Heloisa Westphalen",
+      "Huu Dung Doan",
+      "Ali Lohi",
+      "Amira Abdelrasoul"
+     ],
+     "citations": 18,
+     "url": "https://doi.org/10.3390/jcs8010015",
+     "abstract": "Plant-based proteins are gaining popularity because of their appeal to vegetarians and vegans, alignment with scientific and regulatory recommendations, and the environmental impact associated with livestock production. Several techniques are employed for the separation, isolation, and purification of plant-based proteins including membrane-based separation, diafiltration, centrifugation, chromatography, electrophor…"
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Aligned macrocycle pores in ultrathin films for accurate molecular sieving",
+     "year": 2022,
+     "doi": "10.1038/s41586-022-05032-1",
+     "authors": [
+      "Zhiwei Jiang",
+      "Ruijiao Dong",
+      "Austin M. Evans",
+      "Niklas Biere",
+      "Mahmood Abdulsalam Ebrahim",
+      "Siyao Li"
+     ],
+     "citations": 367,
+     "url": "https://doi.org/10.1038/s41586-022-05032-1",
+     "abstract": "Abstract Polymer membranes are widely used in separation processes including desalination 1 , organic solvent nanofiltration 2,3 and crude oil fractionation 4,5 . Nevertheless, direct evidence of subnanometre pores and a feasible method of manipulating their size is still challenging because of the molecular fluctuations of poorly defined voids in polymers 6 . Macrocycles with intrinsic cavities could potentially ta…"
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Tannin Extraction from Chestnut Wood Waste: From Lab Scale to Semi-Industrial Plant",
+     "year": 2023,
+     "doi": "10.3390/app13042494",
+     "authors": [
+      "Clelia Aimone",
+      "Giorgio Grillo",
+      "Luisa Boffa",
+      "Samuele Giovando",
+      "Giancarlo Cravotto"
+     ],
+     "citations": 43,
+     "url": "https://doi.org/10.3390/app13042494",
+     "abstract": "The chestnut tree (Castanea sativa, Mill.) is a widespread plant in Europe whose fruits and wood has a relevant economic impact. Chestnut wood (CW) is rich in high-value compounds that exhibit various biological activities, such as antioxidant as well as anticarcinogenic and antimicrobial properties. These metabolites can be mainly divided into monomeric polyphenols and tannins. In this piece of work, we investigate…"
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Selective extraction of HTL biocrude: A decision-oriented framework for s-CO2 fractionation and mild separations",
+     "year": 2026,
+     "doi": "10.1016/j.psep.2026.109647",
+     "authors": [
+      "Di Wu",
+      "Sanjiv Save",
+      "Jing Liu",
+      "Garima Chauhan"
+     ],
+     "citations": 0,
+     "url": "https://doi.org/10.1016/j.psep.2026.109647",
+     "abstract": "Hydrothermal liquefaction (HTL) converts wet biomass into energy-dense biocrude; however, its storage and refinery co-processing remain limited by rapid aging, high TAN/TBN, and heteroatom-rich fractions that increase viscosity, hydrogen demand, and catalyst deactivation. We present a decision-oriented, bin-aware framework that conditions biocrude through selective, low-severity extraction using supercritical CO 2 (…"
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Extraction of Bioactive Compounds from Wine Lees: A Systematic and Bibliometric Review",
+     "year": 2024,
+     "doi": "10.3390/foods13132060",
+     "authors": [
+      "Filipe de Oliveira Melo",
+      "Vanessa Cosme Ferreira",
+      "Gerardo F. Barbero",
+      "Ceferino Carrera",
+      "Ederlan de Souza Ferreira",
+      "Marcelo Andrés Umsza‐Guez"
+     ],
+     "citations": 18,
+     "url": "https://doi.org/10.3390/foods13132060",
+     "abstract": "The extraction of bioactive compounds from wine lees involves a variety of methods, the selection of which is crucial to ensure optimal yields. This systematic review, following PRISMA guidelines and utilizing the Web of Science database, aimed to examine the current state of this field, providing insights for future investigations. The search employed strategies with truncation techniques and Boolean operators, fol…"
+    }
+   ],
+   "strength": "good",
+   "retrieved": "2026-11-16"
+  },
+  "cbd-crystallisation": {
+   "query": "cannabidiol crystallization ethanol antisolvent cooling solubility",
+   "why": "that CBD comes out of solution when the carrier is chilled",
+   "must": [
+    "cannabidiol",
+    "crystalli",
+    "ethanol"
+   ],
+   "papers": [
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "FREEZE-DRIED BINARY AND TERNARY SOLID DISPERSIONS OF CANNABIDIOL: FORMULATION, CHARACTERIZATION, AND SOLUBILITY ENHANCEMENT",
+     "year": 2026,
+     "doi": "10.22159/ijap.2026v18i4.58197",
+     "authors": [
+      "THANAPORN JUNTANON",
+      "Neti Waranuch",
+      "Kornkanok Ingkaninan",
+      "Tasana Pitaksuteepong"
+     ],
+     "citations": 0,
+     "url": "https://doi.org/10.22159/ijap.2026v18i4.58197",
+     "abstract": "Objective: Cannabidiol (CBD) is a non-psychoactive phytocannabinoid with broad therapeutic potential. However, it’s extremely poor aqueous solubility limits pharmaceutical development. This study aimed to enhance CBD solubility using binary and ternary amorphous solid dispersions (SDs) prepared by freeze-drying. Methods: Freeze-drying conditions were optimized by screening solvent systems based on frozen-state therm…",
+     "fit": 0.33
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Preparation, stability, antioxidative property and in vitro release of cannabidiol (CBD) in zein-whey protein composite nanoparticles",
+     "year": 2022,
+     "doi": "10.1016/j.lwt.2022.113466",
+     "authors": [
+      "Ce Wang",
+      "Baihui Cui",
+      "Yonghai Sun",
+      "Cuina Wang",
+      "Mingruo Guo"
+     ],
+     "citations": 72,
+     "url": "https://doi.org/10.1016/j.lwt.2022.113466",
+     "abstract": "Cannabidiol (CBD) containing products are getting more and more popular in the global markets. But wide applications of CBD are still hindered by its inherent sensitivity to environmental stresses, its poor water solubility and low bioavailability. CBD was entrapped in zein and whey protein (WP) hybrid nanoparticles using a drop-by-drop anti-solvent precipitation method. Characteristics of the nanoparticles includin…",
+     "fit": 0.33
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Enhanced Stability and Oral Bioavailability of Cannabidiol in Zein and Whey Protein Composite Nanoparticles by a Modified Anti-Solvent Approach",
+     "year": 2022,
+     "doi": "10.3390/foods11030376",
+     "authors": [
+      "Ce Wang",
+      "Jia Wang",
+      "Yonghai Sun",
+      "Kalev Freeman",
+      "Monique A. McHenry",
+      "Cuina Wang"
+     ],
+     "citations": 61,
+     "url": "https://doi.org/10.3390/foods11030376",
+     "abstract": "Wide applications of cannabidiol (CBD) in the food and pharmaceutical industries are limited due to its low bioavailability, sensitivity to environmental pressures and low water solubility. Zein nanoparticles were stabilized by whey protein (WP) for the delivery of cannabidiol (CBD) using a modified anti-solvent approach. Particle size, surface charge, encapsulation efficiency, and re-dispersibility of nanoparticles…",
+     "fit": 0.33
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Enhanced oral bioavailability of cannabidiol by flexible zein nanoparticles: in vitro and pharmacokinetic studies",
+     "year": 2024,
+     "doi": "10.3389/fnut.2024.1431620",
+     "authors": [
+      "Yinglan Nie",
+      "Yan Kong",
+      "Juan Peng",
+      "Jian Sun",
+      "Bin Fan"
+     ],
+     "citations": 15,
+     "url": "https://doi.org/10.3389/fnut.2024.1431620",
+     "abstract": "Introduction Cannabidiol (CBD) has a variety of pharmacological effects including antiepileptic, antispasmodic, anxiolytic and anti-inflammatory among other pharmacological effects. However, since CBD is a terpene-phenolic compound, its clinical application is limited by its poor water solubility, low stability, and low bioavailability. Methods In this study, we used several strategies to address the above problems.…",
+     "fit": 0.33
+    }
+   ],
+   "patents": [],
+   "neighbours": [
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Efficient purification of CrocinI from saffron stigmas using antisolvent precipitation to implications for food technology",
+     "year": 2025,
+     "doi": "10.1038/s41598-025-15176-5",
+     "authors": [
+      "Elmira Fotouhi",
+      "Fateme Mirzajani",
+      "Hassan Rezadoost",
+      "Mohammad Hooshyari Ardakani"
+     ],
+     "citations": 4,
+     "url": "https://doi.org/10.1038/s41598-025-15176-5",
+     "abstract": "Major bioactive compounds, crocin compounds, the major bio-actives of saffron, exhibit significant antioxidant, anti-inflammatory, and anticancer properties. Their high commercial value is attributed to the difficulty of obtaining large quantities in a highly pure form. In the current study, antisolvent precipitation, optimized through response surface methods (RSM), was applied to the selective enhance the concentr…"
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Formulation Strategies to Enhance the Solubility of Poorly Water-Soluble Drugs and Phytochemicals: Current Advances and Challenges",
+     "year": 2026,
+     "doi": "10.3390/pharmaceutics18050611",
+     "authors": [
+      "Shery Jacob",
+      "Hiral J Shah",
+      "Anroop Balachandran Nair"
+     ],
+     "citations": 7,
+     "url": "https://doi.org/10.3390/pharmaceutics18050611",
+     "abstract": "The low water solubility of numerous drug candidates and phytochemicals continues to pose a significant challenge in pharmaceutical development, greatly limiting their bioavailability and therapeutic performance. This review presents a detailed overview of formulation strategies aimed at improving the solubility and dissolution of poorly aqueous-soluble compounds. The biopharmaceutics classification system and the r…"
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Advancing Ticagrelor Bioavailability: A Comprehensive Review of Solubility Enhancement Techniques",
+     "year": 2025,
+     "doi": "10.25077/jsfk.12.1.50-62.2025",
+     "authors": [
+      "Muhammad Luthfi Shidik",
+      "Tania Miranda Sarlie",
+      "Rachmat Mauludın",
+      "Saleh Wikarsa",
+      "Yuda Prasetya Nugraha"
+     ],
+     "citations": 0,
+     "url": "https://doi.org/10.25077/jsfk.12.1.50-62.2025",
+     "abstract": "Ticagrelor (TICA) inhibits platelet activity by reversibly binding to the P₂Y₁₂ receptor, it is classified as a BCS class IV drug with low solubility and permeability. BCS Class IV drugs have a major challenge due to their reduced rate of dissolution, which leads to poor bioavailability. The absolute bioavailability of TICA after oral administration is ~36%. Various techniques, including particle size reduction, sol…"
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Goodbye fouling: a unique coaxial lamination mixer (CLM) enabled by two-photon polymerization for the stable production of monodisperse drug carrier nanoparticles",
+     "year": 2021,
+     "doi": "10.1039/d1lc00047k",
+     "authors": [
+      "Peer Erfle",
+      "Juliane Riewe",
+      "Heike Bunjes",
+      "Andreas H. Dietzel"
+     ],
+     "citations": 31,
+     "url": "https://doi.org/10.1039/d1lc00047k",
+     "abstract": "Poorly soluble drugs can be incorporated in lipid carrier nanoparticles to achieve sufficient bioavailability and open up diverse routes of administration. Preparation by antisolvent precipitation in microfluidic systems enables excellent control of lipid nanoparticle size. However, particle-containing flows bear the risk of material deposition on microchannel surfaces, limiting reproducibility, prolonged continuous…"
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "Crystallization by Antisolvent Addition and Cooling",
+     "doi": "10.5772/50328",
+     "year": 2012,
+     "authors": [
+      "Marco Giulietti",
+      "Andr Bernardo"
+     ],
+     "container": "Crystallization - Science and Technology",
+     "url": "https://doi.org/10.5772/50328",
+     "type": "book-chapter"
+    }
+   ],
+   "strength": "good",
+   "retrieved": "2026-11-16"
+  },
+  "molecular-sieve": {
+   "query": "3A molecular sieve ethanol dehydration water adsorption",
+   "why": "that the sieve takes the water out of the recovered carrier",
+   "must": [
+    "molecular sieve",
+    "ethanol"
+   ],
+   "papers": [
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Design and Development of an Ethanol Dehydrator Prototype Using Zeolite 3Å Molecular Sieves",
+     "year": 2026,
+     "doi": "10.70609/g-tech.v10i2.9564",
+     "authors": [
+      "Raihan Aprila",
+      "Annisa Dede Azahra",
+      "Rosalina Rosalina",
+      "Regna Tri Jayanti"
+     ],
+     "citations": 0,
+     "url": "https://doi.org/10.70609/g-tech.v10i2.9564",
+     "abstract": "Conventional distillation cannot surpass the ethanol-water azeotropic limit (95–96%), necessitating advanced dehydration for fuel grade ethanol (FGE) production per SNI 7390-2012 (≥99.5%). This study designed, fabricated, and evaluated a laboratory-scale ethanol dehydrator prototype featuring a novel 65° inclined horizontal adsorption column filled with 3Å zeolite molecular sieve a configuration not previously repor…",
+     "fit": 1
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "ETHANOL-WATER ADSORPTION ON COMMERCIAL 3A ZEOLITES: KINETIC AND THERMODYNAMIC DATA",
+     "year": 1997,
+     "doi": "10.1590/s0104-66321997000300004",
+     "authors": [
+      "Marlon José do Carmo",
+      "J.C. Gubulin"
+     ],
+     "citations": 61,
+     "url": "https://doi.org/10.1590/s0104-66321997000300004",
+     "abstract": "Dehydration of ethanol via adsorption using molecular sieves has recently been suggested as a promising alternative to the conventional separation methods for ethanol-water mixtures. 3A zeolites possess selective micropores whereon, due to the small size of their pores, the water molecules are adsorbed while the ethanol molecules are excluded. The scope of this work was, hence, the thermodynamic and kinetic study of…",
+     "fit": 1
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Dehydration of Ethanol using Pressure Swing Adsorption",
+     "year": 2013,
+     "doi": "10.1002/9781118493441.ch19",
+     "authors": [
+      "Marian Simo"
+     ],
+     "citations": 13,
+     "url": "https://doi.org/10.1002/9781118493441.ch19",
+     "abstract": "With the development of adsorption processes and the invention of molecular sieves, the pressure swing adsorption (PSA) process completely replaced the azeotropic and extractive distillation routes for ethanol dehydration due to performance, cost, and environmental reasons. The PSA is now the technology of choice for the ethanol dehydration for both small and large plants. In the ethanol PSA process, the water is re…",
+     "fit": 1
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "The Experimental Study of Dehydrating Magnesium Chloride with 3A Molecular Sieve",
+     "year": 2010,
+     "doi": "",
+     "authors": [
+      "Juan Li"
+     ],
+     "citations": 0,
+     "url": "https://en.cnki.com.cn/Article_en/CJFDTOTAL-HHYH201001002.htm",
+     "abstract": "Under normal atmosphere,molecular sieve adsorbs water of magnesium chloride ethanol solution,the influence of dehydration of the magnesium chloride concentration,temperature,time and the amount of molecular sieve was studied.Based on the test results,the best technological conditions:(1)The most favorable retention time for molecular sieve is 6 hours.(2)the lower the concentration of the solution is,the less the fin…",
+     "fit": 1
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Adsorption of ethanol and water vapor by Silicalite, a hydrophobic molecular sieve",
+     "year": 1982,
+     "doi": "",
+     "authors": [
+      "Stephen Matthew Klein"
+     ],
+     "citations": 0,
+     "url": "https://lib.dr.iastate.edu/rtd/17764",
+     "abstract": "",
+     "fit": 1
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Design and optimization of a high-efficiency distillation process for cellulosic fuel ethanol integrated with thermal coupling and molecular sieve adsorption",
+     "year": 2025,
+     "doi": "10.1016/j.cjche.2025.08.005",
+     "authors": [
+      "Xuefeng Feng",
+      "Shuaishuai Lu",
+      "Xuan Du",
+      "Shaolan Zhuang",
+      "Zhongqi Ren",
+      "Zhongwei Ding"
+     ],
+     "citations": 0,
+     "url": "https://doi.org/10.1016/j.cjche.2025.08.005",
+     "abstract": "",
+     "fit": 1
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "The Kinetics of Adsorption of Water from Aqueous Ethanol Using 3A Molecular Sieves",
+     "doi": "10.1007/978-1-4613-1375-5_7",
+     "year": 1996,
+     "authors": [
+      "D. C. S. de Azevêdo",
+      "J. C. Gubulin"
+     ],
+     "container": "The Kluwer International Series in Engineering and Computer Science",
+     "url": "https://doi.org/10.1007/978-1-4613-1375-5_7",
+     "type": "book-chapter",
+     "fit": 1
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "Optimization of Ethanol Production via an Adsorption Process Using Molecular Sieve 3A with the Differential Experts Method",
+     "doi": "10.29165/ajarcde.v10i2.1049",
+     "year": 2026,
+     "authors": [
+      "Syahwaliza Chaniatul Chabibbah",
+      "Akhmad Syafiq Hasbi",
+      "Ni Ketut Sari",
+      "Ika Nawang Puspitawati",
+      "Ely Kurniati",
+      "Sintha Soraya Santi"
+     ],
+     "container": "AJARCDE (Asian Journal of Applied Research for Community Development and Empowerment)",
+     "url": "https://doi.org/10.29165/ajarcde.v10i2.1049",
+     "type": "journal-article",
+     "fit": 1
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "Separation of ethanol‐water mixtures using 3A molecular sieve",
+     "doi": "10.1002/jctb.280390207",
+     "year": 1987,
+     "authors": [
+      "Angel Cartón",
+      "Gerardo González",
+      "Angeles Iñiguez De La Torre",
+      "Jose Luis Cabezas"
+     ],
+     "container": "Journal of Chemical Technology &amp; Biotechnology",
+     "url": "https://doi.org/10.1002/jctb.280390207",
+     "type": "journal-article",
+     "fit": 1
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "Parametric Study on the Effect of Congeners on Molecular Sieve Dusting during Ethanol Dehydration",
+     "doi": "10.47125/jesam/2017_sp1/02",
+     "year": 2017,
+     "authors": [
+      "Amabelle Pector",
+      "Jovita Movillon",
+      "Butch Bataller",
+      "El Jirie Baticados"
+     ],
+     "container": "Journal of Environmental Science and Management",
+     "url": "https://doi.org/10.47125/jesam/2017_sp1/02",
+     "type": "journal-article",
+     "fit": 1
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Steam adsorption on molecular sieve 3A for sorption enhanced reaction processes",
+     "year": 2020,
+     "doi": "10.1007/s10450-020-00283-8",
+     "authors": [
+      "Jasper van Kampen",
+      "Jurriaan Boon",
+      "M. van Sint Annaland"
+     ],
+     "citations": 55,
+     "url": "https://doi.org/10.1007/s10450-020-00283-8",
+     "abstract": "Abstract Steam adsorption enhanced reaction processes are a promising process intensification for many types of reactions, where water is formed as a byproduct. To assess the potential of these processes, adequate models are required that accurately describe water adsorption, particularly under the desired elevated temperatures and pressures. In this work, an adsorption isotherm is presented for H2O adsorption at 20…",
+     "fit": 0.5
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "Evaluation of INL Supplied MOOSE/OSPREY Model: Modeling Water Adsorption on Type 3A Molecular Sieve",
+     "doi": "10.2172/1160338",
+     "year": 2014,
+     "authors": [
+      "L. Pompilio",
+      "D. DePaoli",
+      "B. Spencer"
+     ],
+     "container": "",
+     "url": "https://doi.org/10.2172/1160338",
+     "type": "report",
+     "fit": 0.5
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "Binary gas dehydration using molecular sieve 4A within the pressure-vacuum swing adsorption",
+     "doi": "10.1016/j.energy.2021.122137",
+     "year": 2022,
+     "authors": [
+      "Narit Lorpradit",
+      "Yottana Khunatorn",
+      "Nattawut Jaruwasupant",
+      "Sirivatch Shimpalee"
+     ],
+     "container": "Energy",
+     "url": "https://doi.org/10.1016/j.energy.2021.122137",
+     "type": "journal-article",
+     "fit": 0.5
+    }
+   ],
+   "patents": [],
+   "neighbours": [
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Dehydration of Ethanol by Adsorptive Distillation",
+     "year": 2026,
+     "doi": "10.17148/iarjset.2026.13652",
+     "authors": [
+      "B.B. Tambe",
+      "S. R. Nirmal",
+      "S.S. Kadu",
+      "P.E Shipankar"
+     ],
+     "citations": 0,
+     "url": "https://doi.org/10.17148/iarjset.2026.13652",
+     "abstract": "This The production of anhydrous ethanol is of significant importance in the fuel, pharmaceutical, and chemical industries.However, conventional distillation is restricted by the formation of an ethanol-water azeotrope, which limits ethanol purity to approximately 95.6%.Adsorption-based dehydration techniques have emerged as promising alternatives for overcoming this limitation due to their high selectivity, low ene…"
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "Adsorptive dehydration of ethanol using 3A zeolite: an evaluation of transport behaviour in a two-phase zeolite pellet",
+     "doi": "10.1007/s10450-019-00145-y",
+     "year": 2019,
+     "authors": [
+      "Pradeep Shukla",
+      "Keyang Dong",
+      "Victor Rudolph",
+      "S. K. Bhatia",
+      "H. C. Bajaj",
+      "R. V. Jasra"
+     ],
+     "container": "Adsorption",
+     "url": "https://doi.org/10.1007/s10450-019-00145-y",
+     "type": "journal-article"
+    }
+   ],
+   "strength": "good",
+   "retrieved": "2026-11-16"
+  },
+  "azeotrope": {
+   "query": "ethanol pentane minimum boiling azeotrope vapor liquid equilibrium",
+   "why": "that the blend cannot be separated by distillation alone",
+   "must": [
+    "azeotrope",
+    "ethanol"
+   ],
+   "papers": [
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Effective separation of ethanol–water azeotrope using acetate‐based ionic liquids: from COSMO ‐ RS screening to process simulation",
+     "year": 2026,
+     "doi": "10.1002/jctb.70229",
+     "authors": [
+      "Yuxuan Xiao",
+      "Meijun Wu",
+      "Dongxiang Zhang",
+      "Hua Xin",
+      "Qinqin Zhang",
+      "Zhigang Zhang"
+     ],
+     "citations": 0,
+     "url": "https://doi.org/10.1002/jctb.70229",
+     "abstract": "Abstract BACKGROUND The separation of ethanol and water is challenged by the formation of a minimum‐boiling azeotrope, rendering conventional distillation ineffective. Extractive distillation using ionic liquids (ILs) offers a promising alternative due to their negligible volatility and structural tunability. However, the vast number of potential cation–anion combinations necessitates a rational strategy for IL sele…",
+     "fit": 1
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Molecular Mechanism for Azeotrope Formation in Ethanol/Benzene Binary Mixtures through Gibbs Ensemble Monte Carlo Simulation",
+     "year": 2020,
+     "doi": "10.1021/acs.jpcb.9b12013",
+     "authors": [
+      "Dongyang Li",
+      "Ziqi Gao",
+      "Naveen Kumar Vasudevan",
+      "Hong Li",
+      "Xin Gao",
+      "Xingang Li"
+     ],
+     "citations": 23,
+     "url": "https://doi.org/10.1021/acs.jpcb.9b12013",
+     "abstract": "Azeotropes have been studied for decades due to the challenges they impose on separation processes but fundamental understanding at the molecular level remains limited. Although molecular simulation has demonstrated its capability of predicting mixture vapor-liquid equilibrium (VLE) behaviors, including azeotropes, its potential for mechanistic investigation has not been fully exploited. In this study, we use the un…",
+     "fit": 1
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "A unified techno-economic comparison of separation strategies for the dimethyl carbonate–methanol azeotrope",
+     "year": 2026,
+     "doi": "10.1016/j.cej.2026.182697",
+     "authors": [
+      "Qing Li",
+      "Teo Yordanov",
+      "Anton Alexandru Kiss"
+     ],
+     "citations": 0,
+     "url": "https://doi.org/10.1016/j.cej.2026.182697",
+     "abstract": "Dimethyl carbonate (DMC) is a green solvent and battery electrolyte that forms a minimum-boiling azeotrope with the excess reactant methanol (MeOH), making high-purity separation challenging. Existing studies remain fragmented across inconsistent feed compositions, thermodynamic models, and cost assumptions, which prevents a reliable comparison of competing separation technologies. This work addresses this gap throu…",
+     "fit": 1
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "Vapor-Liquid Equilibria of Ethyl Acetate + Ethanol Azeotrope System with Organic Solvents as an Entrainer at 101.3 kPa",
+     "doi": "10.2139/ssrn.7156862",
+     "year": 2026,
+     "authors": [
+      "Kuswandi Kuswandi",
+      "Nadza  Basyuni Ramli",
+      "Serli  Dwi Rahayu"
+     ],
+     "container": "",
+     "url": "https://doi.org/10.2139/ssrn.7156862",
+     "type": "posted-content",
+     "fit": 1
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Prediction of Binary Azeotropes.",
+     "year": 1971,
+     "doi": "10.31390/gradschool_disstheses.2006",
+     "authors": [
+      "H. E. Pruett"
+     ],
+     "citations": 2,
+     "url": "https://doi.org/10.31390/gradschool_disstheses.2006",
+     "abstract": "The qualitative aspects of azeotropy are well known.The quan titative prediction of binary azeotropes has been the subject of Btudy here.The state of the art was reviewed and a selected bibli ography compiled.It was observed that existing methods were usu ally based on a homologous series approach; however, a fundamental objective of research efforts in this field has been prediction from pure component properties o…",
+     "fit": 0.5
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "Eco-Efficient Self-Heat Recuperative Vapor Recompression-Assisted Side-Stream Pressure-Swing Distillation Arrangement for Separating a Minimum-Boiling Azeotrope",
+     "doi": "10.1021/acs.iecr.0c01964.s001",
+     "year": null,
+     "authors": [],
+     "container": "",
+     "url": "https://doi.org/10.1021/acs.iecr.0c01964.s001",
+     "type": "component",
+     "fit": 0.5
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "Inherent Safer, Eco-Friendly and Energy Saving Vapor Recompression Assisted Extractive Dividing-Wall Column Process for the Separation of Minimum-Boiling Azeotrope",
+     "doi": "10.2139/ssrn.3962780",
+     "year": 2021,
+     "authors": [
+      "jiaxing zhu",
+      "Cong Jing",
+      "Lin Hao",
+      "Hongyuan Wei"
+     ],
+     "container": "",
+     "url": "https://doi.org/10.2139/ssrn.3962780",
+     "type": "posted-content",
+     "fit": 0.5
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "Optimal cyclic reflux operational policy for ternary mixtures separation. 2. Minimum boiling azeotrope mixture",
+     "doi": "10.26434/chemrxiv-2025-61p8h/v2",
+     "year": 2026,
+     "authors": [
+      "Marija Stojkovic"
+     ],
+     "container": "",
+     "url": "https://doi.org/10.26434/chemrxiv-2025-61p8h/v2",
+     "type": "posted-content",
+     "fit": 0.5
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "Optimal cyclic reflux operational policy for ternary mixtures separation. 2. Minimum boiling azeotrope mixture",
+     "doi": "10.26434/chemrxiv-2025-61p8h",
+     "year": 2025,
+     "authors": [
+      "Marija Stojkovic"
+     ],
+     "container": "",
+     "url": "https://doi.org/10.26434/chemrxiv-2025-61p8h",
+     "type": "posted-content",
+     "fit": 0.5
+    }
+   ],
+   "patents": [],
+   "neighbours": [
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Prediction of vapor-liquid equilibrium data by using radial basis neural networks",
+     "year": 2006,
+     "doi": "",
+     "authors": [
+      "L. Govindarajan",
+      "P.L. Sabarathinam"
+     ],
+     "citations": 3,
+     "url": "http://hrcak.srce.hr/4534",
+     "abstract": "Most of the Chemical Engineering processes are nonlinear and complex in nature.They often require conventional modeling and simulation techniques based on certain simplified transport, kinetic and thermodynamic assumptions.These assumptions may, however, alter the exact nature of the system and would provide misleading information about the complex behavior of the system.An artificial neural network has the ability …"
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Thermodynamic Vapor-Liquid Equilibrium in Naphtha-Water Mixtures",
+     "year": 2021,
+     "doi": "",
+     "authors": [
+      "Sandra Lopez‐Zamora"
+     ],
+     "citations": 0,
+     "url": "https://ir.lib.uwo.ca/etd/7822",
+     "abstract": "Naphtha is used to dilute the froth from bitumen treatment. Naphtha is recovered using a Naphtha Recovery Unit (NRU) and sent back to the froth dilution step. To minimize the environmental and economic impact of the NRU, it is imperative to maximize the naphtha recovery. It is, in this respect, that enhanced NRU Vapour-Liquid-Liquid equilibrium data is a significant value. The prediction of phase equilibria for hydr…"
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Isobaric Vapor–Liquid Equilibrium of the Azeotropic Mixture n-Hexane + Ethanol with 1-Butylpyrrolidin-2-one as a Greener Entrainer and 1-Methylpyrrolidin-2-one as a Benchmark Entrainer",
+     "year": 2025,
+     "doi": "10.1021/acs.jced.5c00445",
+     "authors": [
+      "Dhoni Hartanto",
+      "Boelo Schuur",
+      "Anton Alexandru Kiss",
+      "André B. de Haan"
+     ],
+     "citations": 6,
+     "url": "https://doi.org/10.1021/acs.jced.5c00445",
+     "abstract": "Green solvents have emerged as promising green entrainers to substitute conventional entrainers in extractive distillation to separate azeotropic mixtures. However, the limited availability of thermodynamic data for green-solvent-containing mixtures continues to hinder their practical implementation in this process. This study is the first to report experimental vapor–liquid equilibrium (VLE) data for the n -hexane …"
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Thermodynamic Behavior of the (Methylcyclopentane + Ethyl Acetate) Binary Liquid Mixture: Density at Several Temperatures and Vapor–Liquid Equilibrium at 25, 50, and 101.3 kPa",
+     "year": 2024,
+     "doi": "10.1021/acs.jced.4c00013",
+     "authors": [
+      "Kaoutar Berkalou",
+      "Vincent Caqueret",
+      "Gabriela Zanghelini",
+      "Stéphane Vitu"
+     ],
+     "citations": 5,
+     "url": "https://doi.org/10.1021/acs.jced.4c00013",
+     "abstract": "The density and isobaric phase equilibria of the binary system methylcyclopentane + ethyl acetate were investigated for the first time in this work. The density of the system was measured at 101 kPa from 288.15 to 308.15 K for the entire composition range thanks to a vibrating tube densimeter. Positive excess molar volumes were observed and correlated by using a Redlich–Kister equation. New isobaric vapor–liquid equ…"
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "Modeling of vapor-liquid equilibrium of gasoline-ethanol blended fuels for flash boiling simulations",
+     "doi": "10.1016/j.fuel.2010.09.035",
+     "year": 2011,
+     "authors": [
+      "K. Neroorkar",
+      "D. Schmidt"
+     ],
+     "container": "Fuel",
+     "url": "https://doi.org/10.1016/j.fuel.2010.09.035",
+     "type": "journal-article"
+    }
+   ],
+   "strength": "good",
+   "retrieved": "2026-11-16"
+  },
+  "vacuum-evaporation": {
+   "query": "vacuum evaporation ethanol recovery single effect boiling point",
+   "why": "that the solvent boils at the temperature the vacuum set gives",
+   "must": [
+    "ethanol",
+    "evaporat"
+   ],
+   "papers": [
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "Ethanol evaporation enhancement induced by localised boiling patches in a semi-closed vessel",
+     "doi": "10.2139/ssrn.7446254",
+     "year": 2026,
+     "authors": [
+      "Kazui Fukomoto",
+      "Fei Tang",
+      "Longhua Hu"
+     ],
+     "container": "",
+     "url": "https://doi.org/10.2139/ssrn.7446254",
+     "type": "posted-content",
+     "fit": 1
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Ethanol Separation from an Ethanol–Water Solution Using Vacuum Membrane Distillation",
+     "year": 2022,
+     "doi": "10.3390/membranes12080807",
+     "authors": [
+      "Abeer G. Nassif",
+      "Salah Sayed Ibrahim",
+      "Hasan Sh. Majdi",
+      "Qusay F. Alsalhy"
+     ],
+     "citations": 23,
+     "url": "https://doi.org/10.3390/membranes12080807",
+     "abstract": "The vacuum membrane distillation (VMD) process was applied to separate ethanol from a simulated ethanol–water solution using a commercial polytetrafluoroethylene (PTFE) membrane. The presence of ethanol in the ethanol–water solution with a 2 wt.% ethanol concentration at a temperature above 40 °C during the MD process may result in membrane failure due to an increase in the chance of the PTFE membrane wetting at hig…",
+     "fit": 0.5
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Flow Boiling in Open Microchannels with Tapered Manifolds using Ethanol in a Gravity-Driven Flow",
+     "year": 2015,
+     "doi": "",
+     "authors": [
+      "Philipp K. Buchling"
+     ],
+     "citations": 4,
+     "url": "https://repository.rit.edu/theses/8721",
+     "abstract": "Flow boiling in microchannel heat sinks has been researched extensively for its use in the cooling of high-power electronics. Previous works have proven open microchannels with tapered gap manifolds are effective in delivering enhanced flow boiling performance, with significant reductions in pressure drop. This work explores the feasibility of employing ethanol as a dielectric fluid in an open microchannel geometry …",
+     "fit": 0.5
+    }
+   ],
+   "patents": [],
+   "neighbours": [
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Estimating Recovery in the Evaporation Chemical Space",
+     "year": 2024,
+     "doi": "10.1007/s44174-024-00163-7",
+     "authors": [
+      "Kaleb J. Duelge",
+      "Joshua A. Young"
+     ],
+     "citations": 5,
+     "url": "https://doi.org/10.1007/s44174-024-00163-7",
+     "abstract": "Abstract Evaporation is a commonly used extract preparation technique in chemical characterization testing which can greatly impact the observed extractables. Although ideally only solvent is removed and the analytes remain, in practice the analytes evaporate as well, and these losses must be considered when addressing the appropriateness of evaporation as an extract preparation method. This issue is exacerbated whe…"
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Production of Concentrated Red Pitaya (Hylocereus Undatus) Juice by Vacuum Evaporation",
+     "year": 2023,
+     "doi": "10.33448/rsd-v12i5.41652",
+     "authors": [
+      "Simone de Fátima da Costa Kassacula",
+      "Minunsidi Carlos",
+      "António André Chivanga Barros"
+     ],
+     "citations": 3,
+     "url": "https://doi.org/10.33448/rsd-v12i5.41652",
+     "abstract": "The processes of concentration of liquid food, especially fruit juices, are complex processes that can cause changes in physical, biochemical, and sensory properties. The main objectives of juice concentration are to increase the product's shelf life and biochemical and microbiological stability and reduce the volume, which leads to lower transport and storage costs. Processes using heat for conservation and concent…"
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Latent heat transport and microlayer evaporation in nucleative boiling",
+     "year": 2015,
+     "doi": "",
+     "authors": [
+      "H.H. Jawurek"
+     ],
+     "citations": 0,
+     "url": "http://hdl.handle.net/10539/18036",
+     "abstract": "A thesis presented in fulfilment of the requirements for the degree of doctor o philosophy \\nAugust 1977"
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "High salinity seawater boiling point elevation: Experimental verification",
+     "year": 2021,
+     "doi": "10.1016/j.desal.2021.114955",
+     "authors": [
+      "Mohamed Abdelkareem",
+      "Wei Wu",
+      "Louis C. Chow"
+     ],
+     "citations": 27,
+     "url": "https://doi.org/10.1016/j.desal.2021.114955",
+     "abstract": ""
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Design, construction and evaluation of a vacuum evaporation system for the concentration of aqueous whey protein solutions",
+     "year": 2018,
+     "doi": "",
+     "authors": [
+      "Munir Khetni"
+     ],
+     "citations": 0,
+     "url": "http://hdl.handle.net/10019.1/103547",
+     "abstract": "Vakuum verdamping is 'n ou en gevestigde tegnologie vir die industriële konsentrasie van hoëwater-inhoud strome.Dit is 'n skoon, veilige en veelsydige tegnologie met lae bestuurs koste.Die doel van hierdie studie was om 'n vakuum verdamping stelsel te ontwerp, bou en evalueer, en om die konsentrasie van 'n waterige wei proteïen-oplossing van 5 wt% na die hoogste moontlike oplossings konsentrasie te verhoog.Die stels…"
+    }
+   ],
+   "strength": "good",
+   "retrieved": "2026-11-16"
+  },
+  "condensation": {
+   "query": "shell and tube condenser mixed solvent condensation fouling",
+   "why": "that the vapour comes back as liquid on the cold shells",
+   "must": [
+    "condens",
+    "solvent"
+   ],
+   "papers": [
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Thermo-hydraulic design of a horizontal shell and tube condenser for methanol condensation",
+     "year": 2025,
+     "doi": "10.53591/iqd.v7i01.1989",
+     "authors": [
+      "Amaury Pérez Sánchez",
+      "Yerelis Pons García",
+      "Daynel Basulto Pita",
+      "Elizabeth Ranero González",
+      "Eddy Javier Pérez Sánchez"
+     ],
+     "citations": 0,
+     "url": "https://doi.org/10.53591/iqd.v7i01.1989",
+     "abstract": "Los condensadores de carcasa y tubos se consideran una parte importante de los sistemas de refrigeración y de las centrales eléctricas, así como de otras aplicaciones petroquímicas en las que se suelen emplear los intercambiadores de calor. Este artículo presenta el diseño termohidráulico de un intercambiador de calor de carcasa y tubos horizontales de dos pasos de tubo (1-2) para condensar una corriente de vapores …",
+     "fit": 0.5
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "The Optimization of Shell and Tube Condenser Cooling System on a 5-Liter Distillation Apparatus Using a Water Jacket with Thermoelectric",
+     "year": 2026,
+     "doi": "10.59188/jcs.v5i3.4107",
+     "authors": [
+      "I Made Sudana",
+      "I Wayan Marlon Managi"
+     ],
+     "citations": 0,
+     "url": "https://doi.org/10.59188/jcs.v5i3.4107",
+     "abstract": "Background: In small-scale alcohol distillation, the efficiency of the condenser is critical for product quality and yield. A common problem is the rise in condenser temperature during operation, which diminishes vapor condensation efficiency and results in low alcohol concentration in the distillate. Objective: This research aims to optimize the performance of a shell-and-tube condenser in a 5-liter distillation ap…",
+     "fit": 0.5
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Sizing of Vertical Vapor-in-tube Reflux Condensers",
+     "year": 1994,
+     "doi": "",
+     "authors": [
+      "Krishnan S. Chunangad"
+     ],
+     "citations": 0,
+     "url": "http://hdl.handle.net/20.500.14446/12960",
+     "abstract": "Correlation for condensation on a vertical surface -No vapor shear.............",
+     "fit": 0.5
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Is dropwise condensation feasible? A review on surface modifications for continuous dropwise condensation and a profitability analysis",
+     "year": 2018,
+     "doi": "10.1016/j.jare.2018.11.004",
+     "authors": [
+      "Marieke Ahlers",
+      "Alexander Buck-Emden",
+      "Hans‐Jörg Bart"
+     ],
+     "citations": 102,
+     "url": "https://doi.org/10.1016/j.jare.2018.11.004",
+     "abstract": "The interest in surface treatments promoting dropwise condensation has grown exponentially in the past decades. Savings in the operating and maintenance costs of steam processes involving phase changes are promised. Numerous surface preparation methods allow the formation of droplets during condensation. However, stable dropwise condensation has been hardly realized in industrial applications. This review aims to hi…",
+     "fit": 0.5
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Review of Micro–Nanoscale Surface Coatings Application for Sustaining Dropwise Condensation",
+     "year": 2019,
+     "doi": "10.3390/coatings9020117",
+     "authors": [
+      "Shoukat Alim Khan",
+      "Furqan Tahir",
+      "Ahmer A.B. Baloch",
+      "Muammer Koç‬"
+     ],
+     "citations": 62,
+     "url": "http://dx.doi.org/10.3390/coatings9020117",
+     "abstract": "Condensation occurs in most of the heat transfer processes, ranging from cooling of electronics to heat rejection in power plants. Therefore, any improvement in condensation processes will be reflected in the minimization of global energy consumption, reduction in environmental burdens, and development of sustainable systems. The overall heat transfer coefficient of dropwise condensation (DWC) is higher by several t…",
+     "fit": 0.5
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "Experimental Studies of Shell and Tube Condenser Fouling and Accelerated Particulate Fouling in Internal Helical-Rib Roughness Tubes",
+     "doi": "10.1115/ht2003-47404",
+     "year": 2003,
+     "authors": [
+      "Wei Li"
+     ],
+     "container": "Heat Transfer: Volume 1",
+     "url": "https://doi.org/10.1115/ht2003-47404",
+     "type": "proceedings-article",
+     "fit": 0.5
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "The Condensation of Ammonia-Water Mixtures in a Horizontal Shell and\n                    Tube Condenser",
+     "doi": "10.1115/1.1778188",
+     "year": 2004,
+     "authors": [
+      "Chris Philpott",
+      "Joe Deans"
+     ],
+     "container": "Journal of Heat Transfer",
+     "url": "https://doi.org/10.1115/1.1778188",
+     "type": "journal-article",
+     "fit": 0.5
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "Multicomponent condensation in a shell and tube condenser – A comprehensive dataset",
+     "doi": "10.1016/s0894-1777(97)10025-5",
+     "year": 1998,
+     "authors": [
+      "D.R. Webb"
+     ],
+     "container": "Experimental Thermal and Fluid Science",
+     "url": "https://doi.org/10.1016/s0894-1777(97)10025-5",
+     "type": "journal-article",
+     "fit": 0.5
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "Forced-Convective Condensation of Pure Steam and Ammonia-Steam Vapor Mixtures in a Shell-Tube Condenser",
+     "doi": "10.1115/imece1999-1009",
+     "year": 1999,
+     "authors": [
+      "Ratnesh K. Sharma",
+      "Vahab Hassani",
+      "Roop L. Mahajan"
+     ],
+     "container": "Heat Transfer: Volume 2",
+     "url": "https://doi.org/10.1115/imece1999-1009",
+     "type": "proceedings-article",
+     "fit": 0.5
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "Formulation of Film Theory Equations for Modeling of Condensation of Steam-Air Mixtures in a Shell and Tube Condenser",
+     "doi": "10.1115/ht2008-56446",
+     "year": 2008,
+     "authors": [
+      "Yousef Haseli",
+      "Ibrahim Dincer",
+      "Greg F. Naterer"
+     ],
+     "container": "Heat Transfer: Volume 2",
+     "url": "https://doi.org/10.1115/ht2008-56446",
+     "type": "proceedings-article",
+     "fit": 0.5
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "A Calculation Method for Analysis Condensation of a Pure Vapor in the Presence of a Noncondensable Gas on a Shell and Tube Condenser",
+     "doi": "10.1115/ht-fed2004-56487",
+     "year": 2004,
+     "authors": [
+      "Yousef Haseli",
+      "S. Javad M. Roudaki"
+     ],
+     "container": "Volume 3",
+     "url": "https://doi.org/10.1115/ht-fed2004-56487",
+     "type": "proceedings-article",
+     "fit": 0.5
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "Exergy Analysis of Condensation of a Binary Mixture With One Noncondensable Component in a Shell and Tube Condenser",
+     "doi": "10.1115/1.2909610",
+     "year": 2008,
+     "authors": [
+      "Y. Haseli",
+      "I. Dincer",
+      "G. F. Naterer"
+     ],
+     "container": "Journal of Heat Transfer",
+     "url": "https://doi.org/10.1115/1.2909610",
+     "type": "journal-article",
+     "fit": 0.5
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "Condenser Tube Fouling and Failures: Cause and Mitigation",
+     "doi": "10.1115/power2006-88246",
+     "year": 2006,
+     "authors": [
+      "Andrew G. Howell",
+      "George E. Saxon"
+     ],
+     "container": "ASME 2006 Power Conference",
+     "url": "https://doi.org/10.1115/power2006-88246",
+     "type": "proceedings-article",
+     "fit": 0.5
+    }
+   ],
+   "patents": [],
+   "neighbours": [
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Fouling in Industrial Heat Exchangers: Formation, Detection and Mitigation",
+     "year": 2022,
+     "doi": "10.5772/intechopen.102487",
+     "authors": [
+      "Rania Jradi",
+      "Christophe Marvillet",
+      "Mohamed Razak Jeday"
+     ],
+     "citations": 15,
+     "url": "https://doi.org/10.5772/intechopen.102487",
+     "abstract": "Heating or cooling of a fluid by another is made in a heat exchanger with heat dissipation from surfaces of the equipment. Over time, the abundant quantity of impurities promotes fouling in a heat exchanger. This equipment has extensive domestic and industrial applications. The concepts of design, operation, and maintenance of heat exchanger are available in the form of complete technical literature, but this litera…"
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "A survey of gas-side fouling in industrial heat-transfer equipment",
+     "year": 1983,
+     "doi": "",
+     "authors": [
+      "W. J. Marner",
+      "Jerry W. Suitor"
+     ],
+     "citations": 10,
+     "url": "http://hdl.handle.net/2060/19840013935",
+     "abstract": "Gas-side fouling and corrosion problems occur in all of the energy intensive industries including the chemical, petroleum, primary metals, pulp and paper, glass, cement, foodstuffs, and textile industries. Topics of major interest include: (1) heat exchanger design procedures for gas-side fouling service; (2) gas-side fouling factors which are presently available; (3) startup and shutdown procedures used to minimize…"
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Detailed Multiphase Chemical Kinetic Model for Polymer Fouling in a Distillation Column",
+     "year": 2023,
+     "doi": "10.1021/acs.iecr.3c01461",
+     "authors": [
+      "Hao‐Wei Pang",
+      "Michael A. Forsuelo",
+      "Xiaorui Dong",
+      "Ryan Hawtof",
+      "Duminda S. Ranasinghe",
+      "William H. Green"
+     ],
+     "citations": 14,
+     "url": "https://doi.org/10.1021/acs.iecr.3c01461",
+     "abstract": "Polymer fouling is a ubiquitous but unsolved problem in the separation train downstream of a steam cracker. A mechanistic understanding of polymer fouling would guide mitigation. We present a multiphase chemical kinetic model to predict the polymer film growth rate in an industrial “debutanizer” distillation column. Modeling innovations are introduced, which allow us to construct models including thousands of chemic…"
+    }
+   ],
+   "strength": "good",
+   "retrieved": "2026-11-16"
+  },
+  "vapour-scrubbing": {
+   "query": "activated carbon adsorption solvent vapour scrubbing emissions",
+   "why": "that the exhaust can be cleaned before it leaves the plant",
+   "must": [
+    "adsorption",
+    "solvent",
+    "carbon"
+   ],
+   "papers": [
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "A systematic analysis of the dynamics of microwave- and conventionally-assisted swing adsorption on zeolite 13X and an activated carbon under post-combustion carbon capture conditions",
+     "year": 2021,
+     "doi": "10.1016/j.jece.2021.106835",
+     "authors": [
+      "Mohamud Mohamed Yassin",
+      "Simba Biti",
+      "Waheed Afzal",
+      "Claudia Fernández Martín"
+     ],
+     "citations": 32,
+     "url": "https://doi.org/10.1016/j.jece.2021.106835",
+     "abstract": "",
+     "fit": 0.67
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Study on kinetics and mechanism of Re(VII) ion adsorption and desorption using commercially available activated carbon and solutions containing Se(VI) as an impurity",
+     "year": 2022,
+     "doi": "10.1016/j.hydromet.2022.105973",
+     "authors": [
+      "Karolina Kołczyk-Siedlecka",
+      "Robert Piotr Socha",
+      "Xuegeng Yang",
+      "Kerstin Eckert",
+      "Marek Wojnicki"
+     ],
+     "citations": 21,
+     "url": "https://doi.org/10.1016/j.hydromet.2022.105973",
+     "abstract": "This paper presents the potential use of carbon sorbents in recovering rhenium(VII) from highly diluted electrolytes. Tests were performed using synthetic solutions containing selenium(VI) as an impurity. Adsorption of Re(VII) is selective with respect to selenium(VI). Activated carbon is a suitable sorbent for rhenium recovery because unlike ion-exchange resins, it has high chemical resistance and osmotic-shock res…",
+     "fit": 0.67
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "Adsorption Equilibria of Butan-1-ol, Toluene and Water Vapour onto Sorbonorit 4 Activated Carbon and the Co-Adsorption of Organic Compounds and Water Vapour onto SKT Activated Carbon",
+     "doi": "10.1260/026361706779319652",
+     "year": 2006,
+     "authors": [
+      "Józef Nastaj",
+      "Małgorzata Chybowska"
+     ],
+     "container": "Adsorption Science &amp; Technology",
+     "url": "https://doi.org/10.1260/026361706779319652",
+     "type": "journal-article",
+     "fit": 0.67
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "The dynamic adsorption of water vapour on activated carbon",
+     "doi": "10.1016/s0008-6223(98)80121-8",
+     "year": 1998,
+     "authors": [
+      "P. Lodewyckx",
+      "E.F. Vansant"
+     ],
+     "container": "Carbon",
+     "url": "https://doi.org/10.1016/s0008-6223(98)80121-8",
+     "type": "journal-article",
+     "fit": 0.67
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "The dynamic adsorption of water vapour on activated carbon",
+     "doi": "10.1016/s0008-6223(97)85362-6",
+     "year": 1997,
+     "authors": [
+      "P. Lodewyckx",
+      "E.F. Vansant"
+     ],
+     "container": "Carbon",
+     "url": "https://doi.org/10.1016/s0008-6223(97)85362-6",
+     "type": "journal-article",
+     "fit": 0.67
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "Use of x-ray microtomography to visualise dynamic adsorption of organic vapour and water vapour on activated carbon",
+     "doi": "10.1007/s10450-006-0135-2",
+     "year": 2006,
+     "authors": [
+      "P. Lodewyckx",
+      "S. Blacher",
+      "A. Léonard"
+     ],
+     "container": "Adsorption",
+     "url": "https://doi.org/10.1007/s10450-006-0135-2",
+     "type": "journal-article",
+     "fit": 0.67
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "The effect of water uptake in ultramicropores on the adsorption of water vapour in activated carbon",
+     "doi": "10.1016/j.carbon.2010.03.032",
+     "year": 2010,
+     "authors": [
+      "Peter Lodewyckx"
+     ],
+     "container": "Carbon",
+     "url": "https://doi.org/10.1016/j.carbon.2010.03.032",
+     "type": "journal-article",
+     "fit": 0.67
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "Co-adsorption of n-butane/water vapour mixtures on activated carbon fibre-based monoliths",
+     "doi": "10.1016/j.carbon.2003.09.018",
+     "year": 2004,
+     "authors": [
+      "G. Marbán",
+      "A.B. Fuertes"
+     ],
+     "container": "Carbon",
+     "url": "https://doi.org/10.1016/j.carbon.2003.09.018",
+     "type": "journal-article",
+     "fit": 0.67
+    }
+   ],
+   "patents": [],
+   "neighbours": [
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Solvents for Carbon Dioxide Capture",
+     "year": 2018,
+     "doi": "10.5772/intechopen.71443",
+     "authors": [
+      "Fernando Vega",
+      "Mercedes Cano",
+      "Sara Camino",
+      "Luz Marina Gallego Fernández",
+      "Esmeralda Portillo",
+      "Benito Navarrete"
+     ],
+     "citations": 121,
+     "url": "https://doi.org/10.5772/intechopen.71443",
+     "abstract": "Anthropogenic CO2 emissions are considered the major contributor of greenhouse gas emissions worldwide. The mitigation of this kind of CO2 emissions relies on a portfolio of alternatives where CO2 absorption appears as the nearest approach to be applied at industrial scale. Researchers have been focused on developing new formulations of solvents to make more competitive CO2 absorption as a carbon capture and storage…"
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Activated Carbon: Fundamentals, Classification, and Properties",
+     "year": 2023,
+     "doi": "10.1039/bk9781839169861-00001",
+     "authors": [
+      "Richika Ganjoo",
+      "Shveta Sharma",
+      "Ashish Kumar",
+      "Mohamed Moukorab Arêmou Daouda"
+     ],
+     "citations": 98,
+     "url": "https://doi.org/10.1039/bk9781839169861-00001",
+     "abstract": "A class of amorphous carbonaceous materials with large porosity and internal surface area is referred to as “activated carbon,” or AC. Coconut shells, coal, and wood are the basic sources of ACs. Anthracite and bituminous coals have been the main sources of AC until recently, although AC may be made from any carbonaceous material. AC is an extremely effective adsorbent. It may be used to clean, dechlorinate, deodori…"
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Efficient CO2 capture using deep eutectic solvent-activated carbon slurry systems",
+     "year": 2025,
+     "doi": "10.1016/j.colsurfa.2025.138091",
+     "authors": [
+      "Sahar Foorginezhad",
+      "Yifeng Chen",
+      "Xiaoyan Ji"
+     ],
+     "citations": 1,
+     "url": "https://doi.org/10.1016/j.colsurfa.2025.138091",
+     "abstract": "The need for effective CO 2 mitigation has led to research into capture technologies using novel solvents, such as deep eutectic solvents (DES), which are known for their high CO 2 capture capacity. However, their high viscosity and cost are the main challenges. In this study, we aimed to enhance the CO 2 capture capacity of monoethanolamine chloride: ethylene diamine ([MEACl][EDA]) with (1:5) molar ratio, while add…"
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Carbon Dioxide Separation from Flue Gases: A Technological Review Emphasizing Reduction in Greenhouse Gas Emissions",
+     "year": 2014,
+     "doi": "10.1155/2014/828131",
+     "authors": [
+      "Mohammad Songolzadeh",
+      "Mansooreh Soleimani",
+      "Maryam Takht Ravanchi",
+      "Reza Songolzadeh"
+     ],
+     "citations": 501,
+     "url": "https://doi.org/10.1155/2014/828131",
+     "abstract": "Increasing concentrations of greenhouse gases (GHGs) such as CO2 in the atmosphere is a global warming. Human activities are a major cause of increased CO2 concentration in atmosphere, as in recent decade, two-third of greenhouse effect was caused by human activities. Carbon capture and storage (CCS) is a major strategy that can be used to reduce GHGs emission. There are three methods for CCS: pre-combustion capture…"
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Plasma enhanced chemical vapour deposition of thin carbon films",
+     "year": 1989,
+     "doi": "",
+     "authors": [
+      "Patrick W. Carey"
+     ],
+     "citations": 2,
+     "url": "http://doras.dcu.ie/18396/",
+     "abstract": "There have been considerable developments in the field of hard cartxm thin film deposition in the past decade. The films show properties of extreme hardness, chemical inertness and optical transparency and their use has been suggested for wear protective coatings. The results presented here concern the use of Plasma Enhanced Chemical Vapour Deposition (PECVD) to produce these films Details of the effects of the impo…"
+    }
+   ],
+   "strength": "good",
+   "retrieved": "2026-11-16"
+  },
+  "marc-disposal": {
+   "query": "cannabis biomass marc residual solvent disposal",
+   "why": "what happens to the biomass that leaves the extractor",
+   "must": [
+    "cannabis",
+    "residual",
+    "solvent"
+   ],
+   "papers": [
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "Impact of soil-residual herbicides on industrial hemp (<i>Cannabis sativa</i>) phytotoxicity and biomass yield in west Texas",
+     "doi": "10.1017/wet.2024.13",
+     "year": 2024,
+     "authors": [
+      "Atinderpal Singh",
+      "Rupinder Saini",
+      "Arjun Kafle",
+      "Manpreet Singh",
+      "Sukhbir Singh"
+     ],
+     "container": "Weed Technology",
+     "url": "https://doi.org/10.1017/wet.2024.13",
+     "type": "journal-article",
+     "fit": 0.67
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "Economic evaluation of Hemp’s (Cannabis sativa) residual biomass for production of direct energy or biochar",
+     "doi": "10.1016/j.fuel.2022.125435",
+     "year": 2022,
+     "authors": [
+      "K. Vávrová",
+      "O. Solcova",
+      "J. Knápek",
+      "J. Weger",
+      "K. Soukup",
+      "T. Humešová"
+     ],
+     "container": "Fuel",
+     "url": "https://doi.org/10.1016/j.fuel.2022.125435",
+     "type": "journal-article",
+     "fit": 0.67
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "Standard Guide for Disposal of Resin-Containing Cannabis Raw Materials and Downstream  Products",
+     "doi": "10.1520/d8245-19",
+     "year": null,
+     "authors": [
+      ""
+     ],
+     "container": "",
+     "url": "https://doi.org/10.1520/d8245-19",
+     "type": "standard",
+     "fit": 0.33
+    },
+    {
+     "kind": "paper",
+     "source": "crossref",
+     "title": "Standard Guide for Disposal of Resin-Containing Cannabis Raw Materials and Downstream  Products",
+     "doi": "10.1520/d8245",
+     "year": null,
+     "authors": [
+      ""
+     ],
+     "container": "",
+     "url": "https://doi.org/10.1520/d8245",
+     "type": "standard",
+     "fit": 0.33
+    }
+   ],
+   "patents": [],
+   "neighbours": [
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Major Phytochemicals: Recent Advances in Health Benefits and Extraction Method",
+     "year": 2023,
+     "doi": "10.3390/molecules28020887",
+     "authors": [
+      "Ashwani Kumar",
+      "P Nirmal",
+      "Mukul Kumar",
+      "Anina Jose",
+      "Vidisha Tomer",
+      "Emel Öz"
+     ],
+     "citations": 1089,
+     "url": "https://doi.org/10.3390/molecules28020887",
+     "abstract": "Recent scientific studies have established a relationship between the consumption of phytochemicals such as carotenoids, polyphenols, isoprenoids, phytosterols, saponins, dietary fibers, polysaccharides, etc., with health benefits such as prevention of diabetes, obesity, cancer, cardiovascular diseases, etc. This has led to the popularization of phytochemicals. Nowadays, foods containing phytochemicals as a constitu…"
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Low Indirect Land Use Change (ILUC) Energy Crops to Bioenergy and Biofuels—A Review",
+     "year": 2022,
+     "doi": "10.3390/en15124348",
+     "authors": [
+      "Mariana Abreu",
+      "Luís R. Silva",
+      "Belina Ribeiro",
+      "Alice Ferreira",
+      "Luís Alves",
+      "Susana M. Paixão"
+     ],
+     "citations": 76,
+     "url": "https://doi.org/10.3390/en15124348",
+     "abstract": "Energy crops are dedicated cultures directed for biofuels, electricity, and heat production. Due to their tolerance to contaminated lands, they can alleviate and remediate land pollution by the disposal of toxic elements and polymetallic agents. Moreover, these crops are suitable to be exploited in marginal soils (e.g., saline), and, therefore, the risk of land-use conflicts due to competition for food, feed, and fu…"
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Holistic Assessment of Coffee Oil Recovery from Spent Grounds: A Multidimensional approach to Optimization, Mechanistic Insight, and Sustainability",
+     "year": 2026,
+     "doi": "10.21203/rs.3.rs-10463973/v1",
+     "authors": [
+      "Sawaira Sawaira",
+      "Wei Siang Goh",
+      "Eddie Teng",
+      "Yufei Sun",
+      "Ryan Kahn",
+      "Enrico N. Martínez"
+     ],
+     "citations": 0,
+     "url": "https://doi.org/10.21203/rs.3.rs-10463973/v1",
+     "abstract": "Abstract This study investigates the optimization and life cycle assessment (LCA) of oil extraction from spent coffee grounds (SCG) using n-Hexane, n-Heptane, and Ethanol as solvents within a Soxhlet extraction framework. Utilizing the Taguchi method for experimental optimization, the research critically analyzes extraction yields, kinetic efficiency, and thermodynamic viability to provide a detailed understanding o…"
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Revolution of Bioactive Compound Extraction: Impacts on Food Safety, Health, and Sustainability",
+     "year": 2025,
+     "doi": "10.1002/fsh3.70012",
+     "authors": [
+      "Ahmed A. Zaky",
+      "Dorota Witrowa‐Rajchert",
+      "Małgorzata Nowacka"
+     ],
+     "citations": 32,
+     "url": "https://doi.org/10.1002/fsh3.70012",
+     "abstract": "ABSTRACT Extraction is the initial stage in isolating bioactive compounds from plant materials, particularly challenging due to the insoluble nature of secondary metabolites such as flavonoids and phenolic acids. Traditional methods, including heat reflux, maceration, and Soxhlet extraction, are effective, but they vary in apparatus and efficiency. Innovative extraction techniques, such as supercritical fluid extrac…"
+    },
+    {
+     "kind": "paper",
+     "source": "openalex",
+     "title": "Emerging methods to extract bioactive compounds from brown algae: a comprehensive review of performance, readiness, and sustainability",
+     "year": 2026,
+     "doi": "10.1016/j.seppur.2026.137731",
+     "authors": [
+      "Irvin Fonseca‐Barahona",
+      "Kaveh Shahbaz",
+      "Saeid Baroutian"
+     ],
+     "citations": 5,
+     "url": "https://doi.org/10.1016/j.seppur.2026.137731",
+     "abstract": "Brown algae (Phaeophyceae) are an important source of bioactive compounds with promising applications in many sectors. However, traditional extraction methods are often resource-intensive, solvent-demanding, and environmentally burdensome, with limitations in selectivity and process efficiency. This review examines recent studies (2014–2025) on emerging extraction methods for brown algae, including pulsed electric f…"
+    }
+   ],
+   "strength": "good",
+   "retrieved": "2026-11-16"
+  }
+ }
+}

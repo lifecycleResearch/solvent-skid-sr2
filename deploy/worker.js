@@ -325,6 +325,37 @@ export default {
           agent: { configured: Boolean(env.AGENT_GATEWAY_URL), note: "the OpenShell gateway over the tailnet, if one is configured" },
         });
       }
+      if (path === "/api/catalogue") {
+        // The part catalogue: what every part is, does, and its place in the
+        // process. The same records the page shows when a part is clicked.
+        const id = url.searchParams.get("id");
+        const res = await env.ASSETS.fetch(new Request("https://assets/catalogue.json"));
+        if (!res.ok) return json({ error: "the catalogue is not built yet" }, 404);
+        const catalogue = await res.json();
+        if (id) {
+          const part = (catalogue.parts || []).find((p) => p.id === id);
+          return part ? json(part) : json({ error: `no part with the id ${id}` }, 404);
+        }
+        return json(catalogue, 200, { "cache-control": "public, max-age=300" });
+      }
+      if (path === "/api/evidence") {
+        // The literature and the patents, by part or by topic.
+        const res = await env.ASSETS.fetch(new Request("https://assets/evidence.json"));
+        if (!res.ok) return json({ error: "the evidence has not been retrieved yet" }, 404);
+        const evidence = await res.json();
+        const topic = url.searchParams.get("topic");
+        if (topic) {
+          const found = evidence.topics && evidence.topics[topic];
+          return found ? json(found) : json({ error: `no evidence for the topic ${topic}` }, 404);
+        }
+        return json(evidence, 200, { "cache-control": "public, max-age=600" });
+      }
+      if (path === "/api/design") {
+        // The design grade: the checks, the verdict, and the state of each part.
+        const res = await env.ASSETS.fetch(new Request("https://assets/design-grade.json"));
+        if (!res.ok) return json({ error: "the design grade has not been run yet" }, 404);
+        return json(await res.json(), 200, { "cache-control": "public, max-age=300" });
+      }
       if (path === "/api/agent") {
         const target = env.AGENT_GATEWAY_URL;
         if (!target) {

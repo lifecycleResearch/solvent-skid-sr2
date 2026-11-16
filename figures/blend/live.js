@@ -102,6 +102,7 @@ function placeLabels(P) {
     box.dataset.compound = tags.compound || "";
     box.dataset.function = tags.function || "";
     box.dataset.colour = tags.colour || "";
+    box.dataset.part = String(item.id || "").replace(/\.(name|target|label)$/, "");
     layer.appendChild(box);
   }
 }
@@ -213,6 +214,133 @@ if (sopToggle) {
     sopToggle.setAttribute("aria-pressed", sopBox.hidden ? "false" : "true");
   });
 }
+
+// ------------------------------------------------------------- the review ---
+//
+// The review panel: the checks the design has to pass, and the state of the
+// evidence behind every part. It is the same verdict the CI computes and the
+// API serves, so the page cannot show a better design than the one that
+// passed the build.
+
+const GRADE = __GRADE__;
+
+const reviewBox = document.querySelector("[data-review]");
+const reviewToggle = document.querySelector("[data-review-toggle]");
+if (reviewToggle) {
+  reviewToggle.addEventListener("click", () => {
+    reviewBox.hidden = !reviewBox.hidden;
+    reviewToggle.setAttribute("aria-pressed", reviewBox.hidden ? "false" : "true");
+    if (!reviewBox.hidden && !reviewBox.dataset.filled) {
+      reviewBox.dataset.filled = "true";
+      document.querySelector("[data-review-verdict]").textContent = `${GRADE.verdict} · ${GRADE.passedCount || 0}/${GRADE.total || 0} checks passed`;
+      document.querySelector("[data-review-checks]").innerHTML = (GRADE.checks || [])
+        .map((c) => `<li class="${c.ok ? "ok" : "fail"}"><b>${escapeHtml(c.name)}</b><span>${escapeHtml(c.detail || "")}</span></li>`)
+        .join("");
+      document.querySelector("[data-review-parts]").innerHTML = (GRADE.parts || [])
+        .map((p) => `<tr class="state-${p.state}"><td>${escapeHtml(p.name)}<i>${escapeHtml(p.id)}</i></td><td>${escapeHtml(p.state)}</td><td>${p.papers}</td><td>${p.patents}</td></tr>`)
+        .join("");
+    }
+  });
+}
+
+// ------------------------------------------------------------- the inspector ---
+//
+// Click a part and the page tells the reader what it is, what it does, the
+// details that make it this part, and what it is doing in this process --
+// with the papers and the patents that support it.
+
+const inspector = document.querySelector("[data-inspector]");
+const inspTitle = document.querySelector("[data-insp-title]");
+const inspKind = document.querySelector("[data-insp-kind]");
+const inspBody = document.querySelector("[data-insp-body]");
+
+const escapeHtml = (value) =>
+  String(value === undefined || value === null ? "" : value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+
+const link = (url, label) => (url ? `<a href="${escapeHtml(url)}" target="_blank" rel="noopener">${escapeHtml(label)}</a>` : escapeHtml(label));
+
+function partHtml(part) {
+  const rows = (part.details || [])
+    .map((d) => `<div class="sk-insp-row"><span>${escapeHtml(d.label)}</span><b>${escapeHtml(d.value)}</b><i title="the field it came from">${escapeHtml(d.from || "")}</i></div>`)
+    .join("");
+
+  const here = [];
+  if (part.here.steps && part.here.steps.length) here.push(["Steps", part.here.steps.join(" · ")]);
+  if (part.here.streams && part.here.streams.length) here.push(["Carries", part.here.streams.join(" · ")]);
+  if (part.here.targets && part.here.targets.length) here.push(["Targets", part.here.targets.join(" · ")]);
+  if (part.here.acceptance) here.push(["Acceptance", part.here.acceptance]);
+  const hereRows = here.map(([label, value]) => `<div class="sk-insp-row"><span>${escapeHtml(label)}</span><b>${escapeHtml(value)}</b></div>`).join("");
+
+  const notes = (part.here.notes || []).map((n) => `<li>${escapeHtml(n)}</li>`).join("");
+
+  const evidence = (part.evidence || [])
+    .map((topic) => {
+      const papers = (topic.papers || []).slice(0, 4).map((p) => `<li>${link(p.url, p.title || p.doi)}${p.year ? ` <span class="sk-insp-year">${p.year}</span>` : ""}</li>`).join("");
+      const patents = (topic.patents || []).slice(0, 3).map((p) => `<li>${link(p.url, p.number || p.title)}${p.year ? ` <span class="sk-insp-year">${p.year}</span>` : ""}</li>`).join("");
+      return `<div class="sk-insp-evidence">
+        <h4>${escapeHtml(topic.question || topic.topic)}</h4>
+        <p class="sk-insp-query">${escapeHtml(topic.query)}</p>
+        ${papers ? `<h5>Papers</h5><ul>${papers}</ul>` : ""}
+        ${patents ? `<h5>Patents</h5><ul>${patents}</ul>` : ""}
+        ${!papers && !patents ? `<p class="sk-insp-none">nothing retrieved for this one yet</p>` : ""}
+      </div>`;
+    })
+    .join("");
+
+  return `
+    <section>
+      <h4>What it is</h4>
+      <p>${escapeHtml(part.what.text)}</p>
+      ${rows ? `<div class="sk-insp-rows">${rows}</div>` : ""}
+    </section>
+    <section>
+      <h4>What it does</h4>
+      <p>${escapeHtml(part.does.text)}</p>
+      ${part.does.isolation ? `<p class="sk-insp-note">${escapeHtml(part.does.isolation)}</p>` : ""}
+    </section>
+    <section>
+      <h4>In this process</h4>
+      ${hereRows ? `<div class="sk-insp-rows">${hereRows}</div>` : `<p class="sk-insp-none">the spec does not say</p>`}
+      ${notes ? `<ul class="sk-insp-notes">${notes}</ul>` : ""}
+    </section>
+    ${evidence ? `<section><h4>The evidence</h4>${evidence}</section>` : ""}`;
+}
+
+function showPart(id) {
+  const part = (CATALOGUE || []).find((p) => p.id === id);
+  if (!part || !inspector) return;
+  inspTitle.textContent = part.name;
+  inspKind.textContent = `${part.id} · ${part.type || part.kind} · ${part.function}`;
+  inspBody.innerHTML = partHtml(part);
+  inspector.hidden = false;
+  inspector.scrollIntoView({ block: "nearest" });
+  say();
+}
+
+if (inspector) {
+  document.querySelector("[data-insp-close]").addEventListener("click", () => {
+    inspector.hidden = true;
+  });
+}
+
+// Clicking a part opens it. The parts are the drawing's groups, and so are
+// the nameplates, so the label opens the same record as the vessel.
+svg.addEventListener("click", (event) => {
+  const group = event.target.closest(".it");
+  if (!group) return;
+  const id = group.getAttribute("data-id");
+  if (!id) return;
+  showPart(id);
+});
+
+stage.addEventListener("click", (event) => {
+  const label = event.target.closest(".sk-label");
+  if (!label || !label.dataset.part) return;
+  showPart(label.dataset.part);
+});
 
 stage.addEventListener("keydown", (event) => {
   if (event.key === "ArrowLeft") {

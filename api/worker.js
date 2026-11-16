@@ -20,12 +20,24 @@ import { fileURLToPath } from "node:url";
 import worker from "../deploy/worker.js";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
-const CONTEXT = join(HERE, "..", "deploy", "public", "skid-context.json");
+const PUBLIC = join(HERE, "..", "deploy", "public");
 
+// The assets, from the disk. On Cloudflare they come from the ASSETS binding;
+// here they are files, so the stub serves whichever one was asked for.
 const env = {
   ASSETS: {
-    async fetch() {
-      return new Response(readFileSync(CONTEXT), { headers: { "content-type": "application/json" } });
+    async fetch(request) {
+      const url = new URL(request.url);
+      const name = url.pathname.replace(/^\/+/, "") || "skid-context.json";
+      const path = join(PUBLIC, name);
+      if (!path.startsWith(PUBLIC)) return new Response("not found", { status: 404 });
+      try {
+        const body = readFileSync(path);
+        const type = name.endsWith(".json") ? "application/json; charset=utf-8" : "text/html; charset=utf-8";
+        return new Response(body, { headers: { "content-type": type } });
+      } catch {
+        return new Response("not found", { status: 404 });
+      }
     },
   },
 };

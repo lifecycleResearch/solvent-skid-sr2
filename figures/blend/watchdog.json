@@ -1,0 +1,40 @@
+{
+ "when": "2026-11-16T19:45:39.897Z",
+ "grade": {
+  "score": 0.8,
+  "verdict": "workable",
+  "passed": 8,
+  "total": 10
+ },
+ "balance": {
+  "closes": true,
+  "worstErrorPct": 0
+ },
+ "parts": 32,
+ "evidence": {
+  "topics": 9,
+  "withPapers": 9,
+  "withPatents": 0
+ },
+ "gaps": [
+  "solvent-extraction: no patents retrieved",
+  "membrane-nf: no patents retrieved",
+  "cbd-crystallisation: no patents retrieved",
+  "molecular-sieve: no patents retrieved",
+  "azeotrope: no patents retrieved",
+  "vacuum-evaporation: no patents retrieved",
+  "condensation: no patents retrieved",
+  "vapour-scrubbing: no patents retrieved",
+  "marc-disposal: no patents retrieved"
+ ],
+ "problems": [],
+ "notes": [
+  "cloudflare: 4 pages and 9 endpoints checked",
+  "cloudflare-review: 4 pages and 9 endpoints checked",
+  "vercel: 4 pages and 9 endpoints checked"
+ ],
+ "failingChecks": [
+  "every part has evidence",
+  "the patents have been retrieved"
+ ]
+}

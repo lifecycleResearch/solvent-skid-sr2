@@ -1,0 +1,35 @@
+name: watchdog
+
+on:
+  schedule:
+    # every morning, and on demand
+    - cron: "17 7 * * *"
+  workflow_dispatch:
+
+jobs:
+  watchdog:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      # The watchdog checks the sites, the API, the design and the evidence.
+      # It writes a report and fails when something is wrong, so a broken
+      # deployment is noticed rather than found out about.
+      - name: Check the plant
+        run: |
+          node scripts/watchdog.mjs --live
+          node sim/evidence.mjs spec/subzero-blend.json
+          node scripts/watchdog.mjs --live
+
+      - name: Keep the report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: watchdog-report
+          path: figures/blend/watchdog.json

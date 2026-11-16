@@ -1571,5 +1571,206 @@
         "CN-101"
       ]
     }
-  ]
+  ],
+  "evidence": {
+    "note": "The questions this plant has to be able to answer with a citation. sim/evidence.mjs retrieves the papers and the patents for each one; the part catalogue links the answers to the parts.",
+    "topics": {
+      "solvent-extraction": {
+        "must": [
+          "cannabis",
+          "cannabinoid",
+          "ethanol"
+        ],
+        "query": "ethanol extraction cannabis sativa cannabinoids yield recovery",
+        "why": "that ethanol is a workable carrier, and what it takes out of the biomass"
+      },
+      "membrane-nf": {
+        "must": [
+          "cannabinoid",
+          "nanofiltration"
+        ],
+        "query": "solvent nanofiltration cannabinoid purification ethanol permeate retentate",
+        "why": "that a 1 nm pore holds the cannabinoids back and lets the solvent through"
+      },
+      "cbd-crystallisation": {
+        "must": [
+          "cannabidiol",
+          "crystalli",
+          "ethanol"
+        ],
+        "query": "cannabidiol crystallization ethanol antisolvent cooling solubility",
+        "why": "that CBD comes out of solution when the carrier is chilled"
+      },
+      "molecular-sieve": {
+        "must": [
+          "molecular sieve",
+          "ethanol"
+        ],
+        "query": "3A molecular sieve ethanol dehydration water adsorption",
+        "why": "that the sieve takes the water out of the recovered carrier"
+      },
+      "azeotrope": {
+        "must": [
+          "azeotrope",
+          "ethanol"
+        ],
+        "query": "ethanol pentane minimum boiling azeotrope vapor liquid equilibrium",
+        "why": "that the blend cannot be separated by distillation alone"
+      },
+      "vacuum-evaporation": {
+        "must": [
+          "ethanol",
+          "evaporat"
+        ],
+        "query": "vacuum evaporation ethanol recovery single effect boiling point",
+        "why": "that the solvent boils at the temperature the vacuum set gives"
+      },
+      "condensation": {
+        "must": [
+          "condens",
+          "solvent"
+        ],
+        "query": "shell and tube condenser mixed solvent condensation fouling",
+        "why": "that the vapour comes back as liquid on the cold shells"
+      },
+      "vapour-scrubbing": {
+        "must": [
+          "adsorption",
+          "solvent",
+          "carbon"
+        ],
+        "query": "activated carbon adsorption solvent vapour scrubbing emissions",
+        "why": "that the exhaust can be cleaned before it leaves the plant"
+      },
+      "marc-disposal": {
+        "must": [
+          "cannabis",
+          "residual",
+          "solvent"
+        ],
+        "query": "cannabis biomass marc residual solvent disposal",
+        "why": "what happens to the biomass that leaves the extractor"
+      }
+    },
+    "for": {
+      "V-101": [
+        "solvent-extraction",
+        "azeotrope"
+      ],
+      "V-102": [
+        "solvent-extraction",
+        "marc-disposal"
+      ],
+      "F-101": [
+        "marc-disposal"
+      ],
+      "V-103": [
+        "cbd-crystallisation"
+      ],
+      "V-104": [
+        "cbd-crystallisation",
+        "azeotrope"
+      ],
+      "EV-101": [
+        "vacuum-evaporation",
+        "azeotrope"
+      ],
+      "CN-101": [
+        "condensation"
+      ],
+      "V-105": [
+        "azeotrope",
+        "molecular-sieve"
+      ],
+      "V-106": [
+        "cbd-crystallisation"
+      ],
+      "SC-101": [
+        "vapour-scrubbing"
+      ],
+      "CH-101": [
+        "vacuum-evaporation"
+      ],
+      "MED-0001": [
+        "molecular-sieve"
+      ],
+      "MED-0002": [
+        "vapour-scrubbing"
+      ],
+      "MED-0003": [
+        "marc-disposal"
+      ],
+      "P-1001": [
+        "solvent-extraction"
+      ],
+      "P-1002": [
+        "cbd-crystallisation",
+        "marc-disposal",
+        "molecular-sieve",
+        "solvent-extraction"
+      ],
+      "P-1003": [
+        "cbd-crystallisation",
+        "marc-disposal",
+        "molecular-sieve",
+        "solvent-extraction"
+      ],
+      "P-1004": [
+        "cbd-crystallisation",
+        "marc-disposal",
+        "molecular-sieve",
+        "solvent-extraction"
+      ],
+      "P-1005": [
+        "cbd-crystallisation",
+        "marc-disposal",
+        "molecular-sieve",
+        "solvent-extraction"
+      ],
+      "P-1006": [
+        "molecular-sieve",
+        "solvent-extraction",
+        "vacuum-evaporation"
+      ],
+      "P-1007": [
+        "molecular-sieve",
+        "solvent-extraction"
+      ],
+      "P-1008": [
+        "molecular-sieve",
+        "solvent-extraction"
+      ],
+      "P-1009": [
+        "cbd-crystallisation",
+        "marc-disposal",
+        "molecular-sieve",
+        "solvent-extraction"
+      ],
+      "P-1010": [
+        "cbd-crystallisation",
+        "molecular-sieve"
+      ],
+      "OP-10": [
+        "solvent-extraction"
+      ],
+      "OP-20": [
+        "marc-disposal"
+      ],
+      "OP-30": [
+        "cbd-crystallisation"
+      ],
+      "OP-40": [
+        "cbd-crystallisation"
+      ],
+      "OP-50": [
+        "vacuum-evaporation"
+      ],
+      "OP-55": [
+        "condensation"
+      ],
+      "OP-60": [
+        "azeotrope"
+      ]
+    }
+  }
 }
