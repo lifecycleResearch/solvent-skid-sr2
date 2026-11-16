@@ -1,0 +1,21 @@
+# The audit sandbox: the geometry audit, with no network at all.
+#
+#   openshell sandbox create --name audit --policy openshell/audit.policy.yaml --from skid-sandbox:latest
+#   node scripts/audit-sandbox.mjs
+#
+# The audit needs the repository and nothing else. No network policy at all
+# means no host is reachable from inside it: the check cannot phone home, and
+# nothing it reads can leave. That is the strongest isolation the house has,
+# and it costs nothing because the audit never needed the internet.
+
+version: 1
+
+filesystem_policy:
+  include_workdir: true
+  read_only: [/bin, /usr, /sbin, /lib, /lib64, /proc, /dev/urandom, /etc]
+  read_write: [/sandbox, /tmp, /dev/null]
+landlock:
+  compatibility: best_effort
+
+# No network policies: the sandbox has no route to any host.
+network_policies: {}

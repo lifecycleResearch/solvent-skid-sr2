@@ -15,6 +15,10 @@ import { search, papers } from "./search.mjs";
 import { route, availableProviders } from "./router.mjs";
 import { gradeDeterministic, rubricPrompt, parseRubricVerdict } from "./grade.mjs";
 import { judgeContext } from "./design.mjs";
+import { compound, bibliography } from "./science.mjs";
+import { legitimacyOf } from "../figures/lib/legitimacy.mjs";
+import { mermaidSet } from "../figures/lib/mermaid.mjs";
+import { systemPrompt, estimateTokens } from "./prompt.mjs";
 import RUBRIC from "../evals/rubrics/design.json" with { type: "json" };
 
 const DEPLOYED = "https://solvent-skid-sr2.lifecyclerd.workers.dev";
@@ -65,7 +69,7 @@ function asMessages(messages) {
 
 // ------------------------------------------------------------------ Gemini ---
 
-async function gemini(context, { model, key, messages, state, system }) {
+async function gemini(context, { model, key, messages, state, system, catalogue = null }) {
   const prompt = system || [context.prompt, stateNote(context, state)].filter(Boolean).join("\n\n");
   const contents = asMessages(messages).map((m) => ({
     role: m.role,
@@ -198,10 +202,38 @@ async function chat(request, env) {
   const messages = asMessages(body.messages);
   if (!messages.length) return json({ error: "no messages" }, 400);
 
+  // The context is trimmed to the parts the question touches, and the rules
+  // go in front of it: that is what keeps the answer short, cited and honest.
+  let catalogue = null;
+  let prompt = null;
+  if (body.trim !== false && env.ASSETS) {
+    const question = messages[messages.length - 1].content;
+    const slug = body.spec || "blend";
+    const res = await env.ASSETS.fetch(new Request(`https://assets/catalogue-${slug}.json`)).catch(() => null);
+    if (res && res.ok) {
+      const data = await res.json();
+      catalogue = data.parts || [];
+      const context = await contextOf(env);
+      prompt = systemPrompt({
+        context: { ...context, assumptions: null },
+        catalogue,
+        question,
+        state: body.state,
+      });
+    }
+  }
+  if (prompt) {
+    body.trimmed = {
+      tokens: estimateTokens(prompt),
+      parts: catalogue ? catalogue.length : 0,
+      question: messages[messages.length - 1].content.slice(0, 120),
+    };
+  }
+
   // Workers AI needs no key: it is the model that comes with the plan.
   if (provider === "workers-ai") {
     try {
-      const upstream = await workersAi(env, { model: body.model, messages, state: body.state, context });
+      const upstream = await workersAi(env, { model: body.model, messages, state: body.state, context: { prompt: prompt || (await contextOf(env)).prompt } });
       return asSseText(upstream);
     } catch (err) {
       return json({ error: String(err.message || err) }, 502);
@@ -223,8 +255,8 @@ async function chat(request, env) {
   try {
     upstream =
       provider === "openai"
-        ? await openai(context, { model: body.model, baseUrl: body.baseUrl, key, messages, state: body.state })
-        : await gemini(context, { model: body.model, key, messages, state: body.state });
+        ? await openai(context, { model: body.model, baseUrl: body.baseUrl, key, messages, state: body.state, system: prompt })
+        : await gemini(context, { model: body.model, key, messages, state: body.state, system: prompt });
   } catch (err) {
     return json({ error: String(err.message || err) }, 502);
   }
@@ -347,6 +379,56 @@ export default {
           },
           agent: { configured: Boolean(env.AGENT_GATEWAY_URL), note: "the OpenShell gateway over the tailnet, if one is configured" },
         });
+      }
+      if (path === "/api/legitimacy") {
+        // What each component is built to, what applies to it, and what is
+        // still open. The open questions are the point.
+        const slug = url.searchParams.get("spec") || "blend";
+        const [specRes, catalogueRes] = await Promise.all([
+          env.ASSETS.fetch(new Request(`https://assets/spec-${slug}.json`)),
+          env.ASSETS.fetch(new Request(`https://assets/catalogue-${slug}.json`)),
+        ]);
+        if (!specRes.ok) return json({ error: "the specification is not built yet" }, 404);
+        const spec = await specRes.json();
+        const catalogue = await catalogueRes.json();
+        return json(legitimacyOf(spec, catalogue.parts || [], {}), 200, { "cache-control": "public, max-age=300" });
+      }
+      if (path === "/api/mermaid") {
+        // One diagram per process, in Mermaid.
+        const slug = url.searchParams.get("spec") || "blend";
+        const step = url.searchParams.get("step");
+        const res = await env.ASSETS.fetch(new Request(`https://assets/spec-${slug}.json`));
+        if (!res.ok) return json({ error: "the specification is not built yet" }, 404);
+        const spec = await res.json();
+        const set = mermaidSet(spec);
+        if (step) {
+          if (!set.steps[step]) return json({ error: `no step with the id ${step}` }, 404);
+          return json({ step, mermaid: set.steps[step] }, 200, { "cache-control": "public, max-age=600" });
+        }
+        return json(set, 200, { "cache-control": "public, max-age=600" });
+      }
+      if (path === "/api/references") {
+        // The evidence, as a bibliography.
+        const slug = url.searchParams.get("spec") || "blend";
+        const [specRes, evidenceRes] = await Promise.all([
+          env.ASSETS.fetch(new Request(`https://assets/spec-${slug}.json`)),
+          env.ASSETS.fetch(new Request(`https://assets/evidence-${slug}.json`)),
+        ]);
+        if (!specRes.ok) return json({ error: "the specification is not built yet" }, 404);
+        const spec = await specRes.json();
+        const evidence = await evidenceRes.json();
+        const bib = bibliography(spec, evidence);
+        return new Response(bib, {
+          headers: { "content-type": "application/x-bibtex; charset=utf-8", "cache-control": "public, max-age=600" },
+        });
+      }
+      if (path === "/api/compound") {
+        // A CAS number, resolved: the structure, the identifiers and the
+        // hazard statements the label has to carry.
+        const cas = url.searchParams.get("cas");
+        if (!cas) return json({ error: "give a CAS number" }, 400);
+        const found = await compound(cas);
+        return json(found, 200, { "cache-control": "public, max-age=86400" });
       }
       if (path === "/api/specs") {
         // Which experiments this deployment carries.

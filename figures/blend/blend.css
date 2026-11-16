@@ -393,3 +393,71 @@
 .sk-review-rubric li b { color: var(--anatomy-strong); font-weight: 600; }
 .sk-review-rubric li span { color: var(--anatomy-muted); }
 .sk-review-rubric li i { grid-column: 1 / -1; font-style: normal; color: var(--anatomy-muted); }
+
+/* The legitimacy register, the diagrams, and the photograph. */
+.sk-legitimacy, .sk-diagrams {
+  margin: 18px 0 4px;
+  border: 1px solid var(--anatomy-mid);
+  border-radius: 10px;
+  background: var(--anatomy-card);
+  padding: 16px 18px;
+}
+.sk-legitimacy[hidden], .sk-diagrams[hidden] { display: none; }
+.sk-legitimacy-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 26px; margin-top: 14px; }
+.sk-legitimacy h4, .sk-diagram h4 {
+  margin: 0 0 8px;
+  font: 600 10px/1 var(--anatomy-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--anatomy-muted);
+}
+.sk-legitimacy-rules, .sk-legitimacy-open { margin: 0; padding: 0; list-style: none; }
+.sk-legitimacy-rules li, .sk-legitimacy-open li {
+  display: grid; gap: 2px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--anatomy-faint);
+  font-size: 12px;
+}
+.sk-legitimacy-rules b, .sk-legitimacy-open b { color: var(--anatomy-strong); font: 600 11px/1.4 var(--anatomy-mono); }
+.sk-legitimacy-rules span, .sk-legitimacy-open span { color: var(--anatomy-muted); font: 10px/1.4 var(--anatomy-mono); }
+.sk-legitimacy-rules i, .sk-legitimacy-open i { font-style: normal; color: var(--anatomy-text); font-size: 12px; }
+.sk-diagram-list { margin-top: 14px; display: grid; gap: 16px; }
+.sk-diagram pre {
+  margin: 0 0 6px;
+  padding: 10px;
+  background: var(--anatomy-page);
+  border: 1px solid var(--anatomy-faint);
+  border-radius: 6px;
+  font: 11px/1.5 var(--anatomy-mono);
+  overflow-x: auto;
+  white-space: pre;
+}
+.sk-diagram button {
+  border: 1px solid var(--anatomy-faint);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--anatomy-muted);
+  font: 10px/1 var(--anatomy-mono);
+  padding: 5px 9px;
+  cursor: pointer;
+}
+.sk-insp-image { padding: 0 16px 12px; }
+.sk-insp-image img { max-width: 100%; max-height: 260px; border-radius: 6px; border: 1px solid var(--anatomy-faint); }
+.sk-insp-foot {
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 16px;
+  border-top: 1px solid var(--anatomy-faint);
+  background: var(--anatomy-page);
+}
+.sk-insp-foot button {
+  border: 1px solid var(--anatomy-mid);
+  border-radius: 5px;
+  background: transparent;
+  color: var(--anatomy-text);
+  font: 10px/1 var(--anatomy-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 7px 10px;
+  cursor: pointer;
+}
+.sk-insp-foot span { font: 10px/1.4 var(--anatomy-mono); color: var(--anatomy-muted); }

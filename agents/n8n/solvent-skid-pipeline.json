@@ -1,0 +1,258 @@
+{
+  "name": "Solvent skid — the pipeline, one task at a time",
+  "nodes": [
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://solvent-skid-sr2.lifecyclerd.workers.dev/api/grade",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ answer: $json.spec, checks: { mustInclude: ['$json.meta.name'], minWords: 40 } }) }}",
+        "options": {}
+      },
+      "id": "a1000000-0000-4000-8000-000000000001",
+      "name": "1 · check the specification reads",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [-640, 300],
+      "notes": "The first gate: does the specification say what it is supposed to say? A document that fails here never reaches the drawing."
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "c1000000-0000-4000-8000-000000000001",
+              "leftValue": "={{ $json.passed }}",
+              "rightValue": true,
+              "operator": { "type": "boolean", "operation": "true", "singleValue": true }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "a1000000-0000-4000-8000-000000000002",
+      "name": "the specification reads",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [-440, 300]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [{ "field": "hours", "hoursInterval": 12 }]
+        },
+        "options": {}
+      },
+      "id": "a1000000-0000-4000-8000-000000000003",
+      "name": "every twelve hours",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [-860, 100]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "https://solvent-skid-sr2.lifecyclerd.workers.dev/api/legitimacy?spec=blend",
+        "options": {}
+      },
+      "id": "a1000000-0000-4000-8000-000000000004",
+      "name": "2 · the legitimacy register",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [-240, 200],
+      "notes": "What each component is built to, what applies to it, and what is still open. The open questions are the output."
+    },
+    {
+      "parameters": {
+        "jsCode": "// The gaps are the work: what is open, and what would close it.\nconst register = $input.all()[0].json;\nconst open = register.parts.filter((p) => p.openQuestions > 0);\nreturn open.map((p) => ({\n  part: p.id,\n  name: p.name,\n  questions: p.entries.filter((e) => e.kind === 'question' || e.strength === 'open').map((e) => e.question),\n}));"
+      },
+      "id": "a1000000-0000-4000-8000-000000000005",
+      "name": "3 · the open questions",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [-40, 200]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "https://solvent-skid-sr2.lifecyclerd.workers.dev/api/evidence?spec=blend",
+        "options": {}
+      },
+      "id": "a1000000-0000-4000-8000-000000000006",
+      "name": "4 · the evidence",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [-240, 20],
+      "notes": "The papers and the patents behind each part. A topic with nothing retrieved is a gap, not a failure."
+    },
+    {
+      "parameters": {
+        "jsCode": "// Which topics still have no patents, and how thin the papers are.\nconst evidence = $input.all()[0].json;\nconst rows = Object.entries(evidence.topics || {}).map(([id, t]) => ({\n  topic: id,\n  papers: (t.papers || []).length,\n  patents: (t.patents || []).length,\n  strength: t.strength,\n}));\nreturn [{ json: { rows, gaps: rows.filter((r) => !r.patents) } }];"
+      },
+      "id": "a1000000-0000-4000-8000-000000000007",
+      "name": "5 · the evidence gaps",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [-40, 20]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "https://solvent-skid-sr2.lifecyclerd.workers.dev/api/design?spec=blend",
+        "options": {}
+      },
+      "id": "a1000000-0000-4000-8000-000000000008",
+      "name": "6 · the design grade",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [-240, -160]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "https://solvent-skid-sr2.lifecyclerd.workers.dev/api/design?judge=1&spec=blend",
+        "options": { "timeout": 180000 }
+      },
+      "id": "a1000000-0000-4000-8000-000000000009",
+      "name": "7 · the rubric judge",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [-240, -340],
+      "notes": "The judgement on top of the checks. On Cloudflare this runs on Workers AI, so it needs no key. The verdict is per criterion."
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "https://solvent-skid-sr2.lifecyclerd.workers.dev/api/mermaid?spec=blend",
+        "options": {}
+      },
+      "id": "a1000000-0000-4000-8000-000000000010",
+      "name": "8 · the process diagrams",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [-240, -520]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "https://solvent-skid-sr2.lifecyclerd.workers.dev/api/references?spec=blend",
+        "options": { "response": { "response": { "neverError": true } } }
+      },
+      "id": "a1000000-0000-4000-8000-000000000011",
+      "name": "9 · the bibliography",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [-40, -160],
+      "notes": "BibTeX: the evidence a part rests on, ready to cite."
+    },
+    {
+      "parameters": {
+        "jsCode": "// The report: the grade, the gaps, the verdict, and what is open.\nconst grade = $('6 · the design grade').first().json;\nconst rubric = $('7 · the rubric judge').first().json.rubric || {};\nconst gaps = $('5 · the evidence gaps').first().json.gaps || [];\nconst questions = $('3 · the open questions').all();\nconst lines = [];\nlines.push(`# ${grade.verdict} — ${grade.passedCount}/${grade.total} checks`);\nif (rubric.score !== undefined) lines.push(`Rubric: ${(rubric.score * 100).toFixed(0)}% (pass mark ${((rubric.passMark || 0.75) * 100).toFixed(0)}%)`);\nlines.push('', '## The checks that are failing');\nfor (const c of grade.checks.filter((c) => !c.ok)) lines.push(`- ${c.name}: ${c.detail}`);\nlines.push('', '## The evidence gaps');\nfor (const g of gaps) lines.push(`- ${g.topic}: ${g.papers} papers, ${g.patents} patents`);\nlines.push('', '## The open questions');\nfor (const q of questions) for (const text of q.json.questions) lines.push(`- ${q.json.part}: ${text}`);\nreturn [{ json: { report: lines.join('\\n') } }];"
+      },
+      "id": "a1000000-0000-4000-8000-000000000012",
+      "name": "10 · the report",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [160, 20]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": true, "version": 2 },
+          "conditions": [
+            {
+              "id": "c1000000-0000-4000-8000-000000000003",
+              "leftValue": "={{ $json.report.includes('failing') || $json.report.includes('gaps') }}",
+              "rightValue": true,
+              "operator": { "type": "boolean", "operation": "true", "singleValue": true }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "a1000000-0000-4000-8000-000000000013",
+      "name": "something to say",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [360, 20]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.github.com/repos/lifecycleResearch/solvent-skid-sr2/issues",
+        "authentication": "predefinedCredentialType",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ title: 'The plant needs attention', body: $json.report }) }}",
+        "options": {}
+      },
+      "id": "a1000000-0000-4000-8000-000000000014",
+      "name": "11 · open an issue",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [560, 20],
+      "notes": "The watchdog's voice: an issue with the report, so the gap is a task and not a note."
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.github.com/repos/lifecycleResearch/solvent-skid-sr2/discussions",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ title: 'The review', body: $json.report }) }}",
+        "options": {}
+      },
+      "id": "a1000000-0000-4000-8000-000000000015",
+      "name": "12 · publish the review",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [560, -160]
+    }
+  ],
+  "connections": {
+    "every twelve hours": { "main": [[{ "node": "1 · check the specification reads", "type": "main", "index": 0 }]] },
+    "1 · check the specification reads": { "main": [[{ "node": "the specification reads", "type": "main", "index": 0 }]] },
+    "the specification reads": {
+      "main": [
+        [
+          { "node": "2 · the legitimacy register", "type": "main", "index": 0 },
+          { "node": "4 · the evidence", "type": "main", "index": 0 },
+          { "node": "6 · the design grade", "type": "main", "index": 0 },
+          { "node": "7 · the rubric judge", "type": "main", "index": 0 },
+          { "node": "8 · the process diagrams", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "2 · the legitimacy register": { "main": [[{ "node": "3 · the open questions", "type": "main", "index": 0 }]] },
+    "4 · the evidence": { "main": [[{ "node": "5 · the evidence gaps", "type": "main", "index": 0 }]] },
+    "6 · the design grade": { "main": [[{ "node": "9 · the bibliography", "type": "main", "index": 0 }]] },
+    "9 · the bibliography": { "main": [[{ "node": "10 · the report", "type": "main", "index": 0 }]] },
+    "5 · the evidence gaps": { "main": [[{ "node": "10 · the report", "type": "main", "index": 0 }]] },
+    "7 · the rubric judge": { "main": [[{ "node": "10 · the report", "type": "main", "index": 0 }]] },
+    "8 · the process diagrams": { "main": [[{ "node": "10 · the report", "type": "main", "index": 0 }]] },
+    "10 · the report": { "main": [[{ "node": "something to say", "type": "main", "index": 0 }]] },
+    "something to say": {
+      "main": [[{ "node": "11 · open an issue", "type": "main", "index": 0 }], [{ "node": "12 · publish the review", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "pinData": {},
+  "meta": {
+    "instanceId": "solvent-skid-sr2",
+    "templateCredsSetupCompleted": false
+  },
+  "tags": []
+}

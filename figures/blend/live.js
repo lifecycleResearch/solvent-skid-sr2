@@ -278,6 +278,66 @@ if (reviewToggle) {
   });
 }
 
+// ------------------------------------------------------------- legitimacy ---
+//
+// What each component is built to, what applies to it, and what is still
+// open. The open questions are the point: a register that only lists what is
+// settled is a brochure.
+
+const legitimacyBox = document.querySelector("[data-legitimacy]");
+const legitimacyToggle = document.querySelector("[data-legitimacy-toggle]");
+if (legitimacyToggle) {
+  legitimacyToggle.addEventListener("click", async () => {
+    legitimacyBox.hidden = !legitimacyBox.hidden;
+    legitimacyToggle.setAttribute("aria-pressed", legitimacyBox.hidden ? "false" : "true");
+    if (legitimacyBox.hidden || legitimacyBox.dataset.filled) return;
+    const res = await fetch("/api/legitimacy?spec=blend");
+    const register = await res.json();
+    legitimacyBox.dataset.filled = "true";
+    const s = register.summary || {};
+    document.querySelector("[data-legitimacy-verdict]").textContent = `${s.parts} parts · ${s.specified} specified · ${s.partly} partly · ${s.open} open · ${s.openQuestions} questions to close`;
+    document.querySelector("[data-legitimacy-rules]").innerHTML = (register.regulations || [])
+      .map((r) => `<li><b>${escapeHtml(r.rule)}</b><span>${escapeHtml(r.note)}</span><i>${escapeHtml(r.question)}</i></li>`)
+      .join("");
+    const open = (register.parts || []).filter((p) => p.openQuestions > 0);
+    document.querySelector("[data-legitimacy-open]").innerHTML = open
+      .map((p) => `<li><b>${escapeHtml(p.name)}</b><span>${escapeHtml(p.verdict)}</span><i>${escapeHtml(p.entries.filter((e) => e.kind === "question" || e.strength === "open").map((e) => e.question).join(" "))}</i></li>`)
+      .join("");
+  });
+}
+
+// ---------------------------------------------------------------- diagrams ---
+//
+// The process, as Mermaid: one diagram for the chain and one per operation.
+
+const diagramsBox = document.querySelector("[data-diagrams]");
+const diagramToggle = document.querySelector("[data-diagram-toggle]");
+if (diagramToggle) {
+  diagramToggle.addEventListener("click", async () => {
+    diagramsBox.hidden = !diagramsBox.hidden;
+    diagramToggle.setAttribute("aria-pressed", diagramsBox.hidden ? "false" : "true");
+    if (diagramsBox.hidden || diagramsBox.dataset.filled) return;
+    const res = await fetch("/api/mermaid?spec=blend");
+    const set = await res.json();
+    diagramsBox.dataset.filled = "true";
+    const one = (label, code) => `<div class="sk-diagram"><h4>${escapeHtml(label)}</h4><pre>${escapeHtml(code)}</pre><button type="button" data-copy>copy</button></div>`;
+    const steps = Object.entries(set.steps || {}).map(([id, code]) => one(id, code));
+    diagramsBox.querySelector("[data-diagram-list]").innerHTML = one("the whole process", set.process) + steps.join("");
+    for (const button of diagramsBox.querySelectorAll("[data-copy]")) {
+      button.addEventListener("click", async () => {
+        const code = button.parentElement.querySelector("pre").textContent;
+        try {
+          await navigator.clipboard.writeText(code);
+          button.textContent = "copied";
+          setTimeout(() => (button.textContent = "copy"), 1500);
+        } catch {
+          button.textContent = "the clipboard is not available";
+        }
+      });
+    }
+  });
+}
+
 // ------------------------------------------------------------- the inspector ---
 //
 // Click a part and the page tells the reader what it is, what it does, the

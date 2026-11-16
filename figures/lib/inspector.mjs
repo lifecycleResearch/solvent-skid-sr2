@@ -83,6 +83,31 @@ export function installInspector({ catalogue, stage, svg, onChange }) {
     inspector.hidden = true;
   });
 
+  // A photograph of the actual vessel, or of the plant, beside its record.
+  // It is read in the browser and never uploaded: the image stays with the
+  // reader, which is the only place a client picture can safely be.
+  const upload = document.querySelector("[data-insp-upload]");
+  if (upload) {
+    const input = document.createElement("input");
+    input.type = "file";
+    input.accept = "image/*";
+    input.hidden = true;
+    document.body.appendChild(input);
+    upload.addEventListener("click", () => input.click());
+    input.addEventListener("change", () => {
+      const file = input.files && input.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        const box = document.querySelector("[data-insp-image]");
+        if (!box) return;
+        box.hidden = false;
+        box.innerHTML = `<img src="${reader.result}" alt="a photograph of ${escapeHtml(part.name || "the part")}" />`;
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+
   // Clicking a part opens it. In the 2D figure the parts are the drawing's
   // groups; in the 3D one they are the live layers' groups. Both carry the
   // part's name, so one handler serves both.

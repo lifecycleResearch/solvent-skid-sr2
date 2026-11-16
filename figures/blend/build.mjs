@@ -94,6 +94,8 @@ const body = k.plateHtml({
     <button type="button" class="sk-btn" data-filter-btn="colour" aria-pressed="false">by colour</button>
     <span class="sk-sep"></span>
     <button type="button" class="sk-btn" data-review-toggle aria-pressed="false">the review</button>
+    <button type="button" class="sk-btn" data-legitimacy-toggle aria-pressed="false">legitimacy</button>
+    <button type="button" class="sk-btn" data-diagram-toggle aria-pressed="false">diagrams</button>
     <button type="button" class="sk-btn" data-sop-toggle aria-pressed="false">the SOP</button>
     <span class="sk-live" aria-live="polite" data-sk-live></span>
   </div>
@@ -106,7 +108,35 @@ const body = k.plateHtml({
       <button type="button" data-insp-close title="close">✕</button>
     </header>
     <div class="sk-insp-body" data-insp-body></div>
+    <div class="sk-insp-image" data-insp-image hidden></div>
+    <footer class="sk-insp-foot">
+      <button type="button" data-insp-upload>attach a photograph</button>
+      <span>the picture stays in this browser</span>
+    </footer>
   </aside>
+  <section class="sk-legitimacy" data-legitimacy hidden>
+    <div class="sk-review-head">
+      <h3>Is this real?</h3>
+      <p data-legitimacy-verdict></p>
+    </div>
+    <div class="sk-legitimacy-cols">
+      <div>
+        <h4>What applies to the plant</h4>
+        <ul class="sk-legitimacy-rules" data-legitimacy-rules></ul>
+      </div>
+      <div>
+        <h4>What is still open</h4>
+        <ul class="sk-legitimacy-open" data-legitimacy-open></ul>
+      </div>
+    </div>
+  </section>
+  <section class="sk-diagrams" data-diagrams hidden>
+    <div class="sk-review-head">
+      <h3>The process, as a diagram</h3>
+      <p>Mermaid: paste it into any tool that reads it.</p>
+    </div>
+    <div class="sk-diagram-list" data-diagram-list></div>
+  </section>
   <section class="sk-review" data-review hidden>
     <div class="sk-review-head">
       <h3>The review</h3>
