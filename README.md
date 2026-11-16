@@ -96,16 +96,26 @@ uses it when the request carries the shared secret
 ## The template: a spec, drawn
 
 The skid is the first instance of a template. The second instance is the
-worked example, **/blend.html**: the sub-zero blend extraction, drawn from
-`spec/subzero-blend.json` and nothing else.
+worked example, and it comes in two forms:
+
+* **`/blend.html`** — the drawn spec: the sub-zero blend extraction, drawn
+  from `spec/subzero-blend.json` and nothing else.
+* **`/blend3d.html`** — the same plant in three dimensions, by the anatomy
+  kit's own 3D engine: every part is re-projected and re-shaded each frame and
+  the draw order is solved from separating planes, so the plant is drawn
+  correctly from any angle.
 
 ```bash
 node figures/blend/build.mjs      # the spec -> the drawing
+node figures/blend3d/build.mjs     # the spec -> the plant in three dimensions
 ```
 
-* **Turn it.** The arrows turn the plant. A turn is a redraw: the page holds
-  the scene and the drawing code, so the plant is recomputed from its geometry
-  at the new angle, not turned as a picture.
+* **Turn it.** Drag the plant: sideways turns it, up and down tips it. A turn
+  is a redraw, not a picture turned round.
+* **Click it.** Every part opens its record: what it is, what it does, the
+  details that make it this part — each with the spec field it came from —
+  and its application in this process: the steps, the streams in and out, the
+  targets, the notes and the acceptance criterion.
 * **Filter it.** By compound (which parts of the plant touch the CBD), by
   function (heat exchange, storage, reaction, separation, pipe runs,
   filtration) or by colour. What is not in the filter is dimmed, not hidden:
@@ -115,10 +125,32 @@ node figures/blend/build.mjs      # the spec -> the drawing
   the tri-clamp spool size. The SOP panel holds the steps, their acceptance
   criteria, the material register, the vessel register and the assumptions
   that are still open.
+* **Check it.** The review panel shows the design grade — every part has a
+  record, every number has a source, every part has evidence, every step can
+  fail, the mass closes — and the state of the evidence part by part.
 
 The drawing code lives in `figures/lib/scene.mjs` and is used twice: by the
 build, to draw the static page, and by the page, to redraw it. One renderer,
 so the two can never disagree.
+
+## The evidence
+
+The proof behind each part is retrieved, not asserted.
+
+```bash
+node sim/evidence.mjs spec/subzero-blend.json
+```
+
+It asks **OpenAlex**, **Crossref** and **Google Patents** (or **PatentsView**,
+when `PATENTSVIEW_API_KEY` is set) the questions the spec says each part has
+to be able to answer, and filters the hits by the subject: a keyword search
+returns the neighbours of the subject as readily as the subject, so each topic
+names the subject and the supporting terms, and a hit that misses the subject
+is kept as a neighbour and shown as one.
+
+The API serves it: `/api/evidence` (everything), `/api/evidence?topic=…` (one
+question), `/api/catalogue` (the parts), `/api/catalogue?id=V-103` (one
+part), `/api/design` (the grade).
 
 ## The spec and the simulation
 

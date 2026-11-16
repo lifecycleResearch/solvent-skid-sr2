@@ -5,7 +5,7 @@
   "type": "module",
   "description": "The solvent recovery skid SR-2 figure, its chatbot and its API. No dependencies: the anatomy kit is Node built-ins.",
   "scripts": {
-    "build": "node figures/skid/build.mjs && node figures/skid/build.mjs --light && node figures/blend/build.mjs && node figures/skid/build-index.mjs",
+    "build": "node figures/skid/build.mjs && node figures/skid/build.mjs --light && node figures/blend/build.mjs && node figures/blend3d/build.mjs && node figures/skid/build-index.mjs",
     "audit": "node figures/skid/build.mjs --audit",
     "lines": "node scripts/lines.mjs deploy/public/skid-light.html",
     "spec": "node spec/validate.mjs spec/subzero-blend.json",

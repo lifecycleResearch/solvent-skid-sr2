@@ -25,6 +25,7 @@ jobs:
           node figures/skid/build.mjs
           node figures/skid/build.mjs --light
           node figures/blend/build.mjs
+          node figures/blend3d/build.mjs
           node figures/skid/build-index.mjs
 
       - name: Check that every line in the drawing ends on something

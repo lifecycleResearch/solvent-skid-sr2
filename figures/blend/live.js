@@ -9,7 +9,7 @@
 const SCENE = __SCENE__;
 const stage = document.querySelector(".sk-stage");
 const svg = stage.querySelector("svg");
-const liveEl = document.querySelector("[data-live]");
+const liveEl = document.querySelector("[data-sk-live]");
 const filterBox = document.querySelector("[data-filters]");
 const sopBox = document.querySelector("[data-sop]");
 

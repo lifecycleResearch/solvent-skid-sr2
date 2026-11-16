@@ -263,7 +263,8 @@ export function sceneOf(spec, { gap = null } = {}) {
     }
   }
 
-  // The pipe runs.
+  // The pipe runs. Each gets its own level and its own lane on the rack.
+  let pipeLevel = 0;
   for (const connection of spec.connections || []) {
     const from = places.get(connection.from);
     const to = places.get(connection.to);
@@ -275,8 +276,9 @@ export function sceneOf(spec, { gap = null } = {}) {
       material: stream ? (stream.composition || []).map((p) => p.material).join(" ") : "",
       colour: stream && stream.colour ? stream.colour : "",
     };
-    const header = Math.max(from.h, to.h) + 45;
-    const yRun = from.y + (to.y > from.y ? -from.r - 18 : from.r + 18);
+    const level = pipeLevel++;
+    const header = Math.max(from.h, to.h) + 34 + level * 9;
+    const yRun = -70 - level * 9;
     const points = [
       [from.x, from.y - from.r * 0.2, from.h * 0.8],
       [from.x, from.y - from.r * 0.2, header],
@@ -321,7 +323,7 @@ export function sceneOf(spec, { gap = null } = {}) {
     name: spec.meta && spec.meta.name,
     items,
     bounds,
-    places: Object.fromEntries([...places].map(([id, place]) => [id, { x: place.x, y: place.y, r: place.r, h: place.h, fn: place.fn }])),
+    places: Object.fromEntries([...places].map(([id, place]) => [id, { x: place.x, y: place.y, z: place.z, r: place.r, h: place.h, litres: place.litres, fn: place.fn }])),
   };
 }
 

@@ -1,0 +1,28 @@
+/* The 3D figure: the stage and its live layers. */
+
+/* The stage holds the live layers, which the kit positions over it. Its
+   height comes from the drawing: the same ratio as the figure. */
+.iso-stage.iso-turn.td-stage {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1240 / 900;
+  touch-action: none;
+  cursor: grab;
+}
+.iso-stage.iso-turn.td-stage[data-drag] { cursor: grabbing; }
+.iso-stage.iso-turn.td-stage .iso-layer [data-name] { pointer-events: auto; }
+.iso-stage.iso-turn.td-stage [data-name] { cursor: pointer; }
+
+/* The plant in the house colours: pale vessels on a dark deck, the way the
+   2D figure is drawn. The kit materials are metals; these are the plant. */
+[data-mat="steel"] {
+  --mat-body: #cfd4d8;
+  --mat-shine: #eef1f3;
+  --mat-shade: #949ca2;
+}
+[data-mat="gunmetal"] {
+  --mat-body: #394046;
+  --mat-shine: #4d555c;
+  --mat-shade: #22272c;
+}

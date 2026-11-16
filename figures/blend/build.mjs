@@ -90,7 +90,7 @@ const body = k.plateHtml({
     <span class="sk-sep"></span>
     <button type="button" class="sk-btn" data-review-toggle aria-pressed="false">the review</button>
     <button type="button" class="sk-btn" data-sop-toggle aria-pressed="false">the SOP</button>
-    <span class="sk-live" aria-live="polite" data-live></span>
+    <span class="sk-live" aria-live="polite" data-sk-live></span>
   </div>
   <div class="sk-filters" data-filters hidden></div>
   <aside class="sk-inspector" data-inspector hidden>    <header>
