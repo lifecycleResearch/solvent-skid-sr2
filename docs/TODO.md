@@ -156,3 +156,37 @@ pressures to 1 %, the azeotrope comparison, the balance, the units).
 Everything else can be done in parallel by anyone (or any agent) with the spec
 in hand. The critical path is short because the preload is a *design* problem:
 once the spec drives the figure, a new experiment is a spec, not a drawing.
+
+---
+
+## Landed on 2026-11-16
+
+- The **legitimacy register** (`figures/lib/legitimacy.mjs`, `/api/legitimacy`):
+  the standard, the rule, the evidence and the open question for each part.
+- The **safety question list** (`spec.subzero-blend.json`, S-01…S-12), with a
+  rule and an owner per question. The judge's safety score moved 2/5 → 3/5.
+- **Mermaid**, one diagram per process and one per operation (`/api/mermaid`).
+- **References**: PubChem structures and GHS statements (`/api/compound`), and
+  the evidence as BibTeX (`/api/references`).
+- **Guardrails and trimming** (`deploy/prompt.mjs`): the prompt is the parts
+  the question touches, with the rules in front of it.
+- **Email and password accounts** (`deploy/auth.mjs`, KV `ACCOUNTS`): signed
+  sessions, sealed BYOK keys, and an agent that acts under the person's
+  identity. PBKDF2 at 100 000 rounds, because Workers refuses more.
+- The **private photograph** in both inspectors: read in the browser, never
+  uploaded.
+- **n8n self-hosted** on port 5679, workflow imported and executed end to end.
+- The **isolated audit**: an OpenShell policy with no network at all.
+
+## Still open
+
+1. A free `PATENTSVIEW_API_KEY` — 0 of 9 topics have patents; Google Patents
+   returns 503 from this IP. This is the only thing blocking the patent claim.
+2. The client's CDA-12 ratio, assay, plant volumes and sub-zero duty (A1–A4).
+3. Thin CBD-crystallisation literature (4 papers, fit 0.33): state it as a
+   finding or lean on patents once (1) is done.
+4. `CLOUDFLARE_API_TOKEN` in CI, so deploys stop depending on the laptop.
+5. The geometry audit baseline in `figures/skid/build.mjs --audit`
+   (810 problems: clearance, terminals, sunk pairs, depth order, crowding).
+6. A `GITHUB_TOKEN` in the n8n container if the last two workflow nodes
+   should open issues and publish reviews.

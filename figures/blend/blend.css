@@ -461,3 +461,20 @@
   cursor: pointer;
 }
 .sk-insp-foot span { font: 10px/1.4 var(--anatomy-mono); color: var(--anatomy-muted); }
+
+/* The safety questions: numbered, attributed, and visibly open. */
+.sk-safety {
+  margin: 18px 0 4px;
+  border: 1px solid var(--anatomy-mid);
+  border-radius: 10px;
+  background: var(--anatomy-card);
+  padding: 16px 18px;
+}
+.sk-safety[hidden] { display: none; }
+.sk-safety-list { margin: 14px 0 0; padding-left: 20px; }
+.sk-safety-list li { display: grid; gap: 3px; padding: 9px 0; border-bottom: 1px solid var(--anatomy-faint); font-size: 12px; }
+.sk-safety-list li b { color: var(--anatomy-strong); font: 600 11px/1.4 var(--anatomy-mono); letter-spacing: 0.02em; }
+.sk-safety-list li span { color: var(--anatomy-muted); font: 10px/1.4 var(--anatomy-mono); }
+.sk-safety-list li i { font-style: normal; color: var(--anatomy-text); }
+.sk-safety-list li em { font-style: normal; color: var(--anatomy-muted); font: 10px/1.4 var(--anatomy-mono); }
+.sk-safety-list li.closed b { text-decoration: line-through; }

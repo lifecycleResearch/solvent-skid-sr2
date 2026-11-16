@@ -18,6 +18,26 @@ import { judgeContext } from "./design.mjs";
 import { compound, bibliography } from "./science.mjs";
 import { legitimacyOf } from "../figures/lib/legitimacy.mjs";
 import { mermaidSet } from "../figures/lib/mermaid.mjs";
+import { safetyOf } from "../figures/lib/safety.mjs";
+import {
+  hashPassword,
+  randomSalt,
+  sha256,
+  sealKey,
+  sessionCookie,
+  clearCookie,
+  cookieOf,
+  signSession,
+  sessionUser,
+  keyFor,
+  recentAttempts,
+  noteAttempt,
+  clearAttempts,
+  storeOf,
+  userKey,
+  sessionKey,
+  keyKey,
+} from "./auth.mjs";
 import { systemPrompt, estimateTokens } from "./prompt.mjs";
 import RUBRIC from "../evals/rubrics/design.json" with { type: "json" };
 
@@ -197,7 +217,19 @@ async function chat(request, env) {
   const secret = request.headers.get("x-chat-secret");
   const serverAllowed = env.CHAT_SECRET && secret === env.CHAT_SECRET;
   const serverKey = provider === "gemini" ? env.GEMINI_API_KEY : env.OPENAI_API_KEY;
-  const key = String(body.key || "").trim() || (serverAllowed ? serverKey : "");
+  let key = String(body.key || "").trim() || (serverAllowed ? serverKey : "");
+
+  // A signed-in person's own key, used for them, without them pasting it
+  // every time: this is what lets an agent act under someone's identity.
+  const accountStore = storeOf(env);
+  if (!key && accountStore && env.SESSION_SECRET) {
+    const user = await sessionUser(request, env.SESSION_SECRET, accountStore);
+    if (user) {
+      const stored = await keyFor(accountStore, user.id, provider, env.SESSION_SECRET);
+      if (stored) key = stored;
+      body.as = user.email;
+    }
+  }
 
   const messages = asMessages(body.messages);
   if (!messages.length) return json({ error: "no messages" }, 400);
@@ -319,6 +351,82 @@ async function chat(request, env) {
 
 const encoder = new TextEncoder();
 
+/**
+ * The accounts: register, sign in, sign out, who am I, and the key that
+ * belongs to me.
+ *
+ * The session is a cookie; the key is sealed with a Worker secret before it
+ * is written; and the failed sign-ins are counted, so a password cannot be
+ * guessed by repetition.
+ */
+async function auth(request, env, path) {
+  const store = storeOf(env);
+  if (!store) return json({ error: "this Worker has no account store" }, 501);
+  const secret = env.SESSION_SECRET;
+  if (!secret) return json({ error: "this Worker has no session secret" }, 501);
+
+  if (path === "/api/auth/me") {
+    const user = await sessionUser(request, secret, store);
+    if (!user) return json({ user: null });
+    const listed = await store.list({ prefix: `key:${user.id}:`, limit: 10 });
+    return json({ user, keys: (listed.keys || []).map((k) => k.name.split(":")[2]) });
+  }
+
+  if (path === "/api/auth/logout") {
+    const token = cookieOf(request);
+    if (token) await store.delete(sessionKey(await sha256(token)));
+    return json({ ok: true }, 200, { "set-cookie": clearCookie() });
+  }
+
+  if (path === "/api/auth/register") {
+    const body = await request.json().catch(() => ({}));
+    const email = String(body.email || "").trim().toLowerCase();
+    const password = String(body.password || "");
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return json({ error: "that is not an email address" }, 400);
+    if (password.length < 10) return json({ error: "use at least ten characters" }, 400);
+    if (await store.get(userKey(email))) return json({ error: "there is already an account with that address" }, 409);
+    const salt = randomSalt();
+    const hash = await hashPassword(password, salt);
+    const id = crypto.randomUUID();
+    await store.put(userKey(email), { id, email, salt, passwordHash: hash, createdAt: new Date().toISOString() });
+    return json({ ok: true, email }, 201);
+  }
+
+  if (path === "/api/auth/login") {
+    const body = await request.json().catch(() => ({}));
+    const email = String(body.email || "").trim().toLowerCase();
+    const password = String(body.password || "");
+    if (await recentAttempts(store, email) > 10) return json({ error: "too many attempts; wait a quarter of an hour" }, 429);
+    const user = await store.get(userKey(email));
+    const hash = user ? await hashPassword(password, user.salt) : null;
+    if (!user || hash !== user.passwordHash || user.disabled) {
+      await noteAttempt(store, email);
+      return json({ error: "the address or the password is wrong" }, 401);
+    }
+    await clearAttempts(store, email);
+    // A signed cookie, so the next request does not have to wait for KV to
+    // catch up. The user record was read here, where consistency matters.
+    const token = await signSession({ id: user.id, email: user.email }, secret);
+    return json({ ok: true, email: user.email }, 200, { "set-cookie": sessionCookie(token) });
+  }
+
+  if (path === "/api/auth/key") {
+    const user = await sessionUser(request, secret, store);
+    if (!user) return json({ error: "sign in first" }, 401);
+    const body = await request.json().catch(() => ({}));
+    const provider = String(body.provider || "gemini").toLowerCase();
+    const key = String(body.key || "").trim();
+    if (!key) {
+      await store.delete(keyKey(user.id, provider));
+      return json({ ok: true, provider, cleared: true });
+    }
+    await store.put(keyKey(user.id, provider), { sealed: await sealKey(key, secret) });
+    return json({ ok: true, provider });
+  }
+
+  return json({ error: "no such account route" }, 404);
+}
+
 // A plain text stream, wrapped in the frames the page reads.
 function asSseText(upstream) {
   const reader = upstream.body.getReader();
@@ -429,6 +537,16 @@ export default {
         if (!cas) return json({ error: "give a CAS number" }, 400);
         const found = await compound(cas);
         return json(found, 200, { "cache-control": "public, max-age=86400" });
+      }
+      if (path === "/api/auth/register" || path === "/api/auth/login" || path === "/api/auth/logout" || path === "/api/auth/me" || path === "/api/auth/key") {
+        return auth(request, env, path);
+      }
+      if (path === "/api/safety") {
+        // The safety questions: what has to be closed, and by whom.
+        const slug = url.searchParams.get("spec") || "blend";
+        const res = await env.ASSETS.fetch(new Request(`https://assets/spec-${slug}.json`));
+        if (!res.ok) return json({ error: "the specification is not built yet" }, 404);
+        return json(safetyOf(await res.json()), 200, { "cache-control": "public, max-age=300" });
       }
       if (path === "/api/specs") {
         // Which experiments this deployment carries.

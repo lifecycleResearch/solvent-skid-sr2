@@ -85,6 +85,11 @@ const body = k.plateHtml({
       <button type="button" data-insp-close title="close">✕</button>
     </header>
     <div class="sk-insp-body" data-insp-body></div>
+    <div class="sk-insp-image" data-insp-image hidden></div>
+    <footer class="sk-insp-foot">
+      <button type="button" data-insp-upload>attach a photograph</button>
+      <span>the picture stays in this browser</span>
+    </footer>
   </aside>`,
 });
 

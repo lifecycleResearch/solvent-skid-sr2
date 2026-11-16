@@ -306,6 +306,36 @@ if (legitimacyToggle) {
   });
 }
 
+// ------------------------------------------------------------------ safety ---
+//
+// The safety section is a question list, not a set of conclusions. Each entry
+// names the rule it comes from and the person who closes it, because a
+// question with an owner is a task and a task can be closed.
+
+const safetyBox = document.querySelector("[data-safety]");
+const safetyToggle = document.querySelector("[data-safety-toggle]");
+if (safetyToggle) {
+  safetyToggle.addEventListener("click", async () => {
+    safetyBox.hidden = !safetyBox.hidden;
+    safetyToggle.setAttribute("aria-pressed", safetyBox.hidden ? "false" : "true");
+    if (safetyBox.hidden || safetyBox.dataset.filled) return;
+    const res = await fetch("/api/safety?spec=blend");
+    const safety = await res.json();
+    safetyBox.dataset.filled = "true";
+    document.querySelector("[data-safety-verdict]").textContent =
+      safety.note || `${safety.open} open of ${safety.questions.length}`;
+    document.querySelector("[data-safety-list]").innerHTML = (safety.questions || [])
+      .map(
+        (q) =>
+          `<li${q.closed ? ' class="closed"' : ""}><b>${escapeHtml(q.id)} ${escapeHtml(q.topic)}</b>` +
+          `<span>${escapeHtml(q.rule)}</span>` +
+          `<i>${escapeHtml(q.question)}</i>` +
+          `<em>${escapeHtml(q.owner)}</em></li>`,
+      )
+      .join("");
+  });
+}
+
 // ---------------------------------------------------------------- diagrams ---
 //
 // The process, as Mermaid: one diagram for the chain and one per operation.
@@ -404,9 +434,12 @@ function partHtml(part) {
     ${evidence ? `<section><h4>The evidence</h4>${evidence}</section>` : ""}`;
 }
 
+let currentPart = null;
+
 function showPart(id) {
   const part = (CATALOGUE || []).find((p) => p.id === id);
   if (!part || !inspector) return;
+  currentPart = part;
   inspTitle.textContent = part.name;
   inspKind.textContent = `${part.id} · ${part.type || part.kind} · ${part.function}`;
   inspBody.innerHTML = partHtml(part);
@@ -419,6 +452,30 @@ if (inspector) {
   document.querySelector("[data-insp-close]").addEventListener("click", () => {
     inspector.hidden = true;
   });
+
+  // A photograph of the actual vessel, read in the browser and never
+  // uploaded. A client's picture of their own plant stays with them.
+  const upload = document.querySelector("[data-insp-upload]");
+  if (upload) {
+    const input = document.createElement("input");
+    input.type = "file";
+    input.accept = "image/*";
+    input.hidden = true;
+    document.body.appendChild(input);
+    upload.addEventListener("click", () => input.click());
+    input.addEventListener("change", () => {
+      const file = input.files && input.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        const box = document.querySelector("[data-insp-image]");
+        if (!box) return;
+        box.hidden = false;
+        box.innerHTML = `<img src="${reader.result}" alt="a photograph of ${escapeHtml((currentPart && currentPart.name) || "the part")}" />`;
+      };
+      reader.readAsDataURL(file);
+    });
+  }
 }
 
 // Clicking a part opens it. The parts are the drawing's groups, and so are

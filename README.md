@@ -292,6 +292,74 @@ No npm and no dependencies: the kit is Node built-ins only.
   bosses. Those are the next things to fix, in the geometry rather than in the
   painter's keys.
 
+## The legitimacy, the safety, and the agents
+
+The figure now answers a harder question than "what is it": **is it real?**
+The register at `/api/legitimacy?spec=blend` says what each part is built to
+(ASME VIII, ASME BPE, a monograph), what applies to it (DOT 49 CFR, PSM and
+RMP, RCRA, the Clean Air Act, food contact), and what is still open. Of the
+32 parts, 27 are open and 145 questions have to be closed. A register that
+only lists what is settled is a brochure.
+
+The safety section in the spec is a **question list, not answers**: twelve
+questions (S-01…S-12), each with the rule it comes from and the person who
+closes it. It is at `/api/safety?spec=blend` and in the page's *safety*
+panel. The rubric judge, which scored safety 2/5 when the section was empty,
+now scores it 3/5 and the whole design 0.788 against a 0.75 pass mark.
+
+The other new endpoints: `/api/mermaid` (one diagram for the chain and one
+per operation), `/api/references` (the evidence as BibTeX), `/api/compound?cas=`
+(a CAS number to a structure and GHS statements through PubChem), and the
+account routes `/api/auth/*`.
+
+### Accounts and the agent
+
+Sign in with email and a password; an agent then acts under that identity and
+uses the person's own model key. Passwords are PBKDF2 hashes with a per-user
+salt (100 000 rounds — the Workers runtime refuses more), session cookies are
+HMAC-signed and carry their own expiry, and a stored model key is sealed with
+AES-GCM under `SESSION_SECRET` before it reaches KV. KV is eventually
+consistent, so the session is deliberately **not** looked up in KV on each
+request: logging out clears the cookie, and changing the secret revokes every
+session at once. The free-tier KV namespace `ACCOUNTS` holds the account
+records; there is no D1 database, because the account was at its D1 limit.
+
+### The private photograph
+
+A part's record takes a photograph. The file is read by the browser and
+never uploaded; it sits beside that part's record for as long as the page is
+open. A client's picture of their own plant stays on their machine. It is in
+both the 2D and the 3D inspector.
+
+### n8n, on this Mac
+
+The workflow in `agents/n8n/solvent-skid-pipeline.json` runs in its own
+container so it cannot disturb the other n8n already here:
+
+```bash
+docker run -d --name n8n-skid -p 5679:5678 \
+  -v n8n_skid_final:/home/node/.n8n \
+  -e N8N_SECURE_COOKIE=false -e GENERIC_TIMEZONE=UTC \
+  docker.n8n.io/n8nio/n8n:latest
+```
+
+UI: **http://localhost:5679**. The workflow has a schedule (twelve hours)
+and an *Execute Workflow Trigger* for on-demand runs; it was imported and
+executed end-to-end successfully. It produces a grade, the rubric verdict,
+the evidence gaps, the safety questions, the open questions, and a report.
+The last two nodes open a GitHub issue and publish a review; put a token in
+the container as `GITHUB_TOKEN` (with `repo` scope) if you want those
+steps to write. Everything before them is free and needs no key.
+
+### The audit, in isolation
+
+`openshell/audit.policy.yaml` has **no network policies at all**, so a
+sandbox created from it has no route to any host. The geometry audit runs
+there, with the repository copied in. `node scripts/audit-sandbox.mjs` first
+proves the isolation (OpenAlex returns 000 from inside) and then runs the
+audit. The gateway config now names OrbStack's socket explicitly, because
+OpenShell otherwise looks for `/var/run/docker.sock`.
+
 ## One thing left for you
 
 The CI deploy step needs a Cloudflare API token, which cannot be minted from

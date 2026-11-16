@@ -96,6 +96,7 @@ const body = k.plateHtml({
     <button type="button" class="sk-btn" data-review-toggle aria-pressed="false">the review</button>
     <button type="button" class="sk-btn" data-legitimacy-toggle aria-pressed="false">legitimacy</button>
     <button type="button" class="sk-btn" data-diagram-toggle aria-pressed="false">diagrams</button>
+    <button type="button" class="sk-btn" data-safety-toggle aria-pressed="false">safety</button>
     <button type="button" class="sk-btn" data-sop-toggle aria-pressed="false">the SOP</button>
     <span class="sk-live" aria-live="polite" data-sk-live></span>
   </div>
@@ -129,6 +130,13 @@ const body = k.plateHtml({
         <ul class="sk-legitimacy-open" data-legitimacy-open></ul>
       </div>
     </div>
+  </section>
+  <section class="sk-safety" data-safety hidden>
+    <div class="sk-review-head">
+      <h3>What has to be closed before it is built</h3>
+      <p data-safety-verdict></p>
+    </div>
+    <ol class="sk-safety-list" data-safety-list></ol>
   </section>
   <section class="sk-diagrams" data-diagrams hidden>
     <div class="sk-review-head">

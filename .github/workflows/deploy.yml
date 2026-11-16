@@ -41,7 +41,7 @@ jobs:
           node sim/massbalance.mjs spec/subzero-blend.json
 
       - name: Test the simulation
-        run: node --test sim/sim.test.mjs deploy/legitimacy.test.mjs
+        run: node --test sim/sim.test.mjs deploy/legitimacy.test.mjs deploy/auth.test.mjs
 
       - name: Check the plant
         run: node scripts/watchdog.mjs

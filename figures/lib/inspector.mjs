@@ -102,7 +102,7 @@ export function installInspector({ catalogue, stage, svg, onChange }) {
         const box = document.querySelector("[data-insp-image]");
         if (!box) return;
         box.hidden = false;
-        box.innerHTML = `<img src="${reader.result}" alt="a photograph of ${escapeHtml(part.name || "the part")}" />`;
+        box.innerHTML = `<img src="${reader.result}" alt="a photograph of ${escapeHtml((part && part.name) || "the part")}" />`;
       };
       reader.readAsDataURL(file);
     });

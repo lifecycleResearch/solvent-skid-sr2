@@ -26,3 +26,25 @@
   --mat-shine: #4d555c;
   --mat-shade: #22272c;
 }
+
+/* The photograph: read in the browser, never uploaded. */
+.sk-insp-image { padding: 0 16px 12px; }
+.sk-insp-image img { max-width: 100%; max-height: 260px; border-radius: 6px; border: 1px solid var(--anatomy-faint); }
+.sk-insp-foot {
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 16px;
+  border-top: 1px solid var(--anatomy-faint);
+  background: var(--anatomy-page);
+}
+.sk-insp-foot button {
+  border: 1px solid var(--anatomy-mid);
+  border-radius: 5px;
+  background: transparent;
+  color: var(--anatomy-text);
+  font: 10px/1 var(--anatomy-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 7px 10px;
+  cursor: pointer;
+}
+.sk-insp-foot span { font: 10px/1.4 var(--anatomy-mono); color: var(--anatomy-muted); }

@@ -3,19 +3,19 @@
   "nodes": [
     {
       "parameters": {
-        "method": "POST",
-        "url": "https://solvent-skid-sr2.lifecyclerd.workers.dev/api/grade",
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={{ JSON.stringify({ answer: $json.spec, checks: { mustInclude: ['$json.meta.name'], minWords: 40 } }) }}",
+        "method": "GET",
+        "url": "https://solvent-skid-sr2.lifecyclerd.workers.dev/api/design?spec=blend",
         "options": {}
       },
       "id": "a1000000-0000-4000-8000-000000000001",
       "name": "1 · check the specification reads",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [-640, 300],
-      "notes": "The first gate: does the specification say what it is supposed to say? A document that fails here never reaches the drawing."
+      "position": [
+        -640,
+        300
+      ],
+      "notes": "The first gate: the same deterministic graders the watchdog uses. A spec that fails here never reaches the drawing."
     },
     {
       "parameters": {
@@ -31,7 +31,11 @@
               "id": "c1000000-0000-4000-8000-000000000001",
               "leftValue": "={{ $json.passed }}",
               "rightValue": true,
-              "operator": { "type": "boolean", "operation": "true", "singleValue": true }
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
             }
           ],
           "combinator": "and"
@@ -42,12 +46,20 @@
       "name": "the specification reads",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
-      "position": [-440, 300]
+      "position": [
+        -440,
+        300
+      ]
     },
     {
       "parameters": {
         "rule": {
-          "interval": [{ "field": "hours", "hoursInterval": 12 }]
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 12
+            }
+          ]
         },
         "options": {}
       },
@@ -55,7 +67,10 @@
       "name": "every twelve hours",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
-      "position": [-860, 100]
+      "position": [
+        -860,
+        100
+      ]
     },
     {
       "parameters": {
@@ -67,7 +82,10 @@
       "name": "2 · the legitimacy register",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [-240, 200],
+      "position": [
+        -240,
+        200
+      ],
       "notes": "What each component is built to, what applies to it, and what is still open. The open questions are the output."
     },
     {
@@ -78,7 +96,10 @@
       "name": "3 · the open questions",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [-40, 200]
+      "position": [
+        -40,
+        200
+      ]
     },
     {
       "parameters": {
@@ -90,7 +111,10 @@
       "name": "4 · the evidence",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [-240, 20],
+      "position": [
+        -240,
+        20
+      ],
       "notes": "The papers and the patents behind each part. A topic with nothing retrieved is a gap, not a failure."
     },
     {
@@ -101,7 +125,10 @@
       "name": "5 · the evidence gaps",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [-40, 20]
+      "position": [
+        -40,
+        20
+      ]
     },
     {
       "parameters": {
@@ -113,19 +140,27 @@
       "name": "6 · the design grade",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [-240, -160]
+      "position": [
+        -240,
+        -160
+      ]
     },
     {
       "parameters": {
         "method": "GET",
         "url": "https://solvent-skid-sr2.lifecyclerd.workers.dev/api/design?judge=1&spec=blend",
-        "options": { "timeout": 180000 }
+        "options": {
+          "timeout": 180000
+        }
       },
       "id": "a1000000-0000-4000-8000-000000000009",
       "name": "7 · the rubric judge",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [-240, -340],
+      "position": [
+        -240,
+        -340
+      ],
       "notes": "The judgement on top of the checks. On Cloudflare this runs on Workers AI, so it needs no key. The verdict is per criterion."
     },
     {
@@ -138,41 +173,63 @@
       "name": "8 · the process diagrams",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [-240, -520]
+      "position": [
+        -240,
+        -520
+      ]
     },
     {
       "parameters": {
         "method": "GET",
         "url": "https://solvent-skid-sr2.lifecyclerd.workers.dev/api/references?spec=blend",
-        "options": { "response": { "response": { "neverError": true } } }
+        "options": {
+          "response": {
+            "response": {
+              "neverError": true
+            }
+          }
+        }
       },
       "id": "a1000000-0000-4000-8000-000000000011",
       "name": "9 · the bibliography",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [-40, -160],
+      "position": [
+        -40,
+        -160
+      ],
       "notes": "BibTeX: the evidence a part rests on, ready to cite."
     },
     {
       "parameters": {
-        "jsCode": "// The report: the grade, the gaps, the verdict, and what is open.\nconst grade = $('6 · the design grade').first().json;\nconst rubric = $('7 · the rubric judge').first().json.rubric || {};\nconst gaps = $('5 · the evidence gaps').first().json.gaps || [];\nconst questions = $('3 · the open questions').all();\nconst lines = [];\nlines.push(`# ${grade.verdict} — ${grade.passedCount}/${grade.total} checks`);\nif (rubric.score !== undefined) lines.push(`Rubric: ${(rubric.score * 100).toFixed(0)}% (pass mark ${((rubric.passMark || 0.75) * 100).toFixed(0)}%)`);\nlines.push('', '## The checks that are failing');\nfor (const c of grade.checks.filter((c) => !c.ok)) lines.push(`- ${c.name}: ${c.detail}`);\nlines.push('', '## The evidence gaps');\nfor (const g of gaps) lines.push(`- ${g.topic}: ${g.papers} papers, ${g.patents} patents`);\nlines.push('', '## The open questions');\nfor (const q of questions) for (const text of q.json.questions) lines.push(`- ${q.json.part}: ${text}`);\nreturn [{ json: { report: lines.join('\\n') } }];"
+        "jsCode": "// The report: the grade, the gaps, the verdict, and what is open.\nconst grade = $('1 · check the specification reads').first().json;\nconst rubric = $('7 · the rubric judge').first().json.rubric || {};\nconst gaps = $('5 · the evidence gaps').first().json.gaps || [];\nconst questions = $('3 · the open questions').all();\nconst safety = $('7b · the safety questions').first().json;\nconst lines = [];\nlines.push(`# ${grade.verdict} — ${grade.passedCount}/${grade.total} deterministic checks`);\nif (rubric.score !== undefined) lines.push(`Rubric: ${(rubric.score * 100).toFixed(0)}% (pass mark ${((rubric.passMark || 0.75) * 100).toFixed(0)}%)`);\nlines.push('', '## The checks that are failing');\nfor (const c of grade.checks.filter((c) => !c.ok)) lines.push(`- ${c.name}: ${c.detail}`);\nlines.push('', '## The evidence gaps');\nfor (const g of gaps) lines.push(`- ${g.topic}: ${g.papers} papers, ${g.patents} patents`);\nlines.push('', '## The safety questions');\nfor (const q of safety.questions || []) lines.push(`- ${q.id} ${q.topic}: ${q.question} (owner: ${q.owner})`);\nlines.push('', '## The open questions');\nfor (const q of questions) for (const text of q.json.questions) lines.push(`- ${q.json.part}: ${text}`);\nreturn [{ json: { report: lines.join('\\n') } }];"
       },
       "id": "a1000000-0000-4000-8000-000000000012",
       "name": "10 · the report",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [160, 20]
+      "position": [
+        160,
+        20
+      ]
     },
     {
       "parameters": {
         "conditions": {
-          "options": { "caseSensitive": true, "version": 2 },
+          "options": {
+            "caseSensitive": true,
+            "version": 2
+          },
           "conditions": [
             {
               "id": "c1000000-0000-4000-8000-000000000003",
               "leftValue": "={{ $json.report.includes('failing') || $json.report.includes('gaps') }}",
               "rightValue": true,
-              "operator": { "type": "boolean", "operation": "true", "singleValue": true }
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
             }
           ],
           "combinator": "and"
@@ -183,23 +240,41 @@
       "name": "something to say",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
-      "position": [360, 20]
+      "position": [
+        360,
+        20
+      ]
     },
     {
       "parameters": {
         "method": "POST",
         "url": "https://api.github.com/repos/lifecycleResearch/solvent-skid-sr2/issues",
-        "authentication": "predefinedCredentialType",
+        "authentication": "none",
         "sendBody": true,
         "specifyBody": "json",
         "jsonBody": "={{ JSON.stringify({ title: 'The plant needs attention', body: $json.report }) }}",
-        "options": {}
+        "options": {},
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.GITHUB_TOKEN }}"
+            },
+            {
+              "name": "Accept",
+              "value": "application/vnd.github+json"
+            }
+          ]
+        }
       },
       "id": "a1000000-0000-4000-8000-000000000014",
       "name": "11 · open an issue",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [560, 20],
+      "position": [
+        560,
+        20
+      ],
       "notes": "The watchdog's voice: an issue with the report, so the gap is a task and not a note."
     },
     {
@@ -215,33 +290,228 @@
       "name": "12 · publish the review",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [560, -160]
+      "position": [
+        560,
+        -160
+      ]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "https://solvent-skid-sr2.lifecyclerd.workers.dev/api/safety?spec=blend",
+        "options": {}
+      },
+      "id": "a1000000-0000-4000-8000-000000000016",
+      "name": "7b · the safety questions",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -240,
+        -700
+      ],
+      "notes": "A question list, not conclusions: what has to be closed, the rule it comes from, and who closes it."
+    },
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "id": "a1000000-0000-4000-8000-000000000017",
+      "name": "0 · run on demand",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -640,
+        500
+      ],
+      "notes": "The same pipeline, by hand: the CLI can call this, or another workflow can."
     }
   ],
   "connections": {
-    "every twelve hours": { "main": [[{ "node": "1 · check the specification reads", "type": "main", "index": 0 }]] },
-    "1 · check the specification reads": { "main": [[{ "node": "the specification reads", "type": "main", "index": 0 }]] },
-    "the specification reads": {
+    "every twelve hours": {
       "main": [
         [
-          { "node": "2 · the legitimacy register", "type": "main", "index": 0 },
-          { "node": "4 · the evidence", "type": "main", "index": 0 },
-          { "node": "6 · the design grade", "type": "main", "index": 0 },
-          { "node": "7 · the rubric judge", "type": "main", "index": 0 },
-          { "node": "8 · the process diagrams", "type": "main", "index": 0 }
+          {
+            "node": "1 · check the specification reads",
+            "type": "main",
+            "index": 0
+          }
         ]
       ]
     },
-    "2 · the legitimacy register": { "main": [[{ "node": "3 · the open questions", "type": "main", "index": 0 }]] },
-    "4 · the evidence": { "main": [[{ "node": "5 · the evidence gaps", "type": "main", "index": 0 }]] },
-    "6 · the design grade": { "main": [[{ "node": "9 · the bibliography", "type": "main", "index": 0 }]] },
-    "9 · the bibliography": { "main": [[{ "node": "10 · the report", "type": "main", "index": 0 }]] },
-    "5 · the evidence gaps": { "main": [[{ "node": "10 · the report", "type": "main", "index": 0 }]] },
-    "7 · the rubric judge": { "main": [[{ "node": "10 · the report", "type": "main", "index": 0 }]] },
-    "8 · the process diagrams": { "main": [[{ "node": "10 · the report", "type": "main", "index": 0 }]] },
-    "10 · the report": { "main": [[{ "node": "something to say", "type": "main", "index": 0 }]] },
+    "1 · check the specification reads": {
+      "main": [
+        [
+          {
+            "node": "the specification reads",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "the specification reads": {
+      "main": [
+        [
+          {
+            "node": "2 · the legitimacy register",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "4 · the evidence",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "6 · the design grade",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "7 · the rubric judge",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "8 · the process diagrams",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "7b · the safety questions",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "2 · the legitimacy register": {
+      "main": [
+        [
+          {
+            "node": "3 · the open questions",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "4 · the evidence": {
+      "main": [
+        [
+          {
+            "node": "5 · the evidence gaps",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "6 · the design grade": {
+      "main": [
+        [
+          {
+            "node": "9 · the bibliography",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "9 · the bibliography": {
+      "main": [
+        [
+          {
+            "node": "10 · the report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "5 · the evidence gaps": {
+      "main": [
+        [
+          {
+            "node": "10 · the report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "7 · the rubric judge": {
+      "main": [
+        [
+          {
+            "node": "10 · the report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "8 · the process diagrams": {
+      "main": [
+        [
+          {
+            "node": "10 · the report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "10 · the report": {
+      "main": [
+        [
+          {
+            "node": "something to say",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
     "something to say": {
-      "main": [[{ "node": "11 · open an issue", "type": "main", "index": 0 }], [{ "node": "12 · publish the review", "type": "main", "index": 0 }]]
+      "main": [
+        [
+          {
+            "node": "11 · open an issue",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "12 · publish the review",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "7b · the safety questions": {
+      "main": [
+        [
+          {
+            "node": "10 · the report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "0 · run on demand": {
+      "main": [
+        [
+          {
+            "node": "1 · check the specification reads",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "settings": {

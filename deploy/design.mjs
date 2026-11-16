@@ -88,12 +88,28 @@ export function gradeDesign({ spec, evidence = { topics: {} }, catalogue = [], b
   const open = (spec.assumptions || []).filter((a) => !a.confirmed);
   check("the open assumptions are flagged", true, open.length ? `${open.length} assumptions are still open: ${open.map((a) => a.id).join(", ")}` : "every assumption is confirmed");
 
-  // 8. The mass closes, if the balance was run.
+  // 8. The safety questions are written down, each with a rule and an owner.
+  //    The check is that they exist and are attributed, not that they are
+  //    answered: an answered safety question is the client's EHS adviser's,
+  //    and a register that pretends otherwise is worse than one that is empty.
+  const safety = (spec.safety && spec.safety.questions) || [];
+  const unattributed = safety.filter((q) => !q.rule || !q.owner).map((q) => q.id);
+  check(
+    "the safety questions are written down",
+    safety.length >= 8 && unattributed.length === 0,
+    safety.length === 0
+      ? "the spec has no safety section"
+      : unattributed.length
+        ? `no rule or no owner: ${unattributed.join(", ")}`
+        : `${safety.length} questions, each with the rule it comes from and the person who closes it; ${safety.filter((q) => !q.closed).length} still open`,
+  );
+
+  // 9. The mass closes, if the balance was run.
   if (balance) {
     check("the mass balance closes", balance.closes, `worst closure error ${balance.worstClosureErrorPct} %`);
   }
 
-  // 9. Nothing confidential is published.
+  // 10. Nothing confidential is published.
   const confidential = spec.meta && spec.meta.confidentiality;
   check("the confidentiality mark is read", Boolean(confidential), confidential ? `marked ${confidential}` : "no confidentiality mark on the spec");
 
@@ -163,6 +179,13 @@ export function judgeContext(spec, catalogue = [], evidence = { topics: {} }) {
   lines.push("WHAT IS STILL AN ASSUMPTION");
   for (const assumption of spec.assumptions || []) {
     lines.push(`- ${assumption.id}${assumption.confirmed ? " (confirmed)" : " (open)"}: ${assumption.text}`);
+  }
+  lines.push("");
+  lines.push("THE SAFETY QUESTIONS (a question list, not conclusions)");
+  for (const q of (spec.safety && spec.safety.questions) || []) {
+    lines.push(`- ${q.id} ${q.topic}${q.closed ? " (closed)" : " (open)"}: ${q.question}`);
+    lines.push(`  rule: ${q.rule}`);
+    lines.push(`  owner: ${q.owner}`);
   }
   return lines.join("\n");
 }
