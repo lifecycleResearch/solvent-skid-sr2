@@ -115,3 +115,55 @@ export function summarise(grade) {
   const failed = grade.checks.filter((c) => !c.ok).map((c) => c.name);
   return `${grade.verdict} · ${grade.passedCount}/${grade.total} checks${failed.length ? ` · failing: ${failed.join(", ")}` : ""}`;
 }
+
+/**
+ * The context the rubric judge is given.
+ *
+ * The judge sees the specification and the record, not the drawing: the
+ * numbers, what each part is for, what the evidence says, and what is still
+ * an assumption. That is enough to judge a design, and it is the same
+ * material the deterministic checks read.
+ */
+export function judgeContext(spec, catalogue = [], evidence = { topics: {} }) {
+  const lines = [];
+  lines.push(`SPECIFICATION ${spec.meta.id} — ${spec.meta.name}`);
+  lines.push(spec.meta.subtitle || "");
+  lines.push("");
+  lines.push("WHAT THE PLANT IS");
+  for (const step of spec.process || []) {
+    const window = step.window || {};
+    const bits = Object.entries(window)
+      .filter(([, v]) => v && typeof v === "object" && "value" in v)
+      .map(([k, v]) => `${k} ${v.value} ${v.unit}`);
+    const acceptance = ((spec.sop && spec.sop.steps) || []).find((s) => s.id === step.id);
+    lines.push(`- ${step.id} ${step.name} (${step.kind})${bits.length ? `: ${bits.join(", ")}` : ""}`);
+    if (acceptance) lines.push(`  accept: ${acceptance.acceptance}`);
+  }
+  lines.push("");
+  lines.push("THE PARTS");
+  for (const part of catalogue) {
+    lines.push(`- ${part.id} ${part.name} (${part.type}): ${part.what.text}`);
+    const details = (part.details || []).map((d) => `${d.label} ${d.value}`).join("; ");
+    if (details) lines.push(`  ${details}`);
+    const carries = (part.here.streams || []).join(", ");
+    if (carries) lines.push(`  carries: ${carries}`);
+  }
+  lines.push("");
+  lines.push("THE EVIDENCE");
+  for (const [id, topic] of Object.entries(evidence.topics || {})) {
+    const papers = (topic.papers || []).slice(0, 4).map((p) => `${p.title} (${p.year || "?"})`);
+    const patents = (topic.patents || []).slice(0, 3).map((p) => `${p.number} ${p.title}`);
+    lines.push(`- ${id}: ${topic.why || ""}`);
+    lines.push(`  query: ${topic.query}`);
+    for (const paper of papers) lines.push(`  paper: ${paper}`);
+    for (const patent of patents) lines.push(`  patent: ${patent}`);
+    if (!papers.length && !patents.length) lines.push("  nothing retrieved");
+  }
+  lines.push("");
+  lines.push("WHAT IS STILL AN ASSUMPTION");
+  for (const assumption of spec.assumptions || []) {
+    lines.push(`- ${assumption.id}${assumption.confirmed ? " (confirmed)" : " (open)"}: ${assumption.text}`);
+  }
+  return lines.join("\n");
+}
+

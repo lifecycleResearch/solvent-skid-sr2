@@ -1,0 +1,49 @@
+{
+  "name": "The design of a process, reviewed",
+  "version": 1,
+  "passMark": 0.75,
+  "note": "The rubric the judge uses. The deterministic checks in deploy/design.mjs are the floor; this is the judgement on top of them: is this a plant a chemist would sign, and is it honest about what it does not know.",
+  "criteria": [
+    {
+      "name": "The flows make chemical sense",
+      "weight": 3,
+      "description": "Every stream goes where the chemistry says it should, the composition of every stream is consistent with the operation that made it, and the phase changes are right (a vapour cannot be pumped, a mother liquor cannot be filtered as a solid)."
+    },
+    {
+      "name": "The operating window is defensible",
+      "weight": 2,
+      "description": "The temperatures, pressures and hold times are inside the range the literature and the equipment support, and the spec says which of its numbers are assumptions rather than facts."
+    },
+    {
+      "name": "The separation is the hard part, and it is answered",
+      "weight": 3,
+      "description": "The step that actually makes the product is the one with the most attention: the isolation, the selectivity, the recovery, and the reason the design is the way it is."
+    },
+    {
+      "name": "The evidence supports the design",
+      "weight": 3,
+      "description": "The claims that matter -- the recovery, the separation, the duty -- rest on cited work, and the parts that have no support are named rather than implied."
+    },
+    {
+      "name": "Nothing is overstated",
+      "weight": 2,
+      "description": "No number is claimed to be more certain than it is; the confidence in each result is stated; a thin literature is called thin."
+    },
+    {
+      "name": "The safety and the compliance are addressed",
+      "weight": 2,
+      "description": "The flammables, the pressures, the emissions, the waste and the material of construction are considered, and the open questions are written down."
+    },
+    {
+      "name": "It could be built",
+      "weight": 2,
+      "description": "The equipment, the sizes, the connections and the maintenance access are enough that someone could draw the piping and order the vessels."
+    }
+  ],
+  "guardrails": [
+    "Do not accept a number the specification does not contain.",
+    "Do not treat a similarity to the literature as evidence for it.",
+    "Say plainly when the design's weakest point is the answer, and name it."
+  ],
+  "instructions": "Judge the design on the specification and the record, not on how complete the record looks. A gap that is named is worth more than a claim that is unsupported."
+}

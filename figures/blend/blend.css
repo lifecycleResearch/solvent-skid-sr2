@@ -376,3 +376,20 @@
   line-height: 1.6;
 }
 .sk-assumptions li { margin-bottom: 7px; }
+
+/* The rubric judge: the judgement on top of the checks. */
+.sk-review-head .sk-btn { margin-top: 10px; }
+.sk-review-rubric { margin-top: 10px; }
+.sk-review-rubric p { font: 11px/1.5 var(--anatomy-mono); color: var(--anatomy-text); margin: 0 0 6px; }
+.sk-review-rubric ul { margin: 0; padding: 0; list-style: none; }
+.sk-review-rubric li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2px 10px;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--anatomy-faint);
+  font: 11px/1.5 var(--anatomy-mono);
+}
+.sk-review-rubric li b { color: var(--anatomy-strong); font-weight: 600; }
+.sk-review-rubric li span { color: var(--anatomy-muted); }
+.sk-review-rubric li i { grid-column: 1 / -1; font-style: normal; color: var(--anatomy-muted); }

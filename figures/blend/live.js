@@ -226,6 +226,41 @@ const GRADE = __GRADE__;
 
 const reviewBox = document.querySelector("[data-review]");
 const reviewToggle = document.querySelector("[data-review-toggle]");
+
+// The rubric judge: the deterministic checks are the floor, this is the
+// judgement on top of them. It needs a key -- the one in the chat's settings
+// is the one to use.
+const judgeButton = document.querySelector("[data-judge]");
+if (judgeButton) {
+  judgeButton.addEventListener("click", async () => {
+    const box = document.querySelector("[data-review-rubric]");
+    let key = "";
+    try {
+      key = JSON.parse(localStorage.getItem("sr2.chat.settings") || "{}").key || "";
+    } catch {
+      key = "";
+    }
+    box.hidden = false;
+    box.innerHTML = key ? "asking…" : "the judge needs a key: put one in the chat settings, then ask again";
+    if (!key) return;
+    try {
+      const res = await fetch(`/api/design?judge=1&key=${encodeURIComponent(key)}`);
+      const body = await res.json();
+      if (body.error) {
+        box.innerHTML = escapeHtml(body.error);
+        return;
+      }
+      const verdict = body.rubric || {};
+      const rows = (verdict.details || [])
+        .map((d) => `<li><b>${escapeHtml(d.name)}</b> <span>${d.score}/5</span><i>${escapeHtml(d.why || "")}</i></li>`)
+        .join("");
+      box.innerHTML = `<p class="sk-review-score">${verdict.passed ? "passed" : "not passed"} · ${Math.round((verdict.score || 0) * 100)}% against a pass mark of ${Math.round((verdict.passMark || 0.75) * 100)}%</p><ul>${rows}</ul>`;
+    } catch (err) {
+      box.innerHTML = escapeHtml(String(err.message || err));
+    }
+  });
+}
+
 if (reviewToggle) {
   reviewToggle.addEventListener("click", () => {
     reviewBox.hidden = !reviewBox.hidden;

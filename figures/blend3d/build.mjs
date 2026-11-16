@@ -22,11 +22,16 @@ const ROOT = join(HERE, "..", "..");
 const WIDTH = 1240;
 const HEIGHT = 900;
 
-const spec = JSON.parse(readFileSync(join(ROOT, "spec", "subzero-blend.json"), "utf8"));
+// Which experiment this build draws. One app, any spec:
+//   node figures/blend3d/build.mjs --spec ../spec/other.json
+const specArg = process.argv.find((a) => a.startsWith("--spec="))?.slice(7);
+const SPEC_PATH = specArg ? join(ROOT, specArg) : join(ROOT, "spec", "subzero-blend.json");
+const spec = JSON.parse(readFileSync(SPEC_PATH, "utf8"));
+const SLUG = spec.meta.slug || String(spec.meta.id || "spec").toLowerCase().replace(/[^a-z0-9]+/g, "-");
 
 let evidence = { topics: {} };
 try {
-  evidence = JSON.parse(readFileSync(join(ROOT, "spec", "subzero-blend-evidence.json"), "utf8"));
+  evidence = JSON.parse(readFileSync(SPEC_PATH.replace(/\.json$/, "-evidence.json"), "utf8"));
 } catch {
   evidence = { topics: {} };
 }
@@ -103,6 +108,6 @@ const page = k.pageHtml({
   width: WIDTH,
 });
 
-writeFileSync(join(HERE, "blend3d.html"), page);
-writeFileSync(join(ROOT, "deploy", "public", "blend3d.html"), page);
+writeFileSync(join(HERE, `${SLUG}3d.html`), page);
+writeFileSync(join(ROOT, "deploy", "public", `${SLUG}3d.html`), page);
 console.log(`wrote blend3d.html ${(page.length / 1024).toFixed(0)} KB · ${scene.report.parts} parts · ${scene.report.layers.map((l) => `${l.name}: ${l.planar} planes`).join(" · ")} · build ${scene.report.seconds.toFixed(1)} s`);

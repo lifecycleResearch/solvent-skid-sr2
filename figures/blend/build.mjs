@@ -21,14 +21,19 @@ import { kitBundle } from "../../scripts/inline-kit.mjs";
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, "..", "..");
 
-const spec = JSON.parse(readFileSync(join(ROOT, "spec", "subzero-blend.json"), "utf8"));
+// Which experiment this build draws. One app, any spec:
+//   node figures/blend/build.mjs --spec ../spec/other.json
+const specArg = process.argv.find((a) => a.startsWith("--spec="))?.slice(7);
+const SPEC_PATH = specArg ? join(ROOT, specArg) : join(ROOT, "spec", "subzero-blend.json");
+const spec = JSON.parse(readFileSync(SPEC_PATH, "utf8"));
+const SLUG = spec.meta.slug || String(spec.meta.id || "spec").toLowerCase().replace(/[^a-z0-9]+/g, "-");
 
 // The evidence: what the literature and the patents say. It is retrieved by
 // sim/evidence.mjs and read from here, so the page is built from a file and
 // not from a live search.
 let evidence = { topics: {} };
 try {
-  evidence = JSON.parse(readFileSync(join(ROOT, "spec", "subzero-blend-evidence.json"), "utf8"));
+  evidence = JSON.parse(readFileSync(SPEC_PATH.replace(/\.json$/, "-evidence.json"), "utf8"));
 } catch {
   evidence = { topics: {} };
 }
@@ -106,6 +111,8 @@ const body = k.plateHtml({
     <div class="sk-review-head">
       <h3>The review</h3>
       <p data-review-verdict></p>
+      <button type="button" class="sk-btn" data-judge>ask a model to judge this design</button>
+      <div class="sk-review-rubric" data-review-rubric hidden></div>
     </div>
     <div class="sk-review-cols">
       <div>
@@ -161,14 +168,22 @@ const page = k.pageHtml({
   width: 1240,
 });
 
-writeFileSync(join(HERE, "blend.html"), page);
-writeFileSync(join(ROOT, "deploy", "public", "blend.html"), page);
+writeFileSync(join(HERE, `${SLUG}.html`), page);
+writeFileSync(join(ROOT, "deploy", "public", `${SLUG}.html`), page);
 writeFileSync(join(ROOT, "figures", "blend", "scene.json"), `${JSON.stringify(scene, null, 1)}\n`);
 // The catalogue, the evidence and the grade are served beside the figure, so
 // an agent can read the same records the page shows.
-writeFileSync(join(ROOT, "deploy", "public", "catalogue.json"), `${JSON.stringify({ parts: catalogue }, null, 1)}\n`);
-writeFileSync(join(ROOT, "deploy", "public", "evidence.json"), `${JSON.stringify(evidence, null, 1)}\n`);
-if (grade) writeFileSync(join(ROOT, "deploy", "public", "design-grade.json"), `${JSON.stringify(grade, null, 1)}\n`);
+writeFileSync(join(ROOT, "deploy", "public", `catalogue-${SLUG}.json`), `${JSON.stringify({ parts: catalogue }, null, 1)}\n`);
+writeFileSync(join(ROOT, "deploy", "public", `evidence-${SLUG}.json`), `${JSON.stringify(evidence, null, 1)}\n`);
+writeFileSync(join(ROOT, "deploy", "public", `spec-${SLUG}.json`), `${JSON.stringify(spec, null, 1)}\n`);
+if (grade) writeFileSync(join(ROOT, "deploy", "public", `design-grade-${SLUG}.json`), `${JSON.stringify(grade, null, 1)}\n`);
+// The manifest: which experiments this deployment carries.
+const manifestPath = join(ROOT, "deploy", "public", "specs.json");
+let manifest = [];
+try { manifest = JSON.parse(readFileSync(manifestPath, "utf8")); } catch { manifest = []; }
+const entry = { slug: SLUG, id: spec.meta.id, name: spec.meta.name, figure: `${SLUG}.html`, threeD: `${SLUG}3d.html`, catalogue: `catalogue-${SLUG}.json`, evidence: `evidence-${SLUG}.json`, spec: `spec-${SLUG}.json`, grade: grade ? `design-grade-${SLUG}.json` : null, parts: catalogue.length };
+manifest = [...manifest.filter((m) => m.slug !== SLUG), entry].sort((a, b) => a.slug.localeCompare(b.slug));
+writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 1)}\n`);
 console.log(`wrote blend.html ${(page.length / 1024).toFixed(0)} KB, ${scene.items.length} items, ${catalogue.length} parts in the catalogue`);
 if (grade) console.log(`  design grade: ${grade.verdict} · ${grade.passedCount}/${grade.total} checks`);
 console.log(`  vessels ${spec.vessels.length}, connections ${spec.connections.length}, streams ${spec.streams.length}`);

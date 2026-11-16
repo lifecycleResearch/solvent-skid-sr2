@@ -14,7 +14,8 @@
       "temperature": "degC",
       "mass": "kg"
     },
-    "purpose": "Recover cannabinoid-rich distillate from biomass using a recycled ethanol/pentane carrier, and return the carrier to the tank without losing it to the ethanol/pentane azeotrope."
+    "purpose": "Recover cannabinoid-rich distillate from biomass using a recycled ethanol/pentane carrier, and return the carrier to the tank without losing it to the ethanol/pentane azeotrope.",
+    "slug": "blend"
   },
   "materials": [
     {

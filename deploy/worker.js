@@ -14,6 +14,8 @@ import { describe } from "./describe.mjs";
 import { search, papers } from "./search.mjs";
 import { route, availableProviders } from "./router.mjs";
 import { gradeDeterministic, rubricPrompt, parseRubricVerdict } from "./grade.mjs";
+import { judgeContext } from "./design.mjs";
+import RUBRIC from "../evals/rubrics/design.json" with { type: "json" };
 
 const DEPLOYED = "https://solvent-skid-sr2.lifecyclerd.workers.dev";
 
@@ -114,6 +116,28 @@ async function openai(context, { model, baseUrl, key, messages, state, system })
 // The model that comes with the Cloudflare plan: no key, no account of its
 // own, and it never leaves the account.
 
+// The text of whatever the model answered with. The binding answers in a few
+// shapes depending on the model and the size of the prompt, so this takes
+// them all rather than assuming one.
+function textOf(out) {
+  if (out === null || out === undefined) return "";
+  if (typeof out === "string") return out;
+  // The chat-completion shape the binding answers with when it does not
+  // stream.
+  const choice = out.choices && out.choices[0];
+  if (choice) {
+    if (choice.message && typeof choice.message.content === "string") return choice.message.content;
+    if (typeof choice.text === "string") return choice.text;
+    if (choice.delta && typeof choice.delta.content === "string") return choice.delta.content;
+  }
+  if (typeof out.response === "string") return out.response;
+  if (out.response && typeof out.response.text === "string") return out.response.text;
+  if (typeof out.text === "string") return out.text;
+  if (typeof out.text === "function") return out.text();
+  if (Array.isArray(out)) return out.map((item) => textOf(item)).join("");
+  return JSON.stringify(out);
+}
+
 async function workersAi(env, { model, messages, state, context }) {
   if (!env.AI) throw new Error("this Worker has no AI binding");
   const prompt = [context.prompt, stateNote(context, state)].filter(Boolean).join("\n\n");
@@ -136,15 +160,14 @@ async function workersAi(env, { model, messages, state, context }) {
               controller.close();
               return;
             }
-            const text = typeof value === "string" ? value : decoder.decode(value);
+            const text = typeof value === "string" ? value : value instanceof Uint8Array ? decoder.decode(value) : textOf(value);
             if (text) controller.enqueue(encoder.encode(text));
           }
         },
       }),
     );
   }
-  const text = typeof out === "string" ? out : out && out.response ? out.response : JSON.stringify(out || {});
-  return new Response(text);
+  return new Response(textOf(out));
 }
 
 // ---------------------------------------------------------------- the chat ---
@@ -325,11 +348,18 @@ export default {
           agent: { configured: Boolean(env.AGENT_GATEWAY_URL), note: "the OpenShell gateway over the tailnet, if one is configured" },
         });
       }
+      if (path === "/api/specs") {
+        // Which experiments this deployment carries.
+        const res = await env.ASSETS.fetch(new Request("https://assets/specs.json"));
+        if (!res.ok) return json({ error: "no manifest" }, 404);
+        return json(await res.json(), 200, { "cache-control": "public, max-age=300" });
+      }
       if (path === "/api/catalogue") {
         // The part catalogue: what every part is, does, and its place in the
         // process. The same records the page shows when a part is clicked.
         const id = url.searchParams.get("id");
-        const res = await env.ASSETS.fetch(new Request("https://assets/catalogue.json"));
+        const slug = url.searchParams.get("spec") || "blend";
+        const res = await env.ASSETS.fetch(new Request(`https://assets/catalogue-${slug}.json`));
         if (!res.ok) return json({ error: "the catalogue is not built yet" }, 404);
         const catalogue = await res.json();
         if (id) {
@@ -340,7 +370,8 @@ export default {
       }
       if (path === "/api/evidence") {
         // The literature and the patents, by part or by topic.
-        const res = await env.ASSETS.fetch(new Request("https://assets/evidence.json"));
+        const slug = url.searchParams.get("spec") || "blend";
+        const res = await env.ASSETS.fetch(new Request(`https://assets/evidence-${slug}.json`));
         if (!res.ok) return json({ error: "the evidence has not been retrieved yet" }, 404);
         const evidence = await res.json();
         const topic = url.searchParams.get("topic");
@@ -352,9 +383,46 @@ export default {
       }
       if (path === "/api/design") {
         // The design grade: the checks, the verdict, and the state of each part.
-        const res = await env.ASSETS.fetch(new Request("https://assets/design-grade.json"));
+        // With ?judge=1 and a key, the rubric judge adds its verdict on top.
+        const slug = url.searchParams.get("spec") || "blend";
+        const res = await env.ASSETS.fetch(new Request(`https://assets/design-grade-${slug}.json`));
         if (!res.ok) return json({ error: "the design grade has not been run yet" }, 404);
-        return json(await res.json(), 200, { "cache-control": "public, max-age=300" });
+        const grade = await res.json();
+
+        if (url.searchParams.get("judge") !== "1") return json(grade, 200, { "cache-control": "public, max-age=300" });
+
+        const key = String(url.searchParams.get("key") || "") || (env.CHAT_SECRET && request.headers.get("x-chat-secret") === env.CHAT_SECRET ? env.GEMINI_API_KEY : "");
+        const [specRes, catalogueRes, evidenceRes] = await Promise.all([
+          env.ASSETS.fetch(new Request(`https://assets/spec-${slug}.json`)),
+          env.ASSETS.fetch(new Request(`https://assets/catalogue-${slug}.json`)),
+          env.ASSETS.fetch(new Request(`https://assets/evidence-${slug}.json`)),
+        ]);
+        const spec = await specRes.json();
+        const catalogue = await catalogueRes.json();
+        const evidence = await evidenceRes.json();
+        const context = judgeContext(spec, catalogue.parts || [], evidence);
+        const prompt = rubricPrompt(RUBRIC, context);
+
+        // Workers AI needs no key, so on Cloudflare the judge works with
+        // nothing set up; elsewhere the visitor's key is used.
+        let raw;
+        if (!key && env.AI) {
+          const upstream = await workersAi(env, { model: "@cf/meta/llama-3.3-70b-instruct-fp8-fast", messages: [{ role: "user", content: prompt }], state: null, context: { prompt } });
+          raw = await upstream.text();
+        } else if (key) {
+          const upstream = await gemini(context, {
+            model: url.searchParams.get("model") || "gemini-2.5-flash",
+            key,
+            messages: [{ role: "user", content: prompt }],
+            state: null,
+            system: prompt,
+          });
+          raw = await upstream.text();
+        } else {
+          return json({ error: "the rubric judge needs a model key, or Workers AI on this Worker", grade }, 400);
+        }
+        const verdict = parseRubricVerdict(raw, RUBRIC);
+        return json({ grade, rubric: verdict }, 200, { "cache-control": "no-store" });
       }
       if (path === "/api/agent") {
         const target = env.AGENT_GATEWAY_URL;
