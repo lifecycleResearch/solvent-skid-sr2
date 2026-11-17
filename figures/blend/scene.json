@@ -1,6 +1,6 @@
 {
  "version": 1,
- "name": "Sub-zero blend extraction (template instance)",
+ "name": "Brewery-kit CBD extraction (10 bbl jacketed)",
  "items": [
   {
    "kind": "deck",
@@ -21,317 +21,435 @@
   },
   {
    "kind": "vessel",
-   "id": "V-101",
-   "name": "Carrier day tank",
+   "id": "BT-103",
+   "name": "Carrier day tank (20 bbl brite tank)",
    "at": [
     0,
     30,
     0
    ],
    "r": 75,
-   "h": 262.5,
+   "h": 47.36842105263158,
    "tone": "hi",
-   "type": "drum",
-   "litres": 30000,
+   "type": "brite tank",
+   "litres": 2350,
    "construction": "316L",
    "tags": {
     "compound": "",
     "function": "storage",
-    "material": "MAT-0100 MAT-0006",
+    "material": "MAT-0100",
     "colour": "#74a4ff"
    }
   },
   {
    "kind": "label",
-   "id": "V-101.name",
+   "id": "BT-103.name",
    "at": [
     0,
     30,
-    131.25
+    23.68421052631579
    ],
-   "text": "Carrier day tank · V-101\n30000 L · 316L",
+   "text": "Carrier day tank (20 bbl brite tank) · BT-103\n2350 L · 316L",
    "size": 14.25,
    "emphasis": true,
    "tone": "mid",
    "tags": {
     "compound": "",
     "function": "storage",
-    "material": "MAT-0100 MAT-0006",
+    "material": "MAT-0100",
     "colour": "#74a4ff"
    }
   },
   {
    "kind": "vessel",
-   "id": "V-102",
-   "name": "Extraction vessel",
+   "id": "BT-101",
+   "name": "Extraction vessel (10 bbl jacketed mash tun)",
    "at": [
     345,
-    0,
+    30,
     0
    ],
-   "r": 42.857142857142854,
-   "h": 101.78571428571428,
+   "r": 60.19736842105263,
+   "h": 47.36842105263158,
    "tone": "hi",
-   "type": "jacketed vessel",
-   "litres": 3000,
-   "construction": "316L",
+   "type": "jacketed vessel with false bottom and rake",
+   "litres": 1190,
+   "construction": "304/316L",
    "tags": {
     "compound": "MAT-0042",
-    "function": "reaction",
-    "material": "MAT-0100 MAT-0042 MAT-0043 MAT-0044 MAT-0060 MAT-0006",
-    "colour": "#74a4ff"
+    "function": "storage",
+    "material": "MAT-0100 MAT-0042 MAT-0060",
+    "colour": "#74a4ff #7ed957"
    },
    "jacket": {
-    "r": 46.285714285714285,
-    "h": 71.24999999999999
+    "r": 65.01315789473685,
+    "h": 33.1578947368421
    },
    "jacketMedium": "glycol 20 degC",
    "jacketDuty": 30
   },
   {
    "kind": "label",
-   "id": "V-102.name",
+   "id": "BT-101.name",
    "at": [
     345,
-    0,
-    50.89285714285714
+    30,
+    23.68421052631579
    ],
-   "text": "Extraction vessel · V-102\n3000 L · 316L",
-   "size": 8.142857142857142,
+   "text": "Extraction vessel (10 bbl jacketed mash tun) · BT-101\n1190 L · 304/316L",
+   "size": 11.4375,
    "emphasis": true,
    "tone": "mid",
    "tags": {
     "compound": "MAT-0042",
-    "function": "reaction",
-    "material": "MAT-0100 MAT-0042 MAT-0043 MAT-0044 MAT-0060 MAT-0006",
-    "colour": "#74a4ff"
+    "function": "storage",
+    "material": "MAT-0100 MAT-0042 MAT-0060",
+    "colour": "#74a4ff #7ed957"
    }
   },
   {
    "kind": "label",
-   "id": "V-102.target",
+   "id": "BT-101.target",
    "at": [
     345,
-    0,
-    24.428571428571427
+    30,
+    11.368421052631579
    ],
-   "text": "→ CBD crystal (CBD-1)",
-   "size": 6.428571428571428,
+   "text": "→ CBD crystal fraction",
+   "size": 9.029605263157894,
    "tone": "lo",
    "tags": {
     "compound": "MAT-0042",
-    "function": "reaction",
-    "material": "MAT-0100 MAT-0042 MAT-0043 MAT-0044 MAT-0060 MAT-0006",
-    "colour": "#74a4ff"
+    "function": "storage",
+    "material": "MAT-0100 MAT-0042 MAT-0060",
+    "colour": "#74a4ff #7ed957"
    }
   },
   {
    "kind": "vessel",
-   "id": "F-101",
-   "name": "Biomass filter",
+   "id": "SK-102",
+   "name": "Membrane skid",
    "at": [
     690,
-    15,
+    30,
     0
    ],
-   "r": 10.714285714285714,
-   "h": 48.21428571428571,
+   "r": 7.608841620027826,
+   "h": 15.217683240055653,
    "tone": "hi",
-   "type": "basket strainer",
-   "litres": 200,
-   "construction": "316L",
+   "type": "staged cartridge housings, 10 um to 0.01 um",
+   "litres": 30,
+   "construction": "316L housings",
    "tags": {
     "compound": "MAT-0042",
-    "function": "filtration",
-    "material": "MAT-0042 MAT-0043 MAT-0044 MAT-0060 MAT-0006 MAT-0100",
-    "colour": "#74a4ff"
+    "function": "storage",
+    "material": "MAT-0100 MAT-0042 MAT-0060",
+    "colour": "#7ed957"
    }
   },
   {
    "kind": "label",
-   "id": "F-101.name",
+   "id": "SK-102.name",
    "at": [
     690,
-    15,
-    24.107142857142854
+    30,
+    7.608841620027826
    ],
-   "text": "Biomass filter · F-101\n200 L · 316L",
+   "text": "Membrane skid · SK-102\n30 L · 316L housings",
    "size": 6,
    "emphasis": true,
    "tone": "mid",
    "tags": {
     "compound": "MAT-0042",
-    "function": "filtration",
-    "material": "MAT-0042 MAT-0043 MAT-0044 MAT-0060 MAT-0006 MAT-0100",
-    "colour": "#74a4ff"
+    "function": "storage",
+    "material": "MAT-0100 MAT-0042 MAT-0060",
+    "colour": "#7ed957"
    }
   },
   {
    "kind": "label",
-   "id": "F-101.target",
+   "id": "SK-102.target",
    "at": [
     690,
-    15,
-    11.57142857142857
+    30,
+    3.6522439776133564
    ],
-   "text": "→ CBD crystal (CBD-1)",
+   "text": "→ CBD crystal fraction",
    "size": 5,
    "tone": "lo",
    "tags": {
     "compound": "MAT-0042",
-    "function": "filtration",
-    "material": "MAT-0042 MAT-0043 MAT-0044 MAT-0060 MAT-0006 MAT-0100",
-    "colour": "#74a4ff"
+    "function": "storage",
+    "material": "MAT-0100 MAT-0042 MAT-0060",
+    "colour": "#7ed957"
    }
   },
   {
    "kind": "vessel",
-   "id": "V-103",
-   "name": "Crystalliser",
+   "id": "SK-101",
+   "name": "Media (CRC) column",
    "at": [
     1035,
-    0,
+    30,
     0
    ],
-   "r": 48.21428571428571,
-   "h": 112.5,
+   "r": 8.374613825897805,
+   "h": 16.74922765179561,
    "tone": "hi",
-   "type": "jacketed vessel with a scraper",
-   "litres": 4000,
+   "type": "10 inch tri-clamp column, media selectable",
+   "litres": 40,
    "construction": "316L",
    "tags": {
     "compound": "MAT-0042",
-    "function": "reaction",
-    "material": "MAT-0042 MAT-0043 MAT-0044 MAT-0060 MAT-0006 MAT-0100",
-    "colour": "#74a4ff #9a9a9a #6fe0a4"
+    "function": "storage",
+    "material": "MAT-0100 MAT-0042 MAT-0060",
+    "colour": "#7ed957 #6be0a0"
+   }
+  },
+  {
+   "kind": "label",
+   "id": "SK-101.name",
+   "at": [
+    1035,
+    30,
+    8.374613825897805
+   ],
+   "text": "Media (CRC) column · SK-101\n40 L · 316L",
+   "size": 6,
+   "emphasis": true,
+   "tone": "mid",
+   "tags": {
+    "compound": "MAT-0042",
+    "function": "storage",
+    "material": "MAT-0100 MAT-0042 MAT-0060",
+    "colour": "#7ed957 #6be0a0"
+   }
+  },
+  {
+   "kind": "label",
+   "id": "SK-101.target",
+   "at": [
+    1035,
+    30,
+    4.019814636430946
+   ],
+   "text": "→ CBD crystal fraction",
+   "size": 5,
+   "tone": "lo",
+   "tags": {
+    "compound": "MAT-0042",
+    "function": "storage",
+    "material": "MAT-0100 MAT-0042 MAT-0060",
+    "colour": "#7ed957 #6be0a0"
+   }
+  },
+  {
+   "kind": "vessel",
+   "id": "BT-102",
+   "name": "Crystalliser (10 bbl jacketed unitank)",
+   "at": [
+    1035,
+    330,
+    0
+   ],
+   "r": 60.19736842105263,
+   "h": 47.36842105263158,
+   "tone": "hi",
+   "type": "jacketed unitank, 60 deg cone, scraper",
+   "litres": 1190,
+   "construction": "316L",
+   "tags": {
+    "compound": "MAT-0042",
+    "function": "storage",
+    "material": "MAT-0100 MAT-0042 MAT-0060",
+    "colour": "#6be0a0 #e6e6e6 #b4b4b8"
    },
    "jacket": {
-    "r": 52.07142857142857,
-    "h": 78.75
+    "r": 65.01315789473685,
+    "h": 33.1578947368421
    },
    "jacketMedium": "glycol -45 degC",
    "jacketDuty": 85
   },
   {
    "kind": "label",
-   "id": "V-103.name",
+   "id": "BT-102.name",
    "at": [
     1035,
-    0,
-    56.25
+    330,
+    23.68421052631579
    ],
-   "text": "Crystalliser · V-103\n4000 L · 316L",
-   "size": 9.160714285714285,
+   "text": "Crystalliser (10 bbl jacketed unitank) · BT-102\n1190 L · 316L",
+   "size": 11.4375,
    "emphasis": true,
    "tone": "mid",
    "tags": {
     "compound": "MAT-0042",
-    "function": "reaction",
-    "material": "MAT-0042 MAT-0043 MAT-0044 MAT-0060 MAT-0006 MAT-0100",
-    "colour": "#74a4ff #9a9a9a #6fe0a4"
+    "function": "storage",
+    "material": "MAT-0100 MAT-0042 MAT-0060",
+    "colour": "#6be0a0 #e6e6e6 #b4b4b8"
    }
   },
   {
    "kind": "label",
-   "id": "V-103.target",
+   "id": "BT-102.target",
    "at": [
     1035,
-    0,
-    27
+    330,
+    11.368421052631579
    ],
-   "text": "→ CBD crystal (CBD-1)",
-   "size": 7.232142857142856,
+   "text": "→ CBD crystal fraction",
+   "size": 9.029605263157894,
    "tone": "lo",
    "tags": {
     "compound": "MAT-0042",
-    "function": "reaction",
-    "material": "MAT-0042 MAT-0043 MAT-0044 MAT-0060 MAT-0006 MAT-0100",
-    "colour": "#74a4ff #9a9a9a #6fe0a4"
+    "function": "storage",
+    "material": "MAT-0100 MAT-0042 MAT-0060",
+    "colour": "#6be0a0 #e6e6e6 #b4b4b8"
    }
   },
   {
    "kind": "vessel",
-   "id": "V-104",
-   "name": "Mother liquor tank",
+   "id": "BT-104",
+   "name": "Mother liquor tank (10 bbl jacketed brite tank)",
    "at": [
-    1035,
+    690,
     330,
     0
    ],
-   "r": 58.92857142857142,
-   "h": 101.78571428571428,
+   "r": 25.949387605203466,
+   "h": 51.89877521040693,
    "tone": "hi",
-   "type": "drum",
-   "litres": 6000,
+   "type": "jacketed brite tank",
+   "litres": 1190,
    "construction": "316L",
    "tags": {
     "compound": "MAT-0042",
     "function": "storage",
-    "material": "MAT-0042 MAT-0043 MAT-0044 MAT-0060 MAT-0006 MAT-0100",
-    "colour": "#9a9a9a #6fe0a4"
+    "material": "MAT-0100 MAT-0042 MAT-0060",
+    "colour": "#e6e6e6 #9ad1ff"
    }
   },
   {
    "kind": "label",
-   "id": "V-104.name",
+   "id": "BT-104.name",
    "at": [
-    1035,
+    690,
     330,
-    50.89285714285714
+    25.949387605203466
    ],
-   "text": "Mother liquor tank · V-104\n6000 L · 316L",
-   "size": 11.196428571428571,
+   "text": "Mother liquor tank (10 bbl jacketed brite tank) · BT-104\n1190 L · 316L",
+   "size": 6,
    "emphasis": true,
    "tone": "mid",
    "tags": {
     "compound": "MAT-0042",
     "function": "storage",
-    "material": "MAT-0042 MAT-0043 MAT-0044 MAT-0060 MAT-0006 MAT-0100",
-    "colour": "#9a9a9a #6fe0a4"
+    "material": "MAT-0100 MAT-0042 MAT-0060",
+    "colour": "#e6e6e6 #9ad1ff"
    }
   },
   {
    "kind": "label",
-   "id": "V-104.target",
+   "id": "BT-104.target",
    "at": [
-    1035,
+    690,
     330,
-    24.428571428571427
+    12.455706050497664
    ],
-   "text": "→ CBD crystal (CBD-1)",
-   "size": 8.839285714285714,
+   "text": "→ CBD crystal fraction",
+   "size": 5,
    "tone": "lo",
    "tags": {
     "compound": "MAT-0042",
     "function": "storage",
-    "material": "MAT-0042 MAT-0043 MAT-0044 MAT-0060 MAT-0006 MAT-0100",
-    "colour": "#9a9a9a #6fe0a4"
+    "material": "MAT-0100 MAT-0042 MAT-0060",
+    "colour": "#e6e6e6 #9ad1ff"
+   }
+  },
+  {
+   "kind": "vessel",
+   "id": "PD-101",
+   "name": "Product drum",
+   "at": [
+    345,
+    330,
+    0
+   ],
+   "r": 14.320388204991355,
+   "h": 28.64077640998271,
+   "tone": "hi",
+   "type": "drum",
+   "litres": 200,
+   "construction": "316L",
+   "tags": {
+    "compound": "MAT-0042",
+    "function": "storage",
+    "material": "MAT-0100 MAT-0042",
+    "colour": "#e6e6e6"
+   }
+  },
+  {
+   "kind": "label",
+   "id": "PD-101.name",
+   "at": [
+    345,
+    330,
+    14.320388204991355
+   ],
+   "text": "Product drum · PD-101\n200 L · 316L",
+   "size": 6,
+   "emphasis": true,
+   "tone": "mid",
+   "tags": {
+    "compound": "MAT-0042",
+    "function": "storage",
+    "material": "MAT-0100 MAT-0042",
+    "colour": "#e6e6e6"
+   }
+  },
+  {
+   "kind": "label",
+   "id": "PD-101.target",
+   "at": [
+    345,
+    330,
+    6.87378633839585
+   ],
+   "text": "→ CBD crystal fraction",
+   "size": 5,
+   "tone": "lo",
+   "tags": {
+    "compound": "MAT-0042",
+    "function": "storage",
+    "material": "MAT-0100 MAT-0042",
+    "colour": "#e6e6e6"
    }
   },
   {
    "kind": "vessel",
    "id": "EV-101",
-   "name": "Vacuum evaporator",
+   "name": "Vacuum evaporator (falling film)",
    "at": [
-    690,
+    0,
     300,
     0
    ],
-   "r": 32.14285714285714,
-   "h": 187.5,
+   "r": 59.21052631578947,
+   "h": 345.39473684210526,
    "tone": "hi",
    "type": "falling film",
-   "litres": 1500,
+   "litres": 1200,
    "construction": "316L",
    "tags": {
     "compound": "MAT-0042",
     "function": "separation",
-    "material": "MAT-0042 MAT-0043 MAT-0044 MAT-0060 MAT-0006 MAT-0100",
-    "colour": "#6fe0a4 #b892ff #9a9a9a"
+    "material": "MAT-0100 MAT-0042 MAT-0060",
+    "colour": "#9ad1ff #ff6b6b"
    },
    "jacket": {
-    "r": 34.714285714285715,
-    "h": 131.25
+    "r": 63.94736842105264,
+    "h": 241.77631578947367
    },
    "jacketMedium": "glycol 60 degC",
    "jacketDuty": 45
@@ -340,37 +458,37 @@
    "kind": "label",
    "id": "EV-101.name",
    "at": [
-    690,
+    0,
     300,
-    93.75
+    172.69736842105263
    ],
-   "text": "Vacuum evaporator · EV-101\n1500 L · 316L",
-   "size": 6.107142857142857,
+   "text": "Vacuum evaporator (falling film) · EV-101\n1200 L · 316L",
+   "size": 11.25,
    "emphasis": true,
    "tone": "mid",
    "tags": {
     "compound": "MAT-0042",
     "function": "separation",
-    "material": "MAT-0042 MAT-0043 MAT-0044 MAT-0060 MAT-0006 MAT-0100",
-    "colour": "#6fe0a4 #b892ff #9a9a9a"
+    "material": "MAT-0100 MAT-0042 MAT-0060",
+    "colour": "#9ad1ff #ff6b6b"
    }
   },
   {
    "kind": "label",
    "id": "EV-101.target",
    "at": [
-    690,
+    0,
     300,
-    45
+    82.89473684210526
    ],
-   "text": "→ CBD crystal (CBD-1)",
-   "size": 5,
+   "text": "→ CBD crystal fraction",
+   "size": 8.881578947368421,
    "tone": "lo",
    "tags": {
     "compound": "MAT-0042",
     "function": "separation",
-    "material": "MAT-0042 MAT-0043 MAT-0044 MAT-0060 MAT-0006 MAT-0100",
-    "colour": "#6fe0a4 #b892ff #9a9a9a"
+    "material": "MAT-0100 MAT-0042 MAT-0060",
+    "colour": "#9ad1ff #ff6b6b"
    }
   },
   {
@@ -378,12 +496,12 @@
    "id": "CN-101",
    "name": "Condenser bank",
    "at": [
-    345,
-    330,
+    0,
+    630,
     0
    ],
-   "r": 5.892857142857142,
-   "h": 85.71428571428571,
+   "r": 20.65357373528406,
+   "h": 41.30714747056812,
    "tone": "hi",
    "type": "shell and tube, four shells",
    "litres": 600,
@@ -391,23 +509,17 @@
    "tags": {
     "compound": "",
     "function": "storage",
-    "material": "MAT-0006 MAT-0100",
-    "colour": "#b892ff #74a4ff"
-   },
-   "jacket": {
-    "r": 6.364285714285714,
-    "h": 59.99999999999999
-   },
-   "jacketMedium": "glycol -15 degC",
-   "jacketDuty": 40
+    "material": "MAT-0100 MAT-0006",
+    "colour": "#ff6b6b #74a4ff"
+   }
   },
   {
    "kind": "label",
    "id": "CN-101.name",
    "at": [
-    345,
-    330,
-    42.857142857142854
+    0,
+    630,
+    20.65357373528406
    ],
    "text": "Condenser bank · CN-101\n600 L · 316L",
    "size": 6,
@@ -416,108 +528,90 @@
    "tags": {
     "compound": "",
     "function": "storage",
-    "material": "MAT-0006 MAT-0100",
-    "colour": "#b892ff #74a4ff"
+    "material": "MAT-0100 MAT-0006",
+    "colour": "#ff6b6b #74a4ff"
    }
   },
   {
    "kind": "vessel",
-   "id": "V-105",
-   "name": "Recovered carrier tank",
+   "id": "BT-105",
+   "name": "Recovered carrier tank (20 bbl brite tank)",
    "at": [
-    0,
-    330,
+    345,
+    630,
     0
    ],
-   "r": 69.64285714285714,
-   "h": 203.57142857142856,
+   "r": 32.55622790964274,
+   "h": 65.11245581928549,
    "tone": "hi",
-   "type": "drum",
-   "litres": 20000,
+   "type": "brite tank",
+   "litres": 2350,
    "construction": "316L",
    "tags": {
     "compound": "",
     "function": "storage",
-    "material": "MAT-0006 MAT-0100",
+    "material": "MAT-0100 MAT-0006",
     "colour": "#74a4ff"
    }
   },
   {
    "kind": "label",
-   "id": "V-105.name",
+   "id": "BT-105.name",
    "at": [
-    0,
-    330,
-    101.78571428571428
+    345,
+    630,
+    32.55622790964274
    ],
-   "text": "Recovered carrier tank · V-105\n20000 L · 316L",
-   "size": 13.232142857142856,
+   "text": "Recovered carrier tank (20 bbl brite tank) · BT-105\n2350 L · 316L",
+   "size": 6.185683302832121,
    "emphasis": true,
    "tone": "mid",
    "tags": {
     "compound": "",
     "function": "storage",
-    "material": "MAT-0006 MAT-0100",
+    "material": "MAT-0100 MAT-0006",
     "colour": "#74a4ff"
    }
   },
   {
    "kind": "vessel",
-   "id": "V-106",
-   "name": "CRD product drum",
+   "id": "SK-103",
+   "name": "Low-energy RO skid",
    "at": [
-    0,
+    690,
     630,
     0
    ],
-   "r": 24.107142857142854,
-   "h": 64.28571428571428,
+   "r": 6.646935398528802,
+   "h": 13.293870797057604,
    "tone": "hi",
-   "type": "drum",
-   "litres": 1000,
-   "construction": "316L",
+   "type": "40 inch (4040) low-energy RO elements x3",
+   "litres": 20,
+   "construction": "SS housings",
    "tags": {
-    "compound": "MAT-0042",
+    "compound": "",
     "function": "storage",
-    "material": "MAT-0042 MAT-0043 MAT-0044 MAT-0006",
-    "colour": "#6fe0a4"
+    "material": "",
+    "colour": ""
    }
   },
   {
    "kind": "label",
-   "id": "V-106.name",
+   "id": "SK-103.name",
    "at": [
-    0,
+    690,
     630,
-    32.14285714285714
+    6.646935398528802
    ],
-   "text": "CRD product drum · V-106\n1000 L · 316L",
+   "text": "Low-energy RO skid · SK-103\n20 L · SS housings",
    "size": 6,
    "emphasis": true,
    "tone": "mid",
    "tags": {
-    "compound": "MAT-0042",
+    "compound": "",
     "function": "storage",
-    "material": "MAT-0042 MAT-0043 MAT-0044 MAT-0006",
-    "colour": "#6fe0a4"
-   }
-  },
-  {
-   "kind": "label",
-   "id": "V-106.target",
-   "at": [
-    0,
-    630,
-    15.428571428571425
-   ],
-   "text": "→ CBD crystal (CBD-1)",
-   "size": 5,
-   "tone": "lo",
-   "tags": {
-    "compound": "MAT-0042",
-    "function": "storage",
-    "material": "MAT-0042 MAT-0043 MAT-0044 MAT-0006",
-    "colour": "#6fe0a4"
+    "material": "",
+    "colour": ""
    }
   },
   {
@@ -525,40 +619,40 @@
    "id": "CH-101",
    "name": "Glycol chiller",
    "at": [
-    345,
+    1035,
     572.5,
     0
    ],
-   "r": 10.714285714285714,
-   "h": 48.21428571428571,
+   "r": 18.042558542134866,
+   "h": 36.08511708426973,
    "tone": "hi",
    "type": "air cooled chiller",
-   "litres": 500,
-   "construction": "carbon steel",
+   "litres": 400,
+   "construction": "painted carbon steel",
    "tags": {
     "compound": "",
     "function": "heat-exchange",
-    "material": "",
-    "colour": ""
+    "material": "MAT-0100 MAT-0060",
+    "colour": "#b4b4b8"
    }
   },
   {
    "kind": "label",
    "id": "CH-101.name",
    "at": [
-    345,
+    1035,
     572.5,
-    24.107142857142854
+    18.042558542134866
    ],
-   "text": "Glycol chiller · CH-101\n500 L · carbon steel",
+   "text": "Glycol chiller · CH-101\n400 L · painted carbon steel",
    "size": 6,
    "emphasis": true,
    "tone": "mid",
    "tags": {
     "compound": "",
     "function": "heat-exchange",
-    "material": "",
-    "colour": ""
+    "material": "MAT-0100 MAT-0060",
+    "colour": "#b4b4b8"
    }
   },
   {
@@ -566,108 +660,80 @@
    "id": "SC-101",
    "name": "Gas scrubber",
    "at": [
-    690,
-    600,
+    1035,
+    930,
     0
    ],
-   "r": 21.428571428571427,
-   "h": 69.64285714285714,
+   "r": 19.435757010053223,
+   "h": 38.871514020106446,
    "tone": "hi",
-   "type": "drum with media",
-   "litres": 200,
+   "type": "drum with carbon media bed",
+   "litres": 500,
    "construction": "316L",
    "tags": {
-    "compound": "MAT-0042",
-    "function": "separation",
-    "material": "MAT-0042 MAT-0043 MAT-0044 MAT-0060 MAT-0006 MAT-0100",
-    "colour": "#9a9a9a"
-   },
-   "media": {
-    "kind": "carbon",
-    "fill": 0.8
+    "compound": "",
+    "function": "storage",
+    "material": "",
+    "colour": ""
    }
   },
   {
    "kind": "label",
    "id": "SC-101.name",
    "at": [
-    690,
-    600,
-    34.82142857142857
+    1035,
+    930,
+    19.435757010053223
    ],
-   "text": "Gas scrubber · SC-101\n200 L · 316L",
+   "text": "Gas scrubber · SC-101\n500 L · 316L",
    "size": 6,
    "emphasis": true,
    "tone": "mid",
    "tags": {
-    "compound": "MAT-0042",
-    "function": "separation",
-    "material": "MAT-0042 MAT-0043 MAT-0044 MAT-0060 MAT-0006 MAT-0100",
-    "colour": "#9a9a9a"
-   }
-  },
-  {
-   "kind": "label",
-   "id": "SC-101.target",
-   "at": [
-    690,
-    600,
-    16.71428571428571
-   ],
-   "text": "→ CBD crystal (CBD-1)",
-   "size": 5,
-   "tone": "lo",
-   "tags": {
-    "compound": "MAT-0042",
-    "function": "separation",
-    "material": "MAT-0042 MAT-0043 MAT-0044 MAT-0060 MAT-0006 MAT-0100",
-    "colour": "#9a9a9a"
+    "compound": "",
+    "function": "storage",
+    "material": "",
+    "colour": ""
    }
   },
   {
    "kind": "pipe",
-   "id": "P-1001",
+   "id": "C-01",
    "points": [
     [
      0,
      15,
-     210
+     37.89473684210527
     ],
     [
      0,
      15,
-     296.5
+     81.36842105263159
     ],
     [
      0,
      -70,
-     296.5
+     81.36842105263159
     ],
     [
      345,
      -70,
-     296.5
+     81.36842105263159
     ],
     [
      345,
-     -8.571428571428571,
-     296.5
+     17.960526315789473,
+     81.36842105263159
     ],
     [
      345,
-     -8.571428571428571,
-     81.42857142857143
+     17.960526315789473,
+     37.89473684210527
     ]
    ],
    "r": 2.2,
    "tone": "hi",
    "flow": true,
-   "spool": "2\" tri-clamp",
-   "bore": {
-    "value": 50,
-    "unit": "mm"
-   },
-   "medium": "MAT-0100",
    "tags": {
     "compound": "",
     "function": "transport",
@@ -677,13 +743,13 @@
   },
   {
    "kind": "stream-label",
-   "id": "P-1001.label",
+   "id": "C-01.label",
    "at": [
     172.5,
     -70,
-    302.5
+    87.36842105263159
    ],
-   "text": "Carrier to extraction · 2\" tri-clamp",
+   "text": "Carrier charged to extraction",
    "size": 9,
    "tags": {
     "compound": "",
@@ -694,680 +760,623 @@
   },
   {
    "kind": "pipe",
-   "id": "P-1002",
+   "id": "C-02",
    "points": [
     [
      345,
-     -8.571428571428571,
-     81.42857142857143
+     17.960526315789473,
+     37.89473684210527
     ],
     [
      345,
-     -8.571428571428571,
-     144.78571428571428
+     17.960526315789473,
+     90.36842105263159
     ],
     [
      345,
      -79,
-     144.78571428571428
+     90.36842105263159
     ],
     [
      690,
      -79,
-     144.78571428571428
+     90.36842105263159
     ],
     [
      690,
-     12.857142857142858,
-     144.78571428571428
+     28.478231675994437,
+     90.36842105263159
     ],
     [
      690,
-     12.857142857142858,
-     38.57142857142857
+     28.478231675994437,
+     12.174146592044522
     ]
    ],
    "r": 2.2,
    "tone": "hi",
    "flow": true,
-   "spool": "2\" tri-clamp",
-   "bore": {
-    "value": 50,
-    "unit": "mm"
-   },
-   "medium": "MAT-0100",
    "tags": {
     "compound": "MAT-0042 MAT-0042",
     "function": "transport",
-    "material": "MAT-0042 MAT-0043 MAT-0044 MAT-0060 MAT-0006 MAT-0100",
-    "colour": "#74a4ff"
+    "material": "MAT-0100 MAT-0042 MAT-0060",
+    "colour": "#7ed957"
    }
   },
   {
    "kind": "stream-label",
-   "id": "P-1002.label",
+   "id": "C-02.label",
    "at": [
     517.5,
     -79,
-    150.78571428571428
+    96.36842105263159
    ],
-   "text": "Extract to crystalliser · 2\" tri-clamp",
+   "text": "Miscella out of extraction",
    "size": 9,
    "tags": {
     "compound": "MAT-0042 MAT-0042",
     "function": "transport",
-    "material": "MAT-0042 MAT-0043 MAT-0044 MAT-0060 MAT-0006 MAT-0100",
-    "colour": "#74a4ff"
+    "material": "MAT-0100 MAT-0042 MAT-0060",
+    "colour": "#7ed957"
    }
   },
   {
    "kind": "pipe",
-   "id": "P-1003",
+   "id": "C-03",
    "points": [
     [
      690,
-     12.857142857142858,
-     38.57142857142857
+     28.478231675994437,
+     12.174146592044522
     ],
     [
      690,
-     12.857142857142858,
-     164.5
+     28.478231675994437,
+     68.74922765179561
     ],
     [
      690,
      -88,
-     164.5
+     68.74922765179561
     ],
     [
      1035,
      -88,
-     164.5
+     68.74922765179561
     ],
     [
      1035,
-     -9.642857142857142,
-     164.5
+     28.32507723482044,
+     68.74922765179561
     ],
     [
      1035,
-     -9.642857142857142,
-     90
+     28.32507723482044,
+     13.399382121436489
     ]
    ],
    "r": 2.2,
    "tone": "hi",
    "flow": true,
-   "spool": "2\" tri-clamp",
-   "bore": {
-    "value": 50,
-    "unit": "mm"
-   },
-   "medium": "MAT-0100",
    "tags": {
     "compound": "MAT-0042 MAT-0042",
     "function": "transport",
-    "material": "MAT-0042 MAT-0043 MAT-0044 MAT-0060 MAT-0006 MAT-0100",
-    "colour": "#74a4ff"
+    "material": "MAT-0100 MAT-0042 MAT-0060",
+    "colour": "#7ed957"
    }
   },
   {
    "kind": "stream-label",
-   "id": "P-1003.label",
+   "id": "C-03.label",
    "at": [
     862.5,
     -88,
-    170.5
+    74.74922765179561
    ],
-   "text": "Filtrate · 2\" tri-clamp",
+   "text": "Membrane retentate to media column",
    "size": 9,
    "tags": {
     "compound": "MAT-0042 MAT-0042",
     "function": "transport",
-    "material": "MAT-0042 MAT-0043 MAT-0044 MAT-0060 MAT-0006 MAT-0100",
-    "colour": "#74a4ff"
+    "material": "MAT-0100 MAT-0042 MAT-0060",
+    "colour": "#7ed957"
    }
   },
   {
    "kind": "pipe",
-   "id": "P-1004",
+   "id": "C-04",
    "points": [
     [
      1035,
-     -9.642857142857142,
-     90
+     28.32507723482044,
+     13.399382121436489
     ],
     [
      1035,
-     -9.642857142857142,
-     173.5
-    ],
-    [
-     1035,
-     -97,
-     173.5
+     28.32507723482044,
+     108.36842105263159
     ],
     [
      1035,
      -97,
-     173.5
+     108.36842105263159
     ],
     [
      1035,
-     318.2142857142857,
-     173.5
+     -97,
+     108.36842105263159
     ],
     [
      1035,
-     318.2142857142857,
-     81.42857142857143
+     317.9605263157895,
+     108.36842105263159
+    ],
+    [
+     1035,
+     317.9605263157895,
+     37.89473684210527
     ]
    ],
    "r": 2.2,
    "tone": "hi",
    "flow": true,
-   "spool": "2\" tri-clamp",
-   "bore": {
-    "value": 50,
-    "unit": "mm"
-   },
-   "medium": "MAT-0100",
    "tags": {
     "compound": "MAT-0042 MAT-0042",
     "function": "transport",
-    "material": "MAT-0042 MAT-0043 MAT-0044 MAT-0060 MAT-0006 MAT-0100",
-    "colour": "#9a9a9a"
+    "material": "MAT-0100 MAT-0042 MAT-0060",
+    "colour": "#6be0a0"
    }
   },
   {
    "kind": "stream-label",
-   "id": "P-1004.label",
+   "id": "C-04.label",
    "at": [
     1035,
     -97,
-    179.5
+    114.36842105263159
    ],
-   "text": "Mother liquor to recovery · 2\" tri-clamp",
+   "text": "Media column effluent",
    "size": 9,
    "tags": {
     "compound": "MAT-0042 MAT-0042",
     "function": "transport",
-    "material": "MAT-0042 MAT-0043 MAT-0044 MAT-0060 MAT-0006 MAT-0100",
-    "colour": "#9a9a9a"
+    "material": "MAT-0100 MAT-0042 MAT-0060",
+    "colour": "#6be0a0"
    }
   },
   {
    "kind": "pipe",
-   "id": "P-1005",
+   "id": "C-05",
    "points": [
     [
      1035,
-     318.2142857142857,
-     81.42857142857143
+     317.9605263157895,
+     37.89473684210527
     ],
     [
      1035,
-     318.2142857142857,
-     257.5
+     317.9605263157895,
+     121.89877521040694
     ],
     [
      1035,
      -106,
-     257.5
+     121.89877521040694
     ],
     [
      690,
      -106,
-     257.5
+     121.89877521040694
     ],
     [
      690,
-     293.57142857142856,
-     257.5
+     324.81012247895933,
+     121.89877521040694
     ],
     [
      690,
-     293.57142857142856,
-     150
+     324.81012247895933,
+     41.51902016832555
     ]
    ],
    "r": 2.2,
    "tone": "hi",
    "flow": true,
-   "spool": "3\" tri-clamp",
-   "bore": {
-    "value": 75,
-    "unit": "mm"
-   },
-   "medium": "MAT-0100",
    "tags": {
     "compound": "MAT-0042 MAT-0042",
     "function": "transport",
-    "material": "MAT-0042 MAT-0043 MAT-0044 MAT-0060 MAT-0006 MAT-0100",
-    "colour": "#6fe0a4"
+    "material": "MAT-0100 MAT-0042",
+    "colour": "#e6e6e6"
    }
   },
   {
    "kind": "stream-label",
-   "id": "P-1005.label",
+   "id": "C-05.label",
    "at": [
     862.5,
     -106,
-    263.5
+    127.89877521040694
    ],
-   "text": "Mother liquor to recovery · 3\" tri-clamp",
+   "text": "Crystal slurry",
    "size": 9,
    "tags": {
     "compound": "MAT-0042 MAT-0042",
     "function": "transport",
-    "material": "MAT-0042 MAT-0043 MAT-0044 MAT-0060 MAT-0006 MAT-0100",
-    "colour": "#6fe0a4"
+    "material": "MAT-0100 MAT-0042",
+    "colour": "#e6e6e6"
    }
   },
   {
    "kind": "pipe",
-   "id": "P-1006",
+   "id": "C-06",
    "points": [
     [
-     690,
-     293.57142857142856,
-     150
+     1035,
+     317.9605263157895,
+     37.89473684210527
     ],
     [
-     690,
-     293.57142857142856,
-     266.5
+     1035,
+     317.9605263157895,
+     126.36842105263159
     ],
     [
-     690,
+     1035,
      -115,
-     266.5
+     126.36842105263159
     ],
     [
      345,
      -115,
-     266.5
+     126.36842105263159
     ],
     [
      345,
-     328.82142857142856,
-     266.5
+     327.1359223590017,
+     126.36842105263159
     ],
     [
      345,
-     328.82142857142856,
-     68.57142857142857
+     327.1359223590017,
+     22.91262112798617
     ]
    ],
    "r": 2.2,
    "tone": "hi",
    "flow": true,
-   "spool": "3\" tri-clamp",
-   "bore": {
-    "value": 75,
-    "unit": "mm"
-   },
-   "medium": "MAT-0100",
    "tags": {
-    "compound": "",
+    "compound": "MAT-0042 MAT-0042",
     "function": "transport",
-    "material": "MAT-0006 MAT-0100",
-    "colour": "#b892ff"
+    "material": "MAT-0100 MAT-0042",
+    "colour": "#e6e6e6"
    }
   },
   {
    "kind": "stream-label",
-   "id": "P-1006.label",
+   "id": "C-06.label",
    "at": [
-    517.5,
+    690,
     -115,
-    272.5
+    132.3684210526316
    ],
-   "text": "Solvent vapour · 3\" tri-clamp",
+   "text": "Crystal slurry",
    "size": 9,
    "tags": {
-    "compound": "",
+    "compound": "MAT-0042 MAT-0042",
     "function": "transport",
-    "material": "MAT-0006 MAT-0100",
-    "colour": "#b892ff"
+    "material": "MAT-0100 MAT-0042",
+    "colour": "#e6e6e6"
    }
   },
   {
    "kind": "pipe",
-   "id": "P-1007",
+   "id": "C-07",
    "points": [
     [
-     345,
-     328.82142857142856,
-     68.57142857142857
+     690,
+     324.81012247895933,
+     41.51902016832555
     ],
     [
-     345,
-     328.82142857142856,
-     291.57142857142856
+     690,
+     324.81012247895933,
+     433.39473684210526
     ],
     [
-     345,
+     690,
      -124,
-     291.57142857142856
+     433.39473684210526
     ],
     [
      0,
      -124,
-     291.57142857142856
+     433.39473684210526
     ],
     [
      0,
-     316.07142857142856,
-     291.57142857142856
+     288.1578947368421,
+     433.39473684210526
     ],
     [
      0,
-     316.07142857142856,
-     162.85714285714286
+     288.1578947368421,
+     276.3157894736842
     ]
    ],
    "r": 2.2,
    "tone": "hi",
    "flow": true,
-   "spool": "2\" tri-clamp",
-   "bore": {
-    "value": 50,
-    "unit": "mm"
-   },
-   "medium": "MAT-0100",
    "tags": {
-    "compound": "",
+    "compound": "MAT-0042 MAT-0042",
     "function": "transport",
-    "material": "MAT-0006 MAT-0100",
-    "colour": "#74a4ff"
+    "material": "MAT-0100 MAT-0042 MAT-0060",
+    "colour": "#9ad1ff"
    }
   },
   {
    "kind": "stream-label",
-   "id": "P-1007.label",
+   "id": "C-07.label",
    "at": [
-    172.5,
+    345,
     -124,
-    297.57142857142856
+    439.39473684210526
    ],
-   "text": "Recovered carrier · 2\" tri-clamp",
+   "text": "Mother liquor to evaporator",
    "size": 9,
    "tags": {
-    "compound": "",
+    "compound": "MAT-0042 MAT-0042",
     "function": "transport",
-    "material": "MAT-0006 MAT-0100",
-    "colour": "#74a4ff"
+    "material": "MAT-0100 MAT-0042 MAT-0060",
+    "colour": "#9ad1ff"
    }
   },
   {
    "kind": "pipe",
-   "id": "P-1008",
+   "id": "C-08",
    "points": [
     [
      0,
-     316.07142857142856,
-     162.85714285714286
+     288.1578947368421,
+     276.3157894736842
     ],
     [
      0,
-     316.07142857142856,
-     359.5
-    ],
-    [
-     0,
-     -133,
-     359.5
+     288.1578947368421,
+     442.39473684210526
     ],
     [
      0,
      -133,
-     359.5
+     442.39473684210526
     ],
     [
      0,
-     15,
-     359.5
+     -133,
+     442.39473684210526
     ],
     [
      0,
-     15,
-     210
+     625.8692852529432,
+     442.39473684210526
+    ],
+    [
+     0,
+     625.8692852529432,
+     33.0457179764545
     ]
    ],
    "r": 2.2,
    "tone": "hi",
    "flow": true,
-   "spool": "2\" tri-clamp",
-   "bore": {
-    "value": 50,
-    "unit": "mm"
-   },
-   "medium": "MAT-0100",
    "tags": {
     "compound": "",
     "function": "transport",
-    "material": "MAT-0006 MAT-0100",
-    "colour": "#74a4ff"
+    "material": "MAT-0100",
+    "colour": "#ff6b6b"
    }
   },
   {
    "kind": "stream-label",
-   "id": "P-1008.label",
+   "id": "C-08.label",
    "at": [
     0,
     -133,
-    365.5
+    448.39473684210526
    ],
-   "text": "Recovered carrier return · 2\" tri-clamp",
+   "text": "Carrier vapour",
    "size": 9,
    "tags": {
     "compound": "",
     "function": "transport",
-    "material": "MAT-0006 MAT-0100",
+    "material": "MAT-0100",
+    "colour": "#ff6b6b"
+   }
+  },
+  {
+   "kind": "pipe",
+   "id": "C-09",
+   "points": [
+    [
+     0,
+     625.8692852529432,
+     33.0457179764545
+    ],
+    [
+     0,
+     625.8692852529432,
+     171.1124558192855
+    ],
+    [
+     0,
+     -142,
+     171.1124558192855
+    ],
+    [
+     345,
+     -142,
+     171.1124558192855
+    ],
+    [
+     345,
+     623.4887544180715,
+     171.1124558192855
+    ],
+    [
+     345,
+     623.4887544180715,
+     52.08996465542839
+    ]
+   ],
+   "r": 2.2,
+   "tone": "hi",
+   "flow": true,
+   "tags": {
+    "compound": "",
+    "function": "transport",
+    "material": "MAT-0100 MAT-0006",
+    "colour": "#74a4ff"
+   }
+  },
+  {
+   "kind": "stream-label",
+   "id": "C-09.label",
+   "at": [
+    172.5,
+    -142,
+    177.1124558192855
+   ],
+   "text": "Condensed carrier",
+   "size": 9,
+   "tags": {
+    "compound": "",
+    "function": "transport",
+    "material": "MAT-0100 MAT-0006",
     "colour": "#74a4ff"
    }
   },
   {
    "kind": "pipe",
-   "id": "P-1009",
+   "id": "C-10",
    "points": [
     [
-     690,
-     293.57142857142856,
-     150
+     345,
+     623.4887544180715,
+     52.08996465542839
     ],
     [
-     690,
-     293.57142857142856,
-     293.5
+     345,
+     623.4887544180715,
+     180.1124558192855
     ],
     [
-     690,
-     -142,
-     293.5
+     345,
+     -151,
+     180.1124558192855
     ],
     [
-     690,
-     -142,
-     293.5
+     0,
+     -151,
+     180.1124558192855
     ],
     [
-     690,
-     595.7142857142857,
-     293.5
+     0,
+     15,
+     180.1124558192855
     ],
     [
-     690,
-     595.7142857142857,
-     55.714285714285715
+     0,
+     15,
+     37.89473684210527
     ]
    ],
    "r": 2.2,
    "tone": "hi",
    "flow": true,
-   "spool": "1.5\" tri-clamp",
-   "bore": {
-    "value": 38,
-    "unit": "mm"
-   },
-   "medium": "MAT-0100",
    "tags": {
-    "compound": "MAT-0042 MAT-0042",
+    "compound": "",
     "function": "transport",
-    "material": "MAT-0042 MAT-0043 MAT-0044 MAT-0060 MAT-0006 MAT-0100",
-    "colour": "#9a9a9a"
+    "material": "MAT-0100",
+    "colour": "#74a4ff"
    }
   },
   {
    "kind": "stream-label",
-   "id": "P-1009.label",
+   "id": "C-10.label",
    "at": [
-    690,
-    -142,
-    299.5
-   ],
-   "text": "CRD residue (cannabinoid rich) · 1.5\" tri-clamp",
-   "size": 9,
-   "tags": {
-    "compound": "MAT-0042 MAT-0042",
-    "function": "transport",
-    "material": "MAT-0042 MAT-0043 MAT-0044 MAT-0060 MAT-0006 MAT-0100",
-    "colour": "#9a9a9a"
-   }
-  },
-  {
-   "kind": "pipe",
-   "id": "P-1010",
-   "points": [
-    [
-     1035,
-     -9.642857142857142,
-     90
-    ],
-    [
-     1035,
-     -9.642857142857142,
-     227.5
-    ],
-    [
-     1035,
-     -151,
-     227.5
-    ],
-    [
-     0,
-     -151,
-     227.5
-    ],
-    [
-     0,
-     625.1785714285714,
-     227.5
-    ],
-    [
-     0,
-     625.1785714285714,
-     51.42857142857142
-    ]
-   ],
-   "r": 2.2,
-   "tone": "hi",
-   "flow": true,
-   "spool": "2\" tri-clamp",
-   "bore": {
-    "value": 50,
-    "unit": "mm"
-   },
-   "medium": "MAT-0042",
-   "tags": {
-    "compound": "MAT-0042 MAT-0042",
-    "function": "transport",
-    "material": "MAT-0042 MAT-0043 MAT-0044 MAT-0006",
-    "colour": "#6fe0a4"
-   }
-  },
-  {
-   "kind": "stream-label",
-   "id": "P-1010.label",
-   "at": [
-    517.5,
+    172.5,
     -151,
-    233.5
+    186.1124558192855
    ],
-   "text": "CBD cake · 2\" tri-clamp",
+   "text": "Dried carrier to day tank",
    "size": 9,
    "tags": {
-    "compound": "MAT-0042 MAT-0042",
+    "compound": "",
     "function": "transport",
-    "material": "MAT-0042 MAT-0043 MAT-0044 MAT-0006",
-    "colour": "#6fe0a4"
+    "material": "MAT-0100",
+    "colour": "#74a4ff"
    }
   },
   {
    "kind": "pipe",
-   "id": "P-1011",
+   "id": "C-12",
    "points": [
     [
-     345,
-     570.3571428571429,
-     38.57142857142857
+     1035,
+     568.8914882915731,
+     28.86809366741579
     ],
     [
-     345,
-     570.3571428571429,
-     236.5
-    ],
-    [
-     345,
-     -160,
-     236.5
+     1035,
+     568.8914882915731,
+     171.3684210526316
     ],
     [
      1035,
      -160,
-     236.5
+     171.3684210526316
     ],
     [
      1035,
-     -9.642857142857142,
-     236.5
+     -160,
+     171.3684210526316
     ],
     [
      1035,
-     -9.642857142857142,
-     90
+     317.9605263157895,
+     171.3684210526316
+    ],
+    [
+     1035,
+     317.9605263157895,
+     37.89473684210527
     ]
    ],
    "r": 2.2,
    "tone": "hi",
    "flow": true,
-   "spool": "2\" flange",
-   "bore": {
-    "value": 50,
-    "unit": "mm"
-   },
    "medium": "MAT-0061",
    "tags": {
+    "compound": "",
     "function": "transport",
-    "material": "",
-    "colour": ""
+    "material": "MAT-0100 MAT-0060",
+    "colour": "#b4b4b8"
    }
   },
   {
    "kind": "stream-label",
-   "id": "P-1011.label",
+   "id": "C-12.label",
    "at": [
-    690,
+    1035,
     -160,
-    242.5
+    177.3684210526316
    ],
-   "text": "P-1011 · 2\" flange",
+   "text": "Membrane fines waste",
    "size": 9,
    "tags": {
+    "compound": "",
     "function": "transport",
-    "material": "",
-    "colour": ""
+    "material": "MAT-0100 MAT-0060",
+    "colour": "#b4b4b8"
    }
   }
  ],
@@ -1380,107 +1389,127 @@
   [
    75,
    105,
-   262.5
+   47.36842105263158
   ],
   [
-   302.14285714285717,
-   -42.857142857142854,
+   284.8026315789474,
+   -30.19736842105263,
    0
   ],
   [
-   387.85714285714283,
-   42.857142857142854,
-   101.78571428571428
+   405.1973684210526,
+   90.19736842105263,
+   47.36842105263158
   ],
   [
-   679.2857142857143,
-   4.2857142857142865,
+   682.3911583799721,
+   22.391158379972175,
    0
   ],
   [
-   700.7142857142857,
-   25.714285714285715,
-   48.21428571428571
+   697.6088416200279,
+   37.608841620027825,
+   15.217683240055653
   ],
   [
-   986.7857142857143,
-   -48.21428571428571,
+   1026.6253861741022,
+   21.625386174102196,
    0
   ],
   [
-   1083.2142857142858,
-   48.21428571428571,
-   112.5
+   1043.3746138258978,
+   38.374613825897804,
+   16.74922765179561
   ],
   [
-   976.0714285714286,
-   271.07142857142856,
+   974.8026315789474,
+   269.8026315789474,
    0
   ],
   [
-   1093.9285714285713,
-   388.92857142857144,
-   101.78571428571428
+   1095.1973684210527,
+   390.1973684210526,
+   47.36842105263158
   ],
   [
-   657.8571428571429,
-   267.8571428571429,
+   664.0506123947965,
+   304.05061239479653,
    0
   ],
   [
-   722.1428571428571,
-   332.1428571428571,
-   187.5
+   715.9493876052035,
+   355.94938760520347,
+   51.89877521040693
   ],
   [
-   339.10714285714283,
-   324.10714285714283,
+   330.67961179500867,
+   315.67961179500867,
    0
   ],
   [
-   350.89285714285717,
-   335.89285714285717,
-   85.71428571428571
+   359.32038820499133,
+   344.32038820499133,
+   28.64077640998271
   ],
   [
-   -69.64285714285714,
-   260.3571428571429,
+   -59.21052631578947,
+   240.78947368421052,
    0
   ],
   [
-   69.64285714285714,
-   399.6428571428571,
-   203.57142857142856
+   59.21052631578947,
+   359.2105263157895,
+   345.39473684210526
   ],
   [
-   -24.107142857142854,
-   605.8928571428571,
+   -20.65357373528406,
+   609.3464262647159,
    0
   ],
   [
-   24.107142857142854,
-   654.1071428571429,
-   64.28571428571428
+   20.65357373528406,
+   650.6535737352841,
+   41.30714747056812
   ],
   [
-   334.2857142857143,
-   561.7857142857143,
+   312.44377209035724,
+   597.4437720903572,
    0
   ],
   [
-   355.7142857142857,
-   583.2142857142857,
-   48.21428571428571
+   377.55622790964276,
+   662.5562279096428,
+   65.11245581928549
   ],
   [
-   668.5714285714286,
-   578.5714285714286,
+   683.3530646014711,
+   623.3530646014711,
    0
   ],
   [
-   711.4285714285714,
-   621.4285714285714,
-   69.64285714285714
+   696.6469353985289,
+   636.6469353985289,
+   13.293870797057604
+  ],
+  [
+   1016.9574414578651,
+   554.4574414578651,
+   0
+  ],
+  [
+   1053.0425585421349,
+   590.5425585421349,
+   36.08511708426973
+  ],
+  [
+   1015.5642429899468,
+   910.5642429899468,
+   0
+  ],
+  [
+   1054.4357570100533,
+   949.4357570100532,
+   38.871514020106446
   ],
   [
    -160,
@@ -1494,104 +1523,122 @@
   ]
  ],
  "places": {
-  "V-101": {
+  "BT-103": {
    "x": 0,
    "y": 30,
    "z": 0,
    "r": 75,
-   "h": 262.5,
-   "litres": 30000,
+   "h": 47.36842105263158,
+   "litres": 2350,
    "fn": "storage"
   },
-  "V-102": {
+  "BT-101": {
    "x": 345,
-   "y": 0,
+   "y": 30,
    "z": 0,
-   "r": 42.857142857142854,
-   "h": 101.78571428571428,
-   "litres": 3000,
-   "fn": "reaction"
+   "r": 60.19736842105263,
+   "h": 47.36842105263158,
+   "litres": 1190,
+   "fn": "storage"
   },
-  "F-101": {
+  "SK-102": {
    "x": 690,
-   "y": 15,
+   "y": 30,
    "z": 0,
-   "r": 10.714285714285714,
-   "h": 48.21428571428571,
-   "litres": 200,
-   "fn": "filtration"
+   "r": 7.608841620027826,
+   "h": 15.217683240055653,
+   "litres": 30,
+   "fn": "storage"
   },
-  "V-103": {
+  "SK-101": {
    "x": 1035,
-   "y": 0,
+   "y": 30,
    "z": 0,
-   "r": 48.21428571428571,
-   "h": 112.5,
-   "litres": 4000,
-   "fn": "reaction"
+   "r": 8.374613825897805,
+   "h": 16.74922765179561,
+   "litres": 40,
+   "fn": "storage"
   },
-  "V-104": {
+  "BT-102": {
    "x": 1035,
    "y": 330,
    "z": 0,
-   "r": 58.92857142857142,
-   "h": 101.78571428571428,
-   "litres": 6000,
+   "r": 60.19736842105263,
+   "h": 47.36842105263158,
+   "litres": 1190,
+   "fn": "storage"
+  },
+  "BT-104": {
+   "x": 690,
+   "y": 330,
+   "z": 0,
+   "r": 25.949387605203466,
+   "h": 51.89877521040693,
+   "litres": 1190,
+   "fn": "storage"
+  },
+  "PD-101": {
+   "x": 345,
+   "y": 330,
+   "z": 0,
+   "r": 14.320388204991355,
+   "h": 28.64077640998271,
+   "litres": 200,
    "fn": "storage"
   },
   "EV-101": {
-   "x": 690,
+   "x": 0,
    "y": 300,
    "z": 0,
-   "r": 32.14285714285714,
-   "h": 187.5,
-   "litres": 1500,
+   "r": 59.21052631578947,
+   "h": 345.39473684210526,
+   "litres": 1200,
    "fn": "separation"
   },
   "CN-101": {
-   "x": 345,
-   "y": 330,
-   "z": 0,
-   "r": 5.892857142857142,
-   "h": 85.71428571428571,
-   "litres": 600,
-   "fn": "storage"
-  },
-  "V-105": {
-   "x": 0,
-   "y": 330,
-   "z": 0,
-   "r": 69.64285714285714,
-   "h": 203.57142857142856,
-   "litres": 20000,
-   "fn": "storage"
-  },
-  "V-106": {
    "x": 0,
    "y": 630,
    "z": 0,
-   "r": 24.107142857142854,
-   "h": 64.28571428571428,
-   "litres": 1000,
+   "r": 20.65357373528406,
+   "h": 41.30714747056812,
+   "litres": 600,
+   "fn": "storage"
+  },
+  "BT-105": {
+   "x": 345,
+   "y": 630,
+   "z": 0,
+   "r": 32.55622790964274,
+   "h": 65.11245581928549,
+   "litres": 2350,
+   "fn": "storage"
+  },
+  "SK-103": {
+   "x": 690,
+   "y": 630,
+   "z": 0,
+   "r": 6.646935398528802,
+   "h": 13.293870797057604,
+   "litres": 20,
    "fn": "storage"
   },
   "CH-101": {
-   "x": 345,
+   "x": 1035,
    "y": 572.5,
    "z": 0,
-   "r": 10.714285714285714,
-   "h": 48.21428571428571,
-   "litres": 500,
+   "r": 18.042558542134866,
+   "h": 36.08511708426973,
+   "litres": 400,
    "fn": "heat-exchange"
   },
   "SC-101": {
-   "x": 690,
-   "y": 600,
+   "x": 1035,
+   "y": 930,
    "z": 0,
-   "r": 21.428571428571427,
-   "h": 69.64285714285714,
-   "litres": 200,
-   "fn": "separation"
+   "r": 19.435757010053223,
+   "h": 38.871514020106446,
+   "litres": 500,
+   "fn": "storage"
   }
  }
 }

@@ -1,0 +1,175 @@
+{
+  "meta": {
+    "id": "EXP-2026-002",
+    "name": "Brewery-kit CBD extraction (10 bbl jacketed)",
+    "subtitle": "standard 10 bbl jacketed brewery equipment re-purposed: mash-tun extraction, unitank crystallisation, brite-tank storage, with a media column, a 10 µm–0.01 µm membrane cascade and a low-energy RO",
+    "revision": 1,
+    "owner": "lifecycleResearch",
+    "client": "private",
+    "confidentiality": "CBI-IP",
+    "units": { "system": "SI", "volume": "L", "pressure": "kPa(abs)", "temperature": "degC", "mass": "kg" },
+    "purpose": "Extract and isolate CBD from hemp biomass on ordinary 10 bbl jacketed brewery kit — nothing bespoke — with every media, membrane and membrane-position choice computed and cited rather than guessed.",
+    "slug": "brewkit",
+    "basis": "one charge: 120 kg biomass, 960 L carrier, per the balancer defaults; the client's assay replaces the feedstock numbers (A-02)"
+  },
+  "materials": [
+    { "id": "MAT-0001", "name": "Ethanol", "cas": "64-17-5", "grade": "USP 200 proof", "role": "carrier component", "colour": "#74a4ff", "hazards": ["flammable"] },
+    { "id": "MAT-0002", "name": "n-Pentane", "cas": "109-66-0", "grade": "technical", "role": "carrier component", "colour": "#74a4ff", "hazards": ["flammable"] },
+    { "id": "MAT-0100", "name": "Carrier blend (assumed 70/30)", "cas": null, "grade": "client blend", "role": "carrier", "colour": "#74a4ff", "hazards": ["flammable"], "note": "the ratio is assumption A-01 until the client confirms it" },
+    { "id": "MAT-0042", "name": "Cannabidiol (CBD)", "cas": "13956-29-1", "grade": "target compound", "role": "product", "colour": "#6be0a0" },
+    { "id": "MAT-0060", "name": "Wax and lipid fraction", "cas": null, "grade": "co-extract", "role": "impurity", "colour": "#d9c9a3" },
+    { "id": "MAT-0006", "name": "Water", "cas": "7732-18-5", "grade": "deionised", "role": "utility" },
+    { "id": "MAT-0061", "name": "Propylene glycol", "cas": "57-55-6", "grade": "coolant", "role": "utility" },
+    { "id": "MAT-0070", "name": "Hemp biomass (dried, milled)", "cas": null, "grade": "feedstock", "role": "feed", "colour": "#7a8a5a" },
+    { "id": "MAT-0071", "name": "Spent cellulosic biomass", "cas": null, "grade": "waste", "role": "waste" },
+    { "id": "MAT-0080", "name": "Nitrogen", "cas": "7727-37-9", "grade": "blanket grade", "role": "utility", "hazards": ["asphyxiant in confined space"] }
+  ],
+  "media": [
+    { "id": "MED-0001", "name": "Activated carbon (coconut, acid-washed)", "function": "colour bodies, chlorophyll, odour", "quantity": { "value": 25, "unit": "kg" }, "regeneration": "thermal reactivation off-site", "cost": "low per kg", "cycles": 1, "accessible": true, "lossAtStandard": { "value": 11.5, "unit": "%" } },
+    { "id": "MED-0002", "name": "Silica gel 60, 40-63 um", "function": "chlorophyll, polar pigments", "quantity": { "value": 30, "unit": "kg" }, "regeneration": "oven 120-140 degC", "cost": "low", "cycles": 5, "accessible": true, "lossAtStandard": { "value": 5, "unit": "%" } },
+    { "id": "MED-0003", "name": "Bentonite clay", "function": "pesticides, pigments", "quantity": { "value": 30, "unit": "kg" }, "regeneration": "none - single use", "cost": "very low", "cycles": 1, "accessible": true, "lossAtStandard": { "value": 2, "unit": "%" } },
+    { "id": "MED-0004", "name": "Molecular sieve 3A", "function": "carrier drying to <200 ppm water", "quantity": { "value": 12, "unit": "kg" }, "regeneration": "200-250 degC under dry gas", "cost": "moderate, amortised", "cycles": 200, "accessible": true, "lossAtStandard": { "value": 0.5, "unit": "%" } },
+    { "id": "MED-0005", "name": "Molecular sieve 13X", "function": "water plus CO2 and light organics", "quantity": { "value": 12, "unit": "kg" }, "regeneration": "250-300 degC under dry gas", "cost": "moderate", "cycles": 150, "accessible": true, "lossAtStandard": { "value": 1, "unit": "%" } },
+    { "id": "MED-0006", "name": "Strong-acid cation resin (Na form)", "function": "metal cations, soaps", "quantity": { "value": 20, "unit": "L" }, "regeneration": "brine/HCl, rinse to neutral", "cost": "moderate, lasts years", "cycles": 300, "accessible": true, "lossAtStandard": { "value": 3, "unit": "%" } },
+    { "id": "MED-0007", "name": "PVPP", "function": "polyphenols, haze", "quantity": { "value": 10, "unit": "kg" }, "regeneration": "single use (brewery practice)", "cost": "low", "cycles": 1, "accessible": true, "lossAtStandard": { "value": 2, "unit": "%" } },
+    { "id": "MED-0009", "name": "Stainless packing 316L", "function": "column contact time", "quantity": { "value": 15, "unit": "kg" }, "regeneration": "caustic/solvent wash; effectively permanent", "cost": "once", "cycles": 1000, "accessible": true, "lossAtStandard": { "value": 0, "unit": "%" } },
+    { "id": "MED-0010", "name": "Copper packing", "function": "sulphur compounds, off-notes", "quantity": { "value": 8, "unit": "kg" }, "regeneration": "citric pickling; replace when eaten", "cost": "low, consumable", "cycles": 20, "accessible": true, "lossAtStandard": { "value": 1, "unit": "%" } },
+    { "id": "MED-0012", "name": "Cellulose filter pads", "function": "fines, light colour lift", "quantity": { "value": 12, "unit": "ea" }, "regeneration": "backflush a few runs", "cost": "low", "cycles": 4, "accessible": true, "lossAtStandard": { "value": 2, "unit": "%" } }
+  ],
+  "vessels": [
+    { "id": "BT-101", "name": "Extraction vessel (10 bbl jacketed mash tun)", "type": "jacketed vessel with false bottom and rake", "volume": { "value": 1190, "unit": "L" }, "dimensions": { "diameter": { "value": 1220, "unit": "mm" }, "straightSide": { "value": 1500, "unit": "mm" } }, "material": "304/316L", "jacket": { "medium": "glycol 20 degC", "duty": { "value": 30, "unit": "kW" }, "rating": { "value": 3, "unit": "bar" } }, "isolation": { "kind": "closed", "note": "nitrogen blanket, oxygen below 2 %" }, "note": "US brewery barrel = 117.35 L; 10 bbl working volume 1,190 L" },
+    { "id": "BT-102", "name": "Crystalliser (10 bbl jacketed unitank)", "type": "jacketed unitank, 60 deg cone, scraper", "volume": { "value": 1190, "unit": "L" }, "dimensions": { "diameter": { "value": 1220, "unit": "mm" }, "straightSide": { "value": 1400, "unit": "mm" } }, "material": "316L", "jacket": { "medium": "glycol -45 degC", "duty": { "value": 85, "unit": "kW" }, "rating": { "value": 3, "unit": "bar" } }, "isolation": { "kind": "closed", "note": "insulated jacket; nitrogen blanket" } },
+    { "id": "BT-103", "name": "Carrier day tank (20 bbl brite tank)", "type": "brite tank", "volume": { "value": 2350, "unit": "L" }, "dimensions": { "diameter": { "value": 1520, "unit": "mm" }, "straightSide": { "value": 1900, "unit": "mm" } }, "material": "316L", "isolation": { "kind": "closed", "note": "nitrogen blanket, PRV 45 psi" } },
+    { "id": "BT-104", "name": "Mother liquor tank (10 bbl jacketed brite tank)", "type": "jacketed brite tank", "volume": { "value": 1190, "unit": "L" }, "material": "316L", "isolation": { "kind": "closed", "note": "PRV 45 psi" } },
+    { "id": "BT-105", "name": "Recovered carrier tank (20 bbl brite tank)", "type": "brite tank", "volume": { "value": 2350, "unit": "L" }, "material": "316L", "isolation": { "kind": "closed", "note": "nitrogen blanket, PRV 45 psi" } },
+    { "id": "SK-101", "name": "Media (CRC) column", "type": "10 inch tri-clamp column, media selectable", "volume": { "value": 40, "unit": "L" }, "material": "316L", "isolation": { "kind": "closed", "note": "bed per media card; sight glasses both ends" } },
+    { "id": "SK-102", "name": "Membrane skid", "type": "staged cartridge housings, 10 um to 0.01 um", "volume": { "value": 30, "unit": "L" }, "material": "316L housings", "note": "position before and/or after the media column is a setting, not hardware" },
+    { "id": "SK-103", "name": "Low-energy RO skid", "type": "40 inch (4040) low-energy RO elements x3", "volume": { "value": 20, "unit": "L" }, "material": "SS housings", "note": "water service and aqueous waste; solvent loop only after S-13 is answered" },
+    { "id": "EV-101", "name": "Vacuum evaporator (falling film)", "type": "falling film", "volume": { "value": 1200, "unit": "L" }, "dimensions": { "diameter": { "value": 1200, "unit": "mm" }, "height": { "value": 3500, "unit": "mm" } }, "material": "316L", "jacket": { "medium": "glycol 60 degC", "duty": { "value": 45, "unit": "kW" } }, "isolation": { "kind": "closed", "note": "vacuum insulated" } },
+    { "id": "CN-101", "name": "Condenser bank", "type": "shell and tube, four shells", "volume": { "value": 600, "unit": "L" }, "material": "316L" },
+    { "id": "CH-101", "name": "Glycol chiller", "type": "air cooled chiller", "volume": { "value": 400, "unit": "L" }, "material": "painted carbon steel" },
+    { "id": "SC-101", "name": "Gas scrubber", "type": "drum with carbon media bed", "volume": { "value": 500, "unit": "L" }, "material": "316L" },
+    { "id": "PD-101", "name": "Product drum", "type": "drum", "volume": { "value": 200, "unit": "L" }, "material": "316L" }
+  ],
+  "connections": [
+    { "id": "C-01", "from": "BT-103", "to": "BT-101", "line": "carrier charge", "stream": "S-102" },
+    { "id": "C-02", "from": "BT-101", "to": "SK-102", "line": "miscella to membrane skid", "stream": "S-104" },
+    { "id": "C-03", "from": "SK-102", "to": "SK-101", "line": "to media column (position: after)", "stream": "S-106" },
+    { "id": "C-04", "from": "SK-101", "to": "BT-102", "line": "polished miscella to crystalliser", "stream": "S-108" },
+    { "id": "C-05", "from": "BT-102", "to": "BT-104", "line": "mother liquor", "stream": "S-112" },
+    { "id": "C-06", "from": "BT-102", "to": "PD-101", "line": "crystal slurry to isolation", "stream": "S-112" },
+    { "id": "C-07", "from": "BT-104", "to": "EV-101", "line": "mother liquor to evaporator", "stream": "S-113" },
+    { "id": "C-08", "from": "EV-101", "to": "CN-101", "line": "carrier vapour", "stream": "S-115" },
+    { "id": "C-09", "from": "CN-101", "to": "BT-105", "line": "condensed carrier", "stream": "S-116" },
+    { "id": "C-10", "from": "BT-105", "to": "BT-103", "line": "through the 3A/13X sieve stack, carrier return", "stream": "S-117" },
+    { "id": "C-12", "from": "CH-101", "to": "BT-102", "line": "glycol cold loop", "medium": "MAT-0061", "flow": { "value": 40, "unit": "L/h" } }
+  ],
+  "process": [
+    { "id": "OP-05", "name": "Carrier charge", "kind": "transfer", "window": { "T": { "value": 2, "unit": "degC" }, "duration": { "value": 1.5, "unit": "h" } }, "in": ["S-100", "S-101"], "out": ["S-102"] },
+    { "id": "OP-10", "name": "Extraction with circulation", "kind": "mixing", "window": { "T": { "value": 2, "unit": "degC" }, "hold": { "value": 2, "unit": "h" }, "psi": { "value": 15, "unit": "psi" } }, "isolation": { "kind": "closed", "note": "nitrogen blanket" }, "in": ["S-102", "S-101"], "out": ["S-104", "S-105"], "note": "S-103 is internal recirculation through the false bottom, not a boundary crossing" },
+    { "id": "OP-15", "name": "Membrane pass", "kind": "filtration", "window": { "cutoff": "10 um to 0.01 um by stage", "position": "before and/or after media" }, "in": ["S-104"], "out": ["S-106", "S-107"] },
+    { "id": "OP-20", "name": "Media column pass", "kind": "adsorption", "window": { "media": "selectable", "dose": { "value": 5, "unit": "g/L" } }, "in": ["S-106"], "out": ["S-108", "S-109"] },
+    { "id": "OP-25", "name": "Polish filtration", "kind": "filtration", "window": { "cutoff": "0.2 um and 0.01 um stages" }, "in": ["S-108"], "out": ["S-110"] },
+    { "id": "OP-30", "name": "Sub-zero crystallisation", "kind": "cooling", "window": { "T": { "value": -40, "unit": "degC" }, "hold": { "value": 8, "unit": "h" } }, "heat": { "duty": { "value": 85, "unit": "kW" }, "medium": "glycol -45 degC" }, "in": ["S-110"], "out": ["S-111", "S-112"] },
+    { "id": "OP-40", "name": "Mother liquor separation", "kind": "transfer", "window": { "T": { "value": -20, "unit": "degC" } }, "in": ["S-112"], "out": ["S-113"] },
+    { "id": "OP-50", "name": "Vacuum evaporation", "kind": "evaporation", "window": { "vacuum": { "value": 100, "unit": "Torr" } }, "in": ["S-113"], "out": ["S-114", "S-115"] },
+    { "id": "OP-55", "name": "Condensation", "kind": "condensation", "window": { "T": { "value": -20, "unit": "degC" } }, "in": ["S-115"], "out": ["S-116"] },
+    { "id": "OP-60", "name": "Sieve drying and carrier return", "kind": "drying", "window": { "water": { "value": 200, "unit": "ppm" } }, "in": ["S-116"], "out": ["S-117"] },
+    { "id": "OP-70", "name": "RO polish (water loop)", "kind": "membrane", "window": { "element": "4040 low energy" }, "in": ["S-118"], "out": ["S-119", "S-120"] }
+  ],
+  "streams": [
+    { "id": "S-100", "name": "Carrier in storage", "phase": "liquid", "composition": [{ "material": "MAT-0100", "fraction": 1 }], "colour": "#74a4ff", "flow": { "value": 0, "unit": "L/h" }, "note": "bulk, not a rate" },
+    { "id": "S-101", "name": "Hemp biomass charge", "phase": "solid", "composition": [{ "material": "MAT-0070", "fraction": 1 }], "colour": "#7a8a5a", "flow": { "value": 120, "unit": "kg/h" }, "note": "one charge per batch, A-02" },
+    { "id": "S-102", "name": "Carrier charged to extraction", "phase": "liquid", "composition": [{ "material": "MAT-0100", "fraction": 1 }], "colour": "#74a4ff", "flow": { "value": 640, "unit": "L/h" }, "note": "960 L over 1.5 h" },
+    { "id": "S-103", "name": "Extraction circulation", "phase": "liquid", "composition": [{ "material": "MAT-0100", "fraction": 0.98 }, { "material": "MAT-0042", "fraction": 0.02 }], "colour": "#74a4ff", "flow": { "value": 4800, "unit": "L/h" }, "note": "4 vessel turnovers per hour through the false bottom" },
+    { "id": "S-104", "name": "Miscella out of extraction", "phase": "liquid", "composition": [{ "material": "MAT-0100", "fraction": 0.95 }, { "material": "MAT-0042", "fraction": 0.03 }, { "material": "MAT-0060", "fraction": 0.02 }], "colour": "#7ed957", "flow": { "value": 640, "unit": "L/h" } },
+    { "id": "S-105", "name": "Spent biomass drain", "phase": "solid", "composition": [{ "material": "MAT-0071", "fraction": 0.94 }, { "material": "MAT-0100", "fraction": 0.06 }], "colour": "#5a6a44", "flow": { "value": 12, "unit": "kg/h" } },
+    { "id": "S-106", "name": "Membrane retentate to media column", "phase": "liquid", "composition": [{ "material": "MAT-0100", "fraction": 0.94 }, { "material": "MAT-0042", "fraction": 0.03 }, { "material": "MAT-0060", "fraction": 0.03 }], "colour": "#7ed957", "flow": { "value": 600, "unit": "L/h" } },
+    { "id": "S-107", "name": "Membrane fines waste", "phase": "liquid", "composition": [{ "material": "MAT-0100", "fraction": 0.99 }, { "material": "MAT-0060", "fraction": 0.01 }], "colour": "#b4b4b8", "flow": { "value": 40, "unit": "L/h" } },
+    { "id": "S-108", "name": "Media column effluent", "phase": "liquid", "composition": [{ "material": "MAT-0100", "fraction": 0.955 }, { "material": "MAT-0042", "fraction": 0.03 }, { "material": "MAT-0060", "fraction": 0.015 }], "colour": "#6be0a0", "flow": { "value": 600, "unit": "L/h" } },
+    { "id": "S-109", "name": "Spent media bed", "phase": "solid", "composition": [{ "material": "MAT-0071", "fraction": 1 }], "colour": "#4a4a44", "flow": { "value": 2, "unit": "kg/h" }, "note": "carbon and clay are single-use; sieves and packing stay in service" },
+    { "id": "S-110", "name": "Polished miscella to crystalliser", "phase": "liquid", "composition": [{ "material": "MAT-0100", "fraction": 0.96 }, { "material": "MAT-0042", "fraction": 0.04 }], "colour": "#6be0a0", "flow": { "value": 600, "unit": "L/h" } },
+    { "id": "S-111", "name": "Chilled miscella in crystalliser", "phase": "liquid", "composition": [{ "material": "MAT-0100", "fraction": 0.96 }, { "material": "MAT-0042", "fraction": 0.04 }], "colour": "#9ad1ff", "flow": { "value": 600, "unit": "L/h" } },
+    { "id": "S-112", "name": "Crystal slurry", "phase": "slurry", "composition": [{ "material": "MAT-0100", "fraction": 0.8 }, { "material": "MAT-0042", "fraction": 0.2 }], "colour": "#e6e6e6", "flow": { "value": 150, "unit": "L/h" } },
+    { "id": "S-113", "name": "Mother liquor to evaporator", "phase": "liquid", "composition": [{ "material": "MAT-0100", "fraction": 0.94 }, { "material": "MAT-0042", "fraction": 0.04 }, { "material": "MAT-0060", "fraction": 0.02 }], "colour": "#9ad1ff", "flow": { "value": 450, "unit": "L/h" } },
+    { "id": "S-114", "name": "Concentrated cannabinoid residue", "phase": "liquid", "composition": [{ "material": "MAT-0042", "fraction": 0.55 }, { "material": "MAT-0060", "fraction": 0.45 }], "colour": "#d9c9a3", "flow": { "value": 8, "unit": "L/h" } },
+    { "id": "S-115", "name": "Carrier vapour", "phase": "vapour", "composition": [{ "material": "MAT-0100", "fraction": 1 }], "colour": "#ff6b6b", "flow": { "value": 442, "unit": "L/h" } },
+    { "id": "S-116", "name": "Condensed carrier", "phase": "liquid", "composition": [{ "material": "MAT-0100", "fraction": 0.995 }, { "material": "MAT-0006", "fraction": 0.005 }], "colour": "#74a4ff", "flow": { "value": 442, "unit": "L/h" } },
+    { "id": "S-117", "name": "Dried carrier to day tank", "phase": "liquid", "composition": [{ "material": "MAT-0100", "fraction": 1 }], "colour": "#74a4ff", "flow": { "value": 442, "unit": "L/h" } },
+    { "id": "S-118", "name": "Aqueous waste / glycol make-up feed", "phase": "liquid", "composition": [{ "material": "MAT-0006", "fraction": 0.96 }, { "material": "MAT-0061", "fraction": 0.04 }], "colour": "#b4b4b8", "flow": { "value": 100, "unit": "L/h" }, "note": "the RO's service is water, not solvent - S-13" },
+    { "id": "S-119", "name": "RO permeate", "phase": "liquid", "composition": [{ "material": "MAT-0006", "fraction": 1 }], "colour": "#6b9bff", "flow": { "value": 85, "unit": "L/h" } },
+    { "id": "S-120", "name": "RO concentrate", "phase": "liquid", "composition": [{ "material": "MAT-0006", "fraction": 0.7 }, { "material": "MAT-0061", "fraction": 0.3 }], "colour": "#8a8a8f", "flow": { "value": 15, "unit": "L/h" } }
+  ],
+  "targets": [
+    { "id": "T-1", "name": "CBD crystal fraction", "material": "MAT-0042", "purity": { "value": 62, "unit": "%" }, "recovery": { "value": 88, "unit": "%" }, "isolationStep": "OP-30", "colour": "#e6e6e6" },
+    { "id": "T-2", "name": "CRD mother liquor concentrate", "material": "MAT-0042", "purity": { "value": 55, "unit": "%" }, "recovery": { "value": 96, "unit": "%" }, "isolationStep": "OP-50", "colour": "#d9c9a3" }
+  ],
+  "sop": {
+    "steps": [
+      { "id": "OP-05", "text": "Charge the carrier from the 20 bbl brite tank to the extraction vessel at 2 degC under nitrogen.", "acceptance": "960 L charged; oxygen below 2 % before agitation starts." },
+      { "id": "OP-10", "text": "Circulate the miscella through the false bottom at 4 turnovers per hour for 2 h at the temperature the operating point sets.", "acceptance": "circulation rate 4,800 L/h; temperature within 1 K of the set point for the full hold." },
+      { "id": "OP-15", "text": "Pass the miscella through the membrane skid in the configured position; record differential pressure per stage.", "acceptance": "differential pressure under 1.4 bar per housing; flux recorded at start and end." },
+      { "id": "OP-20", "text": "Pass the miscella through the media column at the dose the operating point sets; never exceed 2x the standard dose without a re-verification.", "acceptance": "colour removal within 5 % of the predicted value; cannabinoid loss inside the published band." },
+      { "id": "OP-25", "text": "Polish through the 0.2 um and 0.01 um stages to the crystalliser.", "acceptance": "filter effluent visibly clear; flux above the minimum on the datasheet." },
+      { "id": "OP-30", "text": "Crystallise at -40 degC for 8 h with the scraper running.", "acceptance": "jacket at -45 degC; crystalliser contents at -40 degC for the full hold." },
+      { "id": "OP-40", "text": "Draw the mother liquor to the jacketed brite tank at -20 degC.", "acceptance": "crystal slurry to isolation; mother liquor transfer complete." },
+      { "id": "OP-50", "text": "Evaporate the carrier from the mother liquor at the vacuum the operating point sets.", "acceptance": "boiling temperature within 2 K of the Antoine prediction at the set vacuum." },
+      { "id": "OP-55", "text": "Condense the carrier vapour in the four-shell bank at -20 degC.", "acceptance": "condensate flow steady; vent scrubber receiving." },
+      { "id": "OP-60", "text": "Dry the recovered carrier through the 3A/13X sieve stack and return it to the day tank.", "acceptance": "water under 200 ppm at the return." },
+      { "id": "OP-70", "text": "Run the RO on water service only until S-13 is answered in writing by the membrane maker.", "acceptance": "permeate conductivity within the element datasheet; no solvent in the feed." }
+    ],
+    "notes": [
+      { "id": "N-1", "refersTo": "SK-101", "text": "The media column's bed is chosen on the media tab; carbon and clay are single use, sieves and packing stay in service. Record the bed in the batch record before the pass." },
+      { "id": "N-2", "refersTo": "SK-103", "text": "The RO is in the plant for water polish and aqueous waste. It does not see carrier until the maker clears ethanol service (S-13)." }
+    ]
+  },
+  "simulation": { "engine": "sim/parametrics.mjs", "note": "the sliders drive this module directly; every coefficient carries a source" },
+  "sources": [
+    { "id": "S-01", "kind": "database", "citation": "NIST Chemistry WebBook, Antoine parameters (ethanol Kretschmer & Wiebe 1949; n-pentane Osborn & Douslin 1974)", "url": "https://webbook.nist.gov/cgi/fluid.cgi" },
+    { "id": "S-02", "kind": "paper", "citation": "Experimental solubility of cannabidiol (CBD) in different organic solvents, Ind. Eng. Chem. Res. 2023, 62(31), 12356 - measured 253.1-310.1 K", "doi": "10.1021/acs.iecr.3c01522" },
+    { "id": "S-03", "kind": "paper", "citation": "J. Am. Oil Chem. Soc. (2021) 99:525 - ethanol vs lower-boiling solvents for terpenoids and cannabinoids from hemp inflorescence" },
+    { "id": "S-04", "kind": "industry", "citation": "CannaLabs Consulting, independent CRC media comparison - carbon 85-95 % colour at 8-15 % cannabinoid strip; bentonite 70-90 % pesticides at low loss", "url": "https://cannalabsconsulting.com/cannabis-filtration-media-chemistry-independent-comparison-of-every-crc-adsorbent" },
+    { "id": "S-05", "kind": "industry", "citation": "Extraction Magazine (2021), The rise of in-line color remediation; MJBizDaily (2022) - media in commercial use: silica, bentonite, carbon, magnesium silicate" },
+    { "id": "S-06", "kind": "datasheet", "citation": "DuPont FilmTec XLE-4040 low-energy RO element - approx 2,600 GPD, >=99 % NaCl rejection, 150 psi test; water service", "url": "https://www.dupont.com/water/ro-elements.html" },
+    { "id": "S-07", "kind": "handbook", "citation": "CRC Handbook - enthalpy of vaporisation: ethanol 838 kJ/kg, n-pentane 358 kJ/kg at the normal boiling point" },
+    { "id": "S-08", "kind": "convention", "citation": "10 bbl brewery kit convention - US barrel 117.35 L; dimple jacket rating 3 bar; brite-tank PRV 30-45 psi" }
+  ],
+  "assumptions": [
+    { "id": "A-01", "text": "The carrier blend is 70 % ethanol and 30 % n-pentane by mass; the ratio is an assumption until the client confirms it.", "confirmed": false, "affects": ["OP-10", "OP-50", "S-115"] },
+    { "id": "A-02", "text": "Feedstock defaults for the balancer: 120 kg biomass per charge, 8 wt % CBD, 10 % moisture. The client's assay replaces all three.", "confirmed": false, "affects": ["OP-05", "OP-10"] },
+    { "id": "A-03", "text": "Wax and lipid fraction 8 % of dry biomass; cold extraction retains about 55 % of it. Both are assumptions, not measurements.", "confirmed": false, "affects": ["OP-10", "OP-20"] },
+    { "id": "A-04", "text": "Crystal targets (62 % purity, 88 % recovery of CBD into the crystal) are carried from the specification, not measured on this kit.", "confirmed": false, "affects": ["OP-30"] },
+    { "id": "A-05", "text": "Carrier recovery 96 % through evaporation and condensation; the loss figure follows from it.", "confirmed": false, "affects": ["OP-50", "OP-55", "OP-60"] },
+    { "id": "A-06", "text": "Evaporation spreads over 4 h; the duty figure scales inversely with that cycle time.", "confirmed": false, "affects": ["OP-50"] }
+  ],
+  "evidence": {
+    "note": "topics the design leans on, with what was retrieved; thin evidence is marked thin",
+    "topics": {
+      "E-01": { "topic": "CBD solubility vs temperature in ethanol", "query": "cannabidiol solubility ethanol temperature dependence", "why": "the temperature slider's effect is anchored to measured solubility, not to habit" },
+      "E-02": { "topic": "colour remediation media performance", "query": "hemp extract remediation carbon silica bentonite cannabinoid loss", "why": "the sorbent slider's loss column cites measured ranges" },
+      "E-03": { "topic": "membrane filtration of extracts", "query": "microfiltration ultrafiltration cannabis extract colloid", "why": "the 0.01 um stage's value must be shown, not assumed" },
+      "E-04": { "topic": "RO membrane solvent tolerance", "query": "polyamide RO ethanol compatibility", "why": "S-13 stays open until the manufacturer answers" },
+      "E-05": { "topic": "vacuum evaporation of ethanol extracts", "query": "ethanol boiling point vacuum falling film evaporator duty", "why": "the vacuum slider's boiling point is Antoine, verified in tests" }
+    }
+  },
+  "safety": {
+    "note": "Every item here is a question to close, with a rule and an owner. Nothing is signed off until the owner says so in the record.",
+    "revision": 2,
+    "questions": [
+      { "id": "S-01", "topic": "flammable atmosphere", "rule": "the carrier blend is flammable; the extraction and evaporation rooms are Class I Division 1 or 2 zones per the electrical classification survey", "question": "has the electrical classification been surveyed and signed for the exact rooms this kit occupies?", "owner": "the client's EHS adviser", "why": "brewery kit was built for a non-flammable process; the room classification may not have been done" },
+      { "id": "S-02", "topic": "jacket pressure rating", "rule": "dimple jackets on brewery vessels are typically rated 3 bar (43.5 psi); operate with margin", "question": "is the jacket pressure the operating point sets inside the nameplate rating of every vessel, including the old ones?", "owner": "the equipment owner", "why": "second-hand brewery kit does not always carry its original nameplate" },
+      { "id": "S-03", "topic": "PRV condition", "rule": "every brite tank keeps its PRV, set at or below the vessel rating", "question": "when were the PRVs last tested, and are they set below the vessel MAWP?", "owner": "the equipment owner", "why": "a blocked PRV on a tank with nitrogen blanket is a real over-pressure path" },
+      { "id": "S-04", "topic": "nitrogen asphyxiation", "rule": "confined-space entry rules around any vessel with a nitrogen blanket", "question": "who signs the confined-space permit, and is a gas meter at the manway before entry?", "owner": "the client's EHS adviser", "why": "the plant blankets with nitrogen; the hazard is invisible" },
+      { "id": "S-05", "topic": "cold surfaces and coolant", "rule": "the -45 degC crystalliser jacket is a cryogenic burn surface; glycol at -45 degC is not food-safe coolant", "question": "are the cold surfaces insulated and labelled, and is the glycol loop closed with a spill plan?", "owner": "the operations lead", "why": "brewery glycol normally runs near 0 degC; this loop runs far colder" },
+      { "id": "S-06", "topic": "sorbent dust", "rule": "carbon, clay, silica and sieve dusts are nuisance-to-irritant dusts; handle with extraction or a respirator", "question": "is the media charging step done with dust control, and are spent beds disposed of per their adsorbed load?", "owner": "the operations lead", "why": "charging a CRC column is dusty; spent carbon carries adsorbed organics" },
+      { "id": "S-07", "topic": "spent media disposal", "rule": "spent carbon and clay carry adsorbed cannabinoids and pesticides; disposal follows the hazardous-waste determination", "question": "has a waste determination been done on each spent bed, per media?", "owner": "the waste broker", "why": "SCC never takes title; the broker arranges carriers and DOT labelling" },
+      { "id": "S-08", "topic": "membrane compatibility", "rule": "cartridge membranes are specified for the chemistry they see", "question": "are the 10 um to 0.01 um cartridge materials rated for ethanol and the blend?", "owner": "the equipment owner", "why": "polypropylene and PTFE are usually fine; the verification is still owed" },
+      { "id": "S-09", "topic": "RO service limit", "rule": "polyamide RO elements are not rated for high-ethanol service", "question": "S-13 restated: has the membrane maker confirmed ethanol compatibility in writing before the RO sees carrier?", "owner": "the equipment owner", "why": "the RO is in the plant for water; the temptation to run solvent through it is the risk" },
+      { "id": "S-10", "topic": "copper in the loop", "rule": "copper packing binds sulphur but corrodes in acidic ethanol streams and adds copper traces", "question": "is copper in the loop only where the product spec tolerates it, and is the pickling waste handled as metal-bearing waste?", "owner": "the QA lead", "why": "copper is a distillery habit; it is not free of consequences here" },
+      { "id": "S-11", "topic": "solvent loss and VOC", "rule": "the 96 % carrier recovery target leaves 4 % to capture; vent paths go through the scrubber", "question": "are all vents routed to SC-101, and is the scrubber carbon bed on a breakthrough schedule?", "owner": "the operations lead", "why": "the evaporation vent is the plant's largest VOC path" },
+      { "id": "S-12", "topic": "batch record integrity", "rule": "every operating point, media bed and membrane position is recorded per batch", "question": "does the batch record capture the slider values as set, not as intended?", "owner": "the QA lead", "why": "the studio changes the operating point in seconds; the record must show what actually ran" },
+      { "id": "S-13", "topic": "RO membrane maker clearance", "rule": "written manufacturer clearance before solvent service", "question": "has the maker of the 4040 elements confirmed ethanol compatibility in writing?", "owner": "the equipment owner", "why": "this is the single most tempting wrong turn in the polish skid" },
+      { "id": "S-14", "topic": "second-hand kit provenance", "rule": "know what the vessel last held before it holds carrier", "question": "is there a documented cleaning and change-of-service record for every brewery vessel re-purposed here?", "owner": "the QA lead", "why": "brewery kit may carry brewing aids, caustic or yeast residues that end up in the extract" }
+    ]
+  }
+}

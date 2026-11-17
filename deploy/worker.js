@@ -39,6 +39,9 @@ import {
   keyKey,
 } from "./auth.mjs";
 import { systemPrompt, estimateTokens } from "./prompt.mjs";
+import { oauth, oauthProviders } from "./oauth.mjs";
+import { run as parametricsRun, rankMedia, MEDIA_LIBRARY, FILTRATION_STAGES, roModel } from "../sim/parametrics.mjs";
+import { pack as pmPack } from "./pm.mjs";
 import RUBRIC from "../evals/rubrics/design.json" with { type: "json" };
 
 const DEPLOYED = "https://solvent-skid-sr2.lifecyclerd.workers.dev";
@@ -216,7 +219,7 @@ async function chat(request, env) {
   // The visitor's key, or the Worker's own if the request carries the secret.
   const secret = request.headers.get("x-chat-secret");
   const serverAllowed = env.CHAT_SECRET && secret === env.CHAT_SECRET;
-  const serverKey = provider === "gemini" ? env.GEMINI_API_KEY : env.OPENAI_API_KEY;
+  const serverKey = provider === "gemini" ? env.GEMINI_API_KEY : provider === "kimi" ? env.KIMI_API_KEY : env.OPENAI_API_KEY;
   let key = String(body.key || "").trim() || (serverAllowed ? serverKey : "");
 
   // A signed-in person's own key, used for them, without them pasting it
@@ -277,7 +280,7 @@ async function chat(request, env) {
       {
         error: "no key for this provider",
         how: "put your own key in the chat settings, or add one to the Worker as a secret and send it as the x-chat-secret header",
-        providers: { gemini: "a Google AI Studio key", openai: "an OpenAI or OpenAI-compatible key", "workers-ai": "no key needed" },
+        providers: { gemini: "a Google AI Studio key", openai: "an OpenAI or OpenAI-compatible key", kimi: "a Moonshot AI key (OpenAI-compatible)", "workers-ai": "no key needed" },
       },
       400,
     );
@@ -286,7 +289,18 @@ async function chat(request, env) {
   let upstream;
   try {
     upstream =
-      provider === "openai"
+      provider === "kimi"
+        ? // Kimi speaks the OpenAI chat-completions protocol. The model name is
+          // the caller's, because the available Kimi revisions change.
+          await openai(context, {
+            model: body.model || "kimi-k3.1",
+            baseUrl: body.baseUrl || env.KIMI_BASE_URL || "https://api.moonshot.ai/v1",
+            key,
+            messages,
+            state: body.state,
+            system: prompt,
+          })
+        : provider === "openai"
         ? await openai(context, { model: body.model, baseUrl: body.baseUrl, key, messages, state: body.state, system: prompt })
         : await gemini(context, { model: body.model, key, messages, state: body.state, system: prompt });
   } catch (err) {
@@ -350,6 +364,39 @@ async function chat(request, env) {
 }
 
 const encoder = new TextEncoder();
+
+/**
+ * Durable project state for the studio, one record per signed-in person.
+ *
+ * Anonymous visitors keep their work in the browser; the response says so
+ * rather than pretending to have saved it. Images never come here: they stay
+ * in the browser, and only their names and notes are part of the state.
+ */
+async function studioState(request, env) {
+  const store = storeOf(env);
+  if (!store || !env.SESSION_SECRET) return json({ user: null, state: null, persistence: "browser" });
+  const user = await sessionUser(request, env.SESSION_SECRET, store);
+  if (!user) return json({ user: null, state: null, persistence: "browser" });
+  const key = `studio:${user.id}`;
+
+  if (request.method === "GET") {
+    return json({ user, state: await store.get(key), persistence: "account" });
+  }
+  if (request.method === "DELETE") {
+    await store.delete(key);
+    return json({ ok: true });
+  }
+  if (request.method === "PUT" || request.method === "POST") {
+    const length = Number(request.headers.get("content-length") || 0);
+    if (length > 400000) return json({ error: "the project is too large; keep images in the browser" }, 413);
+    const body = await request.json().catch(() => null);
+    if (!body || typeof body.state !== "object" || body.state === null) return json({ error: "send { state: { ... } }" }, 400);
+    const record = { ...body.state, updatedAt: new Date().toISOString() };
+    await store.put(key, record);
+    return json({ ok: true, updatedAt: record.updatedAt });
+  }
+  return json({ error: "method not allowed" }, 405);
+}
 
 /**
  * The accounts: register, sign in, sign out, who am I, and the key that
@@ -538,8 +585,52 @@ export default {
         const found = await compound(cas);
         return json(found, 200, { "cache-control": "public, max-age=86400" });
       }
+      if (path === "/api/auth/providers") {
+        // What sign-in this deployment actually offers, so the page never
+        // shows a button that leads nowhere.
+        return json({ ...oauthProviders(env), email: Boolean(storeOf(env) && env.SESSION_SECRET) });
+      }
+      const oauthRoute = path.match(/^\/api\/auth\/(github|google)\/(start|callback)$/);
+      if (oauthRoute) {
+        const store = storeOf(env);
+        if (!store) return json({ error: "this Worker has no account store" }, 501);
+        return oauth(request, env, oauthRoute[1], oauthRoute[2], store);
+      }
+      if (path === "/api/studio/state") {
+        return studioState(request, env);
+      }
       if (path === "/api/auth/register" || path === "/api/auth/login" || path === "/api/auth/logout" || path === "/api/auth/me" || path === "/api/auth/key") {
         return auth(request, env, path);
+      }
+      if (path === "/api/parametrics") {
+        // Everything the sliders and the balancer need, in one deterministic
+        // call. Same inputs, same outputs, in the Worker and in the tests.
+        const q = url.searchParams;
+        const num = (name, fallback) => {
+          const v = Number(q.get(name));
+          return Number.isFinite(v) && q.has(name) ? v : fallback;
+        };
+        let result;
+        try {
+          result = parametricsRun({
+            tC: num("tC", 2), torr: num("torr", 100), psi: num("psi", 15),
+            dose: num("dose", 5), media: q.get("media") || "MED-0001",
+            biomass: num("biomass", 120), cbd: num("cbd", 8), moisture: num("moisture", 10),
+            ratio: num("ratio", 8), passes: num("passes", 2),
+          });
+        } catch (err) {
+          return json({ error: `the model could not run: ${String(err.message || err)}` }, 500);
+        }
+        return json(result, 200, { "cache-control": "no-store" });
+      }
+      if (path === "/api/media") {
+        // The media list, ranked by the published rule: accessible first,
+        // regenerable in-house, then reuse cycles.
+        const ranked = rankMedia();
+        return json({ library: MEDIA_LIBRARY(), ranked: ranked.ranked, rule: ranked.rule, filtration: FILTRATION_STAGES(), ro: roModel() }, 200, { "cache-control": "public, max-age=300" });
+      }
+      if (path === "/api/pmpack") {
+        return json(pmPack(), 200, { "cache-control": "public, max-age=300" });
       }
       if (path === "/api/safety") {
         // The safety questions: what has to be closed, and by whom.

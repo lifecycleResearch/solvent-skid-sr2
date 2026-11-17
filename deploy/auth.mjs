@@ -138,6 +138,31 @@ export async function sessionUser(request, secret, store) {
   return signed || userFor(request, store);
 }
 
+/** A signed, arbitrary payload — used for OAuth state, which is not a session. */
+export async function signPayload(payload, secret, { ttl = 600 } = {}) {
+  const body = url64.encode(encoder.encode(JSON.stringify({ ...payload, exp: Math.floor(Date.now() / 1000) + ttl })));
+  const key = await crypto.subtle.importKey("raw", encoder.encode(secret), { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
+  const mac = url64.encode(new Uint8Array(await crypto.subtle.sign("HMAC", key, encoder.encode(body))));
+  return `${body}.${mac}`;
+}
+
+/** Read a signed payload, or null if it is forged, malformed or expired. */
+export async function readPayload(token, secret) {
+  if (!secret || !token) return null;
+  const [body, mac] = String(token).split(".");
+  if (!body || !mac) return null;
+  const key = await crypto.subtle.importKey("raw", encoder.encode(secret), { name: "HMAC", hash: "SHA-256" }, false, ["verify"]);
+  const valid = await crypto.subtle.verify("HMAC", key, url64.decode(mac), encoder.encode(body));
+  if (!valid) return null;
+  try {
+    const claim = JSON.parse(new TextDecoder().decode(url64.decode(body)));
+    if (!claim.exp || claim.exp * 1000 < Date.now()) return null;
+    return claim;
+  } catch {
+    return null;
+  }
+}
+
 const userKey = (email) => `user:${String(email || "").trim().toLowerCase()}`;
 const sessionKey = (tokenHash) => `session:${tokenHash}`;
 const keyKey = (userId, provider) => `key:${userId}:${provider}`;
